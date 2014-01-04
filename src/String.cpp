@@ -1,5 +1,7 @@
 #include "String.h"
 
+#include <stdlib.h>
+
 #include <sstream>
 
 namespace trippingcyril {

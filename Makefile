@@ -6,12 +6,12 @@ CXX             := g++
 BINARY := tripping-cyril
 DEPS := build/String.o
 
-all: build $(BINARY)
+all: $(BINARY)
 
 build:
 	mkdir build
 
-build/%.o: src/%.cpp include/%.h
+build/%.o: src/%.cpp include/%.h build
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
 
 $(BINARY): $(DEPS)
@@ -26,3 +26,4 @@ test: $(BINARY)
 
 clean:
 	rm -rf $(BINARY) build
+	$(MAKE) -C test clean
