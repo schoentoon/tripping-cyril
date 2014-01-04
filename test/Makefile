@@ -1,4 +1,4 @@
-override CFLAGS += -g -Wall -O0 -pipe
+override CFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare
 INC             += -I../include -Igtest-1.7.0/include
 CC              := gcc
 CXX             := g++
@@ -15,8 +15,8 @@ $(BINARY): $(DEPS)
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) ../build/*.o libgtest.a -pthread
 
 libgtest.a:
-	wget http://googletest.googlecode.com/files/gtest-1.7.0.zip
-	unzip gtest-1.7.0.zip
+	wget -q http://googletest.googlecode.com/files/gtest-1.7.0.zip
+	unzip -qq gtest-1.7.0.zip
 	$(CXX) -I gtest-1.7.0/include -I gtest-1.7.0 -c gtest-1.7.0/src/gtest-all.cc
 	ar -rv libgtest.a gtest-all.o
 

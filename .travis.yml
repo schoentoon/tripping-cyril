@@ -2,9 +2,6 @@ language: cpp
 compiler:
   - clang
   - gcc
-before_install:
-  - sudo apt-get update -qq >/dev/null 2>&1
-  - sudo apt-get install libgtest-dev
 script:
   - make
   - make test
