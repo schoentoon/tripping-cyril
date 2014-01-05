@@ -18,6 +18,9 @@
 #ifndef _GLOBAL_H
 #define _GLOBAL_H
 
+#include <event2/dns.h>
+#include <event2/event.h>
+
 namespace trippingcyril {
 
 class Global {
@@ -26,10 +29,15 @@ public:
     static Global* singleton = new Global;
     return singleton;
   };
+  struct event_base* GetEventBase() { return event_base; };
+  struct evdns_base* GetDNSBase() { return dns_base; };
   void Loop();
 private:
   Global();
   virtual ~Global();
+
+  struct event_base* event_base;
+  struct evdns_base* dns_base;
 };
 
 };

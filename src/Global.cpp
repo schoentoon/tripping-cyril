@@ -17,16 +17,30 @@
 
 #include "Global.h"
 
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <openssl/rand.h>
+
 namespace trippingcyril {
 
 Global::Global() {
+  SSL_library_init();
+  ERR_load_CRYPTO_strings();
+  SSL_load_error_strings();
+  OpenSSL_add_all_algorithms();
+  RAND_poll();
+  event_base = event_base_new();
+  dns_base = evdns_base_new(event_base, 1);
 };
 
 Global::~Global() {
+  event_base_free(event_base);
+  evdns_base_free(dns_base, 0);
 };
 
 void Global::Loop() {
-  //TODO libevent loop here.
+  while (true)
+    event_base_dispatch(event_base);
 };
 
 };

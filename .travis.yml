@@ -2,6 +2,9 @@ language: cpp
 compiler:
   - clang
   - gcc
+before_script:
+  - sudo apt-get update
+  - sudo apt-get install libevent-dev
 script:
   - make
   - make test

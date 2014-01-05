@@ -1,0 +1,53 @@
+/*  tripping-cyril
+ *  Copyright (C) 2014  Toon Schoenmakers
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef _SOCKET_H
+#define _SOCKET_H
+
+#include <event2/bufferevent.h>
+
+#include "String.h"
+
+namespace trippingcyril {
+
+class Socket {
+public:
+  Socket();
+  virtual ~Socket();
+  void Close();
+  bool Connect(const String& hostname, uint16_t port, bool ssl = false, unsigned int timeout = 60);
+  void SetReadLine(bool b) { readline = b; };
+  bool IsConnected() { return is_connected; };
+  void SetTimeout(double timeout);
+protected:
+  virtual void Connected() {};
+  virtual void Timeout() {};
+  virtual void Disconnected() {};
+  virtual size_t ReadData(const char* data, size_t len) { return len; };
+  virtual void ReadLine(const String& line) {};
+private:
+  uint8_t readline : 1;
+  uint8_t is_connected : 1;
+  uint8_t closing : 1;
+  struct bufferevent* connection;
+  static void readcb(struct bufferevent* bev, void* ctx);
+  static void eventcb(struct bufferevent* bev, short what, void* ctx);
+};
+
+};
+
+#endif //_SOCKET_H
