@@ -15,9 +15,23 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Global.h"
+#ifndef _GLOBAL_H
+#define _GLOBAL_H
 
-int main(int argc, char **argv) {
-  trippingcyril::Global::Get()->Loop();
-  return 0;
+namespace trippingcyril {
+
+class Global {
+public:
+  static Global* Get() {
+    static Global* singleton = new Global;
+    return singleton;
+  };
+  void Loop();
+private:
+  Global();
+  virtual ~Global();
 };
+
+};
+
+#endif //_GLOBAL_H

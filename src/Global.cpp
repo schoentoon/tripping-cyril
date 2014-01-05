@@ -17,7 +17,16 @@
 
 #include "Global.h"
 
-int main(int argc, char **argv) {
-  trippingcyril::Global::Get()->Loop();
-  return 0;
+namespace trippingcyril {
+
+Global::Global() {
+};
+
+Global::~Global() {
+};
+
+void Global::Loop() {
+  //TODO libevent loop here.
+};
+
 };

@@ -4,7 +4,7 @@ CC              := gcc
 CXX             := g++
 
 BINARY := tripping-cyril
-DEPS := build/String.o
+DEPS := build/String.o build/Global.o
 
 all: $(BINARY)
 
