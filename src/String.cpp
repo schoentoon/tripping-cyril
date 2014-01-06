@@ -37,6 +37,36 @@ String::String(double i, unsigned int precision) : string() { stringstream s; s.
 String::String(float i, unsigned int precision) : string() { stringstream s; s.precision(precision); s << std::fixed << i; *this = s.str(); };
 String::String(const std::stringstream& stream) : string() { *this = stream.str(); };
 
+bool String::WildCmp(const String& sWild) {
+  const char* wild = sWild.c_str();
+  const char* str = this->c_str();
+  const char* cp = NULL;
+  const char* mp = NULL;
+  while (*str != '\0' && (*wild != '*')) {
+    if ((*wild != *str) && (*wild != '?'))
+      return false;
+    wild++;
+    str++;
+  };
+  while (*str != '\0') {
+    if (*wild == '*') {
+      if (*++wild == '\0')
+        return true;
+      mp = wild;
+      cp = str+1;
+    } else if ((*wild == *str) || (*wild == '?')) {
+      wild++;
+      str++;
+    } else {
+      wild = mp;
+      str = cp++;
+    };
+  };
+  while (*wild == '*')
+    wild++;
+  return (*wild == '\0');
+};
+
 bool String::ToBool() const {
   return *this == "true";
 };

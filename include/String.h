@@ -46,6 +46,8 @@ public:
   String(const string& s) : string(s) {};
   virtual ~String() {};
 
+  bool WildCmp(const String& wild);
+
   bool ToBool() const;
   short ToShort(unsigned int base = 10) const;
   unsigned short ToUShort(unsigned int base = 10) const;

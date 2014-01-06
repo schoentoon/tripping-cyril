@@ -85,4 +85,11 @@ TEST(String, Double) {
   EXPECT_DOUBLE_EQ(3.14159, pi.ToDouble());
 };
 
+TEST(String, WildCmp) {
+  String s("abcdefghijklmnop");
+  EXPECT_TRUE(s.WildCmp("a*p"));
+  EXPECT_TRUE(s.WildCmp("?bcdefghijklmnop"));
+  EXPECT_TRUE(s.WildCmp("?bc*hijk*"));
+};
+
 };
