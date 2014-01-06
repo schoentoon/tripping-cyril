@@ -21,6 +21,8 @@
 
 using namespace trippingcyril;
 
+namespace test {
+
 TEST(String, Bool) {
   String t(true);
   EXPECT_EQ(t, "true");
@@ -81,4 +83,6 @@ TEST(String, Double) {
   String pi((double) 3.14159265359, 5);
   EXPECT_EQ(pi, "3.14159");
   EXPECT_DOUBLE_EQ(3.14159, pi.ToDouble());
+};
+
 };

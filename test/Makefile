@@ -6,7 +6,7 @@ CC              := gcc
 CXX             := g++
 
 BINARY := test.out
-DEPS := String.o
+DEPS := String.o Files.o
 
 all: $(BINARY)
 
