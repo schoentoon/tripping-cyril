@@ -18,6 +18,8 @@
 #include "Files.h"
 
 #include <stdio.h>
+#include <dirent.h>
+#include <string.h>
 
 namespace trippingcyril {
 
@@ -240,6 +242,38 @@ void File::Close() {
       hadError = true;
     fd = -1;
   };
+};
+
+Dir::Dir(const String& dir, const String& wildcard) {
+  DIR* d = opendir(dir.empty() ? "." : dir.c_str());
+  if (d != NULL) {
+    struct dirent* de;
+    while ((de = readdir(d)) != NULL) {
+      if ((strcmp(de->d_name, ".") == 0) || (strcmp(de->d_name, "..") == 0))
+        continue;
+      if (wildcard.empty() == false && (String(de->d_name).WildCmp(wildcard)) == false)
+        continue;
+      push_back(new File(dir + "/" + de->d_name));
+    };
+  };
+};
+
+Dir::~Dir() {
+  while (empty() == false) {
+    File* f = back();
+    pop_back();
+    delete f;
+  };
+};
+
+String Dir::GetCWD() {
+  char* dir = getcwd(NULL, 0);
+  if (dir) {
+    String ret(dir);
+    free(dir);
+    return ret;
+  }
+  return "";
 };
 
 };

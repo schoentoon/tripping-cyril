@@ -77,6 +77,13 @@ private:
   bool hadError;
 };
 
+class Dir : public vector<File*> {
+public:
+  Dir(const String& dir, const String& wildcard = "");
+  virtual ~Dir();
+  static String GetCWD();
+};
+
 };
 
 #endif //_FILES_H

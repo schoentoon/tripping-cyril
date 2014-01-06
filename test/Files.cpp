@@ -68,4 +68,16 @@ TEST_F(Files, DevNull) {
   EXPECT_EQ(File::CHARACTER, null.GetType());
 };
 
+TEST_F(Files, DirByWildcard) {
+  File* tty = NULL;
+  {
+    Dir dev("/dev", "tty*");
+    ASSERT_GT(dev.size(), 0); // Purely an assumption..
+    tty = dev[0];
+  }
+  EXPECT_DEATH(delete tty, ""); // Testing the dev deconstructor
+  Dir proc("/proc");
+  EXPECT_GT(proc.size(), 0);
+};
+
 };
