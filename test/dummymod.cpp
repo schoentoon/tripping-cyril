@@ -15,40 +15,22 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _GLOBAL_H
-#define _GLOBAL_H
+#include "Module.h"
 
-#include <vector>
-#include <event2/dns.h>
-#include <event2/event.h>
+using namespace trippingcyril;
 
-#include "String.h"
+namespace test {
 
-namespace trippingcyril {
-
-class Module;
-
-class Global {
+class DummyModule : public Module {
 public:
-  static Global* Get() {
-    static Global* singleton = new Global;
-    return singleton;
-  };
-  bool LoadModule(const String& path, String& retMsg);
-  bool UnloadModule(const String& modName, String& retMsg);
-  size_t LoadedModules() { return modules.size(); };
-  struct event_base* GetEventBase() { return event_base; };
-  struct evdns_base* GetDNSBase() { return dns_base; };
-  void Loop();
-private:
-  Global();
-  virtual ~Global();
+  MODCONSTRUCTORHEADER(DummyModule);
+  virtual ~DummyModule() {};
+  String GetVersion() { return "dummy"; };
+};
 
-  std::vector<Module*> modules;
-  struct event_base* event_base;
-  struct evdns_base* dns_base;
+MODCONSTRUCTOR(DummyModule) {
 };
 
 };
 
-#endif //_GLOBAL_H
+MODULEDEFS(test::DummyModule);

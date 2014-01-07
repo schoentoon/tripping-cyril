@@ -1,0 +1,21 @@
+PKGS            := libevent libevent_openssl openssl
+override CFLAGS += -g -Wall -O2 -pipe -fPIC $(shell pkg-config --cflags $(PKGS))
+INC             += -I../../include
+LDFLAGS         := -Wl,--export-dynamic
+MODLINK         := -shared
+CC              := gcc
+CXX             := g++
+MODBIN          := $(shell pwd).so
+
+.PHONY: all clean
+
+all: $(MODBIN)
+
+%.o: %.cpp
+	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
+
+$(MODBIN): $(DEPS)
+	$(CXX) $(CFLAGS) $(DEFINES) $(LDFLAGS) $(MODLINK) $(INC) -o $(MODBIN) $(DEPS)
+
+clean:
+	rm -fv $(DEPS)

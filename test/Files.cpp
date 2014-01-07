@@ -43,11 +43,13 @@ TEST_F(Files, ProcVersion) {
   EXPECT_FALSE(version.IsOpen());
   EXPECT_FALSE(version.Delete());
   EXPECT_EQ(File::REGULAR, version.GetType());
+  EXPECT_EQ(version.GetShortName(), "version");
 };
 
 TEST_F(Files, ProcCpuInfo) {
   File cpuinfo("/proc/cpuinfo");
   EXPECT_TRUE(cpuinfo.Exists());
+  EXPECT_EQ(cpuinfo.GetShortName(), "cpuinfo");
   EXPECT_EQ(cpuinfo.GetSize(), 0); // This is /proc so everything seems empty ;)
 
   String buffer;
@@ -65,6 +67,7 @@ TEST_F(Files, ProcCpuInfo) {
 
 TEST_F(Files, DevNull) {
   File null("/dev/null");
+  EXPECT_EQ(null.GetShortName(), "null");
   EXPECT_EQ(File::CHARACTER, null.GetType());
 };
 

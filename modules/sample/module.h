@@ -15,40 +15,25 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _GLOBAL_H
-#define _GLOBAL_H
+#ifndef _SAMPLE_MOD_H
+#define _SAMPLE_MOD_H
 
-#include <vector>
-#include <event2/dns.h>
-#include <event2/event.h>
+#include "Module.h"
 
-#include "String.h"
+using namespace trippingcyril;
 
-namespace trippingcyril {
+namespace module {
+namespace sample {
 
-class Module;
-
-class Global {
+class SampleModule : public Module {
 public:
-  static Global* Get() {
-    static Global* singleton = new Global;
-    return singleton;
-  };
-  bool LoadModule(const String& path, String& retMsg);
-  bool UnloadModule(const String& modName, String& retMsg);
-  size_t LoadedModules() { return modules.size(); };
-  struct event_base* GetEventBase() { return event_base; };
-  struct evdns_base* GetDNSBase() { return dns_base; };
-  void Loop();
-private:
-  Global();
-  virtual ~Global();
-
-  std::vector<Module*> modules;
-  struct event_base* event_base;
-  struct evdns_base* dns_base;
+  MODCONSTRUCTORHEADER(SampleModule);
+  virtual ~SampleModule();
+  String GetVersion() { return "sample"; };
+  void OnLoaded();
 };
 
 };
+};
 
-#endif //_GLOBAL_H
+#endif //_SAMPLE_MOD_H

@@ -15,40 +15,52 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _GLOBAL_H
-#define _GLOBAL_H
+#ifndef _MODULE_H
+#define _MODULE_H
 
-#include <vector>
 #include <event2/dns.h>
 #include <event2/event.h>
 
 #include "String.h"
+#include "Global.h"
+
+#define MODCONSTRUCTOR(CLASS) \
+  CLASS::CLASS(ModHandle so, const String& modName) \
+  : trippingcyril::Module(so, modName)
+
+#define MODCONSTRUCTORHEADER(CLASS) \
+  CLASS(ModHandle so, const String& modName)
+
+#define MODULEDEFS(CLASS) \
+  extern "C" { \
+    Module* ModLoad(ModHandle so, const String& modName) { \
+      return new CLASS(so, modName); \
+    }; \
+  };
 
 namespace trippingcyril {
 
-class Module;
+typedef void* ModHandle;
 
-class Global {
+class Module {
 public:
-  static Global* Get() {
-    static Global* singleton = new Global;
-    return singleton;
-  };
-  bool LoadModule(const String& path, String& retMsg);
-  bool UnloadModule(const String& modName, String& retMsg);
-  size_t LoadedModules() { return modules.size(); };
+  Module(ModHandle so, const String& modName);
+  virtual ~Module();
+  virtual String GetVersion() = 0;
+  virtual void OnLoaded() {};
+  String GetModName() const { return modName; };
   struct event_base* GetEventBase() { return event_base; };
   struct evdns_base* GetDNSBase() { return dns_base; };
-  void Loop();
-private:
-  Global();
-  virtual ~Global();
-
-  std::vector<Module*> modules;
+  static Module* LoadModule(const String& path, const String& modName, String& retMsg);
+protected:
   struct event_base* event_base;
   struct evdns_base* dns_base;
+private:
+  String modName;
+  ModHandle so;
+  friend class Global;
 };
 
 };
 
-#endif //_GLOBAL_H
+#endif //_MODULE_H

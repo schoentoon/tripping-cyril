@@ -27,6 +27,11 @@ File::File(const String& path) {
   fd = -1;
   hadError = false;
   filename = path;
+  String::size_type sPos = path.rfind('/');
+  if (sPos != String::npos)
+    shortname = path.substr(sPos + 1);
+  else
+    shortname = path;
 };
 
 File::~File() {
@@ -97,6 +102,10 @@ bool File::IsOpen() const {
 
 String File::GetName() const {
   return filename;
+};
+
+String File::GetShortName() const {
+  return shortname;
 };
 
 bool File::Delete() {

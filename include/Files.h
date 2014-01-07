@@ -54,6 +54,7 @@ public:
   gid_t GetGID() const;
   bool IsOpen() const;
   String GetName() const;
+  String GetShortName() const;
 
   bool Delete();
   bool Move(const String& newpath, bool overwrite = false);
@@ -73,6 +74,7 @@ public:
 private:
   String buffer;
   String filename;
+  String shortname;
   int fd;
   bool hadError;
 };

@@ -17,9 +17,14 @@
 
 #include "Global.h"
 
+#include <dlfcn.h>
+#include <iostream>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <openssl/rand.h>
+
+#include "Files.h"
+#include "Module.h"
 
 namespace trippingcyril {
 
@@ -41,6 +46,50 @@ Global::~Global() {
 void Global::Loop() {
   while (true)
     event_base_dispatch(event_base);
+};
+
+bool Global::LoadModule(const String& path, String& retMsg) {
+  File f(path);
+  for (unsigned int i = 0; i < modules.size(); i++) {
+    if (modules[i]->GetModName() == f.GetShortName()) {
+      retMsg = "Module [" + f.GetShortName() + "] is already loaded";
+      return false;
+    };
+  };
+  String modname = f.GetShortName();
+  String::size_type sPos = modname.rfind('.');
+  if (sPos != String::npos)
+    modname = modname.substr(0, sPos);
+  Module* module = Module::LoadModule(path, modname, retMsg);
+  if (module == NULL) {
+    std::cerr << retMsg << std::endl;
+    return false;
+  };
+  modules.push_back(module);
+  return true;
+};
+
+bool Global::UnloadModule(const String& modName, String& retMsg) {
+  vector<Module*>::iterator iter;
+  for (iter = modules.begin(); iter != modules.end(); ++iter) {
+    if ((*iter)->GetModName() == modName) {
+      break;
+    };
+  };
+  if (iter == modules.end()) {
+    retMsg = "Module [" + modName + "] isn't loaded?";
+    return false;
+  };
+  ModHandle so = (*iter)->so;
+  if (so) {
+    delete *iter;
+    modules.erase(iter);
+    dlclose(so);
+    retMsg = "Module [" + modName + "] unloaded";
+    return true;
+  };
+  retMsg = "Unable to unload module [" + modName + "]";
+  return false;
 };
 
 };

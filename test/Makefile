@@ -1,19 +1,23 @@
 PKGS            := libevent libevent_openssl openssl
 override CFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare $(shell pkg-config --cflags $(PKGS))
 INC             += -I../include -Igtest-1.7.0/include
-LDFLAGS         := $(shell pkg-config --libs $(PKGS))
+LDFLAGS         := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
 CC              := gcc
 CXX             := g++
 
 BINARY := test.out
-DEPS := String.o Files.o
+MODS := dummymod.so
+DEPS := String.o Files.o Modules.o
 
 all: $(BINARY)
 
 %.o: %.cpp libgtest.a
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
 
-$(BINARY): $(DEPS)
+%.so: %.cpp libgtest.a
+	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -shared -fPIC -Wl,--export-dynamic -o $@ $<
+
+$(BINARY): $(DEPS) $(MODS)
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) ../build/*.o libgtest.a -pthread $(LDFLAGS)
 
 libgtest.a:
@@ -30,4 +34,4 @@ test: $(BINARY)
 .PHONY: clean
 
 clean:
-	rm -rf $(BINARY) $(DEPS)
+	rm -rf $(BINARY) $(DEPS) $(MODS)
