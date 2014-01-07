@@ -15,36 +15,33 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _TIMER_H
-#define _TIMER_H
+#ifndef _LIBEVENT_HELPER_H
+#define _LIBEVENT_HELPER_H
 
-#include <event2/event.h>
+#include <gtest/gtest.h>
 
 #include "Module.h"
 
-namespace trippingcyril {
+using namespace trippingcyril;
 
-class Timer {
+namespace test {
+
+class LibEventHelper : public Module {
 public:
-  Timer(Module* module);
-  Timer(Module* module, double interval, unsigned int maxCycles = 0);
-  virtual ~Timer();
-  void Start(double interval);
-  void Start(struct timeval& tv);
-  void StartMaxCycles(double interval, unsigned int maxCycles);
-  void Stop();
-  Module* GetModule() const { return module; };
-protected:
-  virtual void RunJob() {};
-  virtual void Finished() {};
-private:
-  Module* module;
-  unsigned int maxCycles;
-  unsigned int currentCycle;
-  struct event* timer;
-  static void EventCallback(evutil_socket_t fd, short event, void* arg);
+  LibEventHelper()
+  : Module(NULL, "libevent") {
+    event_base = event_base_new();
+    struct timeval tm;
+    tm.tv_usec = 0;
+    tm.tv_sec = 10;
+    EXPECT_EQ(0, event_base_loopexit(event_base, &tm));
+  };
+  String GetVersion() { return ""; };
+  bool Loop() {
+    return event_base_dispatch(event_base) == 0;
+  };
 };
 
 };
 
-#endif //_TIMER_H
+#endif //_LIBEVENT_HELPER_H

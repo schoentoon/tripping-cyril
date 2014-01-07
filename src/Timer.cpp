@@ -23,7 +23,13 @@
 
 namespace trippingcyril {
 
-Timer::Timer(double interval, unsigned int maxCycles) {
+Timer::Timer(Module* module) {
+  this->module = module;
+  this->timer = NULL;
+};
+
+Timer::Timer(Module* module, double interval, unsigned int maxCycles) {
+  this->module = module;
   this->timer = NULL;
   this->maxCycles = maxCycles;
   if (interval > 0) {
@@ -31,7 +37,7 @@ Timer::Timer(double interval, unsigned int maxCycles) {
       StartMaxCycles(interval, maxCycles);
     else
       Start(interval);
-  }
+  };
 };
 
 Timer::~Timer() {
@@ -43,11 +49,12 @@ void Timer::Start(double interval) {
   struct timeval tv;
   tv.tv_sec = (__time_t) interval;
   tv.tv_usec = (__suseconds_t) ((interval - (double) tv.tv_sec) * 1000000.0);
+  Start(tv);
 };
 
 void Timer::Start(struct timeval& tv) {
   if (timer == NULL) {
-    timer = event_new(Global::Get()->GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
+    timer = event_new(module != NULL ? module->GetEventBase() : Global::Get()->GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
     evtimer_add(timer, &tv);
   };
 };

@@ -1,13 +1,13 @@
 PKGS            := libevent libevent_openssl openssl
 override CFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare $(shell pkg-config --cflags $(PKGS))
-INC             += -I../include -Igtest-1.7.0/include
+INC             += -I../include -I. -Igtest-1.7.0/include
 LDFLAGS         := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
 CC              := gcc
 CXX             := g++
 
 BINARY := test.out
 MODS := dummymod.so
-DEPS := String.o Files.o Modules.o
+DEPS := String.o Files.o Modules.o Timer.o
 
 all: $(BINARY)
 
