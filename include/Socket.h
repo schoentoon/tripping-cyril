@@ -21,18 +21,24 @@
 #include <event2/bufferevent.h>
 
 #include "String.h"
+#include "Module.h"
+
+namespace test {
+  class Socket;
+};
 
 namespace trippingcyril {
 
 class Socket {
 public:
-  Socket();
+  Socket(Module* module);
   virtual ~Socket();
   void Close();
   bool Connect(const String& hostname, uint16_t port, bool ssl = false, unsigned int timeout = 60);
   void SetReadLine(bool b) { readline = b; };
   bool IsConnected() { return is_connected; };
   void SetTimeout(double timeout);
+  Module* GetModule() const { return module; };
 protected:
   virtual void Connected() {};
   virtual void Timeout() {};
@@ -44,8 +50,10 @@ private:
   uint8_t is_connected : 1;
   uint8_t closing : 1;
   struct bufferevent* connection;
+  Module* module;
   static void readcb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
+  friend class test::Socket;
 };
 
 };

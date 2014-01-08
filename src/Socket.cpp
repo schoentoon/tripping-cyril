@@ -25,7 +25,8 @@
 
 namespace trippingcyril {
 
-Socket::Socket() {
+Socket::Socket(Module* module) {
+  this->module = module;
   connection = NULL;
   readline = 0;
   is_connected = 0;
@@ -79,7 +80,7 @@ void Socket::eventcb(struct bufferevent* bev, short what, void* ctx) {
 
 void Socket::Close() {
   closing = 1;
-  SetTimeout(0.00000001);
+  SetTimeout(0.0);
 };
 
 void Socket::SetTimeout(double timeout) {
@@ -94,8 +95,8 @@ void Socket::SetTimeout(double timeout) {
 bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, unsigned int timeout) {
   if (connection != NULL)
     return false; // Already connected.
-  struct event_base* base = Global::Get()->GetEventBase();
-  struct evdns_base* dns = Global::Get()->GetDNSBase();
+  struct event_base* base = (module != NULL) ? module->GetEventBase() : Global::Get()->GetEventBase();
+  struct evdns_base* dns = (module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase();
   if (ssl) {
     SSL_CTX* ssl_ctx = SSL_CTX_new(SSLv23_method());
     SSL* ssl_obj = SSL_new(ssl_ctx);
