@@ -98,4 +98,10 @@ TEST(String, Trim) {
   EXPECT_EQ(s, "abcdef");
 };
 
+TEST(String, MakeLower) {
+  String s("aBCDEF");
+  EXPECT_EQ(s.MakeLower(), "abcdef");
+  EXPECT_EQ(s, "abcdef");
+};
+
 };

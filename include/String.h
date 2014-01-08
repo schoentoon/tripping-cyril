@@ -50,6 +50,7 @@ public:
   bool Trim(const String& to_trim = " \t\r\n");
   bool TrimLeft(const String& to_trim = " \t\r\n");
   bool TrimRight(const String& to_trim = " \t\r\n");
+  String MakeLower();
 
   bool ToBool() const;
   short ToShort(unsigned int base = 10) const;
