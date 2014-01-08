@@ -92,4 +92,10 @@ TEST(String, WildCmp) {
   EXPECT_TRUE(s.WildCmp("?bc*hijk*"));
 };
 
+TEST(String, Trim) {
+  String s("abcdef\r\n");
+  EXPECT_TRUE(s.Trim());
+  EXPECT_EQ(s, "abcdef");
+};
+
 };

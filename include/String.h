@@ -47,6 +47,9 @@ public:
   virtual ~String() {};
 
   bool WildCmp(const String& wild);
+  bool Trim(const String& to_trim = " \t\r\n");
+  bool TrimLeft(const String& to_trim = " \t\r\n");
+  bool TrimRight(const String& to_trim = " \t\r\n");
 
   bool ToBool() const;
   short ToShort(unsigned int base = 10) const;

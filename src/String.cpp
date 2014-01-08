@@ -67,6 +67,32 @@ bool String::WildCmp(const String& sWild) {
   return (*wild == '\0');
 };
 
+bool String::Trim(const String& to_trim) {
+  return TrimRight(to_trim) || TrimLeft(to_trim);
+};
+
+bool String::TrimLeft(const String& to_trim) {
+  size_type i = find_first_not_of(to_trim);
+  if (i == 0)
+    return false;
+  if (i != npos)
+    erase(0, i);
+  else
+    clear();
+  return true;
+};
+
+bool String::TrimRight(const String& to_trim) {
+  size_type i = find_last_not_of(to_trim);
+  if (i + 1 == length())
+    return false;
+  if (i != npos)
+    erase(i + 1, npos);
+  else
+    clear();
+  return true;
+};
+
 bool String::ToBool() const {
   return *this == "true";
 };
