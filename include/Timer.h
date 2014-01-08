@@ -41,6 +41,7 @@ private:
   Module* module;
   unsigned int maxCycles;
   unsigned int currentCycle;
+  unsigned char stop : 1;
   struct event* timer;
   static void EventCallback(evutil_socket_t fd, short event, void* arg);
 };

@@ -44,10 +44,12 @@ public:
     counter = 0;
     stopAt = 0;
     done = NULL;
+    finished = NULL;
   };
   unsigned int counter;
   unsigned int stopAt;
   bool *done;
+  bool *finished;
 protected:
   void RunJob() {
     counter++;
@@ -55,12 +57,13 @@ protected:
       if (done)
         *done = true;
       Stop();
-      event_base_loopbreak(test::Timer::event_base->GetEventBase());
     };
   };
   void Finished() {
     if (done)
       *done = true;
+    if (finished)
+      *finished = true;
     event_base_loopbreak(test::Timer::event_base->GetEventBase());
   };
 };
@@ -82,8 +85,11 @@ TEST_F(Timer, Start) {
   timer->Start(0.0001);
   bool done = false;
   timer->done = &done;
-  while (!done && event_base->Loop());
+  bool finished = false;
+  timer->finished = &finished;
+  while (done == false && finished == false && event_base->Loop());
   EXPECT_TRUE(done);
+  EXPECT_TRUE(finished);
   EXPECT_EQ(2, timer->counter);
   EXPECT_DEATH(delete timer, "");
 };

@@ -26,12 +26,14 @@ namespace trippingcyril {
 Timer::Timer(Module* module) {
   this->module = module;
   this->timer = NULL;
+  this->stop = 0;
 };
 
 Timer::Timer(Module* module, double interval, unsigned int maxCycles) {
   this->module = module;
   this->timer = NULL;
   this->maxCycles = maxCycles;
+  this->stop = 0;
   if (interval > 0) {
     if (maxCycles > 0)
       StartMaxCycles(interval, maxCycles);
@@ -66,14 +68,24 @@ void Timer::StartMaxCycles(double interval, unsigned int maxCycles) {
 };
 
 void Timer::Stop() {
-  maxCycles = std::numeric_limits<unsigned int>::max();
+  this->stop = 1;
+  if (timer != NULL)
+    event_free(timer);
+  struct timeval tv;
+  tv.tv_sec = 0;
+  tv.tv_usec = 0;
+  timer = event_new(module != NULL ? module->GetEventBase() : Global::Get()->GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
+  evtimer_add(timer, &tv);
 };
 
 void Timer::EventCallback(int fd, short int event, void* arg) {
   Timer* timer = (Timer*) arg;
-  timer->RunJob();
-  if (timer->maxCycles > 0) {
-    if (timer->maxCycles == std::numeric_limits<unsigned int>::max() || ++timer->currentCycle == timer->maxCycles) {
+  if (timer->stop == 1) {
+    timer->Finished();
+    delete timer;
+  } else {
+    timer->RunJob();
+    if (timer->maxCycles > 0 && ++timer->currentCycle == timer->maxCycles) {
       timer->Finished();
       delete timer;
     };
