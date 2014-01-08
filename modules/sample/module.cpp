@@ -17,12 +17,23 @@
 
 #include "module.h"
 
+#include "SimpleHTTPSocket.h"
+
 #include <iostream>
 
 using namespace module::sample;
 
+class PrintHttp : public HTTPCallback {
+public:
+  void OnRequestDone(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url) {
+    cerr << response << endl;
+  };
+};
+
 MODCONSTRUCTOR(SampleModule) {
   std::cerr << "module::sample::SampleModule::SampleModule();" << std::endl;
+  trippingcyril::SimpleHTTPSocket* socket = new SimpleHTTPSocket(this, new PrintHttp);
+  socket->Get("http://httpbin.org/stream/100");
 };
 
 SampleModule::~SampleModule() {

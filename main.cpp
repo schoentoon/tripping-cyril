@@ -18,6 +18,8 @@
 #include "Global.h"
 
 int main(int argc, char **argv) {
+  trippingcyril::String msg;
+  trippingcyril::Global::Get()->LoadModule("modules/sample.so", msg);
   trippingcyril::Global::Get()->Loop();
   return 0;
 };
