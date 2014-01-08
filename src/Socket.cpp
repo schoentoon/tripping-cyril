@@ -38,6 +38,16 @@ Socket::~Socket() {
     bufferevent_free(connection);
 };
 
+void Socket::Write(const char* data, size_t len) {
+  if (connection != NULL)
+    bufferevent_write(connection, data, len);
+};
+
+void Socket::Write(const String& data) {
+  if (connection != NULL)
+    bufferevent_write(connection, data.c_str(), data.size());
+};
+
 void Socket::readcb(struct bufferevent* bev, void* ctx) {
   Socket* socket = (Socket*) ctx;
   struct evbuffer* input = bufferevent_get_input(bev);

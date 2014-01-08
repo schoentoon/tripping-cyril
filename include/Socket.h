@@ -35,6 +35,8 @@ public:
   virtual ~Socket();
   void Close();
   bool Connect(const String& hostname, uint16_t port, bool ssl = false, unsigned int timeout = 60);
+  void Write(const char* data, size_t len);
+  void Write(const String& data);
   void SetReadLine(bool b) { readline = b; };
   bool IsConnected() { return is_connected; };
   void SetTimeout(double timeout);
