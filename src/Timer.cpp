@@ -71,11 +71,8 @@ void Timer::Stop() {
   this->stop = 1;
   if (timer != NULL)
     event_free(timer);
-  struct timeval tv;
-  tv.tv_sec = 0;
-  tv.tv_usec = 0;
-  timer = event_new(module != NULL ? module->GetEventBase() : Global::Get()->GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
-  evtimer_add(timer, &tv);
+  timer = NULL;
+  Start(0.0);
 };
 
 void Timer::EventCallback(int fd, short int event, void* arg) {
