@@ -17,6 +17,10 @@
 
 #include "SimpleHTTPSocket.h"
 
+#include <iostream>
+#include <stdlib.h>
+#include <strings.h>
+
 namespace trippingcyril {
 
 SimpleHTTPSocket::SimpleHTTPSocket(Module* module, HTTPCallback* callback)
@@ -73,7 +77,7 @@ void SimpleHTTPSocket::MakeRequestHeaders(bool post, const String& host, const S
   buffer += " HTTP/1.1\r\n";
   buffer += "Host: " + host + ((port == 80 && ssl == false) || (port == 443 || ssl == true) ? "" : ":" + String(port)) + "\r\n";
   buffer += "User-Agent: Tripping Cyril\r\n";
-  buffer += "Accept-Encoding: identity\r\n"; //TODO Add in gzip support
+  buffer += "Accept-Encoding: gzip\r\n";
   buffer += "Connection: Close\r\n";
   for (map<String, String>::iterator iter = extraHeaders.begin(); iter != extraHeaders.end(); ++iter)
     buffer += iter->first + ": " + iter->second + "\r\n";
@@ -108,12 +112,16 @@ void SimpleHTTPSocket::Disconnected() {
 };
 
 void SimpleHTTPSocket::OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response) {
+  Decompress();
   if (callback != NULL) {
     callback->OnRequestDone(responseCode, headers, response, url);
     if (callback->shouldDelete())
       delete callback;
       callback = NULL;
   };
+};
+
+void SimpleHTTPSocket::OnRequestError(int errorCode) {
 };
 
 void SimpleHTTPSocket::ReadLine(const String& data) {
@@ -134,12 +142,21 @@ void SimpleHTTPSocket::ReadLine(const String& data) {
 size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
   if (parser.chunked == true && parser.current_chunk > 0) {
     len = std::min(len, (size_t) parser.current_chunk);
-    buffer.append(data, len);
+    if (parser.IsCompressed() == true) {
+      parser.decomp_buffer.append(data, len);
+      Decompress();
+    } else
+      buffer.append(data, len);
     parser.current_chunk -= len;
     if (parser.current_chunk <= 0)
       SetReadLine(true);
-  } else if (parser.chunked == false)
-    buffer.append(data, len);
+  } else if (parser.chunked == false) {
+    if (parser.IsCompressed() == true) {
+      parser.decomp_buffer.append(data, len);
+      Decompress();
+    } else
+      buffer.append(data, len);
+  };
   if (parser.contentLength > 0) {
     if (buffer.size() >= (size_t) parser.contentLength) {
       OnRequestDone(parser.responseCode, parser.headers, buffer);
@@ -149,6 +166,41 @@ size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
   return len;
 };
 
+#define CHUNK_SIZE 16384
+
+void SimpleHTTPSocket::Decompress() {
+  if (parser.IsCompressed() == false)
+    return;
+  if (parser.decomp_buffer.empty() == true)
+    return;
+  Bytef* start = (Bytef*) parser.decomp_buffer.data();
+  parser.zlib_stream->next_in = start;
+  parser.zlib_stream->avail_in = parser.decomp_buffer.size();
+  int zlib_ret;
+  char buf[CHUNK_SIZE];
+  do {
+    parser.zlib_stream->next_out = (unsigned char*) buf;
+    parser.zlib_stream->avail_out = sizeof(buf);
+    parser.zlib_stream->total_out = 0;
+    switch ((zlib_ret = inflate(parser.zlib_stream, Z_NO_FLUSH))) {
+    case Z_OK:
+    case Z_STREAM_END:
+      buffer.append(buf, parser.zlib_stream->total_out);
+      break;
+    case Z_BUF_ERROR: // Non fatal error
+      break;
+    case Z_MEM_ERROR:
+    case Z_DATA_ERROR:
+    case Z_NEED_DICT:
+    default:
+      OnRequestError(DECOMPESSION_ERROR);
+      Close();
+      return;
+    };
+  } while (parser.zlib_stream->avail_out == 0);
+  parser.decomp_buffer.erase(0, parser.zlib_stream->next_in - start);
+};
+
 SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {
   this->socket = socket;
   responseCode = 0;
@@ -156,9 +208,14 @@ SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {
   chunked = false;
   current_chunk = -1;
   headersDone = false;
+  zlib_stream = NULL;
 };
 
 SimpleHTTPSocket::HTTPParser::~HTTPParser() {
+  if (zlib_stream != NULL) {
+    inflateEnd(zlib_stream);
+    free(zlib_stream);
+  };
 };
 
 bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
@@ -188,6 +245,14 @@ bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
         contentLength = value.ToLong();
       else if (chunked == false && key == "transfer-encoding" && value == "chunked")
         chunked = true;
+      else if (zlib_stream == NULL && key == "content-encoding" && value == "gzip") {
+        zlib_stream = (z_stream*) malloc(sizeof(z_stream));
+        bzero(zlib_stream, sizeof(z_stream));
+        if (inflateInit2(zlib_stream, 15 + 32) != Z_OK) {
+          std::cerr << "inflateInit2 went wrong!" << std::endl;
+          abort();
+        };
+      };
       headers[key] = value;
       return true;
     }

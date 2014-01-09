@@ -1,4 +1,4 @@
-PKGS            := libevent libevent_openssl openssl
+PKGS            := libevent libevent_openssl openssl zlib
 override CFLAGS += -g -Wall -O2 -pipe $(shell pkg-config --cflags $(PKGS))
 INC             += -Iinclude
 LDFLAGS         := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl

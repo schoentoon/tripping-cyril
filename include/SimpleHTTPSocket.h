@@ -19,6 +19,7 @@
 #define _HTTP_SOCKET_H
 
 #include <map>
+#include <zlib.h>
 
 #include "String.h"
 #include "Socket.h"
@@ -45,6 +46,7 @@ public:
     extraHeaders[key] = value;
   };
   String getURL() const { return url; };
+  static const int DECOMPESSION_ERROR = -1;
 protected:
   void Connected();
   void Disconnected();
@@ -52,8 +54,10 @@ protected:
   void ReadLine(const String& data);
   size_t ReadData(const char* data, size_t len);
   virtual void OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response);
+  virtual void OnRequestError(int errorCode);
 private:
   void MakeRequestHeaders(bool post, const String& host, const String& path, unsigned short port, bool ssl);
+  void Decompress();
   map<String, String> extraHeaders;
   String url;
   String buffer;
@@ -63,12 +67,15 @@ private:
     HTTPParser(SimpleHTTPSocket* socket);
     virtual ~HTTPParser();
     bool ParseLine(const String& line);
+    bool IsCompressed() { return zlib_stream != NULL; };
     unsigned short responseCode;
     long contentLength;
     bool chunked;
     int current_chunk;
     bool headersDone;
     map<String, String> headers;
+    z_stream* zlib_stream;
+    String decomp_buffer;
     SimpleHTTPSocket* socket;
   };
   HTTPParser parser;
