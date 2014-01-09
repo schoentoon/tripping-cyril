@@ -32,8 +32,6 @@ public:
 
 MODCONSTRUCTOR(SampleModule) {
   std::cerr << "module::sample::SampleModule::SampleModule();" << std::endl;
-  trippingcyril::SimpleHTTPSocket* socket = new SimpleHTTPSocket(this, new PrintHttp);
-  socket->Get("http://httpbin.org/stream/100");
 };
 
 SampleModule::~SampleModule() {
@@ -42,6 +40,8 @@ SampleModule::~SampleModule() {
 
 void SampleModule::OnLoaded() {
   std::cerr << "module::sample::SampleModule::OnLoaded();" << std::endl;
+  trippingcyril::SimpleHTTPSocket* socket = new SimpleHTTPSocket(this, new PrintHttp);
+  socket->Get("http://httpbin.org/stream/100");
 };
 
 MODULEDEFS(SampleModule);

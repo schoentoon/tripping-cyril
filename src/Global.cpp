@@ -66,6 +66,7 @@ bool Global::LoadModule(const String& path, String& retMsg) {
     return false;
   };
   modules.push_back(module);
+  module->OnLoaded();
   return true;
 };
 
