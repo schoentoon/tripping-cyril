@@ -121,7 +121,6 @@ void SimpleHTTPSocket::Timeout() {
 };
 
 void SimpleHTTPSocket::OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response) {
-  Decompress();
   if (callback != NULL) {
     callback->OnRequestDone(responseCode, headers, response, url);
     if (callback->shouldDelete())
@@ -157,23 +156,22 @@ void SimpleHTTPSocket::ReadLine(const String& data) {
 size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
   if (parser.chunked == true && parser.current_chunk > 0) {
     len = std::min(len, (size_t) parser.current_chunk);
-    if (parser.IsCompressed() == true) {
-      parser.decomp_buffer.append(data, len);
-      Decompress();
-    } else
+    if (parser.IsCompressed() == true)
+      Decompress(data, len);
+    else
       buffer.append(data, len);
     parser.current_chunk -= len;
     if (parser.current_chunk <= 0)
       SetReadLine(true);
   } else if (parser.chunked == false) {
-    if (parser.IsCompressed() == true) {
-      parser.decomp_buffer.append(data, len);
-      Decompress();
-    } else
+    if (parser.IsCompressed() == true)
+      Decompress(data, len);
+    else
       buffer.append(data, len);
   };
   if (parser.contentLength > 0) {
-    if (buffer.size() >= (size_t) parser.contentLength) {
+    if ((parser.IsCompressed() == false && buffer.size() >= (size_t) parser.contentLength)
+      || (parser.IsCompressed() == true && parser.zlib_stream->total_in >= (size_t) parser.contentLength)) {
       OnRequestDone(parser.responseCode, parser.headers, buffer);
       Close();
     };
@@ -183,14 +181,11 @@ size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
 
 #define CHUNK_SIZE 16384
 
-void SimpleHTTPSocket::Decompress() {
+void SimpleHTTPSocket::Decompress(const char* data, size_t len) {
   if (parser.IsCompressed() == false)
     return;
-  if (parser.decomp_buffer.empty() == true)
-    return;
-  Bytef* start = (Bytef*) parser.decomp_buffer.data();
-  parser.zlib_stream->next_in = start;
-  parser.zlib_stream->avail_in = parser.decomp_buffer.size();
+  parser.zlib_stream->next_in = (Bytef*) data;
+  parser.zlib_stream->avail_in = len;
   int zlib_ret;
   char buf[CHUNK_SIZE];
   do {
@@ -213,7 +208,9 @@ void SimpleHTTPSocket::Decompress() {
       return;
     };
   } while (parser.zlib_stream->avail_out == 0);
-  parser.decomp_buffer.erase(0, parser.zlib_stream->next_in - start);
+  if (parser.zlib_stream->avail_in > 0) {
+    cerr << "avail_in " << parser.zlib_stream->avail_in << endl;
+  };
 };
 
 SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {

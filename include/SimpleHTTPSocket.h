@@ -59,7 +59,7 @@ protected:
   virtual void OnRequestError(int errorCode);
 private:
   void MakeRequestHeaders(bool post, const String& host, const String& path, unsigned short port, bool ssl);
-  void Decompress();
+  void Decompress(const char* data, size_t len);
   map<String, String> extraHeaders;
   String url;
   String buffer;
@@ -77,7 +77,6 @@ private:
     bool headersDone;
     map<String, String> headers;
     z_stream* zlib_stream;
-    String decomp_buffer;
     SimpleHTTPSocket* socket;
   };
   HTTPParser parser;
