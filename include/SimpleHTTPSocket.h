@@ -48,10 +48,11 @@ public:
   };
   String getURL() const { return url; };
   static const int DECOMPESSION_ERROR = -1;
+  static const int TIMEOUT = -2;
 protected:
   void Connected();
   void Disconnected();
-  void Timeout() {};
+  void Timeout();
   void ReadLine(const String& data);
   size_t ReadData(const char* data, size_t len);
   virtual void OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response);

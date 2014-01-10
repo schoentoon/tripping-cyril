@@ -111,6 +111,10 @@ void SimpleHTTPSocket::Disconnected() {
     OnRequestDone(parser.responseCode, parser.headers, buffer);
 };
 
+void SimpleHTTPSocket::Timeout() {
+  OnRequestError(TIMEOUT);
+};
+
 void SimpleHTTPSocket::OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response) {
   Decompress();
   if (callback != NULL) {
