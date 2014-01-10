@@ -32,7 +32,7 @@ class HTTPCallback {
 public:
   virtual ~HTTPCallback() {};
   virtual void OnRequestDone(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url) = 0;
-  virtual void OnRequestError(int errorCode, const String& url);
+  virtual void OnRequestError(int errorCode, const String& url) {};
   virtual bool shouldDelete() { return true; };
 };
 

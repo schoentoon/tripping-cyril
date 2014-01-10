@@ -53,6 +53,11 @@ bool SimpleHTTPSocket::CrackURL(const String& url, String& host, String& path, u
     host = work.substr(0, uPos);
     path = work.substr(uPos + 1);
   };
+  uPos = work.find(':');
+  if (uPos != String::npos) {
+    port = String(host.substr(uPos + 1)).ToUShort();
+    host.erase(uPos);
+  };
   if (host.empty())
     return false;
   for (String::size_type c = 0; c < host.size(); c++) {
