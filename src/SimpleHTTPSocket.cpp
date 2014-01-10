@@ -117,11 +117,17 @@ void SimpleHTTPSocket::OnRequestDone(unsigned short responseCode, map<String, St
     callback->OnRequestDone(responseCode, headers, response, url);
     if (callback->shouldDelete())
       delete callback;
-      callback = NULL;
+    callback = NULL;
   };
 };
 
 void SimpleHTTPSocket::OnRequestError(int errorCode) {
+  if (callback != NULL) {
+    callback->OnRequestError(errorCode, url);
+    if (callback->shouldDelete())
+      delete callback;
+    callback = NULL;
+  };
 };
 
 void SimpleHTTPSocket::ReadLine(const String& data) {
