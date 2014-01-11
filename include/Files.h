@@ -41,11 +41,12 @@ public:
     FIFO,
     LINK,
     SOCK,
+    TEMPORARY,
     UNKNOWN
   };
 
   bool Exists() const;
-  FileType GetType() const; // UNKNOWN may also be an error
+  virtual FileType GetType() const; // UNKNOWN may also be an error
   off_t GetSize() const;
   time_t GetATime() const;
   time_t GetMTime() const;
@@ -71,12 +72,19 @@ public:
   void Close();
   bool HadError() const { return hadError; };
   void ResetError() { hadError = false; };
-private:
+protected:
   String buffer;
   String filename;
   String shortname;
   int fd;
   bool hadError;
+};
+
+class TempFile : public File {
+public:
+  TempFile();
+  virtual ~TempFile();
+  FileType GetType() const { return TEMPORARY; };
 };
 
 class Dir : public vector<File*> {

@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <dirent.h>
 #include <string.h>
+#include <stdlib.h>
 
 namespace trippingcyril {
 
@@ -251,6 +252,22 @@ void File::Close() {
       hadError = true;
     fd = -1;
   };
+};
+
+TempFile::TempFile()
+: File("") {
+  char tmp[] = "/tmp/trippingcyril.XXXXXX";
+  fd = mkstemp(tmp);
+  filename = tmp;
+  String::size_type sPos = filename.rfind('/');
+  if (sPos != String::npos)
+    shortname = filename.substr(sPos + 1);
+  else
+    shortname = filename;
+};
+
+TempFile::~TempFile() {
+  Delete();
 };
 
 Dir::Dir(const String& dir, const String& wildcard) {

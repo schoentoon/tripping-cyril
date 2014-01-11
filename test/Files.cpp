@@ -83,4 +83,16 @@ TEST_F(Files, DirByWildcard) {
   EXPECT_GT(proc.size(), 0);
 };
 
+TEST_F(Files, TempFile) {
+  String filename;
+  {
+    TempFile tmp;
+    EXPECT_TRUE(tmp.IsOpen());
+    EXPECT_EQ(tmp.GetSize(), 0);
+    filename = tmp.GetName();
+  }
+  File tmp(filename);
+  EXPECT_FALSE(tmp.Exists());
+};
+
 };
