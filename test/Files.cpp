@@ -89,6 +89,7 @@ TEST_F(Files, TempFile) {
     TempFile tmp;
     EXPECT_TRUE(tmp.IsOpen());
     EXPECT_EQ(tmp.GetSize(), 0);
+    EXPECT_EQ(tmp.GetType(), File::TEMPORARY);
     filename = tmp.GetName();
   }
   File tmp(filename);

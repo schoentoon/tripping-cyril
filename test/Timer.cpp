@@ -23,19 +23,8 @@
 
 namespace test {
 
-class Timer : public ::testing::Test {
-public:
-  static LibEventHelper* event_base;
-protected:
-  virtual void SetUp() {
-    event_base = new LibEventHelper;
-  };
-  virtual void TearDown() {
-    delete event_base;
-  };
+class Timer : public LibEventTest {
 };
-
-LibEventHelper* Timer::event_base = NULL;
 
 class TimerTest : public trippingcyril::Timer {
 public:
@@ -64,7 +53,7 @@ protected:
       *done = true;
     if (finished)
       *finished = true;
-    event_base_loopbreak(test::Timer::event_base->GetEventBase());
+    event_base_loopbreak(GetModule()->GetEventBase());
   };
 };
 

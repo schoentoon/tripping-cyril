@@ -24,7 +24,7 @@
 #include "Module.h"
 
 namespace test {
-  class Socket;
+  class LibEventHelper;
 };
 
 namespace trippingcyril {
@@ -55,7 +55,7 @@ private:
   Module* module;
   static void readcb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
-  friend class test::Socket;
+  friend class test::LibEventHelper;
 };
 
 };

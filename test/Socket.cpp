@@ -17,27 +17,16 @@
 
 #include <gtest/gtest.h>
 
+#include <deque>
+
 #include "LibEventHelper.h"
 
 #include "Socket.h"
 
 namespace test {
 
-class Socket : public ::testing::Test {
-public:
-  static LibEventHelper* event_base;
-protected:
-  virtual void SetUp() {
-    event_base = new LibEventHelper;
-  };
-  virtual void TearDown() {
-    delete event_base;
-  };
-  struct bufferevent* GetBufferevent(trippingcyril::Socket* socket) { return socket->connection; };
-  void Event(trippingcyril::Socket* socket, short what) { trippingcyril::Socket::eventcb(socket->connection, what, socket); };
+class Socket : public LibEventTest {
 };
-
-LibEventHelper* Socket::event_base = NULL;
 
 class TestSocket : public trippingcyril::Socket {
 public:
@@ -46,10 +35,19 @@ public:
     connected = NULL;
     disconnected = NULL;
   };
-  virtual ~TestSocket() {};
+  virtual ~TestSocket() {
+    if (expectedReadlines.empty() == false) {
+      ADD_FAILURE() << "There were expected readlines which we haven't seen.";
+    };
+    if (expectedReadDatas.empty() == false) {
+      ADD_FAILURE() << "There were expected readdatas which we havent' seen.";
+    };
+  };
   bool *timed_out;
   bool *connected;
   bool *disconnected;
+  deque<String> expectedReadlines;
+  deque<String> expectedReadDatas;
 protected:
   virtual void Timeout() {
     if (timed_out)
@@ -63,24 +61,43 @@ protected:
     if (disconnected)
       *disconnected = true;
   };
+  virtual void ReadLine(const String& line) {
+    if (expectedReadlines.empty() == true) {
+      ADD_FAILURE() << "ReadLine() was called, which was unexpected.";
+    };
+    String expected = expectedReadlines.front();
+    EXPECT_EQ(expected, line);
+    expectedReadlines.pop_front();
+  };
+  virtual size_t ReadData(const char* data, size_t len) {
+    if (expectedReadDatas.empty() == true) {
+      ADD_FAILURE() << "ReadData() was called, which was unexpected.";
+      return len;
+    };
+    String expected = expectedReadDatas.front();
+    String incoming(data, len);
+    EXPECT_EQ(expected, incoming);
+    expectedReadDatas.pop_front();
+    return len;
+  };
 };
 
 TEST_F(Socket, Timeout) {
   TestSocket* socket = new TestSocket(event_base);
-  EXPECT_EQ(NULL, GetBufferevent(socket));
+  ASSERT_EQ(NULL, event_base->GetBufferevent(socket));
 
   bool done = false;
   socket->timed_out = &done;
 
   EXPECT_TRUE(socket->Connect("127.0.0.1", 80));
-  Event(socket, BEV_EVENT_TIMEOUT);
+  event_base->Event(socket, BEV_EVENT_TIMEOUT);
   EXPECT_TRUE(done);
   EXPECT_DEATH(delete socket, "");
 };
 
 TEST_F(Socket, Connected) {
   TestSocket* socket = new TestSocket(event_base);
-  EXPECT_EQ(NULL, GetBufferevent(socket));
+  ASSERT_EQ(NULL, event_base->GetBufferevent(socket));
   EXPECT_FALSE(socket->IsConnected());
 
   bool done = false;
@@ -88,7 +105,7 @@ TEST_F(Socket, Connected) {
 
   EXPECT_TRUE(socket->Connect("127.0.0.1", 80));
   EXPECT_FALSE(socket->IsConnected());
-  Event(socket, BEV_EVENT_CONNECTED);
+  event_base->Event(socket, BEV_EVENT_CONNECTED);
   EXPECT_TRUE(socket->IsConnected());
   EXPECT_TRUE(done);
   delete socket;
@@ -96,7 +113,7 @@ TEST_F(Socket, Connected) {
 
 TEST_F(Socket, Disconnected) {
   TestSocket* socket = new TestSocket(event_base);
-  EXPECT_EQ(NULL, GetBufferevent(socket));
+  ASSERT_EQ(NULL, event_base->GetBufferevent(socket));
   EXPECT_FALSE(socket->IsConnected());
 
   bool connected = false;
@@ -106,12 +123,60 @@ TEST_F(Socket, Disconnected) {
 
   EXPECT_TRUE(socket->Connect("127.0.0.1", 80));
   EXPECT_FALSE(socket->IsConnected());
-  Event(socket, BEV_EVENT_CONNECTED);
+  event_base->Event(socket, BEV_EVENT_CONNECTED);
   EXPECT_TRUE(socket->IsConnected());
   EXPECT_TRUE(connected);
-  Event(socket, BEV_EVENT_ERROR); // Anything that isn't a timeout or a connected event is a disconnect
+  event_base->Event(socket, BEV_EVENT_ERROR); // Anything that isn't a timeout or a connected event is a disconnect
   EXPECT_TRUE(disconnected);
   EXPECT_DEATH(delete socket,"");
+};
+
+TEST_F(Socket, ReadLine) {
+  TestSocket* socket = new TestSocket(event_base);
+  ASSERT_EQ(NULL, event_base->GetBufferevent(socket));
+  EXPECT_FALSE(socket->IsConnected());
+  EXPECT_TRUE(socket->Connect("127.0.0.1", 80));
+  event_base->Event(socket, BEV_EVENT_CONNECTED);
+  EXPECT_TRUE(socket->IsConnected());
+  socket->SetReadLine(true);
+  socket->expectedReadlines.push_front("abcdef");
+  std::string data = "abcdef\r\nz";
+  event_base->AddData(data, socket);
+  event_base->Read(socket);
+  delete socket;
+};
+
+TEST_F(Socket, ReadData) {
+  TestSocket* socket = new TestSocket(event_base);
+  ASSERT_EQ(NULL, event_base->GetBufferevent(socket));
+  EXPECT_FALSE(socket->IsConnected());
+  EXPECT_TRUE(socket->Connect("127.0.0.1", 80));
+  event_base->Event(socket, BEV_EVENT_CONNECTED);
+  EXPECT_TRUE(socket->IsConnected());
+  socket->SetReadLine(false);
+  socket->expectedReadDatas.push_front("abcdef\r\nz");
+  std::string data = "abcdef\r\nz";
+  event_base->AddData(data, socket);
+  event_base->Read(socket);
+  delete socket;
+};
+
+TEST_F(Socket, ReadLineAndData) {
+  TestSocket* socket = new TestSocket(event_base);
+  ASSERT_EQ(NULL, event_base->GetBufferevent(socket));
+  EXPECT_FALSE(socket->IsConnected());
+  EXPECT_TRUE(socket->Connect("127.0.0.1", 80));
+  event_base->Event(socket, BEV_EVENT_CONNECTED);
+  EXPECT_TRUE(socket->IsConnected());
+  socket->SetReadLine(true);
+  socket->expectedReadlines.push_front("abcdef");
+  socket->expectedReadDatas.push_front("z");
+  std::string data = "abcdef\r\nz";
+  event_base->AddData(data, socket);
+  event_base->Read(socket);
+  socket->SetReadLine(false);
+  event_base->Read(socket);
+  delete socket;
 };
 
 };
