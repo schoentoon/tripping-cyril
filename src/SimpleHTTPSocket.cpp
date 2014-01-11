@@ -208,9 +208,6 @@ void SimpleHTTPSocket::Decompress(const char* data, size_t len) {
       return;
     };
   } while (parser.zlib_stream->avail_out == 0);
-  if (parser.zlib_stream->avail_in > 0) {
-    cerr << "avail_in " << parser.zlib_stream->avail_in << endl;
-  };
 };
 
 SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {
@@ -251,6 +248,7 @@ bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
       String value(line.substr(k + 1));
       key.Trim();
       value.Trim();
+      headers[key] = value;
       key.MakeLower();
       value.MakeLower();
       if (contentLength == -1 && key == "content-length")
@@ -265,7 +263,6 @@ bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
           abort();
         };
       };
-      headers[key] = value;
       return true;
     }
   };

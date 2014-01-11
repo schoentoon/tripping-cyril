@@ -7,7 +7,7 @@ CXX             := g++
 
 BINARY := test.out
 MODS := dummymod.so
-DEPS := String.o Files.o Modules.o Timer.o Socket.o
+DEPS := String.o Files.o Modules.o Timer.o Socket.o SimpleHTTPSocket.o
 
 all: $(BINARY)
 
