@@ -21,6 +21,9 @@
 #include <dirent.h>
 #include <string.h>
 #include <stdlib.h>
+#include <iostream>
+
+#include "Global.h"
 
 namespace trippingcyril {
 
@@ -157,6 +160,15 @@ bool File::Chmod(mode_t mode) {
 bool File::Seek(off_t pos) {
   if (fd != -1 && lseek(fd, pos, SEEK_SET) == pos)
     return true;
+  hadError = true;
+  return false;
+};
+
+bool File::Truncate(off_t len) {
+  if (fd != -1 && ftruncate(fd, len) == 0) {
+    buffer.clear();
+    return true;
+  };
   hadError = true;
   return false;
 };
@@ -300,6 +312,80 @@ String Dir::GetCWD() {
     return ret;
   }
   return "";
+};
+
+bool Dir::MakeDir(const String& path, mode_t mode) {
+  int ret = mkdir(path.c_str(), mode);
+  return ret == 0;
+};
+
+FileObserver::FileObserver() {
+  inotifyfd = inotify_init();
+  if (inotifyfd == -1) {
+    std::cerr << "An error occured in inotify_init(), exiting." << std::endl;
+    abort();
+  };
+  struct bufferevent* bev = bufferevent_socket_new(Global::Get()->GetEventBase(), inotifyfd, 0);
+  bufferevent_setcb(bev, FileObserver::readcb, NULL, NULL, this);
+  bufferevent_enable(bev, EV_READ);
+};
+
+bool FileObserver::Register(const String& directory, FileObserverCallback* callback) {
+  if (callback == NULL)
+    return false;
+  File dir(directory);
+  if (dir.Exists() == false || dir.GetType() != File::DIRECTORY)
+    return false;
+  int wd = inotify_add_watch(inotifyfd, directory.c_str(), callback->mask);
+  if (wd == -1)
+    return false;
+  String folder(directory);
+  folder.TrimRight("/");
+  folders[wd] = folder;
+  callbacks[wd] = callback;
+  return true;
+};
+
+#define BUF_LEN (1024 * (sizeof(struct inotify_event) + NAME_MAX + 1))
+
+void FileObserver::readcb(struct bufferevent* bev, void* arg) {
+  std::cerr << "FileObserver::readcb();" << std::endl;
+  FileObserver* observer = (FileObserver*) arg;
+  char buf[BUF_LEN];
+  size_t numRead;
+  while ((numRead = bufferevent_read(bev, buf, sizeof(buf)))) {
+    char* p;
+    for (p = buf; p < buf + numRead;) {
+      struct inotify_event *event = (struct inotify_event*) p;
+      if (event->len > 0) {
+        String filename(event->name, event->len);
+        map<int, String>::const_iterator path_iter = observer->folders.find(event->wd);
+        String path;
+        if (path_iter != observer->folders.end())
+          path = path_iter->second;
+        String filepath = path + "/" + filename;
+        map<int, FileObserverCallback*>::iterator iter = observer->callbacks.find(event->wd);
+        if (iter != observer->callbacks.end() && iter->second != NULL) {
+          File file(filepath);
+          if (event->mask & IN_ACCESS)
+            iter->second->OnAccess(file);
+          if (event->mask & IN_MODIFY)
+            iter->second->OnModify(file);
+          if (event->mask & IN_ATTRIB)
+            iter->second->OnAtrributeChanged(file);
+          if (event->mask & IN_CLOSE_WRITE)
+            iter->second->OnCloseWrite(file);
+          if (event->mask & IN_CLOSE_NOWRITE)
+            iter->second->OnCloseNoWrite(file);
+          if (event->mask & IN_DELETE)
+            iter->second->OnDelete(file);
+          if (event->mask & IN_CREATE)
+            iter->second->OnCreate(file);
+        };
+      };
+      p += sizeof(struct inotify_event) + event->len;
+    };
+  };
 };
 
 };

@@ -16,10 +16,64 @@
  */
 
 #include "Global.h"
+#include "Files.h"
+
+#include <iostream>
+#include <cstring>
+
+using namespace trippingcyril;
+
+class ModuleLoader : public FileObserverCallback {
+public:
+  ModuleLoader() {
+    mask = IN_CLOSE_WRITE;
+    Dir::MakeDir("./sys");
+    File null("/dev/null");
+    null.Copy("./sys/loadmodule", true);
+    null.Copy("./sys/unloadmodule", true);
+  };
+protected:
+  enum Mode {
+    UNLOAD,
+    LOAD,
+    UNKNOWN
+  };
+  virtual void OnCloseWrite(File& file) {
+    if (file.GetSize() == 0)
+      return; // Prevent a recursive loop..
+    Mode mode = UNKNOWN;
+    if (std::strcmp(file.GetShortName().c_str(), "unloadmodule") == 0)
+      mode = UNLOAD;
+    else if (std::strcmp(file.GetShortName().c_str(), "loadmodule") == 0)
+      mode = LOAD;
+    if (file.Open(O_RDONLY|O_WRONLY|O_TRUNC)) {
+      String line;
+      while (file.ReadLine(line)) {
+        line.Trim();
+        String msg;
+        bool ret = false;
+        switch (mode) {
+        case UNLOAD:
+          ret = Global::Get()->UnloadModule(line, msg);
+          break;
+        case LOAD:
+          ret = Global::Get()->LoadModule(line, msg);
+          break;
+        case UNKNOWN:
+        default:
+          std::cerr << "Hey there buddy, what are you trying to do?.." << std::endl;
+        };
+        std::cerr << "msg: " << msg << std::endl;
+      };
+      file.Truncate();
+    };
+  };
+};
 
 int main(int argc, char **argv) {
-  trippingcyril::String msg;
-  trippingcyril::Global::Get()->LoadModule("modules/sample.so", msg);
-  trippingcyril::Global::Get()->Loop();
+  String msg;
+  Global::Get()->LoadModule("modules/sample.so", msg);
+  FileObserver::Get()->Register("./sys", new ModuleLoader);
+  Global::Get()->Loop();
   return 0;
 };

@@ -18,11 +18,14 @@
 #ifndef _FILES_H
 #define _FILES_H
 
+#include <event2/bufferevent.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/fcntl.h>
+#include <sys/inotify.h>
 #include <vector>
+#include <map>
 
 #include "String.h"
 
@@ -62,6 +65,7 @@ public:
   bool Copy(const String& newpath, bool overwrite = false);
   bool Chmod(mode_t mode);
   bool Seek(off_t pos);
+  bool Truncate(off_t len = 0);
   bool Sync();
   bool Open(int flags = O_RDONLY, mode_t mode = 0644);
   int Read(char* buffer, size_t len);
@@ -92,6 +96,42 @@ public:
   Dir(const String& dir, const String& wildcard = "");
   virtual ~Dir();
   static String GetCWD();
+  static bool MakeDir(const String& path, mode_t mode = 0700);
+};
+
+class FileObserver;
+
+class FileObserverCallback {
+public:
+  FileObserverCallback() {
+    mask = 0; // Any way to set this automatically correctly based on the methods that are overriden?
+  };
+  virtual ~FileObserverCallback() {};
+protected:
+  virtual void OnAccess(File& file) {};
+  virtual void OnModify(File& file) {};
+  virtual void OnAtrributeChanged(File& file) {};
+  virtual void OnCloseWrite(File& file) {};
+  virtual void OnCloseNoWrite(File& file) {};
+  virtual void OnDelete(File& file) {};
+  virtual void OnCreate(File& file) {};
+  int mask;
+  friend class FileObserver;
+};
+
+class FileObserver {
+public:
+  static FileObserver* Get() {
+    static FileObserver* singleton = new FileObserver();
+    return singleton;
+  };
+  bool Register(const String& directory, FileObserverCallback* callback);
+private:
+  FileObserver();
+  map<int, String> folders;
+  map<int, FileObserverCallback*> callbacks;
+  int inotifyfd;
+  static void readcb(struct bufferevent* bev, void* arg);
 };
 
 };
