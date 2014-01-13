@@ -6,7 +6,7 @@ CC              := gcc
 CXX             := g++
 
 BINARY := tripping-cyril
-DEPS := build/String.o build/Global.o build/Socket.o build/Files.o build/Timer.o build/Module.o build/SimpleHTTPSocket.o
+DEPS := build/String.o build/Global.o build/Socket.o build/Files.o build/Timer.o build/Module.o build/SimpleHTTPSocket.o build/TermUtils.o
 
 all: $(BINARY) modules
 

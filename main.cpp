@@ -15,6 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "TermUtils.h"
 #include "Global.h"
 #include "Files.h"
 
@@ -46,7 +47,7 @@ protected:
       mode = UNLOAD;
     else if (std::strcmp(file.GetShortName().c_str(), "loadmodule") == 0)
       mode = LOAD;
-    if (file.Open(O_RDONLY|O_WRONLY|O_TRUNC)) {
+    if (file.Open()) {
       String line;
       while (file.ReadLine(line)) {
         line.Trim();
@@ -61,19 +62,23 @@ protected:
           break;
         case UNKNOWN:
         default:
-          std::cerr << "Hey there buddy, what are you trying to do?.." << std::endl;
+          TermUtils::PrintStatus(false, "Hey there buddy, what are you trying to do?..");
         };
-        std::cerr << "msg: " << msg << std::endl;
+        TermUtils::PrintStatus(ret, msg);
       };
-      file.Truncate();
     };
+    File null("/dev/null");
+    null.Copy(file.GetName(), true);
   };
 };
 
 int main(int argc, char **argv) {
-  String msg;
-  Global::Get()->LoadModule("modules/sample.so", msg);
-  FileObserver::Get()->Register("./sys", new ModuleLoader);
+  {
+    String msg;
+    bool ret = Global::Get()->LoadModule("modules/sample.so", msg);
+    TermUtils::PrintStatus(ret, msg);
+    FileObserver::Get()->Register("./sys", new ModuleLoader);
+  }
   Global::Get()->Loop();
   return 0;
 };

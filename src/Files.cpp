@@ -368,7 +368,6 @@ bool FileObserver::Unregister(const String& directory) {
 #define BUF_LEN (1024 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
 void FileObserver::readcb(struct bufferevent* bev, void* arg) {
-  std::cerr << "FileObserver::readcb();" << std::endl;
   FileObserver* observer = (FileObserver*) arg;
   char buf[BUF_LEN];
   size_t numRead;
