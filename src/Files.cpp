@@ -346,6 +346,25 @@ bool FileObserver::Register(const String& directory, FileObserverCallback* callb
   return true;
 };
 
+bool FileObserver::Unregister(const String& directory) {
+  for (map<int, String>::iterator iter = folders.begin(); iter != folders.end(); ++iter) {
+    if (directory == iter->second) {
+      int wd = iter->first;
+      folders.erase(iter);
+      map<int, FileObserverCallback*>::iterator c_iter = callbacks.find(wd);
+      if (c_iter != callbacks.end()) {
+        if (c_iter->second != NULL)
+          delete c_iter->second;
+        callbacks.erase(c_iter);
+      };
+      if (inotify_rm_watch(inotifyfd, wd) == -1)
+        return false;
+      return true;
+    };
+  };
+  return false;
+};
+
 #define BUF_LEN (1024 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
 void FileObserver::readcb(struct bufferevent* bev, void* arg) {

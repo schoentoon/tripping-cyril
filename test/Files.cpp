@@ -18,6 +18,7 @@
 #include <gtest/gtest.h>
 
 #include "Files.h"
+#include "Global.h"
 
 using namespace trippingcyril;
 
@@ -94,6 +95,44 @@ TEST_F(Files, TempFile) {
   }
   File tmp(filename);
   EXPECT_FALSE(tmp.Exists());
+};
+
+class TestFileObserver : public ::testing::Test {
+public:
+protected:
+  virtual void SetUp() {
+    Global::Get();
+    File proc("/tmp");
+    if (proc.Exists() == false) {
+      FAIL() << "/tmp isn't mounted?? You may want to disable these tests";
+    };
+  };
+};
+
+class TestFileObserverCallback : public FileObserverCallback {
+public:
+  TestFileObserverCallback() {
+    mask = IN_ALL_EVENTS;
+  };
+};
+
+TEST_F(TestFileObserver, RegisterAndUnregister) {
+  TestFileObserverCallback* callback = new TestFileObserverCallback;
+  EXPECT_EQ(0, FileObserver::Get()->amountWatchedFolders());
+  ASSERT_TRUE(FileObserver::Get()->Register("/tmp", callback));
+  EXPECT_EQ(1, FileObserver::Get()->amountWatchedFolders());
+  ASSERT_TRUE(FileObserver::Get()->Unregister("/tmp"));
+  EXPECT_EQ(0, FileObserver::Get()->amountWatchedFolders());
+  EXPECT_DEATH(delete callback, "");
+};
+
+TEST_F(TestFileObserver, RegisterWithNULL) {
+  ASSERT_FALSE(FileObserver::Get()->Register("/tmp", NULL));
+};
+
+TEST_F(TestFileObserver, UnregisterNotRegisteredFolder) {
+  ASSERT_EQ(0, FileObserver::Get()->amountWatchedFolders());
+  ASSERT_FALSE(FileObserver::Get()->Unregister("/tmp"));
 };
 
 };

@@ -126,6 +126,8 @@ public:
     return singleton;
   };
   bool Register(const String& directory, FileObserverCallback* callback);
+  bool Unregister(const String& directory);
+  size_t amountWatchedFolders() { return folders.size(); };
 private:
   FileObserver();
   map<int, String> folders;
