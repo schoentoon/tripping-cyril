@@ -59,7 +59,7 @@ protected:
   virtual void OnRequestError(int errorCode);
 private:
   void MakeRequestHeaders(bool post, const String& host, const String& path, unsigned short port, bool ssl);
-  void Decompress(const char* data, size_t len);
+  size_t Decompress(const char* data, size_t len);
   map<String, String> extraHeaders;
   String url;
   String buffer;

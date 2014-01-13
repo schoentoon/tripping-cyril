@@ -157,7 +157,7 @@ size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
   if (parser.chunked == true && parser.current_chunk > 0) {
     len = std::min(len, (size_t) parser.current_chunk);
     if (parser.IsCompressed() == true)
-      Decompress(data, len);
+      len = Decompress(data, len);
     else
       buffer.append(data, len);
     parser.current_chunk -= len;
@@ -165,7 +165,7 @@ size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
       SetReadLine(true);
   } else if (parser.chunked == false) {
     if (parser.IsCompressed() == true)
-      Decompress(data, len);
+      len = Decompress(data, len);
     else
       buffer.append(data, len);
   };
@@ -181,9 +181,9 @@ size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
 
 #define CHUNK_SIZE 16384
 
-void SimpleHTTPSocket::Decompress(const char* data, size_t len) {
+size_t SimpleHTTPSocket::Decompress(const char* data, size_t len) {
   if (parser.IsCompressed() == false)
-    return;
+    return 0;
   parser.zlib_stream->next_in = (Bytef*) data;
   parser.zlib_stream->avail_in = len;
   int zlib_ret;
@@ -205,9 +205,10 @@ void SimpleHTTPSocket::Decompress(const char* data, size_t len) {
     default:
       OnRequestError(DECOMPESSION_ERROR);
       Close();
-      return;
+      return 0;
     };
   } while (parser.zlib_stream->avail_out == 0);
+  return len - parser.zlib_stream->avail_in;
 };
 
 SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {
