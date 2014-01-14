@@ -15,6 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "StackTrace.h"
 #include "TermUtils.h"
 #include "Global.h"
 #include "Files.h"
@@ -74,6 +75,10 @@ protected:
 
 int main(int argc, char **argv) {
   {
+    if (crash::InitCrashHandler() == true)
+      TermUtils::PrintStatus(true, "Registered our crash handler");
+    else
+      TermUtils::PrintStatus(false, "Something went wrong while registering our crash handler");
     String msg;
     bool ret = Global::Get()->LoadModule("modules/sample.so", msg);
     TermUtils::PrintStatus(ret, msg);
