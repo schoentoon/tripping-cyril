@@ -20,6 +20,7 @@
 
 #include <event2/dns.h>
 #include <event2/event.h>
+#include <set>
 
 #include "String.h"
 #include "Global.h"
@@ -42,6 +43,9 @@ namespace trippingcyril {
 
 typedef void* ModHandle;
 
+class Socket;
+class Timer;
+
 class Module {
 public:
   Module(ModHandle so, const String& modName);
@@ -56,9 +60,17 @@ protected:
   struct event_base* event_base;
   struct evdns_base* dns_base;
 private:
+  set<Socket*> sockets;
+  set<Timer*> timers;
+  void AddSocket(Socket* socket);
+  void DelSocket(Socket* socket);
+  void AddTimer(Timer* timer);
+  void DelTimer(Timer* timer);
   String modName;
   ModHandle so;
   friend class Global;
+  friend class Socket;
+  friend class Timer;
 };
 
 };

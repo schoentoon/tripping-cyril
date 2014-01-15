@@ -27,6 +27,8 @@ namespace trippingcyril {
 
 Socket::Socket(Module* module) {
   this->module = module;
+  if (module != NULL)
+    module->AddSocket(this);
   connection = NULL;
   readline = 0;
   is_connected = 0;
@@ -36,6 +38,8 @@ Socket::Socket(Module* module) {
 Socket::~Socket() {
   if (connection != NULL)
     bufferevent_free(connection);
+  if (module != NULL)
+    module->DelSocket(this);
 };
 
 void Socket::Write(const char* data, size_t len) {

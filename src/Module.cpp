@@ -20,6 +20,8 @@
 #include <dlfcn.h>
 
 #include "Global.h"
+#include "Socket.h"
+#include "Timer.h"
 
 namespace trippingcyril {
 
@@ -31,6 +33,10 @@ Module::Module(ModHandle so, const String& modName) {
 };
 
 Module::~Module() {
+  while (sockets.empty() == false)
+    delete *sockets.begin();
+  while (timers.empty() == false)
+    delete *timers.begin();
   if (event_base != Global::Get()->GetEventBase())
     event_base_free(event_base);
 };
@@ -52,6 +58,32 @@ Module* Module::LoadModule(const String& path, const String& modName, String& re
   Module* output = ModLoad(so, modName);
   retMsg = "Loaded module [" + modName + "] [" + path + "]";
   return output;
+};
+
+void Module::AddSocket(Socket* socket) {
+  sockets.insert(socket);
+};
+
+void Module::DelSocket(Socket* socket) {
+  for (set<Socket*>::iterator iter = sockets.begin(); iter != sockets.end(); ++iter) {
+    if (*iter == socket) {
+      sockets.erase(iter);
+      break;
+    };
+  };
+};
+
+void Module::AddTimer(Timer* timer) {
+  timers.insert(timer);
+};
+
+void Module::DelTimer(Timer* timer) {
+  for (set<Timer*>::iterator iter = timers.begin(); iter != timers.end(); ++iter) {
+    if (*iter == timer) {
+      timers.erase(iter);
+      break;
+    };
+  };
 };
 
 };
