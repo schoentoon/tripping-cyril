@@ -33,6 +33,7 @@ Socket::Socket(Module* module) {
   readline = 0;
   is_connected = 0;
   closing = 0;
+  read_more = 0;
 };
 
 Socket::~Socket() {
@@ -67,11 +68,21 @@ void Socket::readcb(struct bufferevent* bev, void* ctx) {
       line = evbuffer_readln(input, NULL, EVBUFFER_EOL_CRLF);
     };
   } else {
-    size_t len = evbuffer_get_length(input);
-    unsigned char* data = evbuffer_pullup(input, len);
-    size_t used = socket->ReadData((const char*) data, len);
-    if (used > 0)
-      evbuffer_drain(input, used);
+    do {
+      socket->read_more = 0;
+      size_t len = evbuffer_get_length(input);
+      unsigned char* data = evbuffer_pullup(input, len);
+      size_t used = socket->ReadData((const char*) data, len);
+      if (used > 0) {
+        evbuffer_drain(input, used);
+        if (used == len)
+          return;
+        if (socket->readline == 1) {
+          readcb(bev, ctx);
+          return;
+        };
+      };
+    } while (socket->read_more == 1);
   }
 };
 

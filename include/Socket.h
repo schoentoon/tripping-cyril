@@ -47,6 +47,7 @@ protected:
   virtual void Disconnected() {};
   virtual size_t ReadData(const char* data, size_t len) { return len; };
   virtual void ReadLine(const String& line) {};
+  uint8_t read_more : 1;
 private:
   uint8_t readline : 1;
   uint8_t is_connected : 1;
