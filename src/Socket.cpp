@@ -56,15 +56,14 @@ void Socket::Write(const String& data) {
 void Socket::readcb(struct bufferevent* bev, void* ctx) {
   Socket* socket = (Socket*) ctx;
   struct evbuffer* input = bufferevent_get_input(bev);
+begin:
   if (socket->readline == 1) {
     char* line = evbuffer_readln(input, NULL, EVBUFFER_EOL_CRLF);
     while (line != NULL) {
       socket->ReadLine(String(line));
       free(line);
-      if (socket->readline != 1) { // We may have switched it in the meantime..
-        readcb(bev, ctx);
-        return;
-      };
+      if (socket->readline == 0)
+        goto begin; // We may have switched it in the meantime..
       line = evbuffer_readln(input, NULL, EVBUFFER_EOL_CRLF);
     };
   } else {
@@ -76,11 +75,9 @@ void Socket::readcb(struct bufferevent* bev, void* ctx) {
       if (used > 0) {
         evbuffer_drain(input, used);
         if (used == len)
-          return;
-        if (socket->readline == 1) {
-          readcb(bev, ctx);
-          return;
-        };
+          return; // We're completely empty so just exit
+        if (socket->readline == 1)
+          goto begin; // We may have switched it in the meantime..
       };
     } while (socket->read_more == 1);
   }
