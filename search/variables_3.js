@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fd',['fd',['../classtrippingcyril_1_1_file.html#aad2525a3446ec15db9c0acaa712c7e9d',1,'trippingcyril::File']]],
-  ['filename',['filename',['../classtrippingcyril_1_1_file.html#a25fcd193b97cab15d171203bdbbda7d1',1,'trippingcyril::File']]]
+  ['read_5fmore',['read_more',['../classtrippingcyril_1_1_socket.html#a1914dcde15219c0b83e84781b69f8bef',1,'trippingcyril::Socket']]]
 ];

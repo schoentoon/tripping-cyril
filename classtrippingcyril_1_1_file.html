@@ -89,12 +89,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classtrippingcyril_1_1_file-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">trippingcyril::File Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A general file access class.  
+ <a href="classtrippingcyril_1_1_file.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_files_8h_source.html">Files.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -102,14 +104,7 @@ Inheritance diagram for trippingcyril::File:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrippingcyril_1_1_file__inherit__graph.png" border="0" usemap="#trippingcyril_1_1_file_inherit__map" alt="Inheritance graph"/></div>
 <map name="trippingcyril_1_1_file_inherit__map" id="trippingcyril_1_1_file_inherit__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_temp_file.html" title="trippingcyril::TempFile" alt="" coords="5,80,155,107"/></map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for trippingcyril::File:</div>
-<div class="dyncontent">
-<div class="center"><img src="classtrippingcyril_1_1_file__coll__graph.png" border="0" usemap="#trippingcyril_1_1_file_coll__map" alt="Collaboration graph"/></div>
-<map name="trippingcyril_1_1_file_coll__map" id="trippingcyril_1_1_file_coll__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_string.html" title="trippingcyril::String" alt="" coords="5,83,136,109"/></map>
+<area shape="rect" id="node2" href="classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="5,80,155,107"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -174,37 +169,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5192c874843e95dd575554e91c034498"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3975b145aa3350fad40c091e3edb7e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e">Open</a> (int flags=O_RDONLY, mode_t mode=0644)</td></tr>
 <tr class="separator:aae3975b145aa3350fad40c091e3edb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44fabe060d099540d9ceee793fcbbdd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad44fabe060d099540d9ceee793fcbbdd">Read</a> (char *<a class="el" href="classtrippingcyril_1_1_file.html#a3336949ec666cb7290348851e1556959">buffer</a>, size_t len)</td></tr>
+<tr class="memitem:ad44fabe060d099540d9ceee793fcbbdd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad44fabe060d099540d9ceee793fcbbdd">Read</a> (char *buffer, size_t len)</td></tr>
 <tr class="separator:ad44fabe060d099540d9ceee793fcbbdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aace41ea320b9274ab8790e229a6a66fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aace41ea320b9274ab8790e229a6a66fe">ReadLine</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;delimiter=&quot;\n&quot;)</td></tr>
 <tr class="separator:aace41ea320b9274ab8790e229a6a66fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f4fbb7be5fd0f3e696e44e91f6523a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a0f4fbb7be5fd0f3e696e44e91f6523a1">ReadFile</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, size_t maxSize=512 *1024)</td></tr>
 <tr class="separator:a0f4fbb7be5fd0f3e696e44e91f6523a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af886907aa9bc1478e4ed68c20ba69cdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#af886907aa9bc1478e4ed68c20ba69cdc">Write</a> (const char *<a class="el" href="classtrippingcyril_1_1_file.html#a3336949ec666cb7290348851e1556959">buffer</a>, size_t len)</td></tr>
+<tr class="memitem:af886907aa9bc1478e4ed68c20ba69cdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#af886907aa9bc1478e4ed68c20ba69cdc">Write</a> (const char *buffer, size_t len)</td></tr>
 <tr class="separator:af886907aa9bc1478e4ed68c20ba69cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c7cc4349425200dbdd3082a7f259095"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a8c7cc4349425200dbdd3082a7f259095">Write</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data)</td></tr>
 <tr class="separator:a8c7cc4349425200dbdd3082a7f259095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2562a6854b5cb6d0c69f8b8563fd6d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad2562a6854b5cb6d0c69f8b8563fd6d5">Close</a> ()</td></tr>
 <tr class="separator:ad2562a6854b5cb6d0c69f8b8563fd6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e25147eb979122a3b041bfeefc8613"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a46e25147eb979122a3b041bfeefc8613">HadError</a> () const </td></tr>
-<tr class="separator:a46e25147eb979122a3b041bfeefc8613"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0759194085cb08261f4b62bbb3a9d8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ab0759194085cb08261f4b62bbb3a9d8c">ResetError</a> ()</td></tr>
-<tr class="separator:ab0759194085cb08261f4b62bbb3a9d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a3336949ec666cb7290348851e1556959"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a3336949ec666cb7290348851e1556959">buffer</a></td></tr>
-<tr class="separator:a3336949ec666cb7290348851e1556959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25fcd193b97cab15d171203bdbbda7d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a25fcd193b97cab15d171203bdbbda7d1">filename</a></td></tr>
-<tr class="separator:a25fcd193b97cab15d171203bdbbda7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040df769302ae6014f638a6c4a8c9e01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a040df769302ae6014f638a6c4a8c9e01">shortname</a></td></tr>
-<tr class="separator:a040df769302ae6014f638a6c4a8c9e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad2525a3446ec15db9c0acaa712c7e9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aad2525a3446ec15db9c0acaa712c7e9d">fd</a></td></tr>
-<tr class="separator:aad2525a3446ec15db9c0acaa712c7e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ce2c14afb9f5168ccc6433efd60f224"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a5ce2c14afb9f5168ccc6433efd60f224">hadError</a></td></tr>
-<tr class="separator:a5ce2c14afb9f5168ccc6433efd60f224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A general file access class. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66"></a>
 <div class="memitem">
 <div class="memproto">
@@ -216,22 +196,31 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66a3b077b6d2cdaca3947b0b27c80578dd1"></a>REGULAR</em>&#160;</td><td class="fielddoc">
+<p>A regular file. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66a27f5f1a5956ada593fd0b9b835f9243f"></a>DIRECTORY</em>&#160;</td><td class="fielddoc">
+<p>A directory. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66adaf4a4da040108975fadf8020972e866"></a>CHARACTER</em>&#160;</td><td class="fielddoc">
+<p>A character device. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66a9d0d73c15da832c2781645dcb0bcaf82"></a>BLOCK</em>&#160;</td><td class="fielddoc">
+<p>A block device. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66a4c00c1270f80922fab27722517fb4108"></a>FIFO</em>&#160;</td><td class="fielddoc">
+<p>A fifo see <a href="http://man7.org/linux/man-pages/man7/fifo.7.html">fifo(7)</a> </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66abdc8b52d258169415c894cab31f405b6"></a>LINK</em>&#160;</td><td class="fielddoc">
+<p>Either a symbolic or hard link. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66a12f7de8581c843e83141fca0eef9c852"></a>SOCK</em>&#160;</td><td class="fielddoc">
+<p>A unix socket. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66a1574eb8d21aa84c26051cf07a1f611a4"></a>TEMPORARY</em>&#160;</td><td class="fielddoc">
+<p>Really just a regular file, but will be removed destruction. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="af8f8c6ba3c0706c001186e9a30cece66adc9e8694d59484ec8f9a529424ead41a"></a>UNKNOWN</em>&#160;</td><td class="fielddoc">
+<p>Either not implemented yet or an error occured. </p>
 </td></tr>
 </table>
 
@@ -291,6 +280,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if permissions were successfully modified. </dd></dl>
 
 </div>
 </div>
@@ -306,6 +296,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Closes the file if it was previously opened with Open </p>
 
 </div>
 </div>
@@ -332,6 +323,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully copied. </dd></dl>
 
 </div>
 </div>
@@ -347,6 +339,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully deleted. </dd></dl>
 
 </div>
 </div>
@@ -362,6 +355,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if the file exists </dd></dl>
 
 </div>
 </div>
@@ -377,6 +371,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Last access time of this file. </dd></dl>
 
 </div>
 </div>
@@ -392,6 +387,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Creation time of this file. </dd></dl>
 
 </div>
 </div>
@@ -407,6 +403,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>GID of this file. </dd></dl>
 
 </div>
 </div>
@@ -422,6 +419,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Last modification time of this file. </dd></dl>
 
 </div>
 </div>
@@ -437,6 +435,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The path of this file, may be relative depends on what you passed to the constructor </dd></dl>
 
 </div>
 </div>
@@ -452,6 +451,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The filename without any path. </dd></dl>
 
 </div>
 </div>
@@ -467,6 +467,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The size of the file, only works with REGULAR files, 0 otherwise </dd></dl>
 
 </div>
 </div>
@@ -507,29 +508,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a46e25147eb979122a3b041bfeefc8613"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool trippingcyril::File::HadError </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>UID of this file. </dd></dl>
 
 </div>
 </div>
@@ -545,6 +524,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully opened with <a class="el" href="classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e">Open()</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e">Open</a> </dd></dl>
 
 </div>
 </div>
@@ -571,6 +552,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully moved. </dd></dl>
 
 </div>
 </div>
@@ -597,6 +579,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully opened, similar to <a href="http://man7.org/linux/man-pages/man2/open.2.html">open(2)</a> </dd></dl>
 
 </div>
 </div>
@@ -623,6 +606,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The amount of bytes read into the buffer, similar to <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a> </dd></dl>
 
 </div>
 </div>
@@ -649,6 +633,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reads up until maxSize into data </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Reference to a string to read into, string is purely used as a buffer </td></tr>
+    <tr><td class="paramname">maxSize</td><td>The maximum amount of bytes to read into our buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the file was entirely read into our buffer </dd></dl>
 
 </div>
 </div>
@@ -675,29 +668,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab0759194085cb08261f4b62bbb3a9d8c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void trippingcyril::File::ResetError </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Reads up to the delimiter into data </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Reference to a string to read into, string is purely used as a buffer </td></tr>
+    <tr><td class="paramname">delimiter</td><td>Up until what character we should read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the delimiter was found </dd></dl>
 
 </div>
 </div>
@@ -714,6 +693,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully moved to this spot in the file, similar to <a href="http://man7.org/linux/man-pages/man2/lseek.2.html">lseek(2)</a> </dd></dl>
 
 </div>
 </div>
@@ -729,6 +709,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully synchronized, similar to <a href="http://man7.org/linux/man-pages/man2/fsync.2.html">fsync(2)</a> </dd></dl>
 
 </div>
 </div>
@@ -745,6 +726,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if successfully truncated, similar to <a href="http://man7.org/linux/man-pages/man2/ftruncate.2.html">truncate(2)</a> </dd></dl>
 
 </div>
 </div>
@@ -771,6 +753,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The amount of bytes written into the file, similar to <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a> </dd></dl>
 
 </div>
 </div>
@@ -787,107 +770,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3336949ec666cb7290348851e1556959"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtrippingcyril_1_1_string.html">String</a> trippingcyril::File::buffer</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aad2525a3446ec15db9c0acaa712c7e9d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int trippingcyril::File::fd</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a25fcd193b97cab15d171203bdbbda7d1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtrippingcyril_1_1_string.html">String</a> trippingcyril::File::filename</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5ce2c14afb9f5168ccc6433efd60f224"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool trippingcyril::File::hadError</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a040df769302ae6014f638a6c4a8c9e01"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtrippingcyril_1_1_string.html">String</a> trippingcyril::File::shortname</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_file.html#af886907aa9bc1478e4ed68c20ba69cdc">Write</a> </dd></dl>
 
 </div>
 </div>
@@ -898,7 +781,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 16 2014 22:40:42 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 18 2014 20:51:34 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

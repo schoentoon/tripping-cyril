@@ -94,20 +94,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>An easy way to get temporary files in /tmp which will be deleted upon destruction of the object.  
+ <a href="classtrippingcyril_1_1_temp_file.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_files_8h_source.html">Files.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for trippingcyril::TempFile:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrippingcyril_1_1_temp_file__inherit__graph.png" border="0" usemap="#trippingcyril_1_1_temp_file_inherit__map" alt="Inheritance graph"/></div>
 <map name="trippingcyril_1_1_temp_file_inherit__map" id="trippingcyril_1_1_temp_file_inherit__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_file.html" title="trippingcyril::File" alt="" coords="21,5,139,32"/></map>
+<area shape="rect" id="node2" href="classtrippingcyril_1_1_file.html" title="A general file access class. " alt="" coords="21,5,139,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for trippingcyril::TempFile:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrippingcyril_1_1_temp_file__coll__graph.png" border="0" usemap="#trippingcyril_1_1_temp_file_coll__map" alt="Collaboration graph"/></div>
 <map name="trippingcyril_1_1_temp_file_coll__map" id="trippingcyril_1_1_temp_file_coll__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_file.html" title="trippingcyril::File" alt="" coords="21,203,139,229"/><area shape="rect" id="node3" href="classtrippingcyril_1_1_string.html" title="trippingcyril::String" alt="" coords="15,83,145,109"/></map>
+<area shape="rect" id="node2" href="classtrippingcyril_1_1_file.html" title="A general file access class. " alt="" coords="21,5,139,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -159,22 +162,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5192c874843e95dd575554e91c034498 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae3975b145aa3350fad40c091e3edb7e inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e">Open</a> (int flags=O_RDONLY, mode_t mode=0644)</td></tr>
 <tr class="separator:aae3975b145aa3350fad40c091e3edb7e inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44fabe060d099540d9ceee793fcbbdd inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad44fabe060d099540d9ceee793fcbbdd">Read</a> (char *<a class="el" href="classtrippingcyril_1_1_file.html#a3336949ec666cb7290348851e1556959">buffer</a>, size_t len)</td></tr>
+<tr class="memitem:ad44fabe060d099540d9ceee793fcbbdd inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad44fabe060d099540d9ceee793fcbbdd">Read</a> (char *buffer, size_t len)</td></tr>
 <tr class="separator:ad44fabe060d099540d9ceee793fcbbdd inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aace41ea320b9274ab8790e229a6a66fe inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aace41ea320b9274ab8790e229a6a66fe">ReadLine</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;delimiter=&quot;\n&quot;)</td></tr>
 <tr class="separator:aace41ea320b9274ab8790e229a6a66fe inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f4fbb7be5fd0f3e696e44e91f6523a1 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a0f4fbb7be5fd0f3e696e44e91f6523a1">ReadFile</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, size_t maxSize=512 *1024)</td></tr>
 <tr class="separator:a0f4fbb7be5fd0f3e696e44e91f6523a1 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af886907aa9bc1478e4ed68c20ba69cdc inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#af886907aa9bc1478e4ed68c20ba69cdc">Write</a> (const char *<a class="el" href="classtrippingcyril_1_1_file.html#a3336949ec666cb7290348851e1556959">buffer</a>, size_t len)</td></tr>
+<tr class="memitem:af886907aa9bc1478e4ed68c20ba69cdc inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#af886907aa9bc1478e4ed68c20ba69cdc">Write</a> (const char *buffer, size_t len)</td></tr>
 <tr class="separator:af886907aa9bc1478e4ed68c20ba69cdc inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c7cc4349425200dbdd3082a7f259095 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a8c7cc4349425200dbdd3082a7f259095">Write</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data)</td></tr>
 <tr class="separator:a8c7cc4349425200dbdd3082a7f259095 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2562a6854b5cb6d0c69f8b8563fd6d5 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad2562a6854b5cb6d0c69f8b8563fd6d5">Close</a> ()</td></tr>
 <tr class="separator:ad2562a6854b5cb6d0c69f8b8563fd6d5 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e25147eb979122a3b041bfeefc8613 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a46e25147eb979122a3b041bfeefc8613">HadError</a> () const </td></tr>
-<tr class="separator:a46e25147eb979122a3b041bfeefc8613 inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0759194085cb08261f4b62bbb3a9d8c inherit pub_methods_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ab0759194085cb08261f4b62bbb3a9d8c">ResetError</a> ()</td></tr>
-<tr class="separator:ab0759194085cb08261f4b62bbb3a9d8c inherit pub_methods_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -194,19 +193,10 @@ Additional Inherited Members</h2></td></tr>
 <br/>
  }</td></tr>
 <tr class="separator:af8f8c6ba3c0706c001186e9a30cece66 inherit pub_types_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_classtrippingcyril_1_1_file"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classtrippingcyril_1_1_file')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classtrippingcyril_1_1_file.html">trippingcyril::File</a></td></tr>
-<tr class="memitem:a3336949ec666cb7290348851e1556959 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a3336949ec666cb7290348851e1556959">buffer</a></td></tr>
-<tr class="separator:a3336949ec666cb7290348851e1556959 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25fcd193b97cab15d171203bdbbda7d1 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a25fcd193b97cab15d171203bdbbda7d1">filename</a></td></tr>
-<tr class="separator:a25fcd193b97cab15d171203bdbbda7d1 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040df769302ae6014f638a6c4a8c9e01 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a040df769302ae6014f638a6c4a8c9e01">shortname</a></td></tr>
-<tr class="separator:a040df769302ae6014f638a6c4a8c9e01 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad2525a3446ec15db9c0acaa712c7e9d inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aad2525a3446ec15db9c0acaa712c7e9d">fd</a></td></tr>
-<tr class="separator:aad2525a3446ec15db9c0acaa712c7e9d inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ce2c14afb9f5168ccc6433efd60f224 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a5ce2c14afb9f5168ccc6433efd60f224">hadError</a></td></tr>
-<tr class="separator:a5ce2c14afb9f5168ccc6433efd60f224 inherit pro_attribs_classtrippingcyril_1_1_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An easy way to get temporary files in /tmp which will be deleted upon destruction of the object. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aef5f65a2003113d6d31b5d1d5a8ea405"></a>
 <div class="memitem">
 <div class="memproto">
@@ -219,6 +209,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a temporary file in /tmp </p>
 
 </div>
 </div>
@@ -242,6 +233,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>This deconstructor will remove the file </p>
 
 </div>
 </div>
@@ -266,6 +258,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Will always return TEMPORARY </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classtrippingcyril_1_1_file.html#a0828b10a676ee6e0640f36a71d94112a">trippingcyril::File</a>.</p>
 
@@ -278,7 +271,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 16 2014 22:40:42 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 18 2014 20:51:34 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
