@@ -29,7 +29,6 @@ namespace trippingcyril {
 
 File::File(const String& path) {
   fd = -1;
-  hadError = false;
   filename = path;
   String::size_type sPos = path.rfind('/');
   if (sPos != String::npos)
@@ -160,7 +159,6 @@ bool File::Chmod(mode_t mode) {
 bool File::Seek(off_t pos) {
   if (fd != -1 && lseek(fd, pos, SEEK_SET) == pos)
     return true;
-  hadError = true;
   return false;
 };
 
@@ -169,34 +167,27 @@ bool File::Truncate(off_t len) {
     buffer.clear();
     return true;
   };
-  hadError = true;
   return false;
 };
 
 bool File::Sync() {
   if (fd != -1 && fsync(fd) == 0)
     return true;
-  hadError = true;
   return false;
 };
 
 bool File::Open(int flags, mode_t mode) {
   mode |= O_NOCTTY;
   fd = open(filename.c_str(), flags, mode);
-  if (fd < 0) {
-    hadError = true;
+  if (fd < 0)
     return false;
-  };
   return true;
 };
 
 int File::Read(char* buffer, size_t len) {
   if (fd == -1)
     return -1;
-  int res = read(fd, buffer, len);
-  if (res < 0)
-    hadError = true;
-  return res;
+  return read(fd, buffer, len);
 };
 
 #define READ_BUF 8192
@@ -248,10 +239,7 @@ bool File::ReadFile(String& data, size_t maxSize) {
 int File::Write(const char* buffer, size_t len) {
   if (fd == -1)
     return -1;
-  int res = write(fd, buffer, len);
-  if (res < 0)
-    hadError = true;
-  return res;
+  return write(fd, buffer, len);
 };
 
 int File::Write(const String& data) {
@@ -260,8 +248,7 @@ int File::Write(const String& data) {
 
 void File::Close() {
   if (fd > 0) {
-    if (close(fd) < 0)
-      hadError = true;
+    close(fd);
     fd = -1;
   };
 };

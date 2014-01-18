@@ -24,6 +24,11 @@ using namespace std;
 
 namespace trippingcyril {
 
+/**
+ * @brief A wrapper string class to make a various amount of things just easier
+ * to type. All strings used should be of this type, add methods to this class
+ * as you need them.
+ */
 class String : public string {
 public:
   explicit String(bool b) : string(b ? "true" : "false") {};
@@ -46,22 +51,66 @@ public:
   String(const string& s) : string(s) {};
   virtual ~String() {};
 
+  /**
+   * Do a wildcard comparison on this string. Where "*" will match any number of
+   * characters and "?" will match a single character. For example
+   * <code>String("I_am@~bar@foo").WildCmp("*!?bar@foo")</code>
+   * would return true.
+   * @param wild The wildcard to use for this comparison
+   * @return true if the wildcard matches
+   */
   bool WildCmp(const String& wild);
-  bool Trim(const String& to_trim = " \t\r\n");
-  bool TrimLeft(const String& to_trim = " \t\r\n");
-  bool TrimRight(const String& to_trim = " \t\r\n");
-  String MakeLower();
 
+  /**
+   * Trim this string, all leading occurences of characters to_trim are removed.
+   * @param to_trim A list of characters that should be trimmed.
+   * @return true if this string as modified.
+   */
+  bool Trim(const String& to_trim = " \t\r\n");
+  /**
+   * Trim this string, all leading occurences of characters to_trim are removed.
+   * @param to_trim A list of characters that should be trimmed.
+   * @return true if this string as modified.
+   */
+  bool TrimLeft(const String& to_trim = " \t\r\n");
+  /**
+   * Trim this string, all leading occurences of characters to_trim are removed.
+   * @param to_trim A list of characters that should be trimmed.
+   * @return true if this string as modified.
+   */
+  bool TrimRight(const String& to_trim = " \t\r\n");
+  /**
+   * Turn all characters in this string into their lower-case equivalent.
+   * @return A reference to *this.
+   */
+  String& MakeLower();
+  /**
+   * Turn all characters in this string into their upper-case equivalent.
+   * @return A reference to *this.
+   */
+  String& MakeUpper();
+
+  /** @return True if this string is not "false". */
   bool ToBool() const;
+  /** @return The numerical value of this string similar to atoi(). */
   short ToShort(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned short ToUShort(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   int ToInt(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned int ToUInt(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   long ToLong(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned long ToULong(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   long long ToLongLong(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned long long ToULongLong(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
   double ToDouble() const;
+  /** @return The numerical value of this string similar to atoi(). */
   float ToFloat() const;
 };
 

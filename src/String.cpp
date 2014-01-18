@@ -93,10 +93,18 @@ bool String::TrimRight(const String& to_trim) {
   return true;
 };
 
-String String::MakeLower() {
-  for (unsigned int c = 0; c < length(); c++) {
+String& String::MakeLower() {
+  for (unsigned int c = 0; c < length(); ++c) {
     char& ch = (*this)[c];
     ch = tolower(ch);
+  };
+  return *this;
+};
+
+String& String::MakeUpper() {
+  for (unsigned int c = 0; c < length(); ++c) {
+    char& ch = (*this)[c];
+    ch = toupper(ch);
   };
   return *this;
 };
