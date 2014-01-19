@@ -95,13 +95,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>An inotify wrapper class.  
+ <a href="classtrippingcyril_1_1_file_observer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_files_8h_source.html">Files.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6663ad6acf3e7e0b719e51d38e3be4b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file_observer.html#a6663ad6acf3e7e0b719e51d38e3be4b8">Register</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;directory, <a class="el" href="classtrippingcyril_1_1_file_observer_callback.html">FileObserverCallback</a> *callback)</td></tr>
+<tr class="memdesc:a6663ad6acf3e7e0b719e51d38e3be4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a <a class="el" href="classtrippingcyril_1_1_file_observer_callback.html" title="An inotify wrapper class callback. ">FileObserverCallback</a> for directory.  <a href="#a6663ad6acf3e7e0b719e51d38e3be4b8">More...</a><br/></td></tr>
 <tr class="separator:a6663ad6acf3e7e0b719e51d38e3be4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d620543f73a5c0411b91953d82f26f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file_observer.html#a1d620543f73a5c0411b91953d82f26f0">Unregister</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;directory)</td></tr>
+<tr class="memdesc:a1d620543f73a5c0411b91953d82f26f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters a directory from being watched.  <a href="#a1d620543f73a5c0411b91953d82f26f0">More...</a><br/></td></tr>
 <tr class="separator:a1d620543f73a5c0411b91953d82f26f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1438a0360d52539be679580789fca27d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file_observer.html#a1438a0360d52539be679580789fca27d">amountWatchedFolders</a> ()</td></tr>
 <tr class="separator:a1438a0360d52539be679580789fca27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,7 +116,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:afd7cbc6c2876ec0553271f91b97069d3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtrippingcyril_1_1_file_observer.html">FileObserver</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file_observer.html#afd7cbc6c2876ec0553271f91b97069d3">Get</a> ()</td></tr>
 <tr class="separator:afd7cbc6c2876ec0553271f91b97069d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An inotify wrapper class. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a1438a0360d52539be679580789fca27d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -132,6 +139,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The amount of folders being watched </dd></dl>
 
 </div>
 </div>
@@ -155,6 +163,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a class="el" href="classtrippingcyril_1_1_file_observer.html" title="An inotify wrapper class. ">FileObserver</a> is currently a singleton, use this method to get it. </p>
 
 </div>
 </div>
@@ -182,6 +191,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Registers a <a class="el" href="classtrippingcyril_1_1_file_observer_callback.html" title="An inotify wrapper class callback. ">FileObserverCallback</a> for directory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">directory</td><td>The directory to watch </td></tr>
+    <tr><td class="paramname">callback</td><td>The <a class="el" href="classtrippingcyril_1_1_file_observer_callback.html" title="An inotify wrapper class callback. ">FileObserverCallback</a> to use for this directory, can't be NULL </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if registered successfully </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a1d620543f73a5c0411b91953d82f26f0"></a>
@@ -198,6 +217,15 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Unregisters a directory from being watched. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">directory</td><td>The directory to stop watching </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if unregistered successfully </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -207,7 +235,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 18 2014 20:51:34 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 19 2014 22:23:36 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

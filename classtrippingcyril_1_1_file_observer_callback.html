@@ -97,6 +97,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>An inotify wrapper class callback.  
+ <a href="classtrippingcyril_1_1_file_observer_callback.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_files_8h_source.html">Files.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -133,7 +136,10 @@ Friends</h2></td></tr>
 <tr class="memitem:a4b52c311bd4ce9ed180ae976ba0a6196"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file_observer_callback.html#a4b52c311bd4ce9ed180ae976ba0a6196">FileObserver</a></td></tr>
 <tr class="separator:a4b52c311bd4ce9ed180ae976ba0a6196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An inotify wrapper class callback. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_file_observer.html" title="An inotify wrapper class. ">FileObserver</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a97417cae69341cd8a5a5ea9e0ed68097"></a>
 <div class="memitem">
 <div class="memproto">
@@ -202,6 +208,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Requires IN_ACCESS, will get called once a file was accessed. </p>
 
 </div>
 </div>
@@ -226,6 +233,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Requires IN_ATTRIB, will get called once the metadata of a file was modified. </p>
 
 </div>
 </div>
@@ -250,6 +258,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Requires IN_CLOSE_NOWRITE, will get called once a file opened not for writing is closed. </p>
 
 </div>
 </div>
@@ -274,6 +283,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Requires IN_CLOSE_WRITE, will get called once a file opened for writing is closed. </p>
 
 </div>
 </div>
@@ -298,6 +308,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Requires IN_CREATE, will get called once a new file/directory was created. </p>
 
 </div>
 </div>
@@ -322,6 +333,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Requires IN_DELETE, will get called once a file/directory is deleted. </p>
 
 </div>
 </div>
@@ -346,6 +358,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Requires IN_MODIFY, will get called once a file was modified. </p>
 
 </div>
 </div>
@@ -388,6 +401,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The mask to register with, note that this will decide what On* methods will get called, see <a href="http://man7.org/linux/man-pages/man7/inotify.7.html">inotify(7)</a> for help with the mask </p>
 
 </div>
 </div>
@@ -397,7 +411,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 18 2014 20:51:34 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 19 2014 22:23:36 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
