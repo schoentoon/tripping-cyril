@@ -162,6 +162,10 @@ public:
 
 class FileObserver;
 
+/**
+ * @brief An inotify wrapper class callback
+ * @see FileObserver
+ */
 class FileObserverCallback {
 public:
   FileObserverCallback() {
@@ -169,32 +173,77 @@ public:
   };
   virtual ~FileObserverCallback() {};
 protected:
+  /**
+   * Requires IN_ACCESS, will get called once a file was accessed.
+   */
   virtual void OnAccess(File& file) {};
+  /**
+   * Requires IN_MODIFY, will get called once a file was modified.
+   */
   virtual void OnModify(File& file) {};
+  /**
+   * Requires IN_ATTRIB, will get called once the metadata of a file was modified.
+   */
   virtual void OnAtrributeChanged(File& file) {};
+  /**
+   * Requires IN_CLOSE_WRITE, will get called once a file opened for writing is closed.
+   */
   virtual void OnCloseWrite(File& file) {};
+  /**
+   * Requires IN_CLOSE_NOWRITE, will get called once a file opened not for writing is closed.
+   */
   virtual void OnCloseNoWrite(File& file) {};
+  /**
+   * Requires IN_DELETE, will get called once a file/directory is deleted.
+   */
   virtual void OnDelete(File& file) {};
+  /**
+   * Requires IN_CREATE, will get called once a new file/directory was created.
+   */
   virtual void OnCreate(File& file) {};
+  /**
+   * The mask to register with, note that this will decide what On* methods will get called, see
+   * <a href="http://man7.org/linux/man-pages/man7/inotify.7.html">inotify(7)</a> for help with the mask
+   */
   int mask;
   friend class FileObserver;
 };
 
+/**
+ * @brief An inotify wrapper class
+ */
 class FileObserver {
 public:
+  /**
+   * FileObserver is currently a singleton, use this method to get it.
+   */
   static FileObserver* Get() {
     static FileObserver* singleton = new FileObserver();
     return singleton;
   };
+  /**
+   * @brief Registers a FileObserverCallback for directory
+   * @param directory The directory to watch
+   * @param callback The FileObserverCallback to use for this directory, can't be NULL
+   * @return true if registered successfully
+   */
   bool Register(const String& directory, FileObserverCallback* callback);
+  /**
+   * @brief Unregisters a directory from being watched
+   * @param directory The directory to stop watching
+   * @return true if unregistered successfully
+   */
   bool Unregister(const String& directory);
+  /** @return The amount of folders being watched */
   size_t amountWatchedFolders() { return folders.size(); };
 private:
   FileObserver();
+  // @cond
   map<int, String> folders;
   map<int, FileObserverCallback*> callbacks;
   int inotifyfd;
   static void readcb(struct bufferevent* bev, void* arg);
+  // @endcond
 };
 
 };
