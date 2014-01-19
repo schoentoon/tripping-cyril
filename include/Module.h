@@ -50,24 +50,24 @@ class Module {
 public:
   Module(ModHandle so, const String& modName);
   virtual ~Module();
-  virtual String GetVersion() = 0;
+  virtual String GetVersion() const = 0;
   virtual void OnLoaded() {};
-  String GetModName() const { return modName; };
-  struct event_base* GetEventBase() { return event_base; };
-  struct evdns_base* GetDNSBase() { return dns_base; };
+  const String GetModName() const { return modName; };
+  struct event_base* GetEventBase() const { return event_base; };
+  struct evdns_base* GetDNSBase() const { return dns_base; };
   static Module* LoadModule(const String& path, const String& modName, String& retMsg);
 protected:
   struct event_base* event_base;
   struct evdns_base* dns_base;
 private:
-  set<Socket*> sockets;
-  set<Timer*> timers;
-  void AddSocket(Socket* socket);
-  void DelSocket(Socket* socket);
-  void AddTimer(Timer* timer);
-  void DelTimer(Timer* timer);
-  String modName;
-  ModHandle so;
+  mutable set<Socket*> sockets;
+  mutable set<Timer*> timers;
+  void AddSocket(Socket* socket) const;
+  void DelSocket(Socket* socket) const;
+  void AddTimer(Timer* timer) const;
+  void DelTimer(Timer* timer) const;
+  const ModHandle so;
+  const String modName;
   friend class Global;
   friend class Socket;
   friend class Timer;

@@ -38,7 +38,7 @@ public:
 
 class SimpleHTTPSocket : public Socket {
 public:
-  SimpleHTTPSocket(Module* module, HTTPCallback* callback = NULL);
+  SimpleHTTPSocket(const Module* module, HTTPCallback* callback = NULL);
   virtual ~SimpleHTTPSocket();
   static bool CrackURL(const String& url, String& host, String& path, unsigned short& port, bool& ssl);
   bool Get(const String& url);
@@ -69,7 +69,7 @@ private:
     HTTPParser(SimpleHTTPSocket* socket);
     virtual ~HTTPParser();
     bool ParseLine(const String& line);
-    bool IsCompressed() { return zlib_stream != NULL; };
+    bool IsCompressed() const { return zlib_stream != NULL; };
     unsigned short responseCode;
     long contentLength;
     bool chunked;

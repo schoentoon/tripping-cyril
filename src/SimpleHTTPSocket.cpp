@@ -23,7 +23,7 @@
 
 namespace trippingcyril {
 
-SimpleHTTPSocket::SimpleHTTPSocket(Module* module, HTTPCallback* callback)
+SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
 : Socket(module), parser(this) {
   this->callback = callback;
 };

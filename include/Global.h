@@ -36,9 +36,9 @@ public:
   };
   bool LoadModule(const String& path, String& retMsg);
   bool UnloadModule(const String& modName, String& retMsg);
-  size_t LoadedModules() { return modules.size(); };
-  struct event_base* GetEventBase() { return event_base; };
-  struct evdns_base* GetDNSBase() { return dns_base; };
+  size_t LoadedModules() const { return modules.size(); };
+  struct event_base* GetEventBase() const { return event_base; };
+  struct evdns_base* GetDNSBase() const { return dns_base; };
   void Loop();
 private:
   Global();

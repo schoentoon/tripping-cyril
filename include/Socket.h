@@ -31,16 +31,16 @@ namespace trippingcyril {
 
 class Socket {
 public:
-  Socket(Module* module);
+  Socket(const Module* module);
   virtual ~Socket();
   void Close();
   bool Connect(const String& hostname, uint16_t port, bool ssl = false, unsigned int timeout = 60);
   void Write(const char* data, size_t len);
   void Write(const String& data);
   void SetReadLine(bool b) { readline = b; };
-  bool IsConnected() { return is_connected; };
+  bool IsConnected() const { return is_connected; };
   void SetTimeout(double timeout);
-  Module* GetModule() const { return module; };
+  const Module* GetModule() const { return module; };
 protected:
   virtual void Connected() {};
   virtual void Timeout() {};
@@ -53,7 +53,7 @@ private:
   uint8_t is_connected : 1;
   uint8_t closing : 1;
   struct bufferevent* connection;
-  Module* module;
+  const Module* module;
   static void readcb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
   friend class test::LibEventHelper;

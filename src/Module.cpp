@@ -25,9 +25,9 @@
 
 namespace trippingcyril {
 
-Module::Module(ModHandle so, const String& modName) {
-  this->so = so;
-  this->modName = modName;
+Module::Module(ModHandle pSo, const String& pModName)
+: so(pSo)
+, modName(pModName) {
   event_base = Global::Get()->GetEventBase();
   dns_base = Global::Get()->GetDNSBase();
 };
@@ -60,11 +60,11 @@ Module* Module::LoadModule(const String& path, const String& modName, String& re
   return output;
 };
 
-void Module::AddSocket(Socket* socket) {
+void Module::AddSocket(Socket* socket) const {
   sockets.insert(socket);
 };
 
-void Module::DelSocket(Socket* socket) {
+void Module::DelSocket(Socket* socket) const {
   for (set<Socket*>::iterator iter = sockets.begin(); iter != sockets.end(); ++iter) {
     if (*iter == socket) {
       sockets.erase(iter);
@@ -73,11 +73,11 @@ void Module::DelSocket(Socket* socket) {
   };
 };
 
-void Module::AddTimer(Timer* timer) {
+void Module::AddTimer(Timer* timer) const {
   timers.insert(timer);
 };
 
-void Module::DelTimer(Timer* timer) {
+void Module::DelTimer(Timer* timer) const {
   for (set<Timer*>::iterator iter = timers.begin(); iter != timers.end(); ++iter) {
     if (*iter == timer) {
       timers.erase(iter);

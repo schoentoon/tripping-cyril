@@ -25,7 +25,7 @@ class DummyModule : public Module {
 public:
   MODCONSTRUCTORHEADER(DummyModule);
   virtual ~DummyModule() {};
-  String GetVersion() { return "dummy"; };
+  String GetVersion() const { return "dummy"; };
 };
 
 MODCONSTRUCTOR(DummyModule) {

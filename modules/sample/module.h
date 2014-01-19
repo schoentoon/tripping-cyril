@@ -29,7 +29,7 @@ class SampleModule : public Module {
 public:
   MODCONSTRUCTORHEADER(SampleModule);
   virtual ~SampleModule();
-  String GetVersion() { return "sample"; };
+  String GetVersion() const { return "sample"; };
   void OnLoaded();
 };
 

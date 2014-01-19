@@ -25,8 +25,8 @@
 
 namespace trippingcyril {
 
-Socket::Socket(Module* module) {
-  this->module = module;
+Socket::Socket(const Module* pModule)
+: module(pModule) {
   if (module != NULL)
     module->AddSocket(this);
   connection = NULL;

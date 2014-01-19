@@ -39,7 +39,7 @@ public:
     tm.tv_sec = 10;
     EXPECT_EQ(0, event_base_loopexit(event_base, &tm));
   };
-  String GetVersion() { return ""; };
+  String GetVersion() const { return "test"; };
   bool Loop() {
     return event_base_dispatch(event_base) == 0;
   };

@@ -23,16 +23,16 @@
 
 namespace trippingcyril {
 
-Timer::Timer(Module* module) {
-  this->module = module;
+Timer::Timer(const Module* pModule)
+: module(pModule) {
   if (module != NULL)
     module->AddTimer(this);
   this->timer = NULL;
   this->stop = 0;
 };
 
-Timer::Timer(Module* module, double interval, unsigned int maxCycles) {
-  this->module = module;
+Timer::Timer(const Module* pModule, double interval, unsigned int maxCycles)
+: module(pModule) {
   if (module != NULL)
     module->AddTimer(this);
   this->timer = NULL;

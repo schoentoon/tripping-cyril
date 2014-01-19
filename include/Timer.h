@@ -26,19 +26,19 @@ namespace trippingcyril {
 
 class Timer {
 public:
-  Timer(Module* module);
-  Timer(Module* module, double interval, unsigned int maxCycles = 0);
+  Timer(const Module* module);
+  Timer(const Module* module, double interval, unsigned int maxCycles = 0);
   virtual ~Timer();
   void Start(double interval);
   void Start(struct timeval& tv);
   void StartMaxCycles(double interval, unsigned int maxCycles);
   void Stop();
-  Module* GetModule() const { return module; };
+  const Module* GetModule() const { return module; };
 protected:
   virtual void RunJob() {};
   virtual void Finished() {};
 private:
-  Module* module;
+  const Module* module;
   unsigned int maxCycles;
   unsigned int currentCycle;
   unsigned char stop : 1;
