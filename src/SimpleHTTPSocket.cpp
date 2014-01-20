@@ -71,8 +71,8 @@ bool SimpleHTTPSocket::CrackURL(const String& url, String& host, String& path, u
   return true;
 };
 
-void SimpleHTTPSocket::MakeRequestHeaders(bool post, const String& host, const String& path, unsigned short port, bool ssl) {
-  buffer = (post) ? "POST " : "GET ";
+void SimpleHTTPSocket::MakeRequestHeaders(const String& method, const String& host, const String& path, unsigned short port, bool ssl) {
+  buffer = method + " ";
   if (path.empty())
     buffer += "/";
   else if (path.substr(0, 1) == "/")
@@ -89,20 +89,33 @@ void SimpleHTTPSocket::MakeRequestHeaders(bool post, const String& host, const S
 };
 
 bool SimpleHTTPSocket::Get(const String& url) {
-  this->url = url;
   String path, host;
   unsigned short port;
   bool ssl;
   if (CrackURL(url, host, path, port, ssl) == false)
     return false;
-  MakeRequestHeaders(false, host, path, port, ssl);
+  this->url = url;
+  MakeRequestHeaders("GET", host, path, port, ssl);
   buffer += "\r\n";
   Connect(host, port, ssl);
   return true;
 };
 
 bool SimpleHTTPSocket::Post(const String& url, const String& postData, const String& type) {
-  return false; // TODO Not implemented yet.
+  String path, host;
+  unsigned short port;
+  bool ssl;
+  if (CrackURL(url, host, path, port, ssl) == false)
+    return false;
+  this->url = url;
+  extraHeaders["Content-Type"] = type;
+  extraHeaders["Content-Length"] = String(postData.size());
+  MakeRequestHeaders("POST", host, path, port, ssl);
+  buffer += "\r\n";
+  buffer += postData;
+  buffer += "\r\n";
+  Connect(host, port, ssl);
+  return true;
 };
 
 void SimpleHTTPSocket::Connected() {

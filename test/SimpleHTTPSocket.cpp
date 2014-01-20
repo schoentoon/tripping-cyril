@@ -151,4 +151,28 @@ TEST_F(SimpleHTTPSocket, GZip) {
   EXPECT_DEATH(delete callback, "");
 };
 
+TEST_F(SimpleHTTPSocket, KeepCallbackAround) {
+  TestHTTPCallback* callback = new TestHTTPCallback;
+  callback->keepAround = true;
+  bool done = false;
+  callback->done = &done;
+  trippingcyril::SimpleHTTPSocket* socket = new trippingcyril::SimpleHTTPSocket(event_base, callback);
+  EXPECT_FALSE(socket->IsConnected());
+  EXPECT_TRUE(socket->Get("http://127.0.0.1/test"));
+  event_base->Event(socket, BEV_EVENT_CONNECTED);
+  EXPECT_TRUE(socket->IsConnected());
+  String data = "HTTP/1.0 200 OK\r\n"
+  "Content-Type: application/json\r\n"
+  "Content-Length: 36\r\n"
+  "Access-Control-Allow-Origin: *\r\n"
+  "Connection: close\r\n\r\n{\"leet\":1337\r\n"
+    ",\"numbers\": [1,2,3,4]}";
+  event_base->AddData(data, socket);
+  while (done == false)
+    event_base->Read(socket);
+  event_base->Event(socket, BEV_EVENT_ERROR);
+  EXPECT_DEATH(delete socket, "");
+  delete callback; // This shouldn't die this time.
+};
+
 };

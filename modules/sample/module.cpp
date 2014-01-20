@@ -44,6 +44,8 @@ void SampleModule::OnLoaded() {
   socket->Get("http://httpbin.org/stream/100");
   socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Get("http://httpbin.org/gzip");
+  socket = new SimpleHTTPSocket(this, new PrintHttp);
+  socket->Post("http://httpbin.org/post", "{\"test\":true}", "application/json");
   //int* foo = (int*) -1;
   //std::cerr << *foo << std::endl;
 };
