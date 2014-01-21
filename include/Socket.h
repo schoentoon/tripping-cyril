@@ -34,12 +34,13 @@ public:
   Socket(const Module* module);
   virtual ~Socket();
   void Close();
-  bool Connect(const String& hostname, uint16_t port, bool ssl = false, unsigned int timeout = 60);
+  bool Connect(const String& hostname, uint16_t port, bool ssl = false, double timeout = 60.0);
   void Write(const char* data, size_t len);
   void Write(const String& data);
   void SetReadLine(bool b) { readline = b; };
   bool IsConnected() const { return is_connected; };
   void SetTimeout(double timeout);
+  void DisableTimeout() { SetTimeout(-1); };
   const Module* GetModule() const { return module; };
 protected:
   virtual void Connected() {};

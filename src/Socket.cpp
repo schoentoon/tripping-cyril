@@ -113,14 +113,19 @@ void Socket::eventcb(struct bufferevent* bev, short what, void* ctx) {
 
 void Socket::Close() {
   closing = 1;
-  SetTimeout(0.0);
+  timeout.tv_sec = 0;
+  timeout.tv_usec = 0;
+  bufferevent_set_timeouts(connection, &timeout, &timeout);
 };
 
 void Socket::SetTimeout(double dTimeout) {
-  timeout.tv_sec = (__time_t) dTimeout;
-  timeout.tv_usec = (__suseconds_t) ((dTimeout - (double) timeout.tv_sec) * 1000000.0);
-  if (connection)
-    bufferevent_set_timeouts(connection, &timeout, &timeout);
+  if (dTimeout > 0) {
+    timeout.tv_sec = (__time_t) dTimeout;
+    timeout.tv_usec = (__suseconds_t) ((dTimeout - (double) timeout.tv_sec) * 1000000.0);
+    if (connection)
+      bufferevent_set_timeouts(connection, &timeout, &timeout);
+  } else if (connection)
+    bufferevent_set_timeouts(connection, NULL, NULL);
 };
 
 bool Socket::SetTCPNoDelay(bool enable) {
@@ -157,7 +162,7 @@ static SSL_CTX* createSSL_CTX() {
   return ssl_ctx;
 };
 
-bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, unsigned int timeout) {
+bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTimeout) {
   if (connection != NULL)
     return false; // Already connected.
   struct event_base* base = (module != NULL) ? module->GetEventBase() : Global::Get()->GetEventBase();
@@ -169,12 +174,8 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, unsigned i
   } else
     connection = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
   bufferevent_socket_connect_hostname(connection, dns, AF_INET, hostname.c_str(), port);
-  if (timeout > 0) {
-    struct timeval tv;
-    tv.tv_sec = timeout;
-    tv.tv_usec = 0;
-    bufferevent_set_timeouts(connection, &tv, &tv);
-  }
+  if (dTimeout > 0)
+    SetTimeout(dTimeout);
   bufferevent_setcb(connection, Socket::readcb, NULL, Socket::eventcb, this);
   bufferevent_enable(connection, EV_READ);
   return true;
