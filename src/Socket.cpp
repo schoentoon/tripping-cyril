@@ -17,6 +17,7 @@
 
 #include "Socket.h"
 
+#include <netinet/tcp.h>
 #include <openssl/ssl.h>
 #include <event2/buffer.h>
 #include <event2/bufferevent_ssl.h>
@@ -34,6 +35,7 @@ Socket::Socket(const Module* pModule)
   is_connected = 0;
   closing = 0;
   read_more = 0;
+  tcp_no_delay = 0;
 };
 
 Socket::~Socket() {
@@ -87,6 +89,11 @@ void Socket::eventcb(struct bufferevent* bev, short what, void* ctx) {
   Socket* socket = (Socket*) ctx;
   if (socket != NULL) {
     if (what & BEV_EVENT_CONNECTED) {
+      if (socket->tcp_no_delay == 1) {
+        evutil_socket_t fd = bufferevent_getfd(bev);
+        int mode = socket->tcp_no_delay;
+        setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &mode, sizeof(mode));
+      };
       socket->Connected();
       socket->is_connected = 1;
     } else if (what & BEV_EVENT_TIMEOUT) {
@@ -111,6 +118,15 @@ void Socket::SetTimeout(double timeout) {
     tv.tv_sec = (__time_t) timeout;
     tv.tv_usec = (__suseconds_t) ((timeout - (double) tv.tv_sec) * 1000000.0);
     bufferevent_set_timeouts(connection, &tv, &tv);
+  };
+};
+
+void Socket::SetTCPNoDelay(bool enable) {
+  tcp_no_delay = enable ? 1 : 0;
+  if (IsConnected()) {
+    evutil_socket_t fd = bufferevent_getfd(connection);
+    int mode = tcp_no_delay;
+    setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &mode, sizeof(mode));
   };
 };
 

@@ -48,10 +48,12 @@ protected:
   virtual size_t ReadData(const char* data, size_t len) { return len; };
   virtual void ReadLine(const String& line) {};
   uint8_t read_more : 1;
+  void SetTCPNoDelay(bool enable);
 private:
   uint8_t readline : 1;
   uint8_t is_connected : 1;
   uint8_t closing : 1;
+  uint8_t tcp_no_delay : 1;
   struct bufferevent* connection;
   const Module* module;
   static void readcb(struct bufferevent* bev, void* ctx);
