@@ -27,6 +27,7 @@ SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
 : Socket(module), parser(this) {
   this->callback = callback;
   SetTCPNoDelay(true);
+  SetTimeout(60);
 };
 
 SimpleHTTPSocket::~SimpleHTTPSocket() {

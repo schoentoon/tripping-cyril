@@ -36,6 +36,9 @@ Socket::Socket(const Module* pModule)
   closing = 0;
   read_more = 0;
   tcp_no_delay = 0;
+  tcp_keep_alive = 1;
+  tcp_keep_alive_interval = 45;
+  SetTimeout(0.0);
 };
 
 Socket::~Socket() {
@@ -89,11 +92,12 @@ void Socket::eventcb(struct bufferevent* bev, short what, void* ctx) {
   Socket* socket = (Socket*) ctx;
   if (socket != NULL) {
     if (what & BEV_EVENT_CONNECTED) {
-      if (socket->tcp_no_delay == 1) {
-        evutil_socket_t fd = bufferevent_getfd(bev);
-        int mode = socket->tcp_no_delay;
-        setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &mode, sizeof(mode));
-      };
+      socket->is_connected = 1; // This way IsConnected() will return true for our connection setters
+      socket->SetTCPNoDelay(socket->tcp_no_delay == 1);
+      socket->SetTCPKeepAlive(socket->tcp_keep_alive == 1, socket->tcp_keep_alive_interval);
+      if (socket->timeout.tv_sec > 0 || socket->timeout.tv_usec > 0)
+        bufferevent_set_timeouts(bev, &socket->timeout, &socket->timeout);
+      socket->is_connected = 0;
       socket->Connected();
       socket->is_connected = 1;
     } else if (what & BEV_EVENT_TIMEOUT) {
@@ -112,22 +116,39 @@ void Socket::Close() {
   SetTimeout(0.0);
 };
 
-void Socket::SetTimeout(double timeout) {
-  if (connection) {
-    struct timeval tv;
-    tv.tv_sec = (__time_t) timeout;
-    tv.tv_usec = (__suseconds_t) ((timeout - (double) tv.tv_sec) * 1000000.0);
-    bufferevent_set_timeouts(connection, &tv, &tv);
-  };
+void Socket::SetTimeout(double dTimeout) {
+  timeout.tv_sec = (__time_t) dTimeout;
+  timeout.tv_usec = (__suseconds_t) ((dTimeout - (double) timeout.tv_sec) * 1000000.0);
+  if (connection)
+    bufferevent_set_timeouts(connection, &timeout, &timeout);
 };
 
-void Socket::SetTCPNoDelay(bool enable) {
+bool Socket::SetTCPNoDelay(bool enable) {
   tcp_no_delay = enable ? 1 : 0;
   if (IsConnected()) {
     evutil_socket_t fd = bufferevent_getfd(connection);
     int mode = tcp_no_delay;
-    setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &mode, sizeof(mode));
+    return setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &mode, sizeof(mode)) == 0;
   };
+  return true;
+};
+
+bool Socket::SetTCPKeepAlive(bool enable, int delay) {
+  tcp_keep_alive = enable ? 1 : 0;
+  if (IsConnected()) {
+    evutil_socket_t fd = bufferevent_getfd(connection);
+    int mode = tcp_keep_alive ? 1 : 0;
+    if (setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &mode, sizeof(mode)) != 0)
+      return false;
+    if (!enable)
+      return true;
+    tcp_keep_alive_interval = delay;
+    if (setsockopt(fd, SOL_TCP, TCP_KEEPIDLE, &delay, sizeof(delay)) != 0)
+      return false;
+    if (setsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &delay, sizeof(delay)) != 0)
+      return false;
+  };
+  return true;
 };
 
 static SSL_CTX* createSSL_CTX() {
