@@ -10,5 +10,16 @@ var searchData=
   ['onmodify',['OnModify',['../classtrippingcyril_1_1_file_observer_callback.html#a457c25567a48bd682c8b5c6be3505cde',1,'trippingcyril::FileObserverCallback']]],
   ['onrequestdone',['OnRequestDone',['../classtrippingcyril_1_1_h_t_t_p_callback.html#aacb653bc4987a892957615899fad775e',1,'trippingcyril::HTTPCallback::OnRequestDone()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a998d7a2d7c5356c7f5b81fe8c803f837',1,'trippingcyril::SimpleHTTPSocket::OnRequestDone()']]],
   ['onrequesterror',['OnRequestError',['../classtrippingcyril_1_1_h_t_t_p_callback.html#a798f55c6f4f2ce8aed7287175ae11336',1,'trippingcyril::HTTPCallback::OnRequestError()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a4f143f203beea1b922560169e5edbd62',1,'trippingcyril::SimpleHTTPSocket::OnRequestError()']]],
-  ['open',['Open',['../classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e',1,'trippingcyril::File']]]
+  ['open',['Open',['../classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e',1,'trippingcyril::File']]],
+  ['operator_20bool',['operator bool',['../classtrippingcyril_1_1_string.html#a395ad4237d1adda9d14cb9a336bb6cbe',1,'trippingcyril::String']]],
+  ['operator_20double',['operator double',['../classtrippingcyril_1_1_string.html#af8cd4c59cc6e75126cb60ae40363c9da',1,'trippingcyril::String']]],
+  ['operator_20float',['operator float',['../classtrippingcyril_1_1_string.html#a9d0919855189159236f29bfff5e0e687',1,'trippingcyril::String']]],
+  ['operator_20int',['operator int',['../classtrippingcyril_1_1_string.html#ad73f128b2985b38abb58a7a4d684c5eb',1,'trippingcyril::String']]],
+  ['operator_20long',['operator long',['../classtrippingcyril_1_1_string.html#ad4709759333db2c324b22d6b377bae6c',1,'trippingcyril::String']]],
+  ['operator_20long_20long',['operator long long',['../classtrippingcyril_1_1_string.html#a3c27f37e409ec79d90efeb255f20cadc',1,'trippingcyril::String']]],
+  ['operator_20short',['operator short',['../classtrippingcyril_1_1_string.html#abde800fc27cccea5b8744de110b12280',1,'trippingcyril::String']]],
+  ['operator_20unsigned_20int',['operator unsigned int',['../classtrippingcyril_1_1_string.html#a3ed4f08c20f25b3e8817a9a79cf0f2b8',1,'trippingcyril::String']]],
+  ['operator_20unsigned_20long',['operator unsigned long',['../classtrippingcyril_1_1_string.html#a57845a6e64861fbf9f82679b24da3f18',1,'trippingcyril::String']]],
+  ['operator_20unsigned_20long_20long',['operator unsigned long long',['../classtrippingcyril_1_1_string.html#aa83c6a12f8896da333b21fdc8be24ec7',1,'trippingcyril::String']]],
+  ['operator_20unsigned_20short',['operator unsigned short',['../classtrippingcyril_1_1_string.html#af7c3ac09291ccf44cbf68a0e0a13c994',1,'trippingcyril::String']]]
 ];

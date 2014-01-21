@@ -5,6 +5,7 @@ var searchData=
   ['setextraheader',['setExtraHeader',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#af2733b23176bb6c9dfcfebc4306be0c5',1,'trippingcyril::SimpleHTTPSocket']]],
   ['setinteractive',['SetInteractive',['../namespacetrippingcyril_1_1crash.html#ac00752234e0b2edb7dbfb1ff2f2bc00f',1,'trippingcyril::crash']]],
   ['setreadline',['SetReadLine',['../classtrippingcyril_1_1_socket.html#ad9f3f8f3df1f95eadd9cf30226ecb311',1,'trippingcyril::Socket']]],
+  ['settcpnodelay',['SetTCPNoDelay',['../classtrippingcyril_1_1_socket.html#a3318f6221d932fc01cf67711b99e8131',1,'trippingcyril::Socket']]],
   ['settimeout',['SetTimeout',['../classtrippingcyril_1_1_socket.html#a051d0803aadf5bf213ec4c5b04fc6513',1,'trippingcyril::Socket']]],
   ['shoulddelete',['shouldDelete',['../classtrippingcyril_1_1_h_t_t_p_callback.html#a5d5d27aad980a8706718780a79e13362',1,'trippingcyril::HTTPCallback']]],
   ['simplehttpsocket',['SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a8e2703d72db1bdc5fb9e7577a14af140',1,'trippingcyril::SimpleHTTPSocket']]],

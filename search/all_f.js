@@ -9,7 +9,7 @@ var searchData=
   ['termutils_2ecpp',['TermUtils.cpp',['../_term_utils_8cpp.html',1,'']]],
   ['termutils_2eh',['TermUtils.h',['../_term_utils_8h.html',1,'']]],
   ['test',['test',['../namespacetest.html',1,'']]],
-  ['timeout',['TIMEOUT',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a27bc9a3a04a52d083d2f480523155925',1,'trippingcyril::SimpleHTTPSocket::TIMEOUT()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a53352c47af32b777800a65583fe19591',1,'trippingcyril::SimpleHTTPSocket::Timeout()'],['../classtrippingcyril_1_1_socket.html#a4492282b166eefc546f4168fc69d891c',1,'trippingcyril::Socket::Timeout()']]],
+  ['timeout',['Timeout',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a53352c47af32b777800a65583fe19591',1,'trippingcyril::SimpleHTTPSocket::Timeout()'],['../classtrippingcyril_1_1_socket.html#a4492282b166eefc546f4168fc69d891c',1,'trippingcyril::Socket::Timeout()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a27bc9a3a04a52d083d2f480523155925',1,'trippingcyril::SimpleHTTPSocket::TIMEOUT()']]],
   ['timer',['Timer',['../classtrippingcyril_1_1_timer.html',1,'trippingcyril']]],
   ['timer',['Timer',['../classtrippingcyril_1_1_module.html#a50de43af5bed41f30c071d8cce0e81bc',1,'trippingcyril::Module::Timer()'],['../classtrippingcyril_1_1_timer.html#abcb21c82546a40d8d861b1b04cf91557',1,'trippingcyril::Timer::Timer(const Module *module)'],['../classtrippingcyril_1_1_timer.html#a4fc8eda5c103e9a39af41f7bd6d19339',1,'trippingcyril::Timer::Timer(const Module *module, double interval, unsigned int maxCycles=0)']]],
   ['timer_2ecpp',['Timer.cpp',['../_timer_8cpp.html',1,'']]],
