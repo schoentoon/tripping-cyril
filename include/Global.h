@@ -36,6 +36,8 @@ public:
   };
   bool LoadModule(const String& path, String& retMsg);
   bool UnloadModule(const String& modName, String& retMsg);
+  Module* FindModule(const String& module);
+  virtual void* ModuleInternalApiCall(const String& module, int method, void* arg = NULL);
   size_t LoadedModules() const { return modules.size(); };
   struct event_base* GetEventBase() const { return event_base; };
   struct evdns_base* GetDNSBase() const { return dns_base; };

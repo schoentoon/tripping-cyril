@@ -93,4 +93,20 @@ bool Global::UnloadModule(const String& modName, String& retMsg) {
   return false;
 };
 
+Module* Global::FindModule(const String& module) {
+  vector<Module*>::const_iterator iter;
+  for (iter = modules.begin(); iter != modules.end(); ++iter) {
+    if ((*iter)->GetModName() == module)
+      return *iter;
+  };
+  return NULL;
+};
+
+void* Global::ModuleInternalApiCall(const String& module, int method, void* arg) {
+  Module* mod = FindModule(module);
+  if (mod == NULL)
+    return NULL;
+  return mod->InternalApiCall(method, arg);
+};
+
 };

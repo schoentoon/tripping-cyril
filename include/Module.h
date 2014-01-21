@@ -52,6 +52,7 @@ public:
   virtual ~Module();
   virtual String GetVersion() const = 0;
   virtual void OnLoaded() {};
+  virtual void* InternalApiCall(int method, void* arg) { return NULL; };
   const String GetModName() const { return modName; };
   struct event_base* GetEventBase() const { return event_base; };
   struct evdns_base* GetDNSBase() const { return dns_base; };

@@ -30,6 +30,7 @@ public:
   MODCONSTRUCTORHEADER(SampleModule);
   virtual ~SampleModule();
   String GetVersion() const { return "sample"; };
+  void* InternalApiCall(int method, void* arg);
   void OnLoaded();
 };
 

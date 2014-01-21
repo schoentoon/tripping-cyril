@@ -50,4 +50,16 @@ void SampleModule::OnLoaded() {
   //std::cerr << *foo << std::endl;
 };
 
+void* SampleModule::InternalApiCall(int method, void* arg) {
+  switch (method) {
+    case 0: {
+      String* str = static_cast<String*>(arg);
+      if (str)
+        std::cerr << *str << std::endl;
+      return (void*) 0xDEADBEEF;
+    };
+  };
+  return NULL;
+};
+
 MODULEDEFS(SampleModule);
