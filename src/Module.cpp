@@ -56,6 +56,11 @@ Module* Module::LoadModule(const String& path, const String& modName, String& re
     return NULL;
   };
   Module* output = ModLoad(so, modName);
+  if (output == NULL) {
+    retMsg = "ModLoad() returned NULL in module [" + modName + "]";
+    dlclose(so);
+    return NULL;
+  };
   retMsg = "Loaded module [" + modName + "] [" + path + "]";
   return output;
 };
