@@ -27,6 +27,8 @@ TEST(String, Bool) {
   String t(true);
   EXPECT_EQ(t, "true");
   EXPECT_TRUE(t.ToBool());
+  bool b = t;
+  EXPECT_TRUE(b);
   String f(false);
   EXPECT_EQ(f, "false");
   EXPECT_FALSE(f.ToBool());
@@ -44,6 +46,8 @@ TEST(String, Short) {
   EXPECT_EQ(ninethousand, "9001");
   EXPECT_EQ(1337, leet.ToUShort());
   EXPECT_EQ(9001, ninethousand.ToShort());
+  short s = leet;
+  EXPECT_EQ(s, 1337);
 };
 
 TEST(String, Int) {
@@ -53,6 +57,8 @@ TEST(String, Int) {
   EXPECT_EQ(ninethousand, "9001");
   EXPECT_EQ(1337, leet.ToUInt());
   EXPECT_EQ(9001, ninethousand.ToInt());
+  int s = leet;
+  EXPECT_EQ(s, 1337);
 };
 
 TEST(String, Long) {
@@ -62,6 +68,8 @@ TEST(String, Long) {
   EXPECT_EQ(ninethousand, "9001");
   EXPECT_EQ(1337, leet.ToULong());
   EXPECT_EQ(9001, ninethousand.ToLong());
+  long s = leet;
+  EXPECT_EQ(s, 1337);
 };
 
 TEST(String, LongLong) {
@@ -71,18 +79,24 @@ TEST(String, LongLong) {
   EXPECT_EQ(ninethousand, "9001");
   EXPECT_EQ(1337, leet.ToULongLong());
   EXPECT_EQ(9001, ninethousand.ToLongLong());
+  long long s = leet;
+  EXPECT_EQ(s, 1337);
 };
 
 TEST(String, Float) {
   String pi((float) 3.14159265359, 3);
   EXPECT_EQ(pi, "3.142");
   EXPECT_FLOAT_EQ(3.142, pi.ToFloat());
+  float s = pi;
+  EXPECT_FLOAT_EQ(3.142, s);
 };
 
 TEST(String, Double) {
   String pi((double) 3.14159265359, 5);
   EXPECT_EQ(pi, "3.14159");
   EXPECT_DOUBLE_EQ(3.14159, pi.ToDouble());
+  double s = pi;
+  EXPECT_DOUBLE_EQ(3.14159, s);
 };
 
 TEST(String, WildCmp) {
@@ -102,6 +116,12 @@ TEST(String, MakeLower) {
   String s("aBCDEF");
   EXPECT_EQ(s.MakeLower(), "abcdef");
   EXPECT_EQ(s, "abcdef");
+};
+
+TEST(String, MakeUpper) {
+  String s("abcdEF");
+  EXPECT_EQ(s.MakeUpper(), "ABCDEF");
+  EXPECT_EQ(s, "ABCDEF");
 };
 
 };

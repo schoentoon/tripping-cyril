@@ -92,26 +92,58 @@ public:
 
   /** @return True if this string is not "false". */
   bool ToBool() const;
+  /** @return True if this string is not "false". */
+  operator bool() { return ToBool(); };
+
   /** @return The numerical value of this string similar to atoi(). */
   short ToShort(unsigned int base = 10) const;
   /** @return The numerical value of this string similar to atoi(). */
+  operator short() { return ToShort(); };
+
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned short ToUShort(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
+  operator unsigned short() { return ToUShort(); };
+
   /** @return The numerical value of this string similar to atoi(). */
   int ToInt(unsigned int base = 10) const;
   /** @return The numerical value of this string similar to atoi(). */
+  operator int() { return ToInt(); };
+
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned int ToUInt(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
+  operator unsigned int() { return ToUInt(); };
+
   /** @return The numerical value of this string similar to atoi(). */
   long ToLong(unsigned int base = 10) const;
   /** @return The numerical value of this string similar to atoi(). */
+  operator long() { return ToLong(); };
+
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned long ToULong(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
+  operator unsigned long() { return ToULong(); };
+
   /** @return The numerical value of this string similar to atoi(). */
   long long ToLongLong(unsigned int base = 10) const;
   /** @return The numerical value of this string similar to atoi(). */
+  operator long long() { return ToLongLong(); };
+
+  /** @return The numerical value of this string similar to atoi(). */
   unsigned long long ToULongLong(unsigned int base = 10) const;
+  /** @return The numerical value of this string similar to atoi(). */
+  operator unsigned long long() { return ToULongLong(); };
+
   /** @return The numerical value of this string similar to atoi(). */
   double ToDouble() const;
   /** @return The numerical value of this string similar to atoi(). */
+  operator double() { return ToDouble(); };
+
+  /** @return The numerical value of this string similar to atoi(). */
   float ToFloat() const;
+  /** @return The numerical value of this string similar to atoi(). */
+  operator float() { return ToFloat(); };
 };
 
 };
