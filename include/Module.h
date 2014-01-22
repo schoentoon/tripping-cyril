@@ -61,7 +61,7 @@ public:
   /**
    * Deconstructor, clean up your own resources here. Don't clean up any timers
    * or sockets that you allocated with this module, those will get cleaned up
-   * for you. This includes any callbacks (if shouldDelete() returns true that is)
+   * for you. This includes any callbacks (if ShouldDelete::shouldDelete() returns true that is)
    */
   virtual ~Module();
   /**
