@@ -91,6 +91,8 @@ void SimpleHTTPSocket::MakeRequestHeaders(const String& method, const String& ho
 };
 
 bool SimpleHTTPSocket::Get(const String& url) {
+  if (this->url.empty() == false)
+    return false;
   String path, host;
   unsigned short port;
   bool ssl;
@@ -104,6 +106,8 @@ bool SimpleHTTPSocket::Get(const String& url) {
 };
 
 bool SimpleHTTPSocket::Post(const String& url, const String& postData, const String& type) {
+  if (this->url.empty() == false)
+    return false;
   String path, host;
   unsigned short port;
   bool ssl;
