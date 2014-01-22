@@ -24,26 +24,66 @@
 
 namespace trippingcyril {
 
+/**
+ * @brief General timer class
+ */
 class Timer {
 public:
+  /**
+   * General constructor
+   * @param module The module to register this timer on
+   */
   Timer(const Module* module);
+  /**
+   * General constructor that will automatically start the timer
+   * @param module The module to register this timer on
+   * @param interval The interval this timer should run on
+   * @param maxCycles The maximum amount of cycles this timer should run, 0 is infinite
+   */
   Timer(const Module* module, double interval, unsigned int maxCycles = 0);
+  /**
+   * General deconstructor
+   */
   virtual ~Timer();
+  /**
+   * Starts the timer with interval
+   */
   void Start(double interval);
+  /**
+   * Starts the timer with tv as its interval
+   */
   void Start(struct timeval& tv);
+  /**
+   * Starts the timer with interval, but it'll only run for maxCycles
+   */
   void StartMaxCycles(double interval, unsigned int maxCycles);
+  /**
+   * Stops the timer and it'll get deleted as soon as possible.
+   */
   void Stop();
+  /**
+   * Used to get the module used to initialize this timer
+   */
   const Module* GetModule() const { return module; };
 protected:
+  /**
+   * Called on every interval
+   */
   virtual void RunJob() {};
+  /**
+   * Called once our timer has ran its last cycle, will not get called if you
+   * delete the timer yourself.
+   */
   virtual void Finished() {};
 private:
+  // @cond
   const Module* module;
   unsigned int maxCycles;
   unsigned int currentCycle;
   unsigned char stop : 1;
   struct event* timer;
   static void EventCallback(evutil_socket_t fd, short event, void* arg);
+  // @endcond
 };
 
 };

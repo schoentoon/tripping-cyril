@@ -20,8 +20,15 @@
 
 namespace trippingcyril {
 
+/**
+ * @brief A simple interface to determine if the object should be deleted or not
+ */
 class ShouldDelete {
 public:
+  /**
+   * Return true from this method if the object should be deleted
+   * @returns True by default
+   */
   virtual bool shouldDelete() { return true; };
 };
 
