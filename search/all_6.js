@@ -17,7 +17,6 @@ var searchData=
   ['getuid',['GetUID',['../classtrippingcyril_1_1_file.html#a86606a8e55f5e76cb2ea54d063b51d6c',1,'trippingcyril::File']]],
   ['geturl',['getURL',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a0d2eee6aef6ff0bd522118ea9335dd9a',1,'trippingcyril::SimpleHTTPSocket']]],
   ['getversion',['GetVersion',['../classtrippingcyril_1_1_module.html#a0988c68f7b871cdfdae709ecc1e7120a',1,'trippingcyril::Module']]],
-  ['global',['Global',['../classtrippingcyril_1_1_module.html#a9929f1efd289a1b5299a120669201943',1,'trippingcyril::Module']]],
   ['global',['Global',['../classtrippingcyril_1_1_global.html',1,'trippingcyril']]],
   ['global_2ecpp',['Global.cpp',['../_global_8cpp.html',1,'']]],
   ['global_2eh',['Global.h',['../_global_8h.html',1,'']]]

@@ -10,5 +10,6 @@ var searchData=
   ['files_2ecpp',['Files.cpp',['../_files_8cpp.html',1,'']]],
   ['files_2eh',['Files.h',['../_files_8h.html',1,'']]],
   ['filetype',['FileType',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66',1,'trippingcyril::File']]],
+  ['findmodule',['FindModule',['../classtrippingcyril_1_1_global.html#acae37c4e272e477b8bc1e9bd59ad7b8d',1,'trippingcyril::Global']]],
   ['finished',['Finished',['../classtrippingcyril_1_1_timer.html#a317e38a985219401afefb319cd89f129',1,'trippingcyril::Timer']]]
 ];

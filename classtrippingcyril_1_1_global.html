@@ -103,6 +103,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6901d0e54345ba5e38dd069569dfdd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c5fb359807be916f7ec417a06af61d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#a7c5fb359807be916f7ec417a06af61d2">UnloadModule</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;modName, <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;retMsg)</td></tr>
 <tr class="separator:a7c5fb359807be916f7ec417a06af61d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acae37c4e272e477b8bc1e9bd59ad7b8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#acae37c4e272e477b8bc1e9bd59ad7b8d">FindModule</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;module)</td></tr>
+<tr class="separator:acae37c4e272e477b8bc1e9bd59ad7b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accbaf87f3205991fb7422e3b5b7131c1"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#accbaf87f3205991fb7422e3b5b7131c1">ModuleInternalApiCall</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;module, int method, void *arg=NULL)</td></tr>
+<tr class="separator:accbaf87f3205991fb7422e3b5b7131c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a553349ba4061a6a67c819f3793a58308"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#a553349ba4061a6a67c819f3793a58308">LoadedModules</a> () const </td></tr>
 <tr class="separator:a553349ba4061a6a67c819f3793a58308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a415c3906166215dd56afc2b948aab683"><td class="memItemLeft" align="right" valign="top">struct event_base *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#a415c3906166215dd56afc2b948aab683">GetEventBase</a> () const </td></tr>
@@ -118,6 +122,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a0745b9231ad1e3c4b8acf9c4878c7c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="acae37c4e272e477b8bc1e9bd59ad7b8d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtrippingcyril_1_1_module.html">Module</a> * trippingcyril::Global::FindModule </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>module</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0745b9231ad1e3c4b8acf9c4878c7c2d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -251,6 +271,46 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="accbaf87f3205991fb7422e3b5b7131c1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * trippingcyril::Global::ModuleInternalApiCall </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a7c5fb359807be916f7ec417a06af61d2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +344,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2014 05:00:24 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 22 2014 15:16:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

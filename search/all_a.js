@@ -12,5 +12,6 @@ var searchData=
   ['module_2ecpp',['Module.cpp',['../_module_8cpp.html',1,'']]],
   ['module_2eh',['Module.h',['../_module_8h.html',1,'']]],
   ['moduledefs',['MODULEDEFS',['../_module_8h.html#a861bccdccecfb06ba6696e9e00965d13',1,'Module.h']]],
+  ['moduleinternalapicall',['ModuleInternalApiCall',['../classtrippingcyril_1_1_global.html#accbaf87f3205991fb7422e3b5b7131c1',1,'trippingcyril::Global']]],
   ['move',['Move',['../classtrippingcyril_1_1_file.html#aa491147cfad3a08368caad4eb5171453',1,'trippingcyril::File']]]
 ];
