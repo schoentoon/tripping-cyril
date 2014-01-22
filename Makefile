@@ -36,3 +36,6 @@ clean:
 	rm -rf $(BINARY) build
 	$(MAKE) -C modules clean
 	$(MAKE) -C test clean
+
+doc: include/*.h
+	doxygen

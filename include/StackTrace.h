@@ -19,13 +19,29 @@
 #define _STACKTRACE_H
 
 namespace trippingcyril {
-  namespace crash {
 
+/**
+ * @brief Crash related functions
+ */
+namespace crash {
+
+/**
+ * Tell our crash handler to go into a gdb shell on crash, useful for debugging
+ */
 void SetInteractive(bool b);
+
+/**
+ * Tell our crash handler to do a coredump as well
+ */
 void SetCoreDump(bool b);
+
+/**
+ * Actually initialize our crash handler
+ * @return true if successfully initialized
+ */
 bool InitCrashHandler();
 
-  };
+};
 };
 
 #endif //_STACKTRACE_H

@@ -46,17 +46,53 @@ typedef void* ModHandle;
 class Socket;
 class Timer;
 
+/**
+ * @brief Base class for modules
+ */
 class Module {
 public:
+  /**
+   * Use MODCONSTRUCTOR and MODCONSTRUCTORHEADER instead of directly calling this
+   * constructor yourself
+   * @see MODCONSTRUCTOR
+   * @see MODCONSTRUCTORHEADER
+   */
   Module(ModHandle so, const String& modName);
+  /**
+   * Deconstructor, clean up your own resources here. Don't clean up any timers
+   * or sockets that you allocated with this module, those will get cleaned up
+   * for you. This includes any callbacks (if shouldDelete() returns true that is)
+   */
   virtual ~Module();
+  /**
+   * Should return the version of the module, required to override
+   */
   virtual String GetVersion() const = 0;
+  /**
+   * Will get called <b>once</b> after the module is loaded, initialize any timers
+   * or sockets in this method, don't do that in your constructor!
+   */
   virtual void OnLoaded() {};
+  /**
+   * Will get called for any calls to Global::ModuleInternalApiCall, implement
+   * this method to actually create internal api methods.
+   */
   virtual void* InternalApiCall(int method, void* arg) { return NULL; };
+  /** @return The name of the module */
   const String GetModName() const { return modName; };
+  /** @return The libevent base for this module */
   struct event_base* GetEventBase() const { return event_base; };
+  /** @return The libevent dns base for this module */
   struct evdns_base* GetDNSBase() const { return dns_base; };
+  /**
+   * Used to actually load modules from shared libraries.
+   * @param path The path of the shared library to actually load
+   * @param modName The name the module should get, see Module::GetModName
+   * @param retMsg A human readable string about the status of the loading
+   * @return NULL on error, the loaded module otherwise
+   */
   static Module* LoadModule(const String& path, const String& modName, String& retMsg);
+  // @cond
 protected:
   struct event_base* event_base;
   struct evdns_base* dns_base;
@@ -72,6 +108,7 @@ private:
   friend class Global;
   friend class Socket;
   friend class Timer;
+  // @endcond
 };
 
 };

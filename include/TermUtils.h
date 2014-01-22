@@ -22,11 +22,20 @@
 
 namespace trippingcyril {
 
+/**
+ * @brief Helper class to pretty print stuff to the terminal in a fairly standard
+ * way.
+ */
 class TermUtils {
 public:
+  /**
+   * Prints the status of a boolean and a message
+   */
   static void PrintStatus(bool status, const String& msg);
 private:
+  // @cond
   TermUtils() {};
+  // @endcond
 };
 
 };
