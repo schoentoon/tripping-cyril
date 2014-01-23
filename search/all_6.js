@@ -7,6 +7,8 @@ var searchData=
   ['getdnsbase',['GetDNSBase',['../classtrippingcyril_1_1_global.html#a44f4291a9ef79b0f6186837b74cc4902',1,'trippingcyril::Global::GetDNSBase()'],['../classtrippingcyril_1_1_module.html#a226669e86443aec568eb79a217310164',1,'trippingcyril::Module::GetDNSBase()']]],
   ['geteventbase',['GetEventBase',['../classtrippingcyril_1_1_global.html#a415c3906166215dd56afc2b948aab683',1,'trippingcyril::Global::GetEventBase()'],['../classtrippingcyril_1_1_module.html#a5eb81ff5dfb9688539bed389e404a2c4',1,'trippingcyril::Module::GetEventBase()']]],
   ['getgid',['GetGID',['../classtrippingcyril_1_1_file.html#ae464299eabc7d2d224596d589e964750',1,'trippingcyril::File']]],
+  ['getip',['GetIP',['../classtrippingcyril_1_1_socket.html#a70b6bd6762a7441a3fb2a6a6d8eaeb9b',1,'trippingcyril::Socket']]],
+  ['getipversion',['GetIPVersion',['../classtrippingcyril_1_1_i_p_address.html#adb463d8481c1a81acabd7d0f9daa5130',1,'trippingcyril::IPAddress::GetIPVersion()'],['../classtrippingcyril_1_1_i_pv4_address.html#a5a563d39d0c863ead83bac97f8b4cdf7',1,'trippingcyril::IPv4Address::GetIPVersion()']]],
   ['getmodname',['GetModName',['../classtrippingcyril_1_1_module.html#acb24147760bd50e3936839bcba7cbacb',1,'trippingcyril::Module']]],
   ['getmodule',['GetModule',['../classtrippingcyril_1_1_socket.html#ab07b53df39d6b1c4afb6550fe0df13df',1,'trippingcyril::Socket::GetModule()'],['../classtrippingcyril_1_1_timer.html#a3542e62922ce5737f53c568d729908ce',1,'trippingcyril::Timer::GetModule()']]],
   ['getmtime',['GetMTime',['../classtrippingcyril_1_1_file.html#aa1ca6bf68a162718cc1378b096adadda',1,'trippingcyril::File']]],
