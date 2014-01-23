@@ -4,6 +4,7 @@ var searchData=
   ['getatime',['GetATime',['../classtrippingcyril_1_1_file.html#add6efbc4f8848d2e533a7bb8b2794598',1,'trippingcyril::File']]],
   ['getctime',['GetCTime',['../classtrippingcyril_1_1_file.html#aecfb6c95a1c10d9c27ad24f99a2930e3',1,'trippingcyril::File']]],
   ['getcwd',['GetCWD',['../classtrippingcyril_1_1_dir.html#aaf0260db1c18b9556cb6eb61d0ffc015',1,'trippingcyril::Dir']]],
+  ['getdata',['GetData',['../classtrippingcyril_1_1_inter_module_data.html#a7408480b737fc0216e9dd40814cadc9f',1,'trippingcyril::InterModuleData']]],
   ['getdnsbase',['GetDNSBase',['../classtrippingcyril_1_1_global.html#a44f4291a9ef79b0f6186837b74cc4902',1,'trippingcyril::Global::GetDNSBase()'],['../classtrippingcyril_1_1_module.html#a226669e86443aec568eb79a217310164',1,'trippingcyril::Module::GetDNSBase()']]],
   ['geteventbase',['GetEventBase',['../classtrippingcyril_1_1_global.html#a415c3906166215dd56afc2b948aab683',1,'trippingcyril::Global::GetEventBase()'],['../classtrippingcyril_1_1_module.html#a5eb81ff5dfb9688539bed389e404a2c4',1,'trippingcyril::Module::GetEventBase()']]],
   ['getgid',['GetGID',['../classtrippingcyril_1_1_file.html#ae464299eabc7d2d224596d589e964750',1,'trippingcyril::File']]],

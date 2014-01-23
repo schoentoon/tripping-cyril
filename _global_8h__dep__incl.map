@@ -1,12 +1,7 @@
 <map id="include/Global.h" name="include/Global.h">
 <area shape="rect" id="node2" href="$_files_8cpp.html" title="src/Files.cpp" alt="" coords="5,80,101,107"/>
-<area shape="rect" id="node3" href="$_global_8cpp.html" title="src/Global.cpp" alt="" coords="177,155,284,181"/>
-<area shape="rect" id="node4" href="$_module_8cpp.html" title="src/Module.cpp" alt="" coords="497,229,607,256"/>
-<area shape="rect" id="node5" href="$_socket_8cpp.html" title="src/Socket.cpp" alt="" coords="110,229,220,256"/>
-<area shape="rect" id="node6" href="$_timer_8cpp.html" title="src/Timer.cpp" alt="" coords="641,229,743,256"/>
-<area shape="rect" id="node7" href="$_module_8h.html" title="include/Module.h" alt="" coords="308,80,428,107"/>
-<area shape="rect" id="node8" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="309,155,427,181"/>
-<area shape="rect" id="node11" href="$_timer_8h.html" title="include/Timer.h" alt="" coords="503,155,613,181"/>
-<area shape="rect" id="node9" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="271,229,465,256"/>
-<area shape="rect" id="node10" href="$_simple_h_t_t_p_socket_8cpp.html" title="src/SimpleHTTPSocket.cpp" alt="" coords="275,304,460,331"/>
+<area shape="rect" id="node3" href="$_global_8cpp.html" title="src/Global.cpp" alt="" coords="127,80,233,107"/>
+<area shape="rect" id="node4" href="$_module_8cpp.html" title="src/Module.cpp" alt="" coords="258,80,368,107"/>
+<area shape="rect" id="node5" href="$_socket_8cpp.html" title="src/Socket.cpp" alt="" coords="393,80,503,107"/>
+<area shape="rect" id="node6" href="$_timer_8cpp.html" title="src/Timer.cpp" alt="" coords="527,80,629,107"/>
 </map>

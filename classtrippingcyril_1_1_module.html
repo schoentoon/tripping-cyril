@@ -112,6 +112,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a049988ec7e10969554f195ff1c13cd5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a972caf8683fd9385d0508eacbdd2ccbf"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_module.html#a972caf8683fd9385d0508eacbdd2ccbf">InternalApiCall</a> (int method, void *arg)</td></tr>
 <tr class="separator:a972caf8683fd9385d0508eacbdd2ccbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0def3a140e42dec66daa59506829043"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_module.html#ab0def3a140e42dec66daa59506829043">CleanUpInterData</a> (int method, void *arg)</td></tr>
+<tr class="separator:ab0def3a140e42dec66daa59506829043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb24147760bd50e3936839bcba7cbacb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_module.html#acb24147760bd50e3936839bcba7cbacb">GetModName</a> () const </td></tr>
 <tr class="separator:acb24147760bd50e3936839bcba7cbacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eb81ff5dfb9688539bed389e404a2c4"><td class="memItemLeft" align="right" valign="top">struct event_base *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_module.html#a5eb81ff5dfb9688539bed389e404a2c4">GetEventBase</a> () const </td></tr>
@@ -182,6 +184,41 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab0def3a140e42dec66daa59506829043"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void trippingcyril::Module::CleanUpInterData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Used to clean up the data returned by InternalApiCall </p>
+
+</div>
+</div>
 <a class="anchor" id="a226669e86443aec568eb79a217310164"></a>
 <div class="memitem">
 <div class="memproto">
@@ -309,7 +346,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Will get called for any calls to <a class="el" href="classtrippingcyril_1_1_global.html#accbaf87f3205991fb7422e3b5b7131c1">Global::ModuleInternalApiCall</a>, implement this method to actually create internal api methods. </p>
+<p>Will get called for any calls to <a class="el" href="classtrippingcyril_1_1_global.html#ad72db2e6e567ebfd26aec471f8d5f7e5">Global::ModuleInternalApiCall</a>, implement this method to actually create internal api methods. </p>
 
 </div>
 </div>
@@ -394,7 +431,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 23 2014 17:37:16 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 23 2014 23:27:12 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
