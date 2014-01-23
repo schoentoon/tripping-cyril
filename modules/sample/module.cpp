@@ -54,12 +54,22 @@ void* SampleModule::InternalApiCall(int method, void* arg) {
   switch (method) {
     case 0: {
       String* str = static_cast<String*>(arg);
-      if (str)
+      if (str) {
         std::cerr << *str << std::endl;
-      return (void*) 0xDEADBEEF;
+        return new String(*str);
+      };
+      return NULL;
     };
   };
   return NULL;
+};
+
+void SampleModule::CleanUpInterData(int method, void* arg) {
+  switch (method) {
+  case 0:
+    delete ((String*) arg);
+    break;
+  };
 };
 
 MODULEDEFS(SampleModule);

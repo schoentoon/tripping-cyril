@@ -18,6 +18,7 @@
 #include <gtest/gtest.h>
 
 #include "Module.h"
+#include "Global.h"
 
 using namespace trippingcyril;
 

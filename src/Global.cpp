@@ -102,11 +102,12 @@ Module* Global::FindModule(const String& module) {
   return NULL;
 };
 
-void* Global::ModuleInternalApiCall(const String& module, int method, void* arg) {
+InterModuleData Global::ModuleInternalApiCall(const String& module, int method, void* arg) {
   Module* mod = FindModule(module);
   if (mod == NULL)
-    return NULL;
-  return mod->InternalApiCall(method, arg);
+    return InterModuleData();
+  void* data = mod->InternalApiCall(method, arg);
+  return InterModuleData(data, mod, method);
 };
 
 };

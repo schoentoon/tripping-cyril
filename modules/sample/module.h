@@ -31,6 +31,7 @@ public:
   virtual ~SampleModule();
   String GetVersion() const { return "sample"; };
   void* InternalApiCall(int method, void* arg);
+  void CleanUpInterData(int method, void* arg);
   void OnLoaded();
 };
 

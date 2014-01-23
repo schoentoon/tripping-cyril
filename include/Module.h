@@ -23,7 +23,6 @@
 #include <set>
 
 #include "String.h"
-#include "Global.h"
 
 #define MODCONSTRUCTOR(CLASS) \
   CLASS::CLASS(ModHandle so, const String& modName) \
@@ -78,6 +77,10 @@ public:
    * this method to actually create internal api methods.
    */
   virtual void* InternalApiCall(int method, void* arg) { return NULL; };
+  /**
+   * Used to clean up the data returned by InternalApiCall
+   */
+  virtual void CleanUpInterData(int method, void* arg) {};
   /** @return The name of the module */
   const String GetModName() const { return modName; };
   /** @return The libevent base for this module */
@@ -108,6 +111,38 @@ private:
   friend class Global;
   friend class Socket;
   friend class Timer;
+  // @endcond
+};
+
+/**
+ * @brief Abstraction layer around the void pointer coming from InternalApiCall
+ * to allow for automatic destruction later on using CleanUpInterData
+ */
+class InterModuleData {
+public:
+  virtual ~InterModuleData() {
+    if (module != NULL && data != NULL)
+      module->CleanUpInterData(method, data);
+  };
+  /** @return True if an error happend, error as in module not found */
+  bool hasError() { return module == NULL; };
+  /** @return The actual custom data returned from InternalApiCall */
+  void* GetData() { return data; };
+private:
+  // @cond
+  InterModuleData(void* pData, Module* pModule, int pMethod) {
+    this->module = pModule;
+    this->data = pData;
+    this->method = pMethod;
+  };
+  InterModuleData() {
+    this->module = NULL;
+    this->data = NULL;
+  };
+  void* data;
+  int method;
+  Module* module;
+  friend class Global;
   // @endcond
 };
 

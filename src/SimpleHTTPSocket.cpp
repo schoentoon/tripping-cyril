@@ -128,13 +128,6 @@ void SimpleHTTPSocket::Connected() {
   Write(buffer);
   buffer.clear();
   SetReadLine(true);
-  const IPAddress* addr = GetIP();
-  if (addr == NULL)
-    std::cerr << "ip is NULL" << std::endl;
-  else {
-    std::cerr << "ip is " << addr->AsString() << std::endl;
-    delete addr;
-  };
 };
 
 void SimpleHTTPSocket::Disconnected() {
