@@ -31,6 +31,8 @@ namespace test {
 
 namespace trippingcyril {
 
+class IPAddress;
+
 /**
  * @brief General tcp socket class, fully async using libevent
  */
@@ -84,6 +86,10 @@ public:
    * Used to get the module used to initialize this socket
    */
   const Module* GetModule() const { return module; };
+  /**
+   * Get the ip address of the remote end
+   */
+  const IPAddress* GetIP() const;
 protected:
   /**
    * Connected callback, will be called once the socket is connected.
@@ -135,6 +141,47 @@ private:
   static void readcb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
   friend class test::LibEventHelper;
+  // @endcond
+};
+
+/**
+ * @brief Simple ip address class
+ */
+class IPAddress {
+public:
+  virtual ~IPAddress() {};
+  /** @return The ip version */
+  virtual int GetIPVersion() = 0;
+  /** @return Returns the human readable representation of the ip address */
+  virtual String AsString() const = 0;
+  /** @return Returns the human readable representation of the ip address */
+  operator String() { return AsString(); };
+  // @cond
+private:
+  static IPAddress* fromFD(int fd);
+  friend class Socket;
+  // @endcond
+};
+
+/**
+ * @brief The IPv4 implementation of our ip address class
+ */
+class IPv4Address : public IPAddress {
+public:
+  virtual ~IPv4Address() {};
+  virtual int GetIPVersion() { return 4; };
+  /** @return The ipv4 address as an integer */
+  virtual int AsInt() const { return addr; }
+  /** @return The ipv4 address as an integer */
+  operator int() { return AsInt(); };
+  virtual String AsString() const;
+private:
+  IPv4Address(struct in_addr* sa) {
+    addr = sa->s_addr;
+  };
+  in_addr_t addr;
+  // @cond
+  friend class IPAddress;
   // @endcond
 };
 

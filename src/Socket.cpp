@@ -24,6 +24,9 @@
 
 #include "Global.h"
 
+#include <arpa/inet.h>
+#include <iostream>
+
 namespace trippingcyril {
 
 Socket::Socket(const Module* pModule)
@@ -128,6 +131,12 @@ void Socket::SetTimeout(double dTimeout) {
     bufferevent_set_timeouts(connection, NULL, NULL);
 };
 
+const IPAddress* Socket::GetIP() const {
+  if (connection == NULL)
+    return NULL;
+  return IPAddress::fromFD(bufferevent_getfd(connection));
+};
+
 bool Socket::SetTCPNoDelay(bool enable) {
   tcp_no_delay = enable ? 1 : 0;
   if (IsConnected()) {
@@ -179,6 +188,33 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTi
   bufferevent_setcb(connection, Socket::readcb, NULL, Socket::eventcb, this);
   bufferevent_enable(connection, EV_READ);
   return true;
+};
+
+IPAddress* IPAddress::fromFD(int fd) {
+  if (fd < 0)
+    return NULL;
+  struct sockaddr_in sa;
+  socklen_t size = sizeof(sa);
+  if (getpeername(fd, (struct sockaddr*) &sa, &size) == 0) {
+    switch (((struct sockaddr*) &sa)->sa_family) {
+      case AF_INET:
+        return new IPv4Address(&sa.sin_addr);
+      /*case AF_INET6: // TODO Add IPv6 support in general
+        return new IPv6Address(&sa);*/
+      default:
+        return NULL;
+    };
+  };
+  return NULL;
+};
+
+String IPv4Address::AsString() const {
+  char buf[INET_ADDRSTRLEN];
+  size_t len = snprintf(buf, sizeof(buf), "%d.%d.%d.%d", (addr      ) & 0xFF
+                                                       , (addr >>  8) & 0xFF
+                                                       , (addr >> 16) & 0xFF
+                                                       , (addr >> 24) & 0xFF);
+  return String(buf, len);
 };
 
 };
