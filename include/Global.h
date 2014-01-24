@@ -27,27 +27,61 @@
 
 namespace trippingcyril {
 
+/**
+ * @brief Our global class which has some key features
+ */
 class Global {
 public:
+  /** @return We're a singleton, so use Get() to well get me */
   static Global* Get() {
     static Global* singleton = new Global;
     return singleton;
   };
+  /**
+   * @brief Loads to module
+   * @param path The path of the module to load
+   * @param retMsg The return message, similar to Module::LoadModule
+   * @return True if the module was succesfully loaded
+   */
   bool LoadModule(const String& path, String& retMsg);
+  /**
+   * @brief Unloads a previously loaded module
+   * @param modName The name of the module to unload
+   * @param retMsg The return message
+   * @return True if the module was succesfully unloaded
+   */
   bool UnloadModule(const String& modName, String& retMsg);
+  /**
+   * @brief Get a loaded module using it's name
+   * @param module The name of the module
+   * @return The module if found, NULL otherwise
+   */
   Module* FindModule(const String& module);
+  /**
+   * Makes a call to an internal module api
+   * @param module What module's internal api do we want to call
+   * @param method What method of this internal api do we want to call? Depends on your implementation of course
+   * @param arg Custom data, also depends on your implementation
+   * @return The InterModuleData, which is basically a wrapper around void* where module can still clean it up
+   */
   InterModuleData ModuleInternalApiCall(const String& module, int method, void* arg = NULL);
+  /** @return The amount of loaded modules */
   size_t LoadedModules() const { return modules.size(); };
+  /** @return Our global libevent base */
   struct event_base* GetEventBase() const { return event_base; };
+  /** @return Our global evdns base */
   struct evdns_base* GetDNSBase() const { return dns_base; };
+  /** @brief Main application loop */
   void Loop();
 private:
+  // @cond
   Global();
   virtual ~Global();
 
   std::vector<Module*> modules;
   struct event_base* event_base;
   struct evdns_base* dns_base;
+  // @endcond
 };
 
 };
