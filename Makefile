@@ -14,10 +14,10 @@ all: $(BINARY) modules
 build:
 	mkdir build
 
-build/%.o: src/%.cpp include/%.h build
+build/%.o: src/%.cpp include/%.h
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
 
-$(BINARY): $(DEPS)
+$(BINARY): build $(DEPS)
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) $(LDFLAGS)
 
 .PHONY: modules
