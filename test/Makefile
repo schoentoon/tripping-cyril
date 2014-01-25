@@ -7,7 +7,7 @@ CXX             := g++
 
 BINARY := test.out
 MODS := dummymod.so
-DEPS := String.o Files.o Modules.o Timer.o Socket.o SimpleHTTPSocket.o Thread.o
+DEPS := $(patsubst %_test.cpp, %_test.o, $(shell find .. -name \*_test.cpp -type f))
 
 all: $(BINARY)
 
@@ -17,7 +17,7 @@ all: $(BINARY)
 %.so: %.cpp libgtest.a
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -shared -fPIC -Wl,--export-dynamic -o $@ $<
 
-$(BINARY): $(DEPS) $(MODS)
+$(BINARY): $(DEPS) $(MODS) main.cpp
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) ../build/*.o libgtest.a -pthread $(LDFLAGS)
 
 libgtest.a:
