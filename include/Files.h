@@ -52,20 +52,20 @@ public:
   };
 
   /** @return true if the file exists */
-  bool Exists() const;
+  virtual bool Exists() const;
   virtual FileType GetType() const; // UNKNOWN may also be an error
   /** @return The size of the file, only works with REGULAR files, 0 otherwise */
-  off_t GetSize() const;
+  virtual off_t GetSize() const;
   /** @return Last access time of this file. */
-  time_t GetATime() const;
+  virtual time_t GetATime() const;
   /** @return Last modification time of this file. */
-  time_t GetMTime() const;
+  virtual time_t GetMTime() const;
   /** @return Creation time of this file. */
-  time_t GetCTime() const;
+  virtual time_t GetCTime() const;
   /** @return UID of this file. */
-  uid_t GetUID() const;
+  virtual uid_t GetUID() const;
   /** @return GID of this file. */
-  gid_t GetGID() const;
+  virtual gid_t GetGID() const;
   /** @return true if successfully opened with Open() @see Open */
   bool IsOpen() const;
   /** @return The path of this file, may be relative depends on what you passed to the constructor */
@@ -74,47 +74,47 @@ public:
   String GetShortName() const;
 
   /** @return true if successfully deleted. */
-  bool Delete();
+  virtual bool Delete();
   /** @return true if successfully moved. */
-  bool Move(const String& newpath, bool overwrite = false);
+  virtual bool Move(const String& newpath, bool overwrite = false);
   /** @return true if successfully copied. */
-  bool Copy(const String& newpath, bool overwrite = false);
+  virtual bool Copy(const String& newpath, bool overwrite = false);
   /** @return true if permissions were successfully modified. */
-  bool Chmod(mode_t mode);
+  virtual bool Chmod(mode_t mode);
   /** @return true if successfully moved to this spot in the file, similar to 
    * <a href="http://man7.org/linux/man-pages/man2/lseek.2.html">lseek(2)</a> */
-  bool Seek(off_t pos);
+  virtual bool Seek(off_t pos);
   /** @return true if successfully truncated, similar to
    * <a href="http://man7.org/linux/man-pages/man2/ftruncate.2.html">truncate(2)</a> */
-  bool Truncate(off_t len = 0);
+  virtual bool Truncate(off_t len = 0);
   /** @return true if successfully synchronized, similar to
    * <a href="http://man7.org/linux/man-pages/man2/fsync.2.html">fsync(2)</a> */
-  bool Sync();
+  virtual bool Sync();
   /** @return true if successfully opened, similar to
    * <a href="http://man7.org/linux/man-pages/man2/open.2.html">open(2)</a> */
-  bool Open(int flags = O_RDONLY, mode_t mode = 0644);
+  virtual bool Open(int flags = O_RDONLY, mode_t mode = 0644);
   /** @return The amount of bytes read into the buffer, similar to
    * <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a>*/
-  int Read(char* buffer, size_t len);
+  virtual int Read(char* buffer, size_t len);
   /**
    * Reads up to the delimiter into data
    * @param data Reference to a string to read into, string is purely used as a buffer
    * @param delimiter Up until what character we should read
    * @return true if the delimiter was found
    */
-  bool ReadLine(String& data, const String& delimiter = "\n");
+  virtual bool ReadLine(String& data, const String& delimiter = "\n");
   /**
    * Reads up until maxSize into data
    * @param data Reference to a string to read into, string is purely used as a buffer
    * @param maxSize The maximum amount of bytes to read into our buffer
    * @return true if the file was entirely read into our buffer
    */
-  bool ReadFile(String& data, size_t maxSize = 512 * 1024);
+  virtual bool ReadFile(String& data, size_t maxSize = 512 * 1024);
   /** @return The amount of bytes written into the file, similar to
    * <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a> */
-  int Write(const char* buffer, size_t len);
+  virtual int Write(const char* buffer, size_t len);
   /** @see Write */
-  int Write(const String& data);
+  virtual int Write(const String& data);
   /** Closes the file if it was previously opened with Open */
   void Close();
 protected:
