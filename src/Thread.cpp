@@ -82,7 +82,7 @@ bool Thread::Detach() {
   return result == 0;
 };
 
-bool Thread::shouldContinue() {
+bool Thread::shouldContinue() const {
   if (mutex == NULL)
     return false;
   if (pthread_mutex_trylock(mutex) == 0) {
@@ -90,10 +90,6 @@ bool Thread::shouldContinue() {
     return false;
   };
   return true;
-};
-
-pthread_t Thread::Self() {
-  return tid;
 };
 
 void Thread::Stop() {

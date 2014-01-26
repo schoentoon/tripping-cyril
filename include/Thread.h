@@ -58,7 +58,7 @@ public:
    * @brief Get the internal thread id
    * @return The pthread id of the running thread, 0 if not yet running
    */
-  pthread_t Self();
+  pthread_t Self() const { return tid; };
   /**
    * @brief Tells the thread to stop
    * @see shouldContinue
@@ -68,11 +68,11 @@ public:
    * @brief See if the thread is running or not
    * @return True if the thread is running
    */
-  bool isRunning() { return running == 1; };
+  bool isRunning() const { return running == 1; };
   /**
    * @brief Receive the value returned from the thread after a Join operation
    */
-  void* getReturnedValue() { return returnedValue; };
+  void* getReturnedValue() const { return returnedValue; };
   /**
    * @brief Receive the name of the thread
    */
@@ -87,7 +87,7 @@ protected:
    * on the internal stop value set by Stop
    * @return True if you should not stop
    */
-  bool shouldContinue();
+  bool shouldContinue() const;
 private:
   // @cond
   static void* runThread(void* arg);
