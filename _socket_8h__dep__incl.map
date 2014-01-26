@@ -1,6 +1,3 @@
 <map id="include/Socket.h" name="include/Socket.h">
-<area shape="rect" id="node2" href="$_module_8cpp.html" title="src/Module.cpp" alt="" coords="5,80,115,107"/>
-<area shape="rect" id="node3" href="$_socket_8cpp.html" title="src/Socket.cpp" alt="" coords="139,80,249,107"/>
-<area shape="rect" id="node4" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="275,80,469,107"/>
-<area shape="rect" id="node5" href="$_simple_h_t_t_p_socket_8cpp.html" title="src/SimpleHTTPSocket.cpp" alt="" coords="279,155,464,181"/>
+<area shape="rect" id="node2" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="5,80,200,107"/>
 </map>

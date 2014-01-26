@@ -1,20 +1,17 @@
 var searchData=
 [
   ['crash',['crash',['../namespacetrippingcyril_1_1crash.html',1,'trippingcyril']]],
-  ['tempfile',['TempFile',['../classtrippingcyril_1_1_temp_file.html',1,'trippingcyril']]],
   ['tempfile',['TempFile',['../classtrippingcyril_1_1_temp_file.html#aef5f65a2003113d6d31b5d1d5a8ea405',1,'trippingcyril::TempFile']]],
+  ['tempfile',['TempFile',['../classtrippingcyril_1_1_temp_file.html',1,'trippingcyril']]],
   ['temporary',['TEMPORARY',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66a1574eb8d21aa84c26051cf07a1f611a4',1,'trippingcyril::File']]],
   ['termutils',['TermUtils',['../classtrippingcyril_1_1_term_utils.html',1,'trippingcyril']]],
-  ['termutils_2ecpp',['TermUtils.cpp',['../_term_utils_8cpp.html',1,'']]],
   ['termutils_2eh',['TermUtils.h',['../_term_utils_8h.html',1,'']]],
   ['thread',['Thread',['../classtrippingcyril_1_1_thread.html',1,'trippingcyril']]],
   ['thread',['Thread',['../classtrippingcyril_1_1_thread.html#a0b15b56a67684180bf3942b79b318684',1,'trippingcyril::Thread']]],
-  ['thread_2ecpp',['Thread.cpp',['../_thread_8cpp.html',1,'']]],
   ['thread_2eh',['Thread.h',['../_thread_8h.html',1,'']]],
   ['timeout',['TIMEOUT',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a27bc9a3a04a52d083d2f480523155925',1,'trippingcyril::SimpleHTTPSocket::TIMEOUT()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a53352c47af32b777800a65583fe19591',1,'trippingcyril::SimpleHTTPSocket::Timeout()'],['../classtrippingcyril_1_1_socket.html#a4492282b166eefc546f4168fc69d891c',1,'trippingcyril::Socket::Timeout()']]],
   ['timer',['Timer',['../classtrippingcyril_1_1_timer.html',1,'trippingcyril']]],
   ['timer',['Timer',['../classtrippingcyril_1_1_timer.html#abcb21c82546a40d8d861b1b04cf91557',1,'trippingcyril::Timer::Timer(const Module *module)'],['../classtrippingcyril_1_1_timer.html#a4fc8eda5c103e9a39af41f7bd6d19339',1,'trippingcyril::Timer::Timer(const Module *module, double interval, unsigned int maxCycles=0)']]],
-  ['timer_2ecpp',['Timer.cpp',['../_timer_8cpp.html',1,'']]],
   ['timer_2eh',['Timer.h',['../_timer_8h.html',1,'']]],
   ['tobool',['ToBool',['../classtrippingcyril_1_1_string.html#aa2968b5195233f089243e55c80da0430',1,'trippingcyril::String']]],
   ['todouble',['ToDouble',['../classtrippingcyril_1_1_string.html#aa0b73a88112095b0adf3bc39c0074e84',1,'trippingcyril::String']]],
@@ -31,5 +28,5 @@ var searchData=
   ['trimleft',['TrimLeft',['../classtrippingcyril_1_1_string.html#ab3f43a792978499903a4911e16470e93',1,'trippingcyril::String']]],
   ['trimright',['TrimRight',['../classtrippingcyril_1_1_string.html#a5187464a38551d5f42e5e46beb9d607f',1,'trippingcyril::String']]],
   ['trippingcyril',['trippingcyril',['../namespacetrippingcyril.html',1,'']]],
-  ['truncate',['Truncate',['../classtrippingcyril_1_1_file.html#a522c0faaf67dc8a9424693ab4bcd834c',1,'trippingcyril::File']]]
+  ['truncate',['Truncate',['../classtrippingcyril_1_1_file.html#a528dea7bc1c0bd3079d0af589e39e13e',1,'trippingcyril::File::Truncate()'],['../classtrippingcyril_1_1_pipe_i_o.html#ab80f27a39d34f9bae202b5db73d1ed92',1,'trippingcyril::PipeIO::Truncate()']]]
 ];

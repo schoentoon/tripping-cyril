@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['buf_5flen',['BUF_LEN',['../_files_8cpp.html#a8b5839f71a3b6e7d64b2d5e9967e3dd1',1,'Files.cpp']]]
+  ['modconstructor',['MODCONSTRUCTOR',['../_module_8h.html#a4cb82bfe0e2c41d222152aaec5300156',1,'Module.h']]],
+  ['modconstructorheader',['MODCONSTRUCTORHEADER',['../_module_8h.html#a7865cf0439fde7b6f652fbffd69477f9',1,'Module.h']]],
+  ['moduledefs',['MODULEDEFS',['../_module_8h.html#a861bccdccecfb06ba6696e9e00965d13',1,'Module.h']]]
 ];

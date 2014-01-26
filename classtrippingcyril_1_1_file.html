@@ -104,7 +104,7 @@ Inheritance diagram for trippingcyril::File:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrippingcyril_1_1_file__inherit__graph.png" border="0" usemap="#trippingcyril_1_1_file_inherit__map" alt="Inheritance graph"/></div>
 <map name="trippingcyril_1_1_file_inherit__map" id="trippingcyril_1_1_file_inherit__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="5,80,155,107"/></map>
+<area shape="rect" id="node2" href="classtrippingcyril_1_1_pipe_i_o.html" title="Wrapper for the file descriptors from the pipe, same interface as File. " alt="" coords="5,80,141,107"/><area shape="rect" id="node3" href="classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="166,80,316,107"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -129,56 +129,56 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a774ceeee1150fc38ed5a4cf00bb90d09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a774ceeee1150fc38ed5a4cf00bb90d09">File</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;path)</td></tr>
 <tr class="separator:a774ceeee1150fc38ed5a4cf00bb90d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ce33b9306c640def6236436e5100aed"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a9ce33b9306c640def6236436e5100aed">~File</a> ()</td></tr>
-<tr class="separator:a9ce33b9306c640def6236436e5100aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3db82153f8c37ade8191a64374cf54b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a3db82153f8c37ade8191a64374cf54b3">Exists</a> () const </td></tr>
-<tr class="separator:a3db82153f8c37ade8191a64374cf54b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0828b10a676ee6e0640f36a71d94112a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66">FileType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a0828b10a676ee6e0640f36a71d94112a">GetType</a> () const </td></tr>
-<tr class="separator:a0828b10a676ee6e0640f36a71d94112a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5b6d40c958c6026ad8e0a1175e32255"><td class="memItemLeft" align="right" valign="top">off_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ae5b6d40c958c6026ad8e0a1175e32255">GetSize</a> () const </td></tr>
-<tr class="separator:ae5b6d40c958c6026ad8e0a1175e32255"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add6efbc4f8848d2e533a7bb8b2794598"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#add6efbc4f8848d2e533a7bb8b2794598">GetATime</a> () const </td></tr>
-<tr class="separator:add6efbc4f8848d2e533a7bb8b2794598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1ca6bf68a162718cc1378b096adadda"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aa1ca6bf68a162718cc1378b096adadda">GetMTime</a> () const </td></tr>
-<tr class="separator:aa1ca6bf68a162718cc1378b096adadda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecfb6c95a1c10d9c27ad24f99a2930e3"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aecfb6c95a1c10d9c27ad24f99a2930e3">GetCTime</a> () const </td></tr>
-<tr class="separator:aecfb6c95a1c10d9c27ad24f99a2930e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86606a8e55f5e76cb2ea54d063b51d6c"><td class="memItemLeft" align="right" valign="top">uid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a86606a8e55f5e76cb2ea54d063b51d6c">GetUID</a> () const </td></tr>
-<tr class="separator:a86606a8e55f5e76cb2ea54d063b51d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae464299eabc7d2d224596d589e964750"><td class="memItemLeft" align="right" valign="top">gid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ae464299eabc7d2d224596d589e964750">GetGID</a> () const </td></tr>
-<tr class="separator:ae464299eabc7d2d224596d589e964750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a450323808997b54f71eec826e3b30121"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a450323808997b54f71eec826e3b30121">~File</a> ()</td></tr>
+<tr class="separator:a450323808997b54f71eec826e3b30121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58de68cec3124e7aa076ef34e2839b83"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a58de68cec3124e7aa076ef34e2839b83">Exists</a> () const </td></tr>
+<tr class="separator:a58de68cec3124e7aa076ef34e2839b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe847e9c3e30f4fdc16c8b7e2b6f4813"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66">FileType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#afe847e9c3e30f4fdc16c8b7e2b6f4813">GetType</a> () const </td></tr>
+<tr class="separator:afe847e9c3e30f4fdc16c8b7e2b6f4813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0acd3b2257a65b7064dd071d315d406e"><td class="memItemLeft" align="right" valign="top">virtual off_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a0acd3b2257a65b7064dd071d315d406e">GetSize</a> () const </td></tr>
+<tr class="separator:a0acd3b2257a65b7064dd071d315d406e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584e2d3fcd0a1735b9b731af9950451b"><td class="memItemLeft" align="right" valign="top">virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a584e2d3fcd0a1735b9b731af9950451b">GetATime</a> () const </td></tr>
+<tr class="separator:a584e2d3fcd0a1735b9b731af9950451b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e222b853c0dfeecf98f886aad85284"><td class="memItemLeft" align="right" valign="top">virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aa8e222b853c0dfeecf98f886aad85284">GetMTime</a> () const </td></tr>
+<tr class="separator:aa8e222b853c0dfeecf98f886aad85284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7eb7705a09e3b77a448f462154a16b9"><td class="memItemLeft" align="right" valign="top">virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aa7eb7705a09e3b77a448f462154a16b9">GetCTime</a> () const </td></tr>
+<tr class="separator:aa7eb7705a09e3b77a448f462154a16b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec2612679ecd0f1fa95707d07ece115"><td class="memItemLeft" align="right" valign="top">virtual uid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a0ec2612679ecd0f1fa95707d07ece115">GetUID</a> () const </td></tr>
+<tr class="separator:a0ec2612679ecd0f1fa95707d07ece115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab076e4e50fce9b07f62d26cc37886c9c"><td class="memItemLeft" align="right" valign="top">virtual gid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ab076e4e50fce9b07f62d26cc37886c9c">GetGID</a> () const </td></tr>
+<tr class="separator:ab076e4e50fce9b07f62d26cc37886c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a128a8f2f324a5ebd907b507b2a26f70f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a128a8f2f324a5ebd907b507b2a26f70f">IsOpen</a> () const </td></tr>
 <tr class="separator:a128a8f2f324a5ebd907b507b2a26f70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16cf1517c53b5af2ab6600074cb2e7cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a16cf1517c53b5af2ab6600074cb2e7cd">GetName</a> () const </td></tr>
 <tr class="separator:a16cf1517c53b5af2ab6600074cb2e7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81dc0248b834d538f7b18747d2a7d729"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a81dc0248b834d538f7b18747d2a7d729">GetShortName</a> () const </td></tr>
 <tr class="separator:a81dc0248b834d538f7b18747d2a7d729"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8db3101e7071c99a3e78d4e5a0b9684b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a8db3101e7071c99a3e78d4e5a0b9684b">Delete</a> ()</td></tr>
-<tr class="separator:a8db3101e7071c99a3e78d4e5a0b9684b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa491147cfad3a08368caad4eb5171453"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aa491147cfad3a08368caad4eb5171453">Move</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;newpath, bool overwrite=false)</td></tr>
-<tr class="separator:aa491147cfad3a08368caad4eb5171453"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8880ff3b9b7ef879dfecf2429cec138f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a8880ff3b9b7ef879dfecf2429cec138f">Copy</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;newpath, bool overwrite=false)</td></tr>
-<tr class="separator:a8880ff3b9b7ef879dfecf2429cec138f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a598d1e728a89b450aeaf9349b2dbf22a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a598d1e728a89b450aeaf9349b2dbf22a">Chmod</a> (mode_t mode)</td></tr>
-<tr class="separator:a598d1e728a89b450aeaf9349b2dbf22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c299cbd9e9fa6b8748e4f04916e32d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ae0c299cbd9e9fa6b8748e4f04916e32d">Seek</a> (off_t pos)</td></tr>
-<tr class="separator:ae0c299cbd9e9fa6b8748e4f04916e32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a522c0faaf67dc8a9424693ab4bcd834c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a522c0faaf67dc8a9424693ab4bcd834c">Truncate</a> (off_t len=0)</td></tr>
-<tr class="separator:a522c0faaf67dc8a9424693ab4bcd834c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5192c874843e95dd575554e91c034498"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a5192c874843e95dd575554e91c034498">Sync</a> ()</td></tr>
-<tr class="separator:a5192c874843e95dd575554e91c034498"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae3975b145aa3350fad40c091e3edb7e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e">Open</a> (int flags=O_RDONLY, mode_t mode=0644)</td></tr>
-<tr class="separator:aae3975b145aa3350fad40c091e3edb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44fabe060d099540d9ceee793fcbbdd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad44fabe060d099540d9ceee793fcbbdd">Read</a> (char *buffer, size_t len)</td></tr>
-<tr class="separator:ad44fabe060d099540d9ceee793fcbbdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aace41ea320b9274ab8790e229a6a66fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#aace41ea320b9274ab8790e229a6a66fe">ReadLine</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;delimiter=&quot;\n&quot;)</td></tr>
-<tr class="separator:aace41ea320b9274ab8790e229a6a66fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4fbb7be5fd0f3e696e44e91f6523a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a0f4fbb7be5fd0f3e696e44e91f6523a1">ReadFile</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, size_t maxSize=512 *1024)</td></tr>
-<tr class="separator:a0f4fbb7be5fd0f3e696e44e91f6523a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af886907aa9bc1478e4ed68c20ba69cdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#af886907aa9bc1478e4ed68c20ba69cdc">Write</a> (const char *buffer, size_t len)</td></tr>
-<tr class="separator:af886907aa9bc1478e4ed68c20ba69cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c7cc4349425200dbdd3082a7f259095"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a8c7cc4349425200dbdd3082a7f259095">Write</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data)</td></tr>
-<tr class="separator:a8c7cc4349425200dbdd3082a7f259095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb487ebd77ae80f9987a490e97033f3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3">Delete</a> ()</td></tr>
+<tr class="separator:a5fb487ebd77ae80f9987a490e97033f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9367883888c391702653c1da70e8c92f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a9367883888c391702653c1da70e8c92f">Move</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;newpath, bool overwrite=false)</td></tr>
+<tr class="separator:a9367883888c391702653c1da70e8c92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad745da22de9ee8bf97a3e00d113124f1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad745da22de9ee8bf97a3e00d113124f1">Copy</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;newpath, bool overwrite=false)</td></tr>
+<tr class="separator:ad745da22de9ee8bf97a3e00d113124f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a9a6a3887ae674124f99e5dabca88b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ac5a9a6a3887ae674124f99e5dabca88b">Chmod</a> (mode_t mode)</td></tr>
+<tr class="separator:ac5a9a6a3887ae674124f99e5dabca88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d88b4cf3b736f83cb8c8db3b0fcf7b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ab7d88b4cf3b736f83cb8c8db3b0fcf7b">Seek</a> (off_t pos)</td></tr>
+<tr class="separator:ab7d88b4cf3b736f83cb8c8db3b0fcf7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528dea7bc1c0bd3079d0af589e39e13e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a528dea7bc1c0bd3079d0af589e39e13e">Truncate</a> (off_t len=0)</td></tr>
+<tr class="separator:a528dea7bc1c0bd3079d0af589e39e13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79dcf0892d1f1a944a5fc3a02ed2dc43"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a79dcf0892d1f1a944a5fc3a02ed2dc43">Sync</a> ()</td></tr>
+<tr class="separator:a79dcf0892d1f1a944a5fc3a02ed2dc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51c0224b54a8e7c649682fd0642b782"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad51c0224b54a8e7c649682fd0642b782">Open</a> (int flags=O_RDONLY, mode_t mode=0644)</td></tr>
+<tr class="separator:ad51c0224b54a8e7c649682fd0642b782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b91f502b6b936e6cb54c47abcdbe37"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ac4b91f502b6b936e6cb54c47abcdbe37">Read</a> (char *buffer, size_t len)</td></tr>
+<tr class="separator:ac4b91f502b6b936e6cb54c47abcdbe37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a001fc0bdf075b7fbb46bc4e1d2be419e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a001fc0bdf075b7fbb46bc4e1d2be419e">ReadLine</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;delimiter=&quot;\n&quot;)</td></tr>
+<tr class="separator:a001fc0bdf075b7fbb46bc4e1d2be419e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bbd93e6a0203fb0f9873d9ebfda8327"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a1bbd93e6a0203fb0f9873d9ebfda8327">ReadFile</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data, size_t maxSize=512 *1024)</td></tr>
+<tr class="separator:a1bbd93e6a0203fb0f9873d9ebfda8327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade7c3db03f4b1cd83fc1d710bf8ae43e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ade7c3db03f4b1cd83fc1d710bf8ae43e">Write</a> (const char *buffer, size_t len)</td></tr>
+<tr class="separator:ade7c3db03f4b1cd83fc1d710bf8ae43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09df87a6cf92214501e6d3ee7f8cf10"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ae09df87a6cf92214501e6d3ee7f8cf10">Write</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data)</td></tr>
+<tr class="separator:ae09df87a6cf92214501e6d3ee7f8cf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2562a6854b5cb6d0c69f8b8563fd6d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ad2562a6854b5cb6d0c69f8b8563fd6d5">Close</a> ()</td></tr>
 <tr class="separator:ad2562a6854b5cb6d0c69f8b8563fd6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -243,7 +243,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9ce33b9306c640def6236436e5100aed"></a>
+<a class="anchor" id="a450323808997b54f71eec826e3b30121"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -251,7 +251,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">trippingcyril::File::~File </td>
+          <td class="memname">virtual trippingcyril::File::~File </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -267,20 +267,30 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a598d1e728a89b450aeaf9349b2dbf22a"></a>
+<a class="anchor" id="ac5a9a6a3887ae674124f99e5dabca88b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Chmod </td>
+          <td class="memname">virtual bool trippingcyril::File::Chmod </td>
           <td>(</td>
           <td class="paramtype">mode_t&#160;</td>
           <td class="paramname"><em>mode</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if permissions were successfully modified. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a5b43a39c43ea2dd7f5d1b18ddc834810">trippingcyril::PipeIO</a>.</p>
 
 </div>
 </div>
@@ -300,12 +310,15 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8880ff3b9b7ef879dfecf2429cec138f"></a>
+<a class="anchor" id="ad745da22de9ee8bf97a3e00d113124f1"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Copy </td>
+          <td class="memname">virtual bool trippingcyril::File::Copy </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>newpath</em>, </td>
@@ -322,104 +335,171 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully copied. </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a273b27c9928db1eacdf32443f30261af">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a8db3101e7071c99a3e78d4e5a0b9684b"></a>
+<a class="anchor" id="a5fb487ebd77ae80f9987a490e97033f3"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Delete </td>
+          <td class="memname">virtual bool trippingcyril::File::Delete </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully deleted. </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a4ed2949ab806b1efba90d0066c68f49b">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a3db82153f8c37ade8191a64374cf54b3"></a>
+<a class="anchor" id="a58de68cec3124e7aa076ef34e2839b83"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Exists </td>
+          <td class="memname">virtual bool trippingcyril::File::Exists </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if the file exists </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a412a41cd4eeb4b33b984304d228e7b80">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="add6efbc4f8848d2e533a7bb8b2794598"></a>
+<a class="anchor" id="a584e2d3fcd0a1735b9b731af9950451b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">time_t trippingcyril::File::GetATime </td>
+          <td class="memname">virtual time_t trippingcyril::File::GetATime </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Last access time of this file. </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#ad6540271cedf99d73263a5ea627de68f">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="aecfb6c95a1c10d9c27ad24f99a2930e3"></a>
+<a class="anchor" id="aa7eb7705a09e3b77a448f462154a16b9"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">time_t trippingcyril::File::GetCTime </td>
+          <td class="memname">virtual time_t trippingcyril::File::GetCTime </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Creation time of this file. </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="ae464299eabc7d2d224596d589e964750"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gid_t trippingcyril::File::GetGID </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>GID of this file. </dd></dl>
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#ab37baca9c09b93010de05b87c1cbd17d">trippingcyril::PipeIO</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa1ca6bf68a162718cc1378b096adadda"></a>
+<a class="anchor" id="ab076e4e50fce9b07f62d26cc37886c9c"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">time_t trippingcyril::File::GetMTime </td>
+          <td class="memname">virtual gid_t trippingcyril::File::GetGID </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>GID of this file. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a0a11855bedfdb4bef365063d63bc462f">trippingcyril::PipeIO</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8e222b853c0dfeecf98f886aad85284"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual time_t trippingcyril::File::GetMTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Last modification time of this file. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#ac8753b2c000ca2b016e80ce559913e6c">trippingcyril::PipeIO</a>.</p>
 
 </div>
 </div>
@@ -455,23 +535,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae5b6d40c958c6026ad8e0a1175e32255"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">off_t trippingcyril::File::GetSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>The size of the file, only works with REGULAR files, 0 otherwise </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a0828b10a676ee6e0640f36a71d94112a"></a>
+<a class="anchor" id="a0acd3b2257a65b7064dd071d315d406e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -479,7 +543,33 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66">File::FileType</a> trippingcyril::File::GetType </td>
+          <td class="memname">virtual off_t trippingcyril::File::GetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The size of the file, only works with REGULAR files, 0 otherwise </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a8caa7fc921f40167ae54bb6231e35e09">trippingcyril::PipeIO</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe847e9c3e30f4fdc16c8b7e2b6f4813"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66">FileType</a> trippingcyril::File::GetType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -492,23 +582,33 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_temp_file.html#af149299cbae481e1060479c33d85a74c">trippingcyril::TempFile</a>.</p>
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_temp_file.html#af149299cbae481e1060479c33d85a74c">trippingcyril::TempFile</a>, and <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a3af83fc872fef0dffdcf7796a32adc6a">trippingcyril::PipeIO</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a86606a8e55f5e76cb2ea54d063b51d6c"></a>
+<a class="anchor" id="a0ec2612679ecd0f1fa95707d07ece115"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uid_t trippingcyril::File::GetUID </td>
+          <td class="memname">virtual uid_t trippingcyril::File::GetUID </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>UID of this file. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a380c67994a0d3bf9c70893693a919154">trippingcyril::PipeIO</a>.</p>
 
 </div>
 </div>
@@ -524,17 +624,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true if successfully opened with <a class="el" href="classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e">Open()</a> </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_file.html#aae3975b145aa3350fad40c091e3edb7e">Open</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successfully opened with <a class="el" href="classtrippingcyril_1_1_file.html#ad51c0224b54a8e7c649682fd0642b782">Open()</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_file.html#ad51c0224b54a8e7c649682fd0642b782">Open</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aa491147cfad3a08368caad4eb5171453"></a>
+<a class="anchor" id="a9367883888c391702653c1da70e8c92f"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Move </td>
+          <td class="memname">virtual bool trippingcyril::File::Move </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>newpath</em>, </td>
@@ -551,17 +654,27 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully moved. </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a73a25ee7ffe4bb2226645a0c0f2c8d9e">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="aae3975b145aa3350fad40c091e3edb7e"></a>
+<a class="anchor" id="ad51c0224b54a8e7c649682fd0642b782"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Open </td>
+          <td class="memname">virtual bool trippingcyril::File::Open </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>flags</em> = <code>O_RDONLY</code>, </td>
@@ -578,17 +691,25 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully opened, similar to <a href="http://man7.org/linux/man-pages/man2/open.2.html">open(2)</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ad44fabe060d099540d9ceee793fcbbdd"></a>
+<a class="anchor" id="ac4b91f502b6b936e6cb54c47abcdbe37"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int trippingcyril::File::Read </td>
+          <td class="memname">virtual int trippingcyril::File::Read </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
@@ -605,17 +726,25 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The amount of bytes read into the buffer, similar to <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a0f4fbb7be5fd0f3e696e44e91f6523a1"></a>
+<a class="anchor" id="a1bbd93e6a0203fb0f9873d9ebfda8327"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::ReadFile </td>
+          <td class="memname">virtual bool trippingcyril::File::ReadFile </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>data</em>, </td>
@@ -624,7 +753,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>maxSize</em> = <code>512&#160;*&#160;1024</code>&#160;</td>
+          <td class="paramname"><em>maxSize</em> = <code>512&#160;*1024</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -632,6 +761,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Reads up until maxSize into data </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -643,14 +777,19 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the file was entirely read into our buffer </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#adf08686e7e1a6d5456cde762c72fd272">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="aace41ea320b9274ab8790e229a6a66fe"></a>
+<a class="anchor" id="a001fc0bdf075b7fbb46bc4e1d2be419e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::ReadLine </td>
+          <td class="memname">virtual bool trippingcyril::File::ReadLine </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>data</em>, </td>
@@ -667,6 +806,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Reads up to the delimiter into data </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -680,62 +824,95 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae0c299cbd9e9fa6b8748e4f04916e32d"></a>
+<a class="anchor" id="ab7d88b4cf3b736f83cb8c8db3b0fcf7b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Seek </td>
+          <td class="memname">virtual bool trippingcyril::File::Seek </td>
           <td>(</td>
           <td class="paramtype">off_t&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully moved to this spot in the file, similar to <a href="http://man7.org/linux/man-pages/man2/lseek.2.html">lseek(2)</a> </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#aba865ff426669646a9d20f0193c1a5b6">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a5192c874843e95dd575554e91c034498"></a>
+<a class="anchor" id="a79dcf0892d1f1a944a5fc3a02ed2dc43"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Sync </td>
+          <td class="memname">virtual bool trippingcyril::File::Sync </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully synchronized, similar to <a href="http://man7.org/linux/man-pages/man2/fsync.2.html">fsync(2)</a> </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#a392c5c54556fc06a51f2eeebb31a2927">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a522c0faaf67dc8a9424693ab4bcd834c"></a>
+<a class="anchor" id="a528dea7bc1c0bd3079d0af589e39e13e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool trippingcyril::File::Truncate </td>
+          <td class="memname">virtual bool trippingcyril::File::Truncate </td>
           <td>(</td>
           <td class="paramtype">off_t&#160;</td>
           <td class="paramname"><em>len</em> = <code>0</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully truncated, similar to <a href="http://man7.org/linux/man-pages/man2/ftruncate.2.html">truncate(2)</a> </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_pipe_i_o.html#ab80f27a39d34f9bae202b5db73d1ed92">trippingcyril::PipeIO</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="af886907aa9bc1478e4ed68c20ba69cdc"></a>
+<a class="anchor" id="ade7c3db03f4b1cd83fc1d710bf8ae43e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int trippingcyril::File::Write </td>
+          <td class="memname">virtual int trippingcyril::File::Write </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
@@ -752,36 +929,48 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The amount of bytes written into the file, similar to <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a8c7cc4349425200dbdd3082a7f259095"></a>
+<a class="anchor" id="ae09df87a6cf92214501e6d3ee7f8cf10"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int trippingcyril::File::Write </td>
+          <td class="memname">virtual int trippingcyril::File::Write </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_file.html#af886907aa9bc1478e4ed68c20ba69cdc">Write</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_file.html#ade7c3db03f4b1cd83fc1d710bf8ae43e">Write</a> </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="_files_8h_source.html">Files.h</a></li>
-<li>src/<a class="el" href="_files_8cpp.html">Files.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 25 2014 16:11:29 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 26 2014 10:14:08 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

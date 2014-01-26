@@ -18,5 +18,5 @@ var searchData=
   ['trim',['Trim',['../classtrippingcyril_1_1_string.html#a958c907badacab9a01d4ba732416fcef',1,'trippingcyril::String']]],
   ['trimleft',['TrimLeft',['../classtrippingcyril_1_1_string.html#ab3f43a792978499903a4911e16470e93',1,'trippingcyril::String']]],
   ['trimright',['TrimRight',['../classtrippingcyril_1_1_string.html#a5187464a38551d5f42e5e46beb9d607f',1,'trippingcyril::String']]],
-  ['truncate',['Truncate',['../classtrippingcyril_1_1_file.html#a522c0faaf67dc8a9424693ab4bcd834c',1,'trippingcyril::File']]]
+  ['truncate',['Truncate',['../classtrippingcyril_1_1_file.html#a528dea7bc1c0bd3079d0af589e39e13e',1,'trippingcyril::File::Truncate()'],['../classtrippingcyril_1_1_pipe_i_o.html#ab80f27a39d34f9bae202b5db73d1ed92',1,'trippingcyril::PipeIO::Truncate()']]]
 ];

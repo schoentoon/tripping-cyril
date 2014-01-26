@@ -108,9 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c5fb359807be916f7ec417a06af61d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#a7c5fb359807be916f7ec417a06af61d2">UnloadModule</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;modName, <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;retMsg)</td></tr>
 <tr class="memdesc:a7c5fb359807be916f7ec417a06af61d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads a previously loaded module.  <a href="#a7c5fb359807be916f7ec417a06af61d2">More...</a><br/></td></tr>
 <tr class="separator:a7c5fb359807be916f7ec417a06af61d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae37c4e272e477b8bc1e9bd59ad7b8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#acae37c4e272e477b8bc1e9bd59ad7b8d">FindModule</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;module)</td></tr>
-<tr class="memdesc:acae37c4e272e477b8bc1e9bd59ad7b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a loaded module using it's name.  <a href="#acae37c4e272e477b8bc1e9bd59ad7b8d">More...</a><br/></td></tr>
-<tr class="separator:acae37c4e272e477b8bc1e9bd59ad7b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a953cb9341e602eed3672ddba208b0e3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#a953cb9341e602eed3672ddba208b0e3e">FindModule</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;module)</td></tr>
+<tr class="memdesc:a953cb9341e602eed3672ddba208b0e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a loaded module using it's name.  <a href="#a953cb9341e602eed3672ddba208b0e3e">More...</a><br/></td></tr>
+<tr class="separator:a953cb9341e602eed3672ddba208b0e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad72db2e6e567ebfd26aec471f8d5f7e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_inter_module_data.html">InterModuleData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#ad72db2e6e567ebfd26aec471f8d5f7e5">ModuleInternalApiCall</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;module, int method, void *arg=NULL)</td></tr>
 <tr class="separator:ad72db2e6e567ebfd26aec471f8d5f7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a553349ba4061a6a67c819f3793a58308"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_global.html#a553349ba4061a6a67c819f3793a58308">LoadedModules</a> () const </td></tr>
@@ -131,12 +131,12 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Our global class which has some key features. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acae37c4e272e477b8bc1e9bd59ad7b8d"></a>
+<a class="anchor" id="a953cb9341e602eed3672ddba208b0e3e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtrippingcyril_1_1_module.html">Module</a> * trippingcyril::Global::FindModule </td>
+          <td class="memname"><a class="el" href="classtrippingcyril_1_1_module.html">Module</a>* trippingcyril::Global::FindModule </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>module</em></td><td>)</td>
@@ -280,7 +280,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>The path of the module to load </td></tr>
-    <tr><td class="paramname">retMsg</td><td>The return message, similar to <a class="el" href="classtrippingcyril_1_1_module.html#a31198182823c58d46480117caaaa751b">Module::LoadModule</a> </td></tr>
+    <tr><td class="paramname">retMsg</td><td>The return message, similar to <a class="el" href="classtrippingcyril_1_1_module.html#a47e4f6bac27fdcdc8af692674137f0e3">Module::LoadModule</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -383,14 +383,13 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="_global_8h_source.html">Global.h</a></li>
-<li>src/<a class="el" href="_global_8cpp.html">Global.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 25 2014 16:11:29 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 26 2014 10:14:08 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

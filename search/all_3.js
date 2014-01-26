@@ -1,7 +1,7 @@
 var searchData=
 [
   ['decompession_5ferror',['DECOMPESSION_ERROR',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a29a1fe6175a7f7640e32c7cfe5e8eb27',1,'trippingcyril::SimpleHTTPSocket']]],
-  ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a8db3101e7071c99a3e78d4e5a0b9684b',1,'trippingcyril::File']]],
+  ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File::Delete()'],['../classtrippingcyril_1_1_pipe_i_o.html#a4ed2949ab806b1efba90d0066c68f49b',1,'trippingcyril::PipeIO::Delete()']]],
   ['detach',['Detach',['../classtrippingcyril_1_1_thread.html#a304092a2bc70f45c573acf7b87a15a4e',1,'trippingcyril::Thread']]],
   ['dir',['Dir',['../classtrippingcyril_1_1_dir.html',1,'trippingcyril']]],
   ['dir',['Dir',['../classtrippingcyril_1_1_dir.html#a2f31a058b92a77b08f39637f4a0a7a02',1,'trippingcyril::Dir']]],
