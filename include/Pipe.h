@@ -25,8 +25,6 @@
 
 namespace trippingcyril {
 
-class PipeIO;
-
 /**
  * @brief A wrapper class for pipes
  */
