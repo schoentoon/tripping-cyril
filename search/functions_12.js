@@ -8,6 +8,8 @@ var searchData=
   ['_7eipaddress',['~IPAddress',['../classtrippingcyril_1_1_i_p_address.html#a1cbb32dd71e4f37eaebaccaea4b4512e',1,'trippingcyril::IPAddress']]],
   ['_7eipv4address',['~IPv4Address',['../classtrippingcyril_1_1_i_pv4_address.html#abad4a5b6ffc4410f059d112b8756cbe5',1,'trippingcyril::IPv4Address']]],
   ['_7emodule',['~Module',['../classtrippingcyril_1_1_module.html#aeb7a5777b2489432e87253104937a3bc',1,'trippingcyril::Module']]],
+  ['_7emutex',['~Mutex',['../classtrippingcyril_1_1_mutex.html#ab1f7faaca49b01aa2ecd0b06de9bd8e5',1,'trippingcyril::Mutex']]],
+  ['_7emutexlocker',['~MutexLocker',['../classtrippingcyril_1_1_mutex_locker.html#afbf94baffb443de7c870cff7daebf4b2',1,'trippingcyril::MutexLocker']]],
   ['_7epipe',['~Pipe',['../classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d',1,'trippingcyril::Pipe']]],
   ['_7esimplehttpsocket',['~SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a279bb1590211ed1e7ff698d470c80e1e',1,'trippingcyril::SimpleHTTPSocket']]],
   ['_7esocket',['~Socket',['../classtrippingcyril_1_1_socket.html#a8a3720a08a7d8629f4f1c287a4682fd0',1,'trippingcyril::Socket']]],
