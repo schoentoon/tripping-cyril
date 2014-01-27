@@ -105,12 +105,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac7927512508610d61604ff968ee4f470"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e64e44179a94fd787fe82e4458c2b8d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d">~Pipe</a> ()</td></tr>
 <tr class="separator:a9e64e44179a94fd787fe82e4458c2b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ac497f505ee25da5572fcc174114db3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_pipe_i_o.html">PipeIO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#a1ac497f505ee25da5572fcc174114db3">GetReadIO</a> () const </td></tr>
-<tr class="separator:a1ac497f505ee25da5572fcc174114db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af868e5f9784f259a20a9f517263ae297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_pipe_i_o.html">PipeIO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#af868e5f9784f259a20a9f517263ae297">GetWriteIO</a> () const </td></tr>
-<tr class="separator:af868e5f9784f259a20a9f517263ae297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a380d51a989f15bbe0516163ceb9ced61"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#a380d51a989f15bbe0516163ceb9ced61">OnRead</a> (<a class="el" href="classtrippingcyril_1_1_pipe_i_o.html">PipeIO</a> *pipe)</td></tr>
-<tr class="separator:a380d51a989f15bbe0516163ceb9ced61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1d37c44ac7b1595986b4893f3962ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">Read</a> (char *buffer, size_t len)</td></tr>
+<tr class="separator:a7c1d37c44ac7b1595986b4893f3962ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa11631b710c59b1c75b3035d2b101abe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#aa11631b710c59b1c75b3035d2b101abe">Write</a> (const char *buffer, size_t len)</td></tr>
+<tr class="separator:aa11631b710c59b1c75b3035d2b101abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ae93f9fc73441cafbbbdd230d67992"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#a71ae93f9fc73441cafbbbdd230d67992">Write</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data)</td></tr>
+<tr class="separator:a71ae93f9fc73441cafbbbdd230d67992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31ba938a96e8dc61f0cf309fe2facf9e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#a31ba938a96e8dc61f0cf309fe2facf9e">OnRead</a> ()</td></tr>
+<tr class="separator:a31ba938a96e8dc61f0cf309fe2facf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86219e43fe9e1c7b59e133c9fe261b5c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_pipe.html#a86219e43fe9e1c7b59e133c9fe261b5c">GetModule</a> () const </td></tr>
 <tr class="separator:a86219e43fe9e1c7b59e133c9fe261b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -133,7 +135,7 @@ Public Member Functions</h2></td></tr>
 <p>General constructor </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">module</td><td>The module to register this pipe on </td></tr>
+    <tr><td class="paramname">pModule</td><td>The module to register this pipe on </td></tr>
   </table>
   </dd>
 </dl>
@@ -189,55 +191,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1ac497f505ee25da5572fcc174114db3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtrippingcyril_1_1_pipe_i_o.html">PipeIO</a>* trippingcyril::Pipe::GetReadIO </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>The reader for this pipe </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="af868e5f9784f259a20a9f517263ae297"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtrippingcyril_1_1_pipe_i_o.html">PipeIO</a>* trippingcyril::Pipe::GetWriteIO </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>The writer for this pipe </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a380d51a989f15bbe0516163ceb9ced61"></a>
+<a class="anchor" id="a31ba938a96e8dc61f0cf309fe2facf9e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -247,8 +201,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void trippingcyril::Pipe::OnRead </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtrippingcyril_1_1_pipe_i_o.html">PipeIO</a> *&#160;</td>
-          <td class="paramname"><em>pipe</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -262,13 +215,108 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7c1d37c44ac7b1595986b4893f3962ad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int trippingcyril::Pipe::Read </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Generic read operation from this pipe, similar to <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="aa11631b710c59b1c75b3035d2b101abe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int trippingcyril::Pipe::Write </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Generic write operation to this pipe, similar to <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="a71ae93f9fc73441cafbbbdd230d67992"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int trippingcyril::Pipe::Write </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_pipe.html#aa11631b710c59b1c75b3035d2b101abe">Write</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="_pipe_8h_source.html">Pipe.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 26 2014 10:14:08 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 27 2014 16:09:34 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
