@@ -26,25 +26,20 @@ namespace trippingcyril {
 
 Pipe::Pipe(const Module* pModule)
 : module(pModule) {
-  int fds[2];
   if (pipe(fds) != 0)
     throw String(strerror(errno));
   read_event = event_new(module != NULL ? module->GetEventBase() : Global::Get()->GetEventBase()
                         ,fds[0], EV_PERSIST|EV_READ, Pipe::EventCallback, this);
   event_add(read_event, NULL);
-  readPipe = new PipeIO(fds[0]);
-  writePipe = new PipeIO(fds[1]);
 };
 
 Pipe::~Pipe() {
   event_free(read_event);
-  delete readPipe;
-  delete writePipe;
 };
 
 void Pipe::EventCallback(evutil_socket_t fd, short event, void* arg) {
   Pipe* pipe = (Pipe*) arg;
-  pipe->OnRead(pipe->readPipe);
+  pipe->OnRead();
 };
 
 };

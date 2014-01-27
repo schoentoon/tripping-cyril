@@ -34,82 +34,45 @@ class Pipe {
 public:
   /**
    * General constructor
-   * @param module The module to register this pipe on
+   * @param pModule The module to register this pipe on
    */
   Pipe(const Module* pModule);
   /**
    * Deconstructor, will close both ends of the pipe
    */
   virtual ~Pipe();
-  /** @return The reader for this pipe */
-  PipeIO* GetReadIO() const { return readPipe; };
-  /** @return The writer for this pipe */
-  PipeIO* GetWriteIO() const { return writePipe; };
+  /**
+   * Generic read operation from this pipe, similar to
+   * <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a>
+   */
+  int Read(char* buffer, size_t len) {
+    return read(fds[0], buffer, len);
+  };
+  /**
+   * Generic write operation to this pipe, similar to
+   * <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a>
+   */
+  int Write(const char* buffer, size_t len) {
+    return write(fds[1], buffer, len);
+  };
+  /**
+   * @see Write
+   */
+  int Write(const String& data) {
+    return Write(data.data(), data.size());
+  };
   /**
    * Override this method with your own stuff to do when read operations happen
    */
-  virtual void OnRead(PipeIO* pipe) {};
+  virtual void OnRead() {};
   /** @return The module we registered with */
   const Module* GetModule() const { return module; };
 private:
   // @cond
+  int fds[2];
   const Module* module;
-  PipeIO* readPipe;
-  PipeIO* writePipe;
   struct event* read_event;
   static void EventCallback(evutil_socket_t fd, short event, void* arg);
-  // @endcond
-};
-
-/**
- * @brief Wrapper for the file descriptors from the pipe, same interface as File
- */
-class PipeIO : public File {
-public:
-  /** @brief Disabled, we are not a file. */
-  virtual bool Exists() const { return false; };
-  virtual FileType GetType() const { return UNKNOWN; };
-  /** @brief Disabled, we are not a file. */
-  virtual off_t GetSize() const { return -1; };
-  /** @brief Disabled, we are not a file. */
-  virtual time_t GetATime() const { return time(NULL); };
-  /** @brief Disabled, we are not a file. */
-  virtual time_t GetMTime() const { return time(NULL); };
-  /** @brief Disabled, we are not a file. */
-  virtual time_t GetCTime() const { return time(NULL); };
-  /** @brief Disabled, we are not a file. */
-  virtual uid_t GetUID() const { return -1; };
-  /** @brief Disabled, we are not a file. */
-  virtual gid_t GetGID() const { return -1; };
-  /** @brief Disabled, we are not a file. */
-  virtual bool Delete() { return false; };
-  /** @brief Disabled, we are not a file. */
-  virtual bool Move(const String& newpath, bool overwrite = false) { return false; };
-  /** @brief Disabled, we are not a file. */
-  virtual bool Copy(const String& newpath, bool overwrite = false) { return false; };
-  /** @brief Disabled, we are not a file. */
-  virtual bool Chmod(mode_t mode) { return false; };
-  /** @brief Disabled, we are not a file. */
-  virtual bool Seek(off_t pos) { return false; };
-  /** @brief Disabled, we are not a file. */
-  virtual bool Truncate(off_t len = 0) { return false; };
-  /** @brief Disabled, we are not a file. */
-  virtual bool Sync() { return false; };
-  /**
-   * @brief Disabled, we are not a file.
-   * Even though this is a reading operation it is disabled anyway due to the way
-   * the internals of it work. It'll either read till maxSize or till an error or
-   * EOF, which will probably all never happen.
-   */
-  virtual bool ReadFile(String& data, size_t maxSize = 512 * 1024) { return false; };
-private:
-  // @cond
-  PipeIO(int pFd)
-  : File("pipe") {
-    fd = pFd;
-  };
-  virtual ~PipeIO() {};
-  friend class Pipe;
   // @endcond
 };
 

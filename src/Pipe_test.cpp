@@ -40,9 +40,9 @@ public:
       ADD_FAILURE() << "There were expected reads which I haven't seen.";
     };
   };
-  virtual void OnRead(PipeIO* pipe) {
+  virtual void OnRead() {
     char buf[4096];
-    int ret = pipe->Read(buf, sizeof(buf));
+    int ret = Read(buf, sizeof(buf));
     if (ret > 0) {
       if (expectedReads.empty()) {
         ADD_FAILURE() << "I wasn't expecting any read operations";
@@ -69,24 +69,24 @@ TEST_F(Pipe, OnRead) {
   pipe->done = &done;
   String testdata = "This is a simple test.";
   pipe->expectedReads.push_back(testdata);
-  EXPECT_EQ(pipe->GetWriteIO()->Write(testdata), testdata.length());
+  EXPECT_EQ(pipe->Write(testdata), testdata.length());
   while (done == false && event_base->Loop());
   delete pipe;
 };
 
 class WriteThread : public Thread {
 public:
-  WriteThread(PipeIO* writePipe, const String& writeData)
+  WriteThread(TestPipe* pipe, const String& writeData)
   : Thread("pipewritethread") {
-    this->writePipe = writePipe;
+    this->pipe = pipe;
     this->writeData = writeData;
   };
   void* run() {
-    EXPECT_EQ(writePipe->Write(writeData), writeData.length());
+    EXPECT_EQ(pipe->Write(writeData), writeData.length());
     return NULL;
   };
 private:
-  PipeIO* writePipe;
+  TestPipe* pipe;
   String writeData;
 };
 
@@ -96,7 +96,7 @@ TEST_F(Pipe, WriteFromThread) {
   pipe->done = &done;
   String testdata = "This is a simple test.";
   pipe->expectedReads.push_back(testdata);
-  WriteThread* thread = new WriteThread(pipe->GetWriteIO(), testdata);
+  WriteThread* thread = new WriteThread(pipe, testdata);
   EXPECT_TRUE(thread->Start());
   while (done == false && event_base->Loop());
   EXPECT_TRUE(thread->Join());
