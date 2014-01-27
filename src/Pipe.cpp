@@ -34,6 +34,8 @@ Pipe::Pipe(const Module* pModule)
 };
 
 Pipe::~Pipe() {
+  close(fds[0]);
+  close(fds[1]);
   event_free(read_event);
 };
 
