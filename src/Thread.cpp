@@ -97,4 +97,28 @@ void Thread::Stop() {
     pthread_mutex_unlock(mutex);
 };
 
+Mutex::Mutex() {
+  pthread_mutex_init(&mutex, NULL);
+};
+
+Mutex::~Mutex() {
+  pthread_mutex_destroy(&mutex);
+};
+
+bool Mutex::Lock() {
+  return pthread_mutex_lock(&mutex) == 0;
+};
+
+bool Mutex::Unlock() {
+  return pthread_mutex_unlock(&mutex) == 0;
+};
+
+bool Mutex::isLocked() {
+  if (pthread_mutex_trylock(&mutex) == 0) {
+    pthread_mutex_unlock(&mutex);
+    return false;
+  };
+  return true;
+};
+
 };

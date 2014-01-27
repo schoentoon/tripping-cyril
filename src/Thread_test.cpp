@@ -51,4 +51,25 @@ TEST(Thread, Join) {
   free(number);
 };
 
+TEST(Mutex, ManualLock) {
+  Mutex* mutex = new Mutex;
+  EXPECT_FALSE(mutex->isLocked());
+  ASSERT_TRUE(mutex->Lock());
+  EXPECT_TRUE(mutex->isLocked());
+  ASSERT_TRUE(mutex->Unlock());
+  EXPECT_FALSE(mutex->isLocked());
+  delete mutex;
+};
+
+TEST(Mutex, MutexLocker) {
+  Mutex* mutex = new Mutex;
+  EXPECT_FALSE(mutex->isLocked());
+  {
+    MutexLocker lock(mutex);
+    EXPECT_TRUE(mutex->isLocked());
+  }
+  EXPECT_FALSE(mutex->isLocked());
+  delete mutex;
+};
+
 };

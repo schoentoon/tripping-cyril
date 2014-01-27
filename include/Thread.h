@@ -100,6 +100,53 @@ private:
   // @endcond
 };
 
+/**
+ * @brief Simple mutex class
+ */
+class Mutex {
+public:
+  /** Constructor */
+  Mutex();
+  /** Deconstructor */
+  virtual ~Mutex();
+  /** @return True if mutex is succesfully locked */
+  bool Lock();
+  /** @return True if mutex is succesfully unlocked */
+  bool Unlock();
+  /** @return True if mutex is locked */
+  bool isLocked();
+private:
+  // @cond
+  pthread_mutex_t mutex;
+  // @endcond
+};
+
+/**
+ * @brief Simple mutexlocking class
+ */
+class MutexLocker {
+public:
+  /**
+   * Constructor that locks the mutex
+   */
+  MutexLocker(Mutex* pMutex) {
+    mutex = pMutex;
+    if (mutex != NULL)
+      mutex->Lock();
+  };
+  /**
+   * Deconstructor that unlocks the mutex
+   */
+  virtual ~MutexLocker() {
+    if (mutex != NULL)
+      mutex->Unlock();
+  };
+private:
+  // @cond
+  Mutex* mutex;
+  // @endcond
+};
+
 };
 
 #endif //_THREAD_H
