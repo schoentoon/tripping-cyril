@@ -64,7 +64,7 @@ public:
   /**
    * Override this method with your own stuff to do when read operations happen
    */
-  virtual void OnRead() {};
+  virtual void OnRead() = 0;
   /** @return The module we registered with */
   const Module* GetModule() const { return module; };
 private:
