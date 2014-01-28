@@ -73,21 +73,24 @@ bool Global::LoadModule(const String& path, String& retMsg) {
 bool Global::UnloadModule(const String& modName, String& retMsg) {
   vector<Module*>::iterator iter;
   for (iter = modules.begin(); iter != modules.end(); ++iter) {
-    if ((*iter)->GetModName() == modName) {
+    if ((*iter)->GetModName() == modName)
       break;
-    };
   };
   if (iter == modules.end()) {
     retMsg = "Module [" + modName + "] isn't loaded?";
     return false;
   };
   ModHandle so = (*iter)->so;
-  if (so) {
+  if (so != NULL) {
     delete *iter;
     modules.erase(iter);
-    dlclose(so);
-    retMsg = "Module [" + modName + "] unloaded";
-    return true;
+    if (dlclose(so) == 0) {
+      retMsg = "Module [" + modName + "] unloaded";
+      return true;
+    } else {
+      retMsg = "Unable to unload module [" + modName + "] [" + dlerror() + "]";
+      return false;
+    };
   };
   retMsg = "Unable to unload module [" + modName + "]";
   return false;
