@@ -91,7 +91,7 @@ protected:
 private:
   // @cond
   static void* runThread(void* arg);
-  pthread_t  tid;
+  pthread_t tid;
   uint8_t running : 1;
   uint8_t detached : 1;
   const String name;
@@ -99,6 +99,8 @@ private:
   pthread_mutex_t* mutex;
   // @endcond
 };
+
+class CondVar;
 
 /**
  * @brief Simple mutex class
@@ -118,6 +120,7 @@ public:
 private:
   // @cond
   pthread_mutex_t mutex;
+  friend class CondVar;
   // @endcond
 };
 
@@ -144,6 +147,30 @@ public:
 private:
   // @cond
   Mutex* mutex;
+  // @endcond
+};
+
+/**
+ * @brief Simple cond var wrapping class
+ */
+class CondVar {
+public:
+  /** Constructor */
+  CondVar();
+  /** Deconstructor */
+  virtual ~CondVar();
+  /**
+   * Signals any waiting operations
+   * @return True if succesful
+   */
+  bool Signal();
+  /**
+   * Waits for any signals
+   */
+  bool Wait(Mutex* mutex);
+private:
+  // @cond
+  pthread_cond_t cond_var;
   // @endcond
 };
 

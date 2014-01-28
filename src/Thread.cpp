@@ -121,4 +121,20 @@ bool Mutex::isLocked() {
   return true;
 };
 
+CondVar::CondVar() {
+  pthread_cond_init(&cond_var, NULL);
+};
+
+CondVar::~CondVar() {
+  pthread_cond_destroy(&cond_var);
+};
+
+bool CondVar::Signal() {
+  return pthread_cond_signal(&cond_var) == 0;
+};
+
+bool CondVar::Wait(Mutex* mutex) {
+  return pthread_cond_wait(&cond_var, &mutex->mutex) == 0;
+};
+
 };
