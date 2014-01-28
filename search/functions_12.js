@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['_7econdvar',['~CondVar',['../classtrippingcyril_1_1_cond_var.html#a8b06f9145f9e615b9e35b0dc797a56df',1,'trippingcyril::CondVar']]],
   ['_7edir',['~Dir',['../classtrippingcyril_1_1_dir.html#ac3c95790e33f3160d3ea170fe7214a83',1,'trippingcyril::Dir']]],
   ['_7efile',['~File',['../classtrippingcyril_1_1_file.html#a450323808997b54f71eec826e3b30121',1,'trippingcyril::File']]],
   ['_7efileobservercallback',['~FileObserverCallback',['../classtrippingcyril_1_1_file_observer_callback.html#ae2fe81963443ec841315638ec4a911b9',1,'trippingcyril::FileObserverCallback']]],
@@ -7,6 +8,8 @@ var searchData=
   ['_7eintermoduledata',['~InterModuleData',['../classtrippingcyril_1_1_inter_module_data.html#ac375428cbf16acd5a9f8a3b866533209',1,'trippingcyril::InterModuleData']]],
   ['_7eipaddress',['~IPAddress',['../classtrippingcyril_1_1_i_p_address.html#a1cbb32dd71e4f37eaebaccaea4b4512e',1,'trippingcyril::IPAddress']]],
   ['_7eipv4address',['~IPv4Address',['../classtrippingcyril_1_1_i_pv4_address.html#abad4a5b6ffc4410f059d112b8756cbe5',1,'trippingcyril::IPv4Address']]],
+  ['_7ejob',['~Job',['../classtrippingcyril_1_1_job.html#a740cb3fb2f1a779f0ecc0dcce269efe4',1,'trippingcyril::Job']]],
+  ['_7ejobthread',['~JobThread',['../classtrippingcyril_1_1_job_thread.html#a0193385ee0b35258d78b7be15f624669',1,'trippingcyril::JobThread']]],
   ['_7emodule',['~Module',['../classtrippingcyril_1_1_module.html#aeb7a5777b2489432e87253104937a3bc',1,'trippingcyril::Module']]],
   ['_7emutex',['~Mutex',['../classtrippingcyril_1_1_mutex.html#ab1f7faaca49b01aa2ecd0b06de9bd8e5',1,'trippingcyril::Mutex']]],
   ['_7emutexlocker',['~MutexLocker',['../classtrippingcyril_1_1_mutex_locker.html#afbf94baffb443de7c870cff7daebf4b2',1,'trippingcyril::MutexLocker']]],

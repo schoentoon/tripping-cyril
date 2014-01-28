@@ -1,11 +1,12 @@
 <map id="include/String.h" name="include/String.h">
-<area shape="rect" id="node2" href="$_files_8h.html" title="include/Files.h" alt="" coords="25,80,132,107"/>
-<area shape="rect" id="node4" href="$_global_8h.html" title="include/Global.h" alt="" coords="133,155,248,181"/>
-<area shape="rect" id="node5" href="$_module_8h.html" title="include/Module.h" alt="" coords="268,80,388,107"/>
-<area shape="rect" id="node6" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="407,155,525,181"/>
-<area shape="rect" id="node7" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="417,229,612,256"/>
-<area shape="rect" id="node9" href="$_term_utils_8h.html" title="include/TermUtils.h" alt="" coords="602,80,736,107"/>
-<area shape="rect" id="node10" href="$_thread_8h.html" title="include/Thread.h" alt="" coords="761,80,879,107"/>
-<area shape="rect" id="node3" href="$_pipe_8h.html" title="include/Pipe.h" alt="" coords="5,155,109,181"/>
-<area shape="rect" id="node8" href="$_timer_8h.html" title="include/Timer.h" alt="" coords="273,155,383,181"/>
+<area shape="rect" id="node2" href="$_files_8h.html" title="include/Files.h" alt="" coords="148,80,255,107"/>
+<area shape="rect" id="node5" href="$_global_8h.html" title="include/Global.h" alt="" coords="356,155,471,181"/>
+<area shape="rect" id="node6" href="$_module_8h.html" title="include/Module.h" alt="" coords="279,80,399,107"/>
+<area shape="rect" id="node7" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="495,155,613,181"/>
+<area shape="rect" id="node8" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="505,229,700,256"/>
+<area shape="rect" id="node10" href="$_thread_8h.html" title="include/Thread.h" alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node11" href="$_term_utils_8h.html" title="include/TermUtils.h" alt="" coords="690,80,824,107"/>
+<area shape="rect" id="node3" href="$_pipe_8h.html" title="include/Pipe.h" alt="" coords="41,155,145,181"/>
+<area shape="rect" id="node4" href="$_job_thread_8h.html" title="include/JobThread.h" alt="" coords="24,229,163,256"/>
+<area shape="rect" id="node9" href="$_timer_8h.html" title="include/Timer.h" alt="" coords="221,155,331,181"/>
 </map>

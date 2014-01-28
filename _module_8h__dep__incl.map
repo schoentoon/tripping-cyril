@@ -1,7 +1,8 @@
 <map id="include/Module.h" name="include/Module.h">
 <area shape="rect" id="node2" href="$_global_8h.html" title="include/Global.h" alt="" coords="5,80,120,107"/>
-<area shape="rect" id="node3" href="$_pipe_8h.html" title="include/Pipe.h" alt="" coords="144,80,248,107"/>
-<area shape="rect" id="node4" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="273,80,391,107"/>
-<area shape="rect" id="node6" href="$_timer_8h.html" title="include/Timer.h" alt="" coords="415,80,525,107"/>
-<area shape="rect" id="node5" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="235,155,429,181"/>
+<area shape="rect" id="node3" href="$_job_thread_8h.html" title="include/JobThread.h" alt="" coords="105,155,244,181"/>
+<area shape="rect" id="node4" href="$_pipe_8h.html" title="include/Pipe.h" alt="" coords="195,80,299,107"/>
+<area shape="rect" id="node5" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="323,80,441,107"/>
+<area shape="rect" id="node7" href="$_timer_8h.html" title="include/Timer.h" alt="" coords="466,80,576,107"/>
+<area shape="rect" id="node6" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="285,155,480,181"/>
 </map>
