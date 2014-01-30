@@ -20,6 +20,7 @@
 
 #include <list>
 
+#include "ShouldDelete.h"
 #include "Thread.h"
 #include "Module.h"
 #include "Pipe.h"
@@ -31,7 +32,7 @@ namespace trippingcyril {
  * With main thread we really just mean the thread the Module that the JobThread
  * we are pushed to is running on.
  */
-class Job {
+class Job : public ShouldDelete {
 public:
   /** Deconstructor */
   virtual ~Job() {};
@@ -62,8 +63,10 @@ public:
   JobThread(const String& pName, const Module* pModule);
   /** Deconstructor */
   virtual ~JobThread();
-  /** Add a new job to your job queue */
+  /** Add a new job to our job queue */
   void Add(Job* job);
+  /** Add a new job to the front of our job queue */
+  void AddFront(Job* job);
   /** Get the module this thread was created with */
   const Module* GetModule() const { return module; };
 protected:

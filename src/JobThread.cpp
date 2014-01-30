@@ -23,8 +23,8 @@ namespace trippingcyril {
 
 class JobRunnerPipe : public Pipe {
 public:
-  JobRunnerPipe(const Module* pModule, JobThread* pThread)
-  : Pipe(pModule) {
+  JobRunnerPipe(JobThread* pThread)
+  : Pipe(pThread->GetModule()) {
     this->thread = pThread;
   };
   virtual ~JobRunnerPipe() {
@@ -38,13 +38,18 @@ public:
     while (Read((char*) &jobr, sizeof(jobr)) == sizeof(jobr) && jobr.job != NULL) {
       switch (jobr.mode) {
       case 0:
+      case 1:
         jobr.job->preExecuteMain();
-        thread->jobs.push_back(jobr.job);
+        if (jobr.mode == 0)
+          thread->jobs.push_back(jobr.job);
+        else if (jobr.mode == 1)
+          thread->jobs.push_front(jobr.job);
         thread->condvar->Signal();
         break;
-      case 1:
+      case 2:
         jobr.job->postExecuteMain();
-        delete jobr.job;
+        if (jobr.job->shouldDelete())
+          delete jobr.job;
         break;
       };
     };
@@ -58,7 +63,7 @@ JobThread::JobThread(const String& pName, const Module* pModule)
 , module(pModule) {
   mutex = new Mutex;
   condvar = new CondVar;
-  pipe = new JobRunnerPipe(pModule, this);
+  pipe = new JobRunnerPipe(this);
 };
 
 JobThread::~JobThread() {
@@ -71,6 +76,14 @@ void JobThread::Add(Job* job) {
   MutexLocker lock(mutex);
   JobRunnerPipe::JobRunner runner;
   runner.mode = 0;
+  runner.job = job;
+  pipe->Write((const char*) &runner, sizeof(runner));
+};
+
+void JobThread::AddFront(Job* job) {
+  MutexLocker lock(mutex);
+  JobRunnerPipe::JobRunner runner;
+  runner.mode = 1;
   runner.job = job;
   pipe->Write((const char*) &runner, sizeof(runner));
 };
@@ -91,7 +104,7 @@ void* JobThread::run() {
       break;
     job->execute();
     JobRunnerPipe::JobRunner runner;
-    runner.mode = 1;
+    runner.mode = 2;
     runner.job = job;
     pipe->Write((const char*) &runner, sizeof(runner));
   };

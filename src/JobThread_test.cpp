@@ -31,9 +31,10 @@ class JobThread : public LibEventTest {
 class TestJob : public Job {
 public:
   TestJob(Module* module) {
-    done = NULL;
+    this->done = NULL;
     this->module = module;
     this->mainThread = 0;
+    this->counter = 0;
   };
   virtual ~TestJob() {
   };
@@ -41,16 +42,19 @@ public:
     if (mainThread != 0) {
       EXPECT_EQ(mainThread, pthread_self());
     }
+    EXPECT_EQ(0, counter++);
   };
   virtual void execute() {
     if (mainThread != 0) {
       EXPECT_NE(mainThread, pthread_self());
     }
+    EXPECT_EQ(1, counter++);
   };
   virtual void postExecuteMain() {
     if (mainThread != 0) {
       EXPECT_EQ(mainThread, pthread_self());
     }
+    EXPECT_EQ(2, counter++);
     if (done != NULL)
       *done = true;
     event_base_loopbreak(module->GetEventBase());
@@ -58,6 +62,7 @@ public:
   bool* done;
   Module* module;
   pthread_t mainThread;
+  int counter;
 };
 
 TEST_F(JobThread, TestJob) {
