@@ -23,8 +23,9 @@ namespace trippingcyril {
 
 class JobRunnerPipe : public Pipe {
 public:
-  JobRunnerPipe(const Module* pModule)
+  JobRunnerPipe(const Module* pModule, JobThread* pThread)
   : Pipe(pModule) {
+    this->thread = pThread;
   };
   virtual ~JobRunnerPipe() {
   };
@@ -33,19 +34,23 @@ public:
     Job* job;
   };
   virtual void OnRead() {
-    JobRunner job;
-    while (Read((char*) &job, sizeof(job)) == sizeof(job) && job.job != NULL) {
-      switch (job.mode) {
+    JobRunner jobr;
+    while (Read((char*) &jobr, sizeof(jobr)) == sizeof(jobr) && jobr.job != NULL) {
+      switch (jobr.mode) {
       case 0:
-        job.job->preExecuteMain();
+        jobr.job->preExecuteMain();
+        thread->jobs.push_back(jobr.job);
+        thread->condvar->Signal();
         break;
       case 1:
-        job.job->postExecuteMain();
-        delete job.job;
+        jobr.job->postExecuteMain();
+        delete jobr.job;
         break;
       };
     };
   };
+private:
+  JobThread* thread;
 };
 
 JobThread::JobThread(const String& pName, const Module* pModule)
@@ -53,7 +58,7 @@ JobThread::JobThread(const String& pName, const Module* pModule)
 , module(pModule) {
   mutex = new Mutex;
   condvar = new CondVar;
-  pipe = new JobRunnerPipe(pModule);
+  pipe = new JobRunnerPipe(pModule, this);
 };
 
 JobThread::~JobThread() {
@@ -68,8 +73,6 @@ void JobThread::Add(Job* job) {
   runner.mode = 0;
   runner.job = job;
   pipe->Write((const char*) &runner, sizeof(runner));
-  jobs.push_back(job);
-  condvar->Signal();
 };
 
 Job* JobThread::Remove() {

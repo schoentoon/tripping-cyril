@@ -37,7 +37,6 @@ public:
   virtual ~Job() {};
   /**
    * This method will be executed on the 'main' thread before execution
-   * WARNING preExecuteMain() and execute() may be running at the same time!
    */
   virtual void preExecuteMain() = 0;
   /**
@@ -49,6 +48,10 @@ public:
    */
   virtual void postExecuteMain() = 0;
 };
+
+// @cond
+class JobRunnerPipe;
+// @endcond
 
 /**
  * @brief A job queue that will run your jobs on a seperate thread
@@ -73,6 +76,7 @@ private:
   Mutex* mutex;
   CondVar* condvar;
   Pipe* pipe;
+  friend class JobRunnerPipe;
   // @endcond
 };
 
