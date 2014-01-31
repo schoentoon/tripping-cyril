@@ -44,6 +44,19 @@ Socket::Socket(const Module* pModule)
   SetTimeout(0.0);
 };
 
+Socket::Socket(struct bufferevent* event)
+: module(NULL) {
+  connection = event;
+  readline = 0;
+  is_connected = 0;
+  closing = 0;
+  read_more = 0;
+  tcp_no_delay = 0;
+  tcp_keep_alive = 1;
+  tcp_keep_alive_interval = 45;
+  SetTimeout(0.0);
+};
+
 Socket::~Socket() {
   if (connection != NULL)
     bufferevent_free(connection);

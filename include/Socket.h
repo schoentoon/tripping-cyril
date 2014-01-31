@@ -44,6 +44,11 @@ public:
    */
   Socket(const Module* module);
   /**
+   * Constructor used to create incoming connections
+   * @see Listener
+   */
+  Socket(struct bufferevent* event);
+  /**
    * General deconstructor, will close the connection if needed
    */
   virtual ~Socket();
