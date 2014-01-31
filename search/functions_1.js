@@ -6,5 +6,7 @@ var searchData=
   ['condvar',['CondVar',['../classtrippingcyril_1_1_cond_var.html#acbf972f3f2b3beca9362962203897410',1,'trippingcyril::CondVar']]],
   ['connect',['Connect',['../classtrippingcyril_1_1_socket.html#a2d95879c60d3ebbca0ca33f7a61daf99',1,'trippingcyril::Socket']]],
   ['connected',['Connected',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a49da62a094e1e62835df6237fb803489',1,'trippingcyril::SimpleHTTPSocket::Connected()'],['../classtrippingcyril_1_1_socket.html#aab08533bfae5c2b623854c3cdb375084',1,'trippingcyril::Socket::Connected()']]],
-  ['copy',['Copy',['../classtrippingcyril_1_1_file.html#ad745da22de9ee8bf97a3e00d113124f1',1,'trippingcyril::File']]]
+  ['copy',['Copy',['../classtrippingcyril_1_1_file.html#ad745da22de9ee8bf97a3e00d113124f1',1,'trippingcyril::File']]],
+  ['createbufferevent',['createBufferEvent',['../classtrippingcyril_1_1_listener.html#ad29c54350ad28b0817cfc23e009f9c49',1,'trippingcyril::Listener']]],
+  ['createsocket',['createSocket',['../classtrippingcyril_1_1_listener.html#a85aa1c9c9e9c0f9c35fa12d361500c13',1,'trippingcyril::Listener']]]
 ];
