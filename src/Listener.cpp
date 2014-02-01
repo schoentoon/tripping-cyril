@@ -62,4 +62,27 @@ void Listener::listener_cb(evconnlistener* evlistener, int fd, sockaddr* sa, int
     listener->createSocket(bev);
 };
 
+SSLListener::SSLListener(uint16_t pPort)
+: Listener(pPort) {
+  ssl_ctx = initSSLContext();
+};
+
+SSLListener::~SSLListener() {
+  SSL_CTX_free(ssl_ctx);
+};
+
+SSL_CTX* SSLListener::initSSLContext() {
+  SSL_CTX* ctx = SSL_CTX_new(TLSv1_2_server_method());
+  EC_KEY *ecdh = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
+  SSL_CTX_set_tmp_ecdh(ctx,ecdh);
+  EC_KEY_free(ecdh);
+  SSL_CTX_set_default_verify_paths(ctx);
+  return ctx;
+};
+
+struct bufferevent* SSLListener::createBufferEvent(int fd) {
+  return bufferevent_openssl_socket_new(Global::Get()->GetEventBase(), fd, SSL_new(ssl_ctx)
+                                       ,BUFFEREVENT_SSL_ACCEPTING, BEV_OPT_CLOSE_ON_FREE|BEV_OPT_THREADSAFE);
+};
+
 };

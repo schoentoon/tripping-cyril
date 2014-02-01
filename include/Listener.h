@@ -19,7 +19,9 @@
 #define _LISTENER_H
 
 #include <stdint.h>
+#include <openssl/ssl.h>
 #include <event2/listener.h>
+#include <event2/bufferevent_ssl.h>
 
 #include "Socket.h"
 
@@ -60,6 +62,38 @@ private:
                          ,struct sockaddr *sa, int socklen, void *context);
   const uint16_t port;
   struct evconnlistener *listener;
+  // @endcond
+};
+
+/**
+ * @brief Generic ssl listener class
+ */
+class SSLListener : public Listener {
+public:
+  /**
+   * General constructor
+   * @param pPort The port to listen on
+   */
+  SSLListener(uint16_t pPort);
+  /** General deconstructor */
+  virtual ~SSLListener();
+protected:
+  /**
+   * Creates the ssl context for this connection
+   */
+  virtual SSL_CTX* initSSLContext();
+  /**
+   * Used to create the buffer event, you may override this to create it yourself
+   */
+  virtual struct bufferevent* createBufferEvent(evutil_socket_t fd);
+  /**
+   * Used to create the actual socket, create one of your own implementations here
+   * of course.
+   */
+  virtual Socket* createSocket(struct bufferevent* bev) = 0;
+private:
+  // @cond
+  SSL_CTX *ssl_ctx;
   // @endcond
 };
 
