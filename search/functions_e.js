@@ -14,6 +14,7 @@ var searchData=
   ['signal',['Signal',['../classtrippingcyril_1_1_cond_var.html#ac18865cb4895d31553128ab87353b970',1,'trippingcyril::CondVar']]],
   ['simplehttpsocket',['SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a8e2703d72db1bdc5fb9e7577a14af140',1,'trippingcyril::SimpleHTTPSocket']]],
   ['socket',['Socket',['../classtrippingcyril_1_1_socket.html#a2b39145643c0496c45b2e57fd606b861',1,'trippingcyril::Socket::Socket(const Module *module)'],['../classtrippingcyril_1_1_socket.html#abe98beeee9e08a2e8a866ff34217a13f',1,'trippingcyril::Socket::Socket(struct bufferevent *event)']]],
+  ['ssllistener',['SSLListener',['../classtrippingcyril_1_1_s_s_l_listener.html#a2199a5af5644e368507147f014ebe0a6',1,'trippingcyril::SSLListener']]],
   ['start',['Start',['../classtrippingcyril_1_1_thread.html#a46395e08c7531758c9f152f283923700',1,'trippingcyril::Thread::Start()'],['../classtrippingcyril_1_1_timer.html#a5a73727fd42236a14c2e64eb1b9dcea5',1,'trippingcyril::Timer::Start(double interval)'],['../classtrippingcyril_1_1_timer.html#a6afbae5d5488db926345caf3130c9f81',1,'trippingcyril::Timer::Start(struct timeval &amp;tv)']]],
   ['startmaxcycles',['StartMaxCycles',['../classtrippingcyril_1_1_timer.html#a88a5d083adb07f3841946a1d6390746b',1,'trippingcyril::Timer']]],
   ['stop',['Stop',['../classtrippingcyril_1_1_thread.html#af655a93758f844df5ad10d113e83f9f6',1,'trippingcyril::Thread::Stop()'],['../classtrippingcyril_1_1_timer.html#aca480cb45e8f568f2c74add01cc8101f',1,'trippingcyril::Timer::Stop()']]],

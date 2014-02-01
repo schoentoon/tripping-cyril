@@ -92,14 +92,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br/>
+<code>#include &lt;openssl/ssl.h&gt;</code><br/>
 <code>#include &lt;event2/listener.h&gt;</code><br/>
+<code>#include &lt;event2/bufferevent_ssl.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_socket_8h_source.html">Socket.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Listener.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_listener_8h__incl.png" border="0" usemap="#include_2_listener_8h" alt=""/></div>
 <map name="include_2_listener_8h" id="include_2_listener_8h">
-<area shape="rect" id="node4" href="_socket_8h.html" title="Socket.h" alt="" coords="237,80,312,107"/><area shape="rect" id="node6" href="_string_8h.html" title="String.h" alt="" coords="225,229,292,256"/><area shape="rect" id="node8" href="_module_8h.html" title="Module.h" alt="" coords="328,155,403,181"/></map>
+<area shape="rect" id="node6" href="_socket_8h.html" title="Socket.h" alt="" coords="516,88,591,115"/><area shape="rect" id="node8" href="_string_8h.html" title="String.h" alt="" coords="504,245,571,272"/><area shape="rect" id="node10" href="_module_8h.html" title="Module.h" alt="" coords="607,171,681,197"/></map>
 </div>
 </div>
 <p><a href="_listener_8h_source.html">Go to the source code of this file.</a></p>
@@ -108,6 +110,9 @@ Include dependency graph for Listener.h:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_listener.html">trippingcyril::Listener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic listener class.  <a href="classtrippingcyril_1_1_listener.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_s_s_l_listener.html">trippingcyril::SSLListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic ssl listener class.  <a href="classtrippingcyril_1_1_s_s_l_listener.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -118,7 +123,7 @@ Namespaces</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 31 2014 17:17:09 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 13:08:39 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

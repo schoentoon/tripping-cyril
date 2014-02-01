@@ -17,6 +17,7 @@ var searchData=
   ['_7epipe',['~Pipe',['../classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d',1,'trippingcyril::Pipe']]],
   ['_7esimplehttpsocket',['~SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a279bb1590211ed1e7ff698d470c80e1e',1,'trippingcyril::SimpleHTTPSocket']]],
   ['_7esocket',['~Socket',['../classtrippingcyril_1_1_socket.html#a8a3720a08a7d8629f4f1c287a4682fd0',1,'trippingcyril::Socket']]],
+  ['_7essllistener',['~SSLListener',['../classtrippingcyril_1_1_s_s_l_listener.html#a449b1a8593d4c460930079108dd44be6',1,'trippingcyril::SSLListener']]],
   ['_7estring',['~String',['../classtrippingcyril_1_1_string.html#af4e4a4cb687d06e2167b30c831b3a735',1,'trippingcyril::String']]],
   ['_7etempfile',['~TempFile',['../classtrippingcyril_1_1_temp_file.html#af328575a02ef76727a0c542253f0b22a',1,'trippingcyril::TempFile']]],
   ['_7ethread',['~Thread',['../classtrippingcyril_1_1_thread.html#a3ec18f1d2f7ae7e3b424dc1027c7c772',1,'trippingcyril::Thread']]],

@@ -109,46 +109,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _LISTENER_H</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;event2/listener.h&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_socket_8h.html">Socket.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;openssl/ssl.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;event2/listener.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;event2/bufferevent_ssl.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_socket_8h.html">Socket.h</a>&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_listener.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_listener.html">Listener</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="classtrippingcyril_1_1_listener.html#a6efc52b16e4b6f58040dadaa4d6ef7de">Listener</a>(uint16_t pPort);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_listener.html#afcdf22ae0c1e1e2db8f477492756b302">~Listener</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_listener.html#a708a6c6d067ee2529a59f2bad2ba69d0">   41</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtrippingcyril_1_1_listener.html#a708a6c6d067ee2529a59f2bad2ba69d0">isListening</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> listener != NULL; };</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtrippingcyril_1_1_listener.html#a029f4243c6f29838f6a80b790f375e6b">Listen</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">struct </span>bufferevent* <a class="code" href="classtrippingcyril_1_1_listener.html#ad29c54350ad28b0817cfc23e009f9c49">createBufferEvent</a>(evutil_socket_t fd);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_socket.html">Socket</a>* <a class="code" href="classtrippingcyril_1_1_listener.html#a85aa1c9c9e9c0f9c35fa12d361500c13">createSocket</a>(<span class="keyword">struct</span> bufferevent* bev) = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> listener_cb(<span class="keyword">struct</span> evconnlistener *evlistener, evutil_socket_t fd</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                         ,<span class="keyword">struct</span> sockaddr *sa, <span class="keywordtype">int</span> socklen, <span class="keywordtype">void</span> *context);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">const</span> uint16_t port;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">struct </span>evconnlistener *listener;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">// @endcond</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_listener.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_listener.html">Listener</a> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classtrippingcyril_1_1_listener.html#a6efc52b16e4b6f58040dadaa4d6ef7de">Listener</a>(uint16_t pPort);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_listener.html#afcdf22ae0c1e1e2db8f477492756b302">~Listener</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_listener.html#a708a6c6d067ee2529a59f2bad2ba69d0">   43</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtrippingcyril_1_1_listener.html#a708a6c6d067ee2529a59f2bad2ba69d0">isListening</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> listener != NULL; };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtrippingcyril_1_1_listener.html#a029f4243c6f29838f6a80b790f375e6b">Listen</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">struct </span>bufferevent* <a class="code" href="classtrippingcyril_1_1_listener.html#ad29c54350ad28b0817cfc23e009f9c49">createBufferEvent</a>(evutil_socket_t fd);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_socket.html">Socket</a>* <a class="code" href="classtrippingcyril_1_1_listener.html#a85aa1c9c9e9c0f9c35fa12d361500c13">createSocket</a>(<span class="keyword">struct</span> bufferevent* bev) = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> listener_cb(<span class="keyword">struct</span> evconnlistener *evlistener, evutil_socket_t fd</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                         ,<span class="keyword">struct</span> sockaddr *sa, <span class="keywordtype">int</span> socklen, <span class="keywordtype">void</span> *context);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">const</span> uint16_t port;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">struct </span>evconnlistener *listener;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// @endcond</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif //_LISTENER_H</span></div>
-<div class="ttc" id="classtrippingcyril_1_1_listener_html"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html">trippingcyril::Listener</a></div><div class="ttdoc">Generic listener class. </div><div class="ttdef"><b>Definition:</b> Listener.h:31</div></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_s_s_l_listener.html">   71</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_s_s_l_listener.html">SSLListener</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_listener.html">Listener</a> {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="classtrippingcyril_1_1_s_s_l_listener.html#a2199a5af5644e368507147f014ebe0a6">SSLListener</a>(uint16_t pPort);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_s_s_l_listener.html#a449b1a8593d4c460930079108dd44be6">~SSLListener</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">virtual</span> SSL_CTX* <a class="code" href="classtrippingcyril_1_1_s_s_l_listener.html#a24dbd4347ec7f36edf9bc739c07cb07b">initSSLContext</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">struct </span>bufferevent* <a class="code" href="classtrippingcyril_1_1_s_s_l_listener.html#a000cb60efdb2fbb98e71ae1ff1b8b658">createBufferEvent</a>(evutil_socket_t fd);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_socket.html">Socket</a>* <a class="code" href="classtrippingcyril_1_1_s_s_l_listener.html#a6452274d0916beb75f4ea9af1b4459d9">createSocket</a>(<span class="keyword">struct</span> bufferevent* bev) = 0;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  SSL_CTX *ssl_ctx;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="comment">// @endcond</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif //_LISTENER_H</span></div>
+<div class="ttc" id="classtrippingcyril_1_1_listener_html"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html">trippingcyril::Listener</a></div><div class="ttdoc">Generic listener class. </div><div class="ttdef"><b>Definition:</b> Listener.h:33</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_s_s_l_listener_html_a2199a5af5644e368507147f014ebe0a6"><div class="ttname"><a href="classtrippingcyril_1_1_s_s_l_listener.html#a2199a5af5644e368507147f014ebe0a6">trippingcyril::SSLListener::SSLListener</a></div><div class="ttdeci">SSLListener(uint16_t pPort)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_socket_html"><div class="ttname"><a href="classtrippingcyril_1_1_socket.html">trippingcyril::Socket</a></div><div class="ttdoc">General tcp socket class, fully async using libevent. </div><div class="ttdef"><b>Definition:</b> Socket.h:39</div></div>
 <div class="ttc" id="_socket_8h_html"><div class="ttname"><a href="_socket_8h.html">Socket.h</a></div></div>
-<div class="ttc" id="classtrippingcyril_1_1_listener_html_a708a6c6d067ee2529a59f2bad2ba69d0"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html#a708a6c6d067ee2529a59f2bad2ba69d0">trippingcyril::Listener::isListening</a></div><div class="ttdeci">bool isListening() const </div><div class="ttdef"><b>Definition:</b> Listener.h:41</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_listener_html_a708a6c6d067ee2529a59f2bad2ba69d0"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html#a708a6c6d067ee2529a59f2bad2ba69d0">trippingcyril::Listener::isListening</a></div><div class="ttdeci">bool isListening() const </div><div class="ttdef"><b>Definition:</b> Listener.h:43</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_listener_html_a6efc52b16e4b6f58040dadaa4d6ef7de"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html#a6efc52b16e4b6f58040dadaa4d6ef7de">trippingcyril::Listener::Listener</a></div><div class="ttdeci">Listener(uint16_t pPort)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_listener_html_afcdf22ae0c1e1e2db8f477492756b302"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html#afcdf22ae0c1e1e2db8f477492756b302">trippingcyril::Listener::~Listener</a></div><div class="ttdeci">virtual ~Listener()</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_listener_html_a85aa1c9c9e9c0f9c35fa12d361500c13"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html#a85aa1c9c9e9c0f9c35fa12d361500c13">trippingcyril::Listener::createSocket</a></div><div class="ttdeci">virtual Socket * createSocket(struct bufferevent *bev)=0</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_s_s_l_listener_html"><div class="ttname"><a href="classtrippingcyril_1_1_s_s_l_listener.html">trippingcyril::SSLListener</a></div><div class="ttdoc">Generic ssl listener class. </div><div class="ttdef"><b>Definition:</b> Listener.h:71</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_s_s_l_listener_html_a000cb60efdb2fbb98e71ae1ff1b8b658"><div class="ttname"><a href="classtrippingcyril_1_1_s_s_l_listener.html#a000cb60efdb2fbb98e71ae1ff1b8b658">trippingcyril::SSLListener::createBufferEvent</a></div><div class="ttdeci">virtual struct bufferevent * createBufferEvent(evutil_socket_t fd)</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_s_s_l_listener_html_a24dbd4347ec7f36edf9bc739c07cb07b"><div class="ttname"><a href="classtrippingcyril_1_1_s_s_l_listener.html#a24dbd4347ec7f36edf9bc739c07cb07b">trippingcyril::SSLListener::initSSLContext</a></div><div class="ttdeci">virtual SSL_CTX * initSSLContext()</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_listener_html_a029f4243c6f29838f6a80b790f375e6b"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html#a029f4243c6f29838f6a80b790f375e6b">trippingcyril::Listener::Listen</a></div><div class="ttdeci">bool Listen()</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_s_s_l_listener_html_a6452274d0916beb75f4ea9af1b4459d9"><div class="ttname"><a href="classtrippingcyril_1_1_s_s_l_listener.html#a6452274d0916beb75f4ea9af1b4459d9">trippingcyril::SSLListener::createSocket</a></div><div class="ttdeci">virtual Socket * createSocket(struct bufferevent *bev)=0</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_s_s_l_listener_html_a449b1a8593d4c460930079108dd44be6"><div class="ttname"><a href="classtrippingcyril_1_1_s_s_l_listener.html#a449b1a8593d4c460930079108dd44be6">trippingcyril::SSLListener::~SSLListener</a></div><div class="ttdeci">virtual ~SSLListener()</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_listener_html_ad29c54350ad28b0817cfc23e009f9c49"><div class="ttname"><a href="classtrippingcyril_1_1_listener.html#ad29c54350ad28b0817cfc23e009f9c49">trippingcyril::Listener::createBufferEvent</a></div><div class="ttdeci">virtual struct bufferevent * createBufferEvent(evutil_socket_t fd)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 31 2014 17:17:09 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 1 2014 13:08:39 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
