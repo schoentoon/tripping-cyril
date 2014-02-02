@@ -72,7 +72,8 @@ SSLListener::~SSLListener() {
 };
 
 SSL_CTX* SSLListener::initSSLContext() {
-  SSL_CTX* ctx = SSL_CTX_new(TLSv1_2_server_method());
+  SSL_CTX* ctx = SSL_CTX_new(SSLv23_server_method());
+  SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
   EC_KEY *ecdh = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
   SSL_CTX_set_tmp_ecdh(ctx,ecdh);
   EC_KEY_free(ecdh);
