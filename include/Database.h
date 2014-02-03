@@ -55,7 +55,7 @@ public:
    * @param result The result of the query
    * @param query The query
    */
-  virtual void QueryResult(DBResult* result, const String& query) = 0;
+  virtual void QueryResult(const DBResult* result, const String& query) = 0;
   /**
    * This method will get called upon errors
    * @param error The error message
