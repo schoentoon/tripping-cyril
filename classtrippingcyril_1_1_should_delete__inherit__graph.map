@@ -1,4 +1,5 @@
 <map id="trippingcyril::ShouldDelete" name="trippingcyril::ShouldDelete">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_h_t_t_p_callback.html" title="Callback class for our SimpleHTTPSocket. " alt="" coords="5,80,187,107"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_job.html" title="Job base class With main thread we really just mean the thread the Module that the JobThread we are p..." alt="" coords="212,80,329,107"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_d_b_callback.html" title="Database callback class. " alt="" coords="5,80,171,107"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_h_t_t_p_callback.html" title="Callback class for our SimpleHTTPSocket. " alt="" coords="195,80,377,107"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_job.html" title="Job base class With main thread we really just mean the thread the Module that the JobThread we are p..." alt="" coords="403,80,520,107"/>
 </map>

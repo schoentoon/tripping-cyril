@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['decompession_5ferror',['DECOMPESSION_ERROR',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a29a1fe6175a7f7640e32c7cfe5e8eb27',1,'trippingcyril::SimpleHTTPSocket']]]
+  ['autocommit',['autocommit',['../classtrippingcyril_1_1_database.html#a6ba81ac1a4c9c6c099c0e215320d76fe',1,'trippingcyril::Database']]]
 ];
