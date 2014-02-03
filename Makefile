@@ -1,4 +1,4 @@
-PKGS            := libevent libevent_openssl openssl zlib
+PKGS            := libevent libevent_openssl openssl zlib libpq
 override CFLAGS += -g -Wall -O2 -pipe $(shell pkg-config --cflags $(PKGS))
 INC             += -Iinclude
 LDFLAGS         := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
@@ -7,7 +7,7 @@ CXX             := g++
 
 BINARY := tripping-cyril
 DEPS := build/String.o build/Global.o build/Socket.o build/Files.o build/Timer.o build/Module.o build/SimpleHTTPSocket.o build/TermUtils.o \
-build/StackTrace.o build/Thread.o build/Pipe.o build/JobThread.o build/Listener.o
+build/StackTrace.o build/Thread.o build/Pipe.o build/JobThread.o build/Listener.o build/Postgres.o
 
 all: $(BINARY) modules
 
