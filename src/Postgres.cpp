@@ -24,9 +24,9 @@ namespace trippingcyril {
 
 class PQJob {
 public:
-  PQJob(const String &query) {
+  PQJob(const String &pQuery)
+  : query(pQuery) {
     callback = NULL;
-    this->query = query;
     sent = false;
   }
   virtual ~PQJob() {
@@ -34,7 +34,7 @@ public:
       delete callback;
   }
 private:
-  String query;
+  const String query;
   DBCallback* callback;
   bool sent : 1;
   friend class NonBlockingPostGres;
@@ -48,27 +48,27 @@ public:
   virtual ~DBPGResult() {
     PQclear(result);
   };
-  int columns() {
+  const int columns() const {
     return PQnfields(result);
   };
-  int rows() {
+  const int rows() const {
     return PQntuples(result);
   };
-  String getValue(int row, int column) {
+  const String getValue(int row, int column) const {
     return String(PQgetvalue(result, row, column));
   };
-  bool hasError() {
+  const bool hasError() const {
     ExecStatusType status = PQresultStatus(result);
     return (status == PGRES_BAD_RESPONSE
         or status == PGRES_NONFATAL_ERROR
         or status == PGRES_FATAL_ERROR);
   };
-  String getError() {
+  const String getError() const {
     String error(PQresultErrorMessage(result));
     error.Trim();
     return error;
   };
-  bool isNull(int row, int column) {
+  const bool isNull(int row, int column) const {
     return PQgetisnull(result, row, column);
   };
 private:
@@ -94,15 +94,15 @@ NonBlockingPostGres::~NonBlockingPostGres() {
   };
 };
 
-DBResult NonBlockingPostGres::Select(const String& query, DBCallback* callback) {
+const DBResult* NonBlockingPostGres::Select(const String& query, DBCallback* callback) {
   PQJob *job = new PQJob(query);
   job->callback = callback;
   jobs.push_back(job);
   Loop();
-  return NonBlockingDBResult();
+  return NULL;
 };
 
-DBResult NonBlockingPostGres::Insert(const String& query, DBCallback* callback) {
+const DBResult* NonBlockingPostGres::Insert(const String& query, DBCallback* callback) {
   return Select(query, callback);
 };
 

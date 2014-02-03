@@ -32,8 +32,8 @@ class NonBlockingPostGres : public Database {
 public:
   NonBlockingPostGres(const String& connstring, const Module *pModule = NULL);
   virtual ~NonBlockingPostGres();
-  virtual DBResult Select(const String& query, DBCallback *callback = NULL);
-  virtual DBResult Insert(const String& query, DBCallback *callback = NULL);
+  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
+  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
   bool isIdle() const { return conn == NULL; };
 private:
   String connstring;

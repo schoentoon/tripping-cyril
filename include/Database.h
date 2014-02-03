@@ -27,23 +27,12 @@ namespace trippingcyril {
 class DBResult {
 public:
   virtual ~DBResult() {};
-  virtual int columns() = 0;
-  virtual int rows() = 0;
-  virtual String getValue(int row, int column) = 0;
-  virtual bool hasError() = 0;
-  virtual String getError() = 0;
-  virtual bool isNull(int row, int column) = 0;
-};
-
-class NonBlockingDBResult : public DBResult {
-public:
-  NonBlockingDBResult() {};
-  virtual int columns() { return 0; };
-  virtual int rows() { return 0; };
-  virtual String getValue(int row, int column) { return ""; };
-  virtual bool hasError() { return false; };
-  virtual String getError() { return ""; };
-  virtual bool isNull(int row, int column) { return true; };
+  virtual const int columns() const = 0;
+  virtual const int rows() const = 0;
+  virtual const String getValue(int row, int column) const = 0;
+  virtual const bool hasError() const = 0;
+  virtual const String getError() const = 0;
+  virtual const bool isNull(int row, int column) const = 0;
 };
 
 class DBCallback : public ShouldDelete {
@@ -61,8 +50,8 @@ public:
     autocommit = false;
   };
   virtual ~Database() {};
-  virtual DBResult Select(const String& query, DBCallback *callback = NULL) = 0;
-  virtual DBResult Insert(const String& query, DBCallback *callback = NULL) = 0;
+  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL) = 0;
+  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL) = 0;
   virtual bool isIdle() const = 0;
   void enableAutoCommit() { autocommit = true; };
   const Module* GetModule() const { return module; };
