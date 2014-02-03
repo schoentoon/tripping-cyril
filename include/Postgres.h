@@ -26,16 +26,29 @@
 
 namespace trippingcyril {
 
+// @cond
 class PQJob;
+// @endcond
 
+/**
+ * @brief A non blocking postgresql implementation of the Database interface
+ */
 class NonBlockingPostGres : public Database {
 public:
+  /**
+   * General constructor
+   * @param connstring The connection string for this database
+   * @param pModule The module to register this database on
+   */
   NonBlockingPostGres(const String& connstring, const Module *pModule = NULL);
+  /** General deconstructor
+   */
   virtual ~NonBlockingPostGres();
   virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
   virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
   bool isIdle() const { return conn == NULL; };
 private:
+  // @cond
   String connstring;
   deque<PQJob*> jobs;
   PGconn *conn;
@@ -43,6 +56,7 @@ private:
   bool in_loop : 1;
   static void EventCallback(evutil_socket_t fd, short event, void* ctx);
   void Loop();
+  // @endcond
 };
 
 };
