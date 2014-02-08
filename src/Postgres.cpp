@@ -171,4 +171,48 @@ void NonBlockingPostGres::Loop() {
   };
 };
 
+PostGres::PostGres(const String& connstring, const Module* pModule)
+: Database(pModule) {
+  conn = NULL;
+  this->connstring = connstring;
+};
+
+PostGres::~PostGres() {
+};
+
+const DBResult* PostGres::Select(const String& query, DBCallback* callback) {
+  Connect();
+  PGresult* result = PQexec(conn, query.c_str());
+  DBPGResult* dbresult = new DBPGResult(result);
+  if (callback) {
+    if (dbresult->hasError())
+      callback->QueryError(dbresult->getError(), query);
+    else
+      callback->QueryResult(dbresult, query);
+    if (callback->shouldDelete())
+      delete callback;
+  };
+  return dbresult;
+};
+
+const DBResult* PostGres::Insert(const String& query, DBCallback* callback) {
+  return Select(query, callback);
+};
+
+void PostGres::Connect() {
+  while (conn == NULL) {
+    conn = PQconnectdb(connstring.c_str());
+    if (PQstatus(conn) != CONNECTION_OK) {
+      TermUtils::PrintStatus(false, PQerrorMessage(conn));
+      PQfinish(conn);
+      conn = NULL;
+    } else {
+      if (autocommit) {
+        PGresult* result = PQexec(conn, "SET AUTOCOMMIT = ON");
+        DBPGResult dbresult(result);
+      };
+    };
+  };
+};
+
 };

@@ -59,6 +59,28 @@ private:
   // @endcond
 };
 
+class PostGres : public Database {
+public:
+  /**
+   * General constructor
+   * @param connstring The connection string for this database
+   * @param pModule The module to register this database on
+   */
+  PostGres(const String& connstring, const Module* pModule = NULL);
+  /** General deconstructor
+   */
+  virtual ~PostGres();
+  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
+  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
+  bool isIdle() const { return true; };
+private:
+  // @cond
+  void Connect();
+  String connstring;
+  PGconn *conn;
+  // @endcond
+};
+
 };
 
 #endif // _POSTGRES_H
