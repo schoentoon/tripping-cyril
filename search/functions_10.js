@@ -1,12 +1,13 @@
 var searchData=
 [
   ['seek',['Seek',['../classtrippingcyril_1_1_file.html#ab7d88b4cf3b736f83cb8c8db3b0fcf7b',1,'trippingcyril::File']]],
-  ['select',['Select',['../classtrippingcyril_1_1_database.html#a0c5139b793f6d9db69161083edc217a4',1,'trippingcyril::Database::Select()'],['../classtrippingcyril_1_1_non_blocking_post_gres.html#a8cb4639d95a413ff17e4752ce2dab140',1,'trippingcyril::NonBlockingPostGres::Select()']]],
+  ['select',['Select',['../classtrippingcyril_1_1_database.html#a0c5139b793f6d9db69161083edc217a4',1,'trippingcyril::Database::Select()'],['../classtrippingcyril_1_1_non_blocking_post_gres.html#a8cb4639d95a413ff17e4752ce2dab140',1,'trippingcyril::NonBlockingPostGres::Select()'],['../classtrippingcyril_1_1_post_gres.html#ac74104cb29c5769be1ac59e24403f9e6',1,'trippingcyril::PostGres::Select()']]],
   ['self',['Self',['../classtrippingcyril_1_1_thread.html#aa1cd57375a4c3b0a3b2e6c618ccab1e3',1,'trippingcyril::Thread']]],
   ['setcoredump',['SetCoreDump',['../namespacetrippingcyril_1_1crash.html#a1db335a66251f70c9941e5cce9802819',1,'trippingcyril::crash']]],
   ['setextraheader',['setExtraHeader',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#af2733b23176bb6c9dfcfebc4306be0c5',1,'trippingcyril::SimpleHTTPSocket']]],
   ['setinteractive',['SetInteractive',['../namespacetrippingcyril_1_1crash.html#ac00752234e0b2edb7dbfb1ff2f2bc00f',1,'trippingcyril::crash']]],
   ['setreadline',['SetReadLine',['../classtrippingcyril_1_1_socket.html#ad9f3f8f3df1f95eadd9cf30226ecb311',1,'trippingcyril::Socket']]],
+  ['setstayconnected',['SetStayConnected',['../classtrippingcyril_1_1_database.html#a36795eceac1a6fec7b0590e096da3cb9',1,'trippingcyril::Database']]],
   ['settcpkeepalive',['SetTCPKeepAlive',['../classtrippingcyril_1_1_socket.html#a3925ce7141da424edfba46895c639366',1,'trippingcyril::Socket']]],
   ['settcpnodelay',['SetTCPNoDelay',['../classtrippingcyril_1_1_socket.html#a5a701948d4517ac3e53d6a828e7dc0fb',1,'trippingcyril::Socket']]],
   ['settimeout',['SetTimeout',['../classtrippingcyril_1_1_socket.html#a051d0803aadf5bf213ec4c5b04fc6513',1,'trippingcyril::Socket']]],
