@@ -81,6 +81,7 @@ public:
   Database(const Module *pModule = NULL)
   : module(pModule) {
     autocommit = false;
+    stay_connected = false;
   };
   virtual ~Database() {};
   /**
@@ -105,12 +106,18 @@ public:
   void disableAutoCommit() { autocommit = false; };
   /** @return The module we registered on */
   const Module* GetModule() const { return module; };
+  /** Set the stay connected mode on or off */
+  void SetStayConnected(bool b) { stay_connected = b; };
 protected:
   const Module *module;
   /**
    * Marks if we should use autocommit or not
    */
   bool autocommit : 1;
+  /**
+   * Marks if we should stay connected or not
+   */
+  bool stay_connected : 1;
 };
 
 };

@@ -115,7 +115,7 @@ void NonBlockingPostGres::Loop() {
   if (in_loop)
     return;
   if (jobs.empty()) {
-    if (event && conn) {
+    if (event && conn && stay_connected == false) {
       event_free(event);
       PQfinish(conn);
       conn = NULL;
