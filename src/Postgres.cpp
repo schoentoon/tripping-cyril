@@ -37,7 +37,7 @@ private:
   const String query;
   DBCallback* callback;
   bool sent : 1;
-  friend class NonBlockingPostGres;
+  friend class PostGres;
 };
 
 class DBPGResult : public DBResult {
@@ -75,7 +75,7 @@ private:
   PGresult* result;
 };
 
-NonBlockingPostGres::NonBlockingPostGres(const String& connstring, const Module* pModule)
+PostGres::PostGres(const String& connstring, const Module* pModule)
 : Database(pModule) {
   conn = NULL;
   event = NULL;
@@ -83,7 +83,7 @@ NonBlockingPostGres::NonBlockingPostGres(const String& connstring, const Module*
   this->connstring = connstring;
 };
 
-NonBlockingPostGres::~NonBlockingPostGres() {
+PostGres::~PostGres() {
   if (conn)
     PQfinish(conn);
   if (event)
@@ -94,7 +94,7 @@ NonBlockingPostGres::~NonBlockingPostGres() {
   };
 };
 
-const DBResult* NonBlockingPostGres::Select(const String& query, DBCallback* callback) {
+const DBResult* PostGres::Select(const String& query, DBCallback* callback) {
   PQJob *job = new PQJob(query);
   job->callback = callback;
   jobs.push_back(job);
@@ -102,16 +102,16 @@ const DBResult* NonBlockingPostGres::Select(const String& query, DBCallback* cal
   return NULL;
 };
 
-const DBResult* NonBlockingPostGres::Insert(const String& query, DBCallback* callback) {
+const DBResult* PostGres::Insert(const String& query, DBCallback* callback) {
   return Select(query, callback);
 };
 
-void NonBlockingPostGres::EventCallback(int fd, short int event, void* ctx) {
-  NonBlockingPostGres* pg = (NonBlockingPostGres*) ctx;
+void PostGres::EventCallback(int fd, short int event, void* ctx) {
+  PostGres* pg = (PostGres*) ctx;
   pg->Loop();
 };
 
-void NonBlockingPostGres::Loop() {
+void PostGres::Loop() {
   if (in_loop)
     return;
   if (jobs.empty()) {
@@ -163,7 +163,7 @@ void NonBlockingPostGres::Loop() {
         jobs.push_front(autocommit_job);
       };
       if (event == NULL) {
-        event = event_new((module) ? module->GetEventBase() : Global::Get()->GetEventBase(), PQsocket(conn), EV_READ|EV_PERSIST, NonBlockingPostGres::EventCallback, this);
+        event = event_new((module) ? module->GetEventBase() : Global::Get()->GetEventBase(), PQsocket(conn), EV_READ|EV_PERSIST, PostGres::EventCallback, this);
         event_add(event, NULL);
       };
       Loop();
@@ -171,16 +171,18 @@ void NonBlockingPostGres::Loop() {
   };
 };
 
-PostGres::PostGres(const String& connstring, const Module* pModule)
+BlockingPostGres::BlockingPostGres(const String& connstring, const Module* pModule)
 : Database(pModule) {
   conn = NULL;
   this->connstring = connstring;
 };
 
-PostGres::~PostGres() {
+BlockingPostGres::~BlockingPostGres() {
+  if (conn != NULL)
+    PQfinish(conn);
 };
 
-const DBResult* PostGres::Select(const String& query, DBCallback* callback) {
+const DBResult* BlockingPostGres::Select(const String& query, DBCallback* callback) {
   Connect();
   PGresult* result = PQexec(conn, query.c_str());
   DBPGResult* dbresult = new DBPGResult(result);
@@ -195,11 +197,11 @@ const DBResult* PostGres::Select(const String& query, DBCallback* callback) {
   return dbresult;
 };
 
-const DBResult* PostGres::Insert(const String& query, DBCallback* callback) {
+const DBResult* BlockingPostGres::Insert(const String& query, DBCallback* callback) {
   return Select(query, callback);
 };
 
-void PostGres::Connect() {
+void BlockingPostGres::Connect() {
   while (conn == NULL) {
     conn = PQconnectdb(connstring.c_str());
     if (PQstatus(conn) != CONNECTION_OK) {

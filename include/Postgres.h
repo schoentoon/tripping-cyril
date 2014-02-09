@@ -32,18 +32,21 @@ class PQJob;
 
 /**
  * @brief A non blocking postgresql implementation of the Database interface
+ * @note This implementation is somewhat threadsafe, all queries will be executed on
+ * the thread that the event base is running on, however the query queueing methods
+ * are not threadsafe!
  */
-class NonBlockingPostGres : public Database {
+class PostGres : public Database {
 public:
   /**
    * General constructor
    * @param connstring The connection string for this database
    * @param pModule The module to register this database on
    */
-  NonBlockingPostGres(const String& connstring, const Module *pModule = NULL);
+  PostGres(const String& connstring, const Module *pModule = NULL);
   /** General deconstructor
    */
-  virtual ~NonBlockingPostGres();
+  virtual ~PostGres();
   virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
   virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
   bool isIdle() const { return conn == NULL; };
@@ -59,17 +62,22 @@ private:
   // @endcond
 };
 
-class PostGres : public Database {
+/**
+ * @brief A blocking postgresql implementation of the Database interface
+ * @note This implementation is NOT threadsafe, all calls to it should be made
+ * on the same thread.
+ */
+class BlockingPostGres : public Database {
 public:
   /**
    * General constructor
    * @param connstring The connection string for this database
    * @param pModule The module to register this database on
    */
-  PostGres(const String& connstring, const Module* pModule = NULL);
+  BlockingPostGres(const String& connstring, const Module* pModule = NULL);
   /** General deconstructor
    */
-  virtual ~PostGres();
+  virtual ~BlockingPostGres();
   virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
   virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
   bool isIdle() const { return true; };
