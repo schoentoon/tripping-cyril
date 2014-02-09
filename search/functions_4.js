@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['file',['File',['../classtrippingcyril_1_1_file.html#a774ceeee1150fc38ed5a4cf00bb90d09',1,'trippingcyril::File']]],
-  ['fileobservercallback',['FileObserverCallback',['../classtrippingcyril_1_1_file_observer_callback.html#a97417cae69341cd8a5a5ea9e0ed68097',1,'trippingcyril::FileObserverCallback']]],
-  ['findmodule',['FindModule',['../classtrippingcyril_1_1_global.html#a953cb9341e602eed3672ddba208b0e3e',1,'trippingcyril::Global']]],
-  ['finished',['Finished',['../classtrippingcyril_1_1_timer.html#a317e38a985219401afefb319cd89f129',1,'trippingcyril::Timer']]]
+  ['enableautocommit',['enableAutoCommit',['../classtrippingcyril_1_1_database.html#a53ec8368c8b8824126fa217f74150834',1,'trippingcyril::Database']]],
+  ['execute',['execute',['../classtrippingcyril_1_1_job.html#a0c306aea820e446232c1ea5c9124c509',1,'trippingcyril::Job']]],
+  ['exists',['Exists',['../classtrippingcyril_1_1_file.html#a58de68cec3124e7aa076ef34e2839b83',1,'trippingcyril::File']]]
 ];

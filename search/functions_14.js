@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['_7eblockingpostgres',['~BlockingPostGres',['../classtrippingcyril_1_1_blocking_post_gres.html#ad470d72eea76a4ec898e9d0993812d4a',1,'trippingcyril::BlockingPostGres']]],
   ['_7econdvar',['~CondVar',['../classtrippingcyril_1_1_cond_var.html#a8b06f9145f9e615b9e35b0dc797a56df',1,'trippingcyril::CondVar']]],
   ['_7edatabase',['~Database',['../classtrippingcyril_1_1_database.html#aeaecf4d9e34ec40794d91765b1cbb6cb',1,'trippingcyril::Database']]],
   ['_7edbcallback',['~DBCallback',['../classtrippingcyril_1_1_d_b_callback.html#a04cbf4b0218b461f2d5eb31d2d3c677e',1,'trippingcyril::DBCallback']]],
@@ -17,7 +18,6 @@ var searchData=
   ['_7emodule',['~Module',['../classtrippingcyril_1_1_module.html#aeb7a5777b2489432e87253104937a3bc',1,'trippingcyril::Module']]],
   ['_7emutex',['~Mutex',['../classtrippingcyril_1_1_mutex.html#ab1f7faaca49b01aa2ecd0b06de9bd8e5',1,'trippingcyril::Mutex']]],
   ['_7emutexlocker',['~MutexLocker',['../classtrippingcyril_1_1_mutex_locker.html#afbf94baffb443de7c870cff7daebf4b2',1,'trippingcyril::MutexLocker']]],
-  ['_7enonblockingpostgres',['~NonBlockingPostGres',['../classtrippingcyril_1_1_non_blocking_post_gres.html#a48642f42261c545bdcccf6ac8cbd1e3f',1,'trippingcyril::NonBlockingPostGres']]],
   ['_7epipe',['~Pipe',['../classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d',1,'trippingcyril::Pipe']]],
   ['_7epostgres',['~PostGres',['../classtrippingcyril_1_1_post_gres.html#a50b2f8dedef392f2f87d1e4e851dfdf8',1,'trippingcyril::PostGres']]],
   ['_7esimplehttpsocket',['~SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a279bb1590211ed1e7ff698d470c80e1e',1,'trippingcyril::SimpleHTTPSocket']]],

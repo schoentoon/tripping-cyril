@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['enableautocommit',['enableAutoCommit',['../classtrippingcyril_1_1_database.html#a53ec8368c8b8824126fa217f74150834',1,'trippingcyril::Database']]],
-  ['execute',['execute',['../classtrippingcyril_1_1_job.html#a0c306aea820e446232c1ea5c9124c509',1,'trippingcyril::Job']]],
-  ['exists',['Exists',['../classtrippingcyril_1_1_file.html#a58de68cec3124e7aa076ef34e2839b83',1,'trippingcyril::File']]]
+  ['database',['Database',['../classtrippingcyril_1_1_database.html#a2c73634569590616e4a92740c66c3eac',1,'trippingcyril::Database']]],
+  ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File']]],
+  ['detach',['Detach',['../classtrippingcyril_1_1_thread.html#a304092a2bc70f45c573acf7b87a15a4e',1,'trippingcyril::Thread']]],
+  ['dir',['Dir',['../classtrippingcyril_1_1_dir.html#a2f31a058b92a77b08f39637f4a0a7a02',1,'trippingcyril::Dir']]],
+  ['disableautocommit',['disableAutoCommit',['../classtrippingcyril_1_1_database.html#a21e6e7f52aaaff4117d7a0735bf3a948',1,'trippingcyril::Database']]],
+  ['disabletimeout',['DisableTimeout',['../classtrippingcyril_1_1_socket.html#afd236ae873bae17551b08d098f02efad',1,'trippingcyril::Socket']]],
+  ['disconnected',['Disconnected',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a79d4c405e401441b5e1c352eea36dd8f',1,'trippingcyril::SimpleHTTPSocket::Disconnected()'],['../classtrippingcyril_1_1_socket.html#abbc799120fa62b9fed7455deb1401b06',1,'trippingcyril::Socket::Disconnected()']]]
 ];

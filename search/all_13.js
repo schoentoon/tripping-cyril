@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['unknown',['UNKNOWN',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66adc9e8694d59484ec8f9a529424ead41a',1,'trippingcyril::File']]],
-  ['unloadmodule',['UnloadModule',['../classtrippingcyril_1_1_global.html#a7c5fb359807be916f7ec417a06af61d2',1,'trippingcyril::Global']]],
-  ['unlock',['Unlock',['../classtrippingcyril_1_1_mutex.html#ad3eec81ddfe01ec97315d4fdda33aa5d',1,'trippingcyril::Mutex']]],
-  ['unregister',['Unregister',['../classtrippingcyril_1_1_file_observer.html#a1d620543f73a5c0411b91953d82f26f0',1,'trippingcyril::FileObserver']]]
+  ['wait',['Wait',['../classtrippingcyril_1_1_cond_var.html#a3ea047100c8480cbfbc31defb9237556',1,'trippingcyril::CondVar']]],
+  ['wildcmp',['WildCmp',['../classtrippingcyril_1_1_string.html#a7c1936ed503e645704fcf8017d79b9e3',1,'trippingcyril::String']]],
+  ['write',['Write',['../classtrippingcyril_1_1_file.html#ade7c3db03f4b1cd83fc1d710bf8ae43e',1,'trippingcyril::File::Write(const char *buffer, size_t len)'],['../classtrippingcyril_1_1_file.html#ae09df87a6cf92214501e6d3ee7f8cf10',1,'trippingcyril::File::Write(const String &amp;data)'],['../classtrippingcyril_1_1_pipe.html#aa11631b710c59b1c75b3035d2b101abe',1,'trippingcyril::Pipe::Write(const char *buffer, size_t len)'],['../classtrippingcyril_1_1_pipe.html#a71ae93f9fc73441cafbbbdd230d67992',1,'trippingcyril::Pipe::Write(const String &amp;data)'],['../classtrippingcyril_1_1_socket.html#af5a521b0181babcfa236949424adf2f9',1,'trippingcyril::Socket::Write(const char *data, size_t len)'],['../classtrippingcyril_1_1_socket.html#ab7599a28af2ce993da1bb1457f6d8bd0',1,'trippingcyril::Socket::Write(const String &amp;data)']]]
 ];

@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtrippingcyril_1_1_database.html" title="Database interface. " alt="" coords="5,41,157,68"/>
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_non_blocking_post_gres.html" title="A non blocking postgresql implementation of the Database interface. " alt="" coords="205,5,376,46"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_post_gres.html" title="trippingcyril::PostGres" alt="" coords="215,71,366,97"/>
+<area shape="rect" id="node1" href="$classtrippingcyril_1_1_database.html" title="Database interface. " alt="" coords="5,31,157,57"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_blocking_post_gres.html" title="A blocking postgresql implementation of the Database interface. " alt="" coords="206,5,407,32"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_post_gres.html" title="A non blocking postgresql implementation of the Database interface. " alt="" coords="231,56,382,83"/>
 </map>

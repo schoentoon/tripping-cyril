@@ -94,6 +94,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A non blocking postgresql implementation of the <a class="el" href="classtrippingcyril_1_1_database.html" title="Database interface. ">Database</a> interface.  
+ <a href="classtrippingcyril_1_1_post_gres.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_postgres_8h_source.html">Postgres.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for trippingcyril::PostGres:</div>
@@ -150,7 +153,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a6fb4b222622c6e1738ec347be80ad359 inherit pro_attribs_classtrippingcyril_1_1_database"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_database.html#a6fb4b222622c6e1738ec347be80ad359">stay_connected</a>: 1</td></tr>
 <tr class="separator:a6fb4b222622c6e1738ec347be80ad359 inherit pro_attribs_classtrippingcyril_1_1_database"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A non blocking postgresql implementation of the <a class="el" href="classtrippingcyril_1_1_database.html" title="Database interface. ">Database</a> interface. </p>
+<dl class="section note"><dt>Note</dt><dd>This implementation is somewhat threadsafe, all queries will be executed on the thread that the event base is running on, however the query queueing methods are not threadsafe! </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a62b893dd63d9ce744ff2a178b25244ba"></a>
 <div class="memitem">
 <div class="memproto">
@@ -334,7 +340,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 8 2014 16:01:02 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 9 2014 15:49:59 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

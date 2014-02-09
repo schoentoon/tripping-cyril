@@ -1,7 +1,7 @@
 var searchData=
 [
   ['seek',['Seek',['../classtrippingcyril_1_1_file.html#ab7d88b4cf3b736f83cb8c8db3b0fcf7b',1,'trippingcyril::File']]],
-  ['select',['Select',['../classtrippingcyril_1_1_database.html#a0c5139b793f6d9db69161083edc217a4',1,'trippingcyril::Database::Select()'],['../classtrippingcyril_1_1_non_blocking_post_gres.html#a8cb4639d95a413ff17e4752ce2dab140',1,'trippingcyril::NonBlockingPostGres::Select()'],['../classtrippingcyril_1_1_post_gres.html#ac74104cb29c5769be1ac59e24403f9e6',1,'trippingcyril::PostGres::Select()']]],
+  ['select',['Select',['../classtrippingcyril_1_1_database.html#a0c5139b793f6d9db69161083edc217a4',1,'trippingcyril::Database::Select()'],['../classtrippingcyril_1_1_post_gres.html#ac74104cb29c5769be1ac59e24403f9e6',1,'trippingcyril::PostGres::Select()'],['../classtrippingcyril_1_1_blocking_post_gres.html#a1b6d4c39a9793d481a3244da5c6aac2c',1,'trippingcyril::BlockingPostGres::Select()']]],
   ['self',['Self',['../classtrippingcyril_1_1_thread.html#aa1cd57375a4c3b0a3b2e6c618ccab1e3',1,'trippingcyril::Thread']]],
   ['setcoredump',['SetCoreDump',['../namespacetrippingcyril_1_1crash.html#a1db335a66251f70c9941e5cce9802819',1,'trippingcyril::crash']]],
   ['setextraheader',['setExtraHeader',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#af2733b23176bb6c9dfcfebc4306be0c5',1,'trippingcyril::SimpleHTTPSocket']]],
