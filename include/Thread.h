@@ -18,6 +18,7 @@
 #ifndef _THREAD_H
 #define _THREAD_H
 
+#include <map>
 #include <stdint.h>
 #include <pthread.h>
 
@@ -171,6 +172,31 @@ public:
 private:
   // @cond
   pthread_cond_t cond_var;
+  // @endcond
+};
+
+/**
+ * @brief A thread manager to easily be able to get the Thread object of your
+ * current thread.
+ */
+class ThreadManager {
+public:
+  /** @return The singleton instance of this class */
+  static ThreadManager* Get();
+  /** @return The Thread* object of this current thread, NULL on error (main thread) */
+  Thread* getCurrentThread() const;
+  /** @return The amount of threads managed by this ThreadManager */
+  size_t threadCount() const;
+private:
+  // @cond
+  ThreadManager();
+  virtual ~ThreadManager();
+  void registerThread(Thread* thread);
+  void unregisterThread(Thread* thread);
+
+  std::map<pthread_t, Thread*> threads;
+  Mutex* lock;
+  friend class Thread;
   // @endcond
 };
 

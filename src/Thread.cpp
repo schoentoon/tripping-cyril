@@ -47,7 +47,10 @@ void* Thread::runThread(void* arg) {
   Thread* thread = static_cast<Thread*>(arg);
   if (thread) {
     prctl(PR_SET_NAME,thread->name.c_str(),0,0,0);
-    return thread->run();
+    ThreadManager::Get()->registerThread(thread);
+    void* output = thread->run();
+    ThreadManager::Get()->unregisterThread(thread);
+    return output;
   };
   perror("Thread::runThread(), what the hell is going on here? This shouldn't be executed!");
   return NULL;
@@ -135,6 +138,46 @@ bool CondVar::Signal() {
 
 bool CondVar::Wait(Mutex* mutex) {
   return pthread_cond_wait(&cond_var, &mutex->mutex) == 0;
+};
+
+ThreadManager::ThreadManager() {
+  lock = new Mutex;
+};
+
+ThreadManager::~ThreadManager() {
+  delete lock;
+};
+
+ThreadManager* ThreadManager::Get() {
+  static ThreadManager* singleton = new ThreadManager;
+  return singleton;
+};
+
+Thread* ThreadManager::getCurrentThread() const {
+  MutexLocker locker(lock);
+  std::map<pthread_t, Thread*>::const_iterator iter = threads.find(pthread_self());
+  if (iter != threads.end())
+    return iter->second;
+  return NULL;
+};
+
+size_t ThreadManager::threadCount() const {
+  MutexLocker locker(lock);
+  return threads.size();
+};
+
+void ThreadManager::registerThread(Thread* thread) {
+  MutexLocker locker(lock);
+  if (thread->isRunning())
+    threads.insert(std::pair<pthread_t, Thread*>(thread->Self(), thread));
+};
+
+void ThreadManager::unregisterThread(Thread* thread) {
+  MutexLocker locker(lock);
+  pthread_t id = thread->Self();
+  std::map<pthread_t, Thread*>::iterator iter = threads.find(id);
+  if (iter != threads.end())
+    threads.erase(iter);
 };
 
 };
