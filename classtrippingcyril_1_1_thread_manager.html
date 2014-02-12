@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Trippin Cyril: trippingcyril::ShouldDelete Class Reference</title>
+<title>Trippin Cyril: trippingcyril::ThreadManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,39 +82,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacetrippingcyril.html">trippingcyril</a></li><li class="navelem"><a class="el" href="classtrippingcyril_1_1_should_delete.html">ShouldDelete</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetrippingcyril.html">trippingcyril</a></li><li class="navelem"><a class="el" href="classtrippingcyril_1_1_thread_manager.html">ThreadManager</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classtrippingcyril_1_1_should_delete-members.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="classtrippingcyril_1_1_thread_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">trippingcyril::ShouldDelete Class Reference</div>  </div>
+<div class="title">trippingcyril::ThreadManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A simple interface to determine if the object should be deleted or not.  
- <a href="classtrippingcyril_1_1_should_delete.html#details">More...</a></p>
+<p>A thread manager to easily be able to get the <a class="el" href="classtrippingcyril_1_1_thread.html" title="Simple thread class. ">Thread</a> object of your current thread.  
+ <a href="classtrippingcyril_1_1_thread_manager.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_should_delete_8h_source.html">ShouldDelete.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for trippingcyril::ShouldDelete:</div>
-<div class="dyncontent">
-<div class="center"><img src="classtrippingcyril_1_1_should_delete__inherit__graph.png" border="0" usemap="#trippingcyril_1_1_should_delete_inherit__map" alt="Inheritance graph"/></div>
-<map name="trippingcyril_1_1_should_delete_inherit__map" id="trippingcyril_1_1_should_delete_inherit__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_d_b_callback.html" title="Database callback class. " alt="" coords="5,80,171,107"/><area shape="rect" id="node3" href="classtrippingcyril_1_1_h_t_t_p_callback.html" title="Callback class for our SimpleHTTPSocket. " alt="" coords="195,80,377,107"/><area shape="rect" id="node4" href="classtrippingcyril_1_1_job.html" title="Job base class With main thread we really just mean the thread the Module that the JobThread we are p..." alt="" coords="403,80,520,107"/></map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="_thread_8h_source.html">Thread.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b594213c584d521b5ff0677859a74bb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_should_delete.html#a3b594213c584d521b5ff0677859a74bb">shouldDelete</a> ()</td></tr>
-<tr class="separator:a3b594213c584d521b5ff0677859a74bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f52e0e4ba1ab37822a50ee3fbfc1b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtrippingcyril_1_1_thread.html">Thread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_thread_manager.html#a01f52e0e4ba1ab37822a50ee3fbfc1b2">getCurrentThread</a> () const </td></tr>
+<tr class="separator:a01f52e0e4ba1ab37822a50ee3fbfc1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61838ed4d14a1148d1296f5e317d03e6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_thread_manager.html#a61838ed4d14a1148d1296f5e317d03e6">threadCount</a> () const </td></tr>
+<tr class="separator:a61838ed4d14a1148d1296f5e317d03e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a2107b2ca1fa66ad34702d9ec21f3b745"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtrippingcyril_1_1_thread_manager.html">ThreadManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_thread_manager.html#a2107b2ca1fa66ad34702d9ec21f3b745">Get</a> ()</td></tr>
+<tr class="separator:a2107b2ca1fa66ad34702d9ec21f3b745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple interface to determine if the object should be deleted or not. </p>
+<div class="textblock"><p>A thread manager to easily be able to get the <a class="el" href="classtrippingcyril_1_1_thread.html" title="Simple thread class. ">Thread</a> object of your current thread. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a3b594213c584d521b5ff0677859a74bb"></a>
+<a class="anchor" id="a2107b2ca1fa66ad34702d9ec21f3b745"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -122,7 +123,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool trippingcyril::ShouldDelete::shouldDelete </td>
+          <td class="memname">static <a class="el" href="classtrippingcyril_1_1_thread_manager.html">ThreadManager</a>* trippingcyril::ThreadManager::Get </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -130,17 +131,48 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return true from this method if the object should be deleted </p>
-<dl class="section return"><dt>Returns</dt><dd>True by default </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The singleton instance of this class </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a01f52e0e4ba1ab37822a50ee3fbfc1b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtrippingcyril_1_1_thread.html">Thread</a>* trippingcyril::ThreadManager::getCurrentThread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The Thread* object of this current thread, NULL on error (main thread) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a61838ed4d14a1148d1296f5e317d03e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t trippingcyril::ThreadManager::threadCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The amount of threads managed by this <a class="el" href="classtrippingcyril_1_1_thread_manager.html" title="A thread manager to easily be able to get the Thread object of your current thread. ">ThreadManager</a> </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_should_delete_8h_source.html">ShouldDelete.h</a></li>
+<li>include/<a class="el" href="_thread_8h_source.html">Thread.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

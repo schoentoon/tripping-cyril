@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['get',['Get',['../classtrippingcyril_1_1_file_observer.html#afd7cbc6c2876ec0553271f91b97069d3',1,'trippingcyril::FileObserver::Get()'],['../classtrippingcyril_1_1_global.html#a0745b9231ad1e3c4b8acf9c4878c7c2d',1,'trippingcyril::Global::Get()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a10a4dceac83ea6a0786d57949e23054c',1,'trippingcyril::SimpleHTTPSocket::Get()']]],
+  ['get',['Get',['../classtrippingcyril_1_1_file_observer.html#afd7cbc6c2876ec0553271f91b97069d3',1,'trippingcyril::FileObserver::Get()'],['../classtrippingcyril_1_1_global.html#a0745b9231ad1e3c4b8acf9c4878c7c2d',1,'trippingcyril::Global::Get()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a10a4dceac83ea6a0786d57949e23054c',1,'trippingcyril::SimpleHTTPSocket::Get()'],['../classtrippingcyril_1_1_thread_manager.html#a2107b2ca1fa66ad34702d9ec21f3b745',1,'trippingcyril::ThreadManager::Get()']]],
   ['getatime',['GetATime',['../classtrippingcyril_1_1_file.html#a584e2d3fcd0a1735b9b731af9950451b',1,'trippingcyril::File']]],
   ['getctime',['GetCTime',['../classtrippingcyril_1_1_file.html#aa7eb7705a09e3b77a448f462154a16b9',1,'trippingcyril::File']]],
+  ['getcurrentthread',['getCurrentThread',['../classtrippingcyril_1_1_thread_manager.html#a01f52e0e4ba1ab37822a50ee3fbfc1b2',1,'trippingcyril::ThreadManager']]],
   ['getcwd',['GetCWD',['../classtrippingcyril_1_1_dir.html#abb191e4350141c4d72279785bdd6b798',1,'trippingcyril::Dir']]],
   ['getdata',['GetData',['../classtrippingcyril_1_1_inter_module_data.html#a7408480b737fc0216e9dd40814cadc9f',1,'trippingcyril::InterModuleData']]],
   ['getdnsbase',['GetDNSBase',['../classtrippingcyril_1_1_global.html#a44f4291a9ef79b0f6186837b74cc4902',1,'trippingcyril::Global::GetDNSBase()'],['../classtrippingcyril_1_1_module.html#a226669e86443aec568eb79a217310164',1,'trippingcyril::Module::GetDNSBase()']]],
