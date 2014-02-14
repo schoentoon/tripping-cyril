@@ -18,10 +18,24 @@
 #include "module.h"
 
 #include "SimpleHTTPSocket.h"
+#include "Timer.h"
 
 #include <iostream>
 
 using namespace module::sample;
+
+class TestTimer : public Timer {
+public:
+  TestTimer(const Module* module)
+  : Timer(module, 10) {
+  };
+  virtual ~TestTimer() {
+  };
+protected:
+  virtual void RunJob() {
+    cerr << "TestTimer.." << endl;
+  };
+};
 
 class PrintHttp : public HTTPCallback {
 public:
@@ -31,23 +45,25 @@ public:
 };
 
 MODCONSTRUCTOR(SampleModule) {
-  std::cerr << "module::sample::SampleModule::SampleModule();" << std::endl;
+  cerr << "module::sample::SampleModule::SampleModule();" << endl;
+  wantsThread = true;
 };
 
 SampleModule::~SampleModule() {
-  std::cerr << "module::sample::SampleModule::~SampleModule();" << std::endl;
+  cerr << "module::sample::SampleModule::~SampleModule();" << endl;
 };
 
 void SampleModule::OnLoaded() {
-  std::cerr << "module::sample::SampleModule::OnLoaded();" << std::endl;
+  cerr << "module::sample::SampleModule::OnLoaded();" << endl;
   trippingcyril::SimpleHTTPSocket* socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Get("http://httpbin.org/stream/100");
   socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Get("http://httpbin.org/gzip");
   socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Post("http://httpbin.org/post", "{\"test\":true}", "application/json");
+  new TestTimer(this);
   //int* foo = (int*) -1;
-  //std::cerr << *foo << std::endl;
+  //cerr << *foo << endl;
 };
 
 void* SampleModule::InternalApiCall(int method, void* arg) {
@@ -55,7 +71,7 @@ void* SampleModule::InternalApiCall(int method, void* arg) {
     case 0: {
       String* str = static_cast<String*>(arg);
       if (str) {
-        std::cerr << *str << std::endl;
+        cerr << *str << endl;
         return new String(*str);
       };
       return NULL;

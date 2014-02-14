@@ -42,6 +42,11 @@ namespace trippingcyril {
 
 typedef void* ModHandle;
 
+// @cond
+class ModuleThread;
+// @endcond
+
+class Thread;
 class Socket;
 class Timer;
 
@@ -95,8 +100,10 @@ public:
    * @return NULL on error, the loaded module otherwise
    */
   static Module* LoadModule(const String& path, const String& modName, String& retMsg);
-  // @cond
 protected:
+  /** Set this to true in your constructor if you want to run in your own seperate thread */
+  bool wantsThread : 1;
+  // @cond
   struct event_base* event_base;
   struct evdns_base* dns_base;
 private:
@@ -111,6 +118,9 @@ private:
   friend class Global;
   friend class Socket;
   friend class Timer;
+
+  Thread* modThread;
+  friend class ModuleThread;
   // @endcond
 };
 

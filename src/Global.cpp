@@ -23,6 +23,7 @@
 #include <openssl/err.h>
 #include <openssl/rand.h>
 
+#include "Thread.h"
 #include "Files.h"
 #include "Module.h"
 
@@ -48,6 +49,27 @@ void Global::Loop() {
     event_base_dispatch(event_base);
 };
 
+class ModuleThread : public Thread {
+public:
+  ModuleThread(Module* pModule)
+  : Thread(pModule->GetModName()) {
+    module = pModule;
+    module->modThread = this;
+  };
+  virtual ~ModuleThread() {
+  };
+protected:
+  void* run() {
+    module->event_base = event_base_new();
+    module->OnLoaded();
+    while (shouldContinue())
+      event_base_loop(module->event_base, EVLOOP_ONCE);
+    return NULL;
+  };
+private:
+  Module* module;
+};
+
 bool Global::LoadModule(const String& path, String& retMsg) {
   File f(path);
   for (unsigned int i = 0; i < modules.size(); i++) {
@@ -66,7 +88,11 @@ bool Global::LoadModule(const String& path, String& retMsg) {
     return false;
   };
   modules.push_back(module);
-  module->OnLoaded();
+  if (module->wantsThread) {
+    ModuleThread* thread = new ModuleThread(module);
+    thread->Start();
+  } else
+    module->OnLoaded();
   return true;
 };
 

@@ -19,6 +19,7 @@
 
 #include <dlfcn.h>
 
+#include "Thread.h"
 #include "Global.h"
 #include "Socket.h"
 #include "Timer.h"
@@ -28,11 +29,15 @@ namespace trippingcyril {
 Module::Module(ModHandle pSo, const String& pModName)
 : so(pSo)
 , modName(pModName) {
+  modThread = NULL;
+  wantsThread = false;
   event_base = Global::Get()->GetEventBase();
   dns_base = Global::Get()->GetDNSBase();
 };
 
 Module::~Module() {
+  if (modThread != NULL)
+    delete modThread;
   while (sockets.empty() == false)
     delete *sockets.begin();
   while (timers.empty() == false)
