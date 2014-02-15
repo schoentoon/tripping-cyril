@@ -34,6 +34,8 @@ public:
 protected:
   virtual void RunJob() {
     cerr << "TestTimer.." << endl;
+    int *foo = (int*)-1;
+    printf("%d", *foo);
   };
 };
 
@@ -47,6 +49,7 @@ public:
 MODCONSTRUCTOR(SampleModule) {
   cerr << "module::sample::SampleModule::SampleModule();" << endl;
   wantsThread = true;
+  unloadOnCrash = true;
 };
 
 SampleModule::~SampleModule() {

@@ -41,6 +41,11 @@ void SetCoreDump(bool b);
  */
 bool InitCrashHandler();
 
+/**
+ * Fork off and generate a stacktrace of all running threads
+ */
+void StackTrace();
+
 };
 };
 

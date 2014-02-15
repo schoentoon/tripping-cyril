@@ -31,6 +31,7 @@ Module::Module(ModHandle pSo, const String& pModName)
 , modName(pModName) {
   modThread = NULL;
   wantsThread = false;
+  unloadOnCrash = false;
   event_base = Global::Get()->GetEventBase();
   dns_base = Global::Get()->GetDNSBase();
 };

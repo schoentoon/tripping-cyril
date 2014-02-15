@@ -35,7 +35,7 @@ public:
    * General constructor
    * @param pModule The module to register this pipe on
    */
-  Pipe(const Module* pModule);
+  Pipe(const Module* pModule = NULL);
   /**
    * Deconstructor, will close both ends of the pipe
    */

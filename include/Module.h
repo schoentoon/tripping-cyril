@@ -103,6 +103,8 @@ public:
 protected:
   /** Set this to true in your constructor if you want to run in your own seperate thread */
   bool wantsThread : 1;
+  /** Attempt to unload the module if it causes a crash, only works if wantsThread is true */
+  bool unloadOnCrash : 1;
   // @cond
   struct event_base* event_base;
   struct evdns_base* dns_base;

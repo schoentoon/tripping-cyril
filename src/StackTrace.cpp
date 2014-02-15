@@ -40,7 +40,7 @@ void SetCoreDump(bool b) {
   coredump = b;
 };
 
-static void StackTrace() {
+void StackTrace() {
   char pid_buf[32];
   snprintf(pid_buf, sizeof(pid_buf), "%d", getpid());
   char name_buf[512];

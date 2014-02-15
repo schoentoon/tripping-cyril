@@ -18,16 +18,40 @@
 #include "Global.h"
 
 #include <dlfcn.h>
+#include <signal.h>
+#include <setjmp.h>
 #include <iostream>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <openssl/rand.h>
 
+#include "Pipe.h"
 #include "Thread.h"
 #include "Files.h"
 #include "Module.h"
+#include "StackTrace.h"
+#include "TermUtils.h"
 
 namespace trippingcyril {
+
+class OnCrashPipe : public Pipe {
+public:
+  OnCrashPipe()
+  : Pipe() {
+  };
+  virtual ~OnCrashPipe() {
+  };
+  virtual void OnRead() {
+    Module* module = NULL;
+    while (Read((char*) &module, sizeof(module)) == sizeof(module) && module != NULL) {
+      String sRetMsg;
+      bool success = Global::Get()->UnloadModule(module->GetModName(), sRetMsg);
+      TermUtils::PrintStatus(success, sRetMsg);
+    };
+  };
+};
+
+static OnCrashPipe* onCrashPipe = new OnCrashPipe;
 
 Global::Global() {
   SSL_library_init();
@@ -60,13 +84,45 @@ public:
   };
 protected:
   void* run() {
+    const bool unloadOnCrash = module->unloadOnCrash;
     module->event_base = event_base_new();
     module->OnLoaded();
-    while (shouldContinue())
-      event_base_loop(module->event_base, EVLOOP_ONCE);
+    if (unloadOnCrash == false || setjmp(jmp_buffer) == 0) {
+      if (unloadOnCrash) {
+        struct sigaction act;
+        bzero(&act, sizeof(act));
+        sigfillset(&act.sa_mask);
+        act.sa_flags = SA_RESETHAND|SA_SIGINFO;
+        act.sa_sigaction = ModuleThread::CrashHandler;
+        sigaction(SIGABRT, &act, NULL);
+        sigaction(SIGBUS,  &act, NULL);
+        sigaction(SIGFPE,  &act, NULL);
+  #ifdef SIGILL
+        sigaction(SIGILL,  &act, NULL);
+  #endif
+        sigaction(SIGSEGV, &act, NULL);
+      }
+      while (shouldContinue())
+        event_base_loop(module->event_base, EVLOOP_ONCE);
+    };
     return NULL;
   };
 private:
+  static void CrashHandler(int sig, siginfo_t* info, void* f) {
+    Thread* thread = ThreadManager::Get()->getCurrentThread();
+    if (thread != NULL) {
+      crash::StackTrace();
+      ModuleThread* modThread = (ModuleThread*) thread;
+      if (modThread) {
+        Module* module = modThread->module;
+        onCrashPipe->Write((const char*) &module, sizeof(module));
+        longjmp(modThread->jmp_buffer, 1);
+      } else
+        perror("What the hell man..");
+    } else
+      perror("What the hell man..");
+  };
+  jmp_buf jmp_buffer;
   Module* module;
 };
 
