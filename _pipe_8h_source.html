@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_pipe.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_pipe.html">Pipe</a> {</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classtrippingcyril_1_1_pipe.html#ac7927512508610d61604ff968ee4f470">Pipe</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* pModule);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classtrippingcyril_1_1_pipe.html#ac44fb115e4505b63d0535d2129615339">Pipe</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* pModule = NULL);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d">~Pipe</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">   47</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">Read</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> len) {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> read(fds[0], buffer, len);</div>
@@ -152,10 +152,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classtrippingcyril_1_1_pipe_html_a41a4a156109a34614db332b05519f18e"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#a41a4a156109a34614db332b05519f18e">trippingcyril::Pipe::OnRead</a></div><div class="ttdeci">virtual void OnRead()=0</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_pipe_html_aa11631b710c59b1c75b3035d2b101abe"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#aa11631b710c59b1c75b3035d2b101abe">trippingcyril::Pipe::Write</a></div><div class="ttdeci">int Write(const char *buffer, size_t len)</div><div class="ttdef"><b>Definition:</b> Pipe.h:54</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_mutex_html"><div class="ttname"><a href="classtrippingcyril_1_1_mutex.html">trippingcyril::Mutex</a></div><div class="ttdoc">Simple mutex class. </div><div class="ttdef"><b>Definition:</b> Thread.h:109</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_pipe_html_ac44fb115e4505b63d0535d2129615339"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#ac44fb115e4505b63d0535d2129615339">trippingcyril::Pipe::Pipe</a></div><div class="ttdeci">Pipe(const Module *pModule=NULL)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_pipe_html_a7c1d37c44ac7b1595986b4893f3962ad"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">trippingcyril::Pipe::Read</a></div><div class="ttdeci">int Read(char *buffer, size_t len)</div><div class="ttdef"><b>Definition:</b> Pipe.h:47</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:56</div></div>
 <div class="ttc" id="_thread_8h_html"><div class="ttname"><a href="_thread_8h.html">Thread.h</a></div></div>
-<div class="ttc" id="classtrippingcyril_1_1_pipe_html_ac7927512508610d61604ff968ee4f470"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#ac7927512508610d61604ff968ee4f470">trippingcyril::Pipe::Pipe</a></div><div class="ttdeci">Pipe(const Module *pModule)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_string_html"><div class="ttname"><a href="classtrippingcyril_1_1_string.html">trippingcyril::String</a></div><div class="ttdoc">A wrapper string class to make a various amount of things just easier to type. All strings used shoul...</div><div class="ttdef"><b>Definition:</b> String.h:32</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_mutex_locker_html"><div class="ttname"><a href="classtrippingcyril_1_1_mutex_locker.html">trippingcyril::MutexLocker</a></div><div class="ttdoc">Simple mutexlocking class. </div><div class="ttdef"><b>Definition:</b> Thread.h:131</div></div>
 <div class="ttc" id="_files_8h_html"><div class="ttname"><a href="_files_8h.html">Files.h</a></div></div>
@@ -163,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 14 2014 14:54:05 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 15 2014 18:56:16 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
