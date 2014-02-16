@@ -41,12 +41,21 @@ public:
   };
   virtual ~OnCrashPipe() {
   };
+  struct OnCrashStruct {
+    Module* module;
+    bool reload : 1;
+  };
   virtual void OnRead() {
-    Module* module = NULL;
-    while (Read((char*) &module, sizeof(module)) == sizeof(module) && module != NULL) {
+    OnCrashStruct data;
+    while (Read((char*) &data, sizeof(data)) == sizeof(data) && data.module != NULL) {
+      const String path = data.module->GetPath();
       String sRetMsg;
-      bool success = Global::Get()->UnloadModule(module->GetModName(), sRetMsg);
+      bool success = Global::Get()->UnloadModule(data.module->GetModName(), sRetMsg);
       TermUtils::PrintStatus(success, sRetMsg);
+      if (data.reload) {
+        success = Global::Get()->LoadModule(path, sRetMsg);
+        TermUtils::PrintStatus(success, sRetMsg);
+      };
     };
   };
 };
@@ -114,8 +123,10 @@ private:
       crash::StackTrace();
       ModuleThread* modThread = (ModuleThread*) thread;
       if (modThread) {
-        Module* module = modThread->module;
-        onCrashPipe->Write((const char*) &module, sizeof(module));
+        OnCrashPipe::OnCrashStruct data;
+        data.module = modThread->module;
+        data.reload = data.module->reloadOnCrash;
+        onCrashPipe->Write((const char*) &data, sizeof(data));
         longjmp(modThread->jmp_buffer, 1);
       } else
         perror("What the hell man..");

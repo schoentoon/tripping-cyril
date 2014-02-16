@@ -26,12 +26,14 @@
 
 namespace trippingcyril {
 
-Module::Module(ModHandle pSo, const String& pModName)
+Module::Module(ModHandle pSo, const String& pModName, const String& pPath)
 : so(pSo)
-, modName(pModName) {
+, modName(pModName)
+, path(pPath) {
   modThread = NULL;
   wantsThread = false;
   unloadOnCrash = false;
+  reloadOnCrash = false;
   event_base = Global::Get()->GetEventBase();
   dns_base = Global::Get()->GetDNSBase();
 };
@@ -54,14 +56,14 @@ Module* Module::LoadModule(const String& path, const String& modName, String& re
     retMsg = "Unable to open module [" + modName + "] [" + dlerror() + "]";
     return NULL;
   };
-  typedef Module* (fp)(ModHandle so, const String& modName);
+  typedef Module* (fp)(ModHandle so, const String& modName, const String& path);
   fp* ModLoad = (fp*) dlsym(so, "ModLoad");
   if (ModLoad == NULL) {
     dlclose(so);
     retMsg = "Could not find ModLoad() in module [" + modName + "]";
     return NULL;
   };
-  Module* output = ModLoad(so, modName);
+  Module* output = ModLoad(so, modName, path);
   if (output == NULL) {
     retMsg = "ModLoad() returned NULL in module [" + modName + "]";
     dlclose(so);

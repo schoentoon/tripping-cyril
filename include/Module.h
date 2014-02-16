@@ -25,16 +25,16 @@
 #include "String.h"
 
 #define MODCONSTRUCTOR(CLASS) \
-  CLASS::CLASS(ModHandle so, const String& modName) \
-  : trippingcyril::Module(so, modName)
+  CLASS::CLASS(ModHandle so, const String& modName, const String& path) \
+  : trippingcyril::Module(so, modName, path)
 
 #define MODCONSTRUCTORHEADER(CLASS) \
-  CLASS(ModHandle so, const String& modName)
+  CLASS(ModHandle so, const String& modName, const String& path)
 
 #define MODULEDEFS(CLASS) \
   extern "C" { \
-    Module* ModLoad(ModHandle so, const String& modName) { \
-      return new CLASS(so, modName); \
+    Module* ModLoad(ModHandle so, const String& modName, const String& path) { \
+      return new CLASS(so, modName, path); \
     }; \
   };
 
@@ -61,7 +61,7 @@ public:
    * @see MODCONSTRUCTOR
    * @see MODCONSTRUCTORHEADER
    */
-  Module(ModHandle so, const String& modName);
+  Module(ModHandle so, const String& modName, const String& path);
   /**
    * Deconstructor, clean up your own resources here. Don't clean up any timers
    * or sockets that you allocated with this module, those will get cleaned up
@@ -88,6 +88,8 @@ public:
   virtual void CleanUpInterData(int method, void* arg) {};
   /** @return The name of the module */
   const String GetModName() const { return modName; };
+  /** @return The path of the module */
+  const String GetPath() const { return path; };
   /** @return The libevent base for this module */
   struct event_base* GetEventBase() const { return event_base; };
   /** @return The libevent dns base for this module */
@@ -105,6 +107,8 @@ protected:
   bool wantsThread : 1;
   /** Attempt to unload the module if it causes a crash, only works if wantsThread is true */
   bool unloadOnCrash : 1;
+  /** Reload the module again after unloading it because of a crash, only works if unloadOnCrash is true */
+  bool reloadOnCrash : 1;
   // @cond
   struct event_base* event_base;
   struct evdns_base* dns_base;
@@ -117,6 +121,7 @@ private:
   void DelTimer(Timer* timer) const;
   const ModHandle so;
   const String modName;
+  const String path;
   friend class Global;
   friend class Socket;
   friend class Timer;
