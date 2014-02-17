@@ -85,7 +85,9 @@ void Global::Loop() {
 class ModuleThread : public Thread {
 public:
   ModuleThread(Module* pModule)
-  : Thread(pModule->GetModName()) {
+  : Thread(pModule->GetModName())
+  , unloadOnCrash(pModule->unloadOnCrash)
+  , reloadOnCrash(pModule->reloadOnCrash) {
     module = pModule;
     module->modThread = this;
   };
@@ -93,7 +95,6 @@ public:
   };
 protected:
   void* run() {
-    const bool unloadOnCrash = module->unloadOnCrash;
     module->event_base = event_base_new();
     module->OnLoaded();
     if (unloadOnCrash == false || setjmp(jmp_buffer) == 0) {
@@ -125,7 +126,7 @@ private:
       if (modThread) {
         OnCrashPipe::OnCrashStruct data;
         data.module = modThread->module;
-        data.reload = data.module->reloadOnCrash;
+        data.reload = modThread->reloadOnCrash;
         onCrashPipe->Write((const char*) &data, sizeof(data));
         longjmp(modThread->jmp_buffer, 1);
       } else
@@ -135,6 +136,8 @@ private:
   };
   jmp_buf jmp_buffer;
   Module* module;
+  const bool unloadOnCrash;
+  const bool reloadOnCrash;
 };
 
 bool Global::LoadModule(const String& path, String& retMsg) {
