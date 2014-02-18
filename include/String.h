@@ -144,6 +144,17 @@ public:
   float ToFloat() const;
   /** @return The numerical value of this string similar to atoi(). */
   operator float() { return ToFloat(); };
+
+  /** Base64-encode the current string.
+   * @param sRet String where the result is saved.
+   * @return True if succesfully coded
+   */
+  bool Base64Encode(String& sRet) const;
+  /** Treat this string as base64-encoded data and decode it.
+   * @param sRet String to which the result of the decode is safed.
+   * @return The length of the resulting string.
+   */
+  unsigned long Base64Decode(String& sRet) const;
 };
 
 };

@@ -153,4 +153,89 @@ float String::ToFloat() const {
   return strtof(this->c_str(), NULL);
 };
 
+bool String::Base64Encode(String& sRet) const {
+  const char b64table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  sRet.clear();
+  size_t len = size();
+  const unsigned char* input = (const unsigned char*) c_str();
+  unsigned char *output, *p;
+  size_t i = 0, mod = len % 3, toalloc;
+  toalloc = (len / 3) * 4 + (3 - mod) % 3 + 1 + 8;
+  if (toalloc < len)
+    return false;
+  p = output = new unsigned char [toalloc];
+  while (i < len - mod) {
+    *p++ = b64table[input[i++] >> 2];
+    *p++ = b64table[((input[i - 1] << 4) | (input[i] >> 4)) & 0x3f];
+    *p++ = b64table[((input[i] << 2) | (input[i + 1] >> 6)) & 0x3f];
+    *p++ = b64table[input[i + 1] & 0x3f];
+    i += 2;
+  }
+  if (mod) {
+    *p++ = b64table[input[i++] >> 2];
+    *p++ = b64table[((input[i - 1] << 4) | (input[i] >> 4)) & 0x3f];
+    if (mod == 1)
+      *p++ = '=';
+    else
+      *p++ = b64table[(input[i] << 2) & 0x3f];
+    *p++ = '=';
+  }
+  *p = 0;
+  sRet = (char*) output;
+  delete[] output;
+  return true;
+};
+
+static const unsigned char XX = 0xff;
+static const unsigned char base64_table[256] = {
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,62, XX,XX,XX,63,
+  52,53,54,55, 56,57,58,59, 60,61,XX,XX, XX,XX,XX,XX,
+  XX, 0, 1, 2,  3, 4, 5, 6,  7, 8, 9,10, 11,12,13,14,
+  15,16,17,18, 19,20,21,22, 23,24,25,XX, XX,XX,XX,XX,
+  XX,26,27,28, 29,30,31,32, 33,34,35,36, 37,38,39,40,
+  41,42,43,44, 45,46,47,48, 49,50,51,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+  XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX, XX,XX,XX,XX,
+};
+
+unsigned long String::Base64Decode(String& sRet) const {
+  String sTmp(*this);
+  sTmp.Trim();
+  const char* in = sTmp.c_str();
+  char c, c1, *p;
+  unsigned long i;
+  unsigned long uLen = sTmp.size();
+  char* out = new char[uLen + 1];
+  for (i = 0, p = out; i < uLen; i++) {
+    c = (char) base64_table[(unsigned char)in[i++]];
+    c1 = (char) base64_table[(unsigned char)in[i++]];
+    *p++ = (c << 2) | ((c1 >> 4) & 0x3);
+    if (i < uLen) {
+      if (in[i] == '=')
+        break;
+      c = (char) base64_table[(unsigned char)in[i]];
+      *p++ = ((c1 << 4) & 0xf0) | ((c >> 2) & 0xf);
+    }
+    if (++i < uLen) {
+      if (in[i] == '=')
+        break;
+      *p++ = ((c << 6) & 0xc0) | (char) base64_table[(unsigned char)in[i]];
+    }
+  }
+  *p = '\0';
+  unsigned long uRet = p - out;
+  sRet.clear();
+  sRet.append(out, uRet);
+  delete[] out;
+  return uRet;
+};
+
 };

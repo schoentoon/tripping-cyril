@@ -124,4 +124,19 @@ TEST(String, MakeUpper) {
   EXPECT_EQ(s, "ABCDEF");
 };
 
+TEST(String, Base64Encoding) {
+  String s("test");
+  String output;
+  EXPECT_TRUE(s.Base64Encode(output));
+  EXPECT_EQ(output, "dGVzdA==");
+};
+
+TEST(String, Base64Decoding) {
+  String s("dGVzdA==");
+  String output;
+  unsigned long ret = s.Base64Decode(output);
+  EXPECT_EQ(ret, output.size());
+  EXPECT_EQ(output, "test");
+};
+
 };
