@@ -17,11 +17,26 @@
 
 #include <gtest/gtest.h>
 
+#include <stdint.h>
+
 #include "String.h"
 
 using namespace trippingcyril;
 
 namespace test {
+
+TEST(String, ToPercent) {
+  String percent = String::ToPercent(1.337);
+  EXPECT_EQ(percent, "1.34%");
+};
+
+TEST(String, ToByteStr) {
+  String size = String::ToByteStr(9001);
+  EXPECT_EQ(size, "8.79 KiB");
+  uint64_t max = ~0;
+  size = String::ToByteStr(max);
+  EXPECT_EQ(size, "16777216.00 TiB"); //That's a lot..
+};
 
 TEST(String, Bool) {
   String t(true);

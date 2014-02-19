@@ -17,6 +17,7 @@
 
 #include "String.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 #include <sstream>
@@ -36,6 +37,28 @@ String::String(unsigned long long i) : string() { stringstream s; s << i; *this 
 String::String(double i, unsigned int precision) : string() { stringstream s; s.precision(precision); s << std::fixed << i; *this = s.str(); };
 String::String(float i, unsigned int precision) : string() { stringstream s; s.precision(precision); s << std::fixed << i; *this = s.str(); };
 String::String(const std::stringstream& stream) : string() { *this = stream.str(); };
+
+String String::ToPercent(double d) {
+  char szRet[32];
+  snprintf(szRet, 32, "%.02f%%", d);
+  return szRet;
+};
+
+String String::ToByteStr(unsigned long long d) {
+  const unsigned long long KiB = 1024;
+  const unsigned long long MiB = KiB * 1024;
+  const unsigned long long GiB = MiB * 1024;
+  const unsigned long long TiB = GiB * 1024;
+  if (d > TiB)
+    return String(d / (double) TiB) + " TiB";
+  else if (d > GiB)
+    return String(d / (double) GiB) + " GiB";
+  else if (d > MiB)
+    return String(d / (double) MiB) + " MiB";
+  else if (d > KiB)
+    return String(d / (double) KiB) + " KiB";
+  return String(d) + " B";
+};
 
 bool String::WildCmp(const String& sWild) {
   const char* wild = sWild.c_str();

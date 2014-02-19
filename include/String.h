@@ -51,6 +51,17 @@ public:
   String(const string& s) : string(s) {};
   virtual ~String() {};
 
+  /** Pretty-print a percent value.
+   * @param d The percent value. This should be in range 0-100.
+   * @return The "pretty" string.
+   */
+  static String ToPercent(double d);
+  /** Pretty-print a number of bytes.
+   * @param d The number of bytes.
+   * @return A string describing the number of bytes.
+   */
+  static String ToByteStr(unsigned long long d);
+
   /**
    * Do a wildcard comparison on this string. Where "*" will match any number of
    * characters and "?" will match a single character. For example
