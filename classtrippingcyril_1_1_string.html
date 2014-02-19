@@ -88,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classtrippingcyril_1_1_string-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">trippingcyril::String Class Reference</div>  </div>
@@ -205,6 +206,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4a06f6fa7e982c07af9c72222a5f0d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d0919855189159236f29bfff5e0e687"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_string.html#a9d0919855189159236f29bfff5e0e687">operator float</a> ()</td></tr>
 <tr class="separator:a9d0919855189159236f29bfff5e0e687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af94268c74b7b90dc3729eb3e72a10d23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_string.html#af94268c74b7b90dc3729eb3e72a10d23">Base64Encode</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;sRet) const </td></tr>
+<tr class="separator:af94268c74b7b90dc3729eb3e72a10d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a282af5b5720df2bbd62870e0eb302f28"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_string.html#a282af5b5720df2bbd62870e0eb302f28">Base64Decode</a> (<a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;sRet) const </td></tr>
+<tr class="separator:a282af5b5720df2bbd62870e0eb302f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7c5db94cb80db53c50e2fd3261baad8a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_string.html#a7c5db94cb80db53c50e2fd3261baad8a">ToPercent</a> (double d)</td></tr>
+<tr class="separator:a7c5db94cb80db53c50e2fd3261baad8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9ac881df9a30caacb37c34b50b91fac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_string.html#ae9ac881df9a30caacb37c34b50b91fac">ToByteStr</a> (unsigned long long d)</td></tr>
+<tr class="separator:ae9ac881df9a30caacb37c34b50b91fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A wrapper string class to make a various amount of things just easier to type. All strings used should be of this type, add methods to this class as you need them. </p>
@@ -686,6 +698,54 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a282af5b5720df2bbd62870e0eb302f28"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long trippingcyril::String::Base64Decode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>sRet</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Treat this string as base64-encoded data and decode it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sRet</td><td><a class="el" href="classtrippingcyril_1_1_string.html" title="A wrapper string class to make a various amount of things just easier to type. All strings used shoul...">String</a> to which the result of the decode is safed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The length of the resulting string. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af94268c74b7b90dc3729eb3e72a10d23"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trippingcyril::String::Base64Encode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>sRet</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Base64-encode the current string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sRet</td><td><a class="el" href="classtrippingcyril_1_1_string.html" title="A wrapper string class to make a various amount of things just easier to type. All strings used shoul...">String</a> where the result is saved. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if succesfully coded </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ab88faac9fcc98a907571312993f9387c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1000,6 +1060,38 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae9ac881df9a30caacb37c34b50b91fac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classtrippingcyril_1_1_string.html">String</a> trippingcyril::String::ToByteStr </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long long&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pretty-print a number of bytes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>The number of bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A string describing the number of bytes. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aa0b73a88112095b0adf3bc39c0074e84"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1080,6 +1172,38 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The numerical value of this string similar to atoi(). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c5db94cb80db53c50e2fd3261baad8a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classtrippingcyril_1_1_string.html">String</a> trippingcyril::String::ToPercent </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pretty-print a percent value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>The percent value. This should be in range 0-100. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The "pretty" string. </dd></dl>
 
 </div>
 </div>
@@ -1270,7 +1394,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 16 2014 16:06:09 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Feb 19 2014 17:26:07 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
