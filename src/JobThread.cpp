@@ -73,6 +73,8 @@ JobThread::~JobThread() {
 };
 
 void JobThread::Add(Job* job) {
+  if (job == NULL)
+    return;
   MutexLocker lock(mutex);
   JobRunnerPipe::JobRunner runner;
   runner.mode = 0;
@@ -81,6 +83,8 @@ void JobThread::Add(Job* job) {
 };
 
 void JobThread::AddFront(Job* job) {
+  if (job == NULL)
+    return;
   MutexLocker lock(mutex);
   JobRunnerPipe::JobRunner runner;
   runner.mode = 1;
