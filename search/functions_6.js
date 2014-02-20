@@ -24,5 +24,6 @@ var searchData=
   ['getuid',['GetUID',['../classtrippingcyril_1_1_file.html#a0ec2612679ecd0f1fa95707d07ece115',1,'trippingcyril::File']]],
   ['geturl',['getURL',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a0d2eee6aef6ff0bd522118ea9335dd9a',1,'trippingcyril::SimpleHTTPSocket']]],
   ['getvalue',['getValue',['../classtrippingcyril_1_1_d_b_result.html#ad4b5d95b0687508fb86beba456d4362e',1,'trippingcyril::DBResult']]],
-  ['getversion',['GetVersion',['../classtrippingcyril_1_1_module.html#a0988c68f7b871cdfdae709ecc1e7120a',1,'trippingcyril::Module']]]
+  ['getversion',['GetVersion',['../classtrippingcyril_1_1_module.html#a0988c68f7b871cdfdae709ecc1e7120a',1,'trippingcyril::Module']]],
+  ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#a0fc3fc9c3ab227088957fc4db08e3390',1,'trippingcyril::GZipCompressor']]]
 ];

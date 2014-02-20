@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wantsthread',['wantsThread',['../classtrippingcyril_1_1_module.html#aec705041fb9499e02b51dfb76afc3eaf',1,'trippingcyril::Module']]]
+  ['unloadoncrash',['unloadOnCrash',['../classtrippingcyril_1_1_module.html#aac61adcc979449b061dcee16b61fda8d',1,'trippingcyril::Module']]]
 ];

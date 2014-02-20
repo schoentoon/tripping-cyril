@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtrippingcyril_1_1_cond_var.html" title="Simple cond var wrapping class. " alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node1" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="6,5,173,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="221,5,416,32"/>
 </map>

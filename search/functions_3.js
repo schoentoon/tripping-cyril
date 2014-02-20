@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['data',['data',['../classtrippingcyril_1_1_compressor.html#a18bbab3aa292439d2d8c8f58ef08202a',1,'trippingcyril::Compressor']]],
   ['database',['Database',['../classtrippingcyril_1_1_database.html#a2c73634569590616e4a92740c66c3eac',1,'trippingcyril::Database']]],
   ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File']]],
   ['detach',['Detach',['../classtrippingcyril_1_1_thread.html#a304092a2bc70f45c573acf7b87a15a4e',1,'trippingcyril::Thread']]],

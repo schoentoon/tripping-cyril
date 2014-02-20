@@ -1,6 +1,7 @@
 var searchData=
 [
   ['_7eblockingpostgres',['~BlockingPostGres',['../classtrippingcyril_1_1_blocking_post_gres.html#ad470d72eea76a4ec898e9d0993812d4a',1,'trippingcyril::BlockingPostGres']]],
+  ['_7ecompressor',['~Compressor',['../classtrippingcyril_1_1_compressor.html#a0ef1a00b3cbb012b61424d7623330603',1,'trippingcyril::Compressor']]],
   ['_7econdvar',['~CondVar',['../classtrippingcyril_1_1_cond_var.html#a8b06f9145f9e615b9e35b0dc797a56df',1,'trippingcyril::CondVar']]],
   ['_7edatabase',['~Database',['../classtrippingcyril_1_1_database.html#aeaecf4d9e34ec40794d91765b1cbb6cb',1,'trippingcyril::Database']]],
   ['_7edbcallback',['~DBCallback',['../classtrippingcyril_1_1_d_b_callback.html#a04cbf4b0218b461f2d5eb31d2d3c677e',1,'trippingcyril::DBCallback']]],
@@ -8,6 +9,7 @@ var searchData=
   ['_7edir',['~Dir',['../classtrippingcyril_1_1_dir.html#ac3c95790e33f3160d3ea170fe7214a83',1,'trippingcyril::Dir']]],
   ['_7efile',['~File',['../classtrippingcyril_1_1_file.html#a450323808997b54f71eec826e3b30121',1,'trippingcyril::File']]],
   ['_7efileobservercallback',['~FileObserverCallback',['../classtrippingcyril_1_1_file_observer_callback.html#ae2fe81963443ec841315638ec4a911b9',1,'trippingcyril::FileObserverCallback']]],
+  ['_7egzipcompressor',['~GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#a7319451d0e399d113fd0a0f7a7959a0b',1,'trippingcyril::GZipCompressor']]],
   ['_7ehttpcallback',['~HTTPCallback',['../classtrippingcyril_1_1_h_t_t_p_callback.html#a8d4dab69f4af311fec24fe6caf909e39',1,'trippingcyril::HTTPCallback']]],
   ['_7eintermoduledata',['~InterModuleData',['../classtrippingcyril_1_1_inter_module_data.html#ac375428cbf16acd5a9f8a3b866533209',1,'trippingcyril::InterModuleData']]],
   ['_7eipaddress',['~IPAddress',['../classtrippingcyril_1_1_i_p_address.html#a1cbb32dd71e4f37eaebaccaea4b4512e',1,'trippingcyril::IPAddress']]],

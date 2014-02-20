@@ -26,5 +26,7 @@ var searchData=
   ['getvalue',['getValue',['../classtrippingcyril_1_1_d_b_result.html#ad4b5d95b0687508fb86beba456d4362e',1,'trippingcyril::DBResult']]],
   ['getversion',['GetVersion',['../classtrippingcyril_1_1_module.html#a0988c68f7b871cdfdae709ecc1e7120a',1,'trippingcyril::Module']]],
   ['global',['Global',['../classtrippingcyril_1_1_global.html',1,'trippingcyril']]],
-  ['global_2eh',['Global.h',['../_global_8h.html',1,'']]]
+  ['global_2eh',['Global.h',['../_global_8h.html',1,'']]],
+  ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html',1,'trippingcyril']]],
+  ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#a0fc3fc9c3ab227088957fc4db08e3390',1,'trippingcyril::GZipCompressor']]]
 ];

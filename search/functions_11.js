@@ -14,6 +14,7 @@ var searchData=
   ['tolonglong',['ToLongLong',['../classtrippingcyril_1_1_string.html#acf33e99c45d41e75e1de26ac7d176e47',1,'trippingcyril::String']]],
   ['topercent',['ToPercent',['../classtrippingcyril_1_1_string.html#a7c5db94cb80db53c50e2fd3261baad8a',1,'trippingcyril::String']]],
   ['toshort',['ToShort',['../classtrippingcyril_1_1_string.html#ac36586c8e4316fbd86c99d5be58416f3',1,'trippingcyril::String']]],
+  ['totalbytesin',['totalBytesIn',['../classtrippingcyril_1_1_compressor.html#aa01b56134455602d9bbc3bfb9be54e07',1,'trippingcyril::Compressor']]],
   ['touint',['ToUInt',['../classtrippingcyril_1_1_string.html#a558b4656862795486af004dbb08eb189',1,'trippingcyril::String']]],
   ['toulong',['ToULong',['../classtrippingcyril_1_1_string.html#a7add57a7843c2f8f5d6b6043b6980968',1,'trippingcyril::String']]],
   ['toulonglong',['ToULongLong',['../classtrippingcyril_1_1_string.html#afe34797b4ca4d9999b32e92cebe21210',1,'trippingcyril::String']]],
