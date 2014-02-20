@@ -7,7 +7,7 @@ CXX             := g++
 
 BINARY := tripping-cyril
 DEPS := build/String.o build/Global.o build/Socket.o build/Files.o build/Timer.o build/Module.o build/SimpleHTTPSocket.o build/TermUtils.o \
-build/StackTrace.o build/Thread.o build/Pipe.o build/JobThread.o build/Listener.o build/Postgres.o
+build/StackTrace.o build/Thread.o build/Pipe.o build/JobThread.o build/Listener.o build/Postgres.o build/Compressor.o
 
 all: $(BINARY) modules
 
