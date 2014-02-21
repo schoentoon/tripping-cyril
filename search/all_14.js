@@ -17,6 +17,7 @@ var searchData=
   ['_7ejob',['~Job',['../classtrippingcyril_1_1_job.html#a740cb3fb2f1a779f0ecc0dcce269efe4',1,'trippingcyril::Job']]],
   ['_7ejobthread',['~JobThread',['../classtrippingcyril_1_1_job_thread.html#a0193385ee0b35258d78b7be15f624669',1,'trippingcyril::JobThread']]],
   ['_7elistener',['~Listener',['../classtrippingcyril_1_1_listener.html#afcdf22ae0c1e1e2db8f477492756b302',1,'trippingcyril::Listener']]],
+  ['_7elzmacompressor',['~LZMACompressor',['../classtrippingcyril_1_1_l_z_m_a_compressor.html#a9b6e02a7abc8ff00533a4c5ccfd9cf33',1,'trippingcyril::LZMACompressor']]],
   ['_7emodule',['~Module',['../classtrippingcyril_1_1_module.html#aeb7a5777b2489432e87253104937a3bc',1,'trippingcyril::Module']]],
   ['_7emutex',['~Mutex',['../classtrippingcyril_1_1_mutex.html#ab1f7faaca49b01aa2ecd0b06de9bd8e5',1,'trippingcyril::Mutex']]],
   ['_7emutexlocker',['~MutexLocker',['../classtrippingcyril_1_1_mutex_locker.html#afbf94baffb443de7c870cff7daebf4b2',1,'trippingcyril::MutexLocker']]],
