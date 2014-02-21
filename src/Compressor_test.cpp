@@ -36,4 +36,10 @@ TEST(Compressor, GZip) {
   EXPECT_LT(compressor.size(), compressor.totalBytesIn());
 };
 
+TEST(Compressor, LZMA) {
+  LZMACompressor compressor;
+  EXPECT_TRUE(compressor.append(IPSUM.data(), IPSUM.size()));
+  EXPECT_LT(compressor.size(), compressor.totalBytesIn());
+};
+
 };

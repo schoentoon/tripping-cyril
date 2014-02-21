@@ -75,4 +75,38 @@ bool GZipCompressor::append(const char* data, size_t len) {
   return true;
 };
 
+LZMACompressor::LZMACompressor(uint32_t preset, lzma_check check_type) {
+  bzero(&stream, sizeof(stream));
+  if (lzma_easy_encoder(&stream, preset, check_type) != LZMA_OK)
+    throw "Error during lzma_easy_encoder";
+};
+
+LZMACompressor::~LZMACompressor() {
+  lzma_end(&stream);
+};
+
+bool LZMACompressor::append(const char* data, size_t len) {
+  stream.next_in = (uint8_t*) data;
+  stream.avail_in = len;
+  total_in += len;
+  int lzma_ret;
+  char buf[BUFFER_SIZE];
+  do {
+    stream.next_out = (uint8_t*) buf;
+    stream.avail_out = sizeof(buf);
+    stream.total_out = 0;
+    switch ((lzma_ret = lzma_code(&stream, LZMA_RUN))) {
+    case LZMA_OK:
+    case LZMA_STREAM_END:
+      buffer.append(buf, stream.total_out);
+      break;
+    case LZMA_MEM_ERROR:
+    case LZMA_DATA_ERROR:
+    default:
+      return false;
+    };
+  } while (stream.avail_out == 0);
+  return true;
+};
+
 };

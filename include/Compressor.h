@@ -18,10 +18,12 @@
 #ifndef _COMPRESSOR_H
 #define _COMPRESSOR_H
 
-#include <zlib.h>
 #include <stdint.h>
 
 #include "String.h"
+
+#include <zlib.h>
+#include <lzma.h>
 
 namespace trippingcyril {
 
@@ -79,6 +81,23 @@ private:
   // @cond
   z_stream zlib_stream;
   // @endcond
+};
+
+/**
+ * @brief A lzma implementation of the Compressor interface
+ */
+class LZMACompressor : public Compressor {
+public:
+  /**
+   * General constructor
+   * @param preset The level of compression, should be between 1 and 9 or LZMA_PRESET_EXTREME
+   * @param check_type The type of checks the algorithm should apply, see the lzma docs
+   */
+  LZMACompressor(uint32_t preset = 6, lzma_check check_type = LZMA_CHECK_CRC64);
+  virtual ~LZMACompressor();
+  virtual bool append(const char* data, size_t len);
+private:
+  lzma_stream stream;
 };
 
 };
