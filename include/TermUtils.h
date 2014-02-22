@@ -29,9 +29,13 @@ namespace trippingcyril {
 class TermUtils {
 public:
   /**
-   * Prints the status of a boolean and a message
+   * Pretty prints the status of a boolean and a message
    */
   static void PrintStatus(bool status, const String& msg);
+  /**
+   * Pretty print an error message
+   */
+  static void PrintError(const String& msg);
 private:
   // @cond
   TermUtils() {};

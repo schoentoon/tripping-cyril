@@ -25,10 +25,14 @@ void TermUtils::PrintStatus(bool status, const String& pMsg) {
   String msg(pMsg);
   msg.Trim();
   if (status)
-    fprintf(stdout, "\033[1m\033[34m[\033[32m ok \033[34m]\033[39m\033[22m %s\n", msg.c_str());
+    fprintf(stdout, " \033[1m\033[34m[\033[32m ok \033[34m]\033[39m\033[22m %s\n", msg.c_str());
   else
-    fprintf(stdout, "\033[1m\033[34m[\033[31m !! \033[34m]\033[39m\033[22m %s\n", msg.c_str());
+    fprintf(stdout, " \033[1m\033[34m[\033[31m !! \033[34m]\033[39m\033[22m %s\n", msg.c_str());
   fflush(stdout);
+};
+
+void TermUtils::PrintError(const String& msg) {
+  PrintStatus(false, msg);
 };
 
 };
