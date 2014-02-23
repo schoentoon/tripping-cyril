@@ -25,9 +25,8 @@
 #define _DEFINES_H
 
 /**
- * Disables the GZipCompressor
+ * Disables the GZipCompressor and compression in the http client
  * @note You may get rid of the link against zlib
- * TODO Disable gzip decompression in the http client as well
  */
 //#define _NO_GZIP
 

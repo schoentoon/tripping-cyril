@@ -18,8 +18,13 @@
 #ifndef _HTTP_SOCKET_H
 #define _HTTP_SOCKET_H
 
+#include "defines.h"
+
 #include <map>
-#include <zlib.h>
+
+#ifndef _NO_GZIP
+#  include <zlib.h>
+#endif //_NO_GZIP
 
 #include "String.h"
 #include "Socket.h"
@@ -125,7 +130,9 @@ protected:
 private:
   static bool CrackURL(const String& url, String& host, String& path, unsigned short& port, bool& ssl);
   void MakeRequestHeaders(const String& method, const String& host, const String& path, unsigned short port, bool ssl);
+#ifndef _NO_GZIP
   size_t Decompress(const char* data, size_t len);
+#endif //_NO_GZIP
   map<String, String> extraHeaders;
   String url;
   String buffer;
@@ -135,14 +142,22 @@ private:
     HTTPParser(SimpleHTTPSocket* socket);
     virtual ~HTTPParser();
     bool ParseLine(const String& line);
-    bool IsCompressed() const { return zlib_stream != NULL; };
+    bool IsCompressed() const {
+#ifndef _NO_GZIP
+      return zlib_stream != NULL;
+#else
+      return false;
+#endif //_NO_GZIP
+    };
     unsigned short responseCode;
     long contentLength;
     bool chunked;
     int current_chunk;
     bool headersDone;
     map<String, String> headers;
+#ifndef _NO_GZIP
     z_stream* zlib_stream;
+#endif //_NO_GZIP
     SimpleHTTPSocket* socket;
   };
   HTTPParser parser;

@@ -122,6 +122,8 @@ TEST_F(SimpleHTTPSocket, Chunked) {
   EXPECT_DEATH(delete callback, "");
 };
 
+#ifndef _NO_GZIP
+
 TEST_F(SimpleHTTPSocket, GZip) {
   TestHTTPCallback* callback = new TestHTTPCallback;
   callback->expectedResponseCode = 200;
@@ -150,6 +152,8 @@ TEST_F(SimpleHTTPSocket, GZip) {
   EXPECT_DEATH(delete socket, "");
   EXPECT_DEATH(delete callback, "");
 };
+
+#endif //_NO_GZIP
 
 TEST_F(SimpleHTTPSocket, KeepCallbackAround) {
   TestHTTPCallback* callback = new TestHTTPCallback;

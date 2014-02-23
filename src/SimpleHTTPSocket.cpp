@@ -84,7 +84,11 @@ void SimpleHTTPSocket::MakeRequestHeaders(const String& method, const String& ho
   buffer += " HTTP/1.1\r\n";
   buffer += "Host: " + host + ((port == 80 && ssl == false) || (port == 443 || ssl == true) ? "" : ":" + String(port)) + "\r\n";
   buffer += "User-Agent: Tripping Cyril\r\n";
+#ifndef _NO_GZIP
   buffer += "Accept-Encoding: gzip\r\n";
+#else
+  buffer += "Accept-Encoding: identity\r\n";
+#endif //_NO_GZIP
   buffer += "Connection: Close\r\n";
   for (map<String, String>::iterator iter = extraHeaders.begin(); iter != extraHeaders.end(); ++iter)
     buffer += iter->first + ": " + iter->second + "\r\n";
@@ -175,28 +179,41 @@ void SimpleHTTPSocket::ReadLine(const String& data) {
 size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
   if (parser.chunked == true && parser.current_chunk > 0) {
     len = std::min(len, (size_t) parser.current_chunk);
-    if (parser.IsCompressed() == true)
+    if (parser.IsCompressed() == true) {
+#ifndef _NO_GZIP
       len = Decompress(data, len);
-    else
+#else
+      perror("You compiled without gzip support but this is a compressed stream anyway?");
+#endif //_NO_GZIP
+    } else
       buffer.append(data, len);
     parser.current_chunk -= len;
     if (parser.current_chunk <= 0)
       SetReadLine(true);
   } else if (parser.chunked == false) {
-    if (parser.IsCompressed() == true)
+    if (parser.IsCompressed() == true) {
+#ifndef _NO_GZIP
       len = Decompress(data, len);
-    else
+#else
+      perror("You compiled without gzip support but this is a compressed stream anyway?");
+#endif //_NO_GZIP
+    } else
       buffer.append(data, len);
   };
   if (parser.contentLength > 0) {
     if ((parser.IsCompressed() == false && buffer.size() >= (size_t) parser.contentLength)
-      || (parser.IsCompressed() == true && parser.zlib_stream->total_in >= (size_t) parser.contentLength)) {
+#ifndef _NO_GZIP
+      || (parser.IsCompressed() == true && parser.zlib_stream->total_in >= (size_t) parser.contentLength)
+#endif //_NO_GZIP
+    ) {
       OnRequestDone(parser.responseCode, parser.headers, buffer);
       Close();
     };
   };
   return len;
 };
+
+#ifndef _NO_GZIP
 
 #define CHUNK_SIZE 16384
 
@@ -230,6 +247,8 @@ size_t SimpleHTTPSocket::Decompress(const char* data, size_t len) {
   return len - parser.zlib_stream->avail_in;
 };
 
+#endif //_NO_GZIP
+
 SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {
   this->socket = socket;
   responseCode = 0;
@@ -237,14 +256,18 @@ SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {
   chunked = false;
   current_chunk = -1;
   headersDone = false;
+#ifndef _NO_GZIP
   zlib_stream = NULL;
+#endif //_NO_GZIP
 };
 
 SimpleHTTPSocket::HTTPParser::~HTTPParser() {
+#ifndef _NO_GZIP
   if (zlib_stream != NULL) {
     inflateEnd(zlib_stream);
     free(zlib_stream);
   };
+#endif //_NO_GZIP
 };
 
 bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
@@ -275,6 +298,7 @@ bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
         contentLength = value.ToLong();
       else if (chunked == false && key == "transfer-encoding" && value == "chunked")
         chunked = true;
+#ifndef _NO_GZIP
       else if (zlib_stream == NULL && key == "content-encoding" && value == "gzip") {
         zlib_stream = (z_stream*) malloc(sizeof(z_stream));
         bzero(zlib_stream, sizeof(z_stream));
@@ -283,6 +307,7 @@ bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
           abort();
         };
       };
+#endif //_NO_GZIP
       return true;
     }
   };
