@@ -24,8 +24,13 @@
 
 #include "String.h"
 
-#include <zlib.h>
-#include <lzma.h>
+#ifndef _NO_GZIP
+#  include <zlib.h>
+#endif //_NO_GZIP
+
+#ifndef _NO_LZMA
+#  include <lzma.h>
+#endif //_NO_LZMA
 
 namespace trippingcyril {
 
