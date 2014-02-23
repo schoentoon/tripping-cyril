@@ -30,16 +30,24 @@ static const String IPSUM = "Bacon ipsum dolor sit amet jowl drumstick chuck, sh
   "turkey pork loin. Chuck cow short ribs swine, salami meatball doner beef spare "
   "ribs turducken. Tenderloin jowl filet mignon meatloaf frankfurter doner.";
 
+#ifndef _NO_GZIP
+
 TEST(Compressor, GZip) {
   GZipCompressor compressor;
   EXPECT_TRUE(compressor.append(IPSUM.data(), IPSUM.size()));
   EXPECT_LT(compressor.size(), compressor.totalBytesIn());
 };
 
+#endif //_NO_GZIP
+
+#ifndef _NO_LZMA
+
 TEST(Compressor, LZMA) {
   LZMACompressor compressor;
   EXPECT_TRUE(compressor.append(IPSUM.data(), IPSUM.size()));
   EXPECT_LT(compressor.size(), compressor.totalBytesIn());
 };
+
+#endif //_NO_LZMA
 
 };

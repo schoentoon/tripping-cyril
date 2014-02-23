@@ -30,6 +30,8 @@ Compressor::~Compressor() {
 
 int Compressor::BUFFER_SIZE = 4096;
 
+#ifndef _NO_GZIP
+
 #define windowBits 15
 #define GZIP_ENCODING 16
 
@@ -75,6 +77,10 @@ bool GZipCompressor::append(const char* data, size_t len) {
   return true;
 };
 
+#endif //_NO_GZIP
+
+#ifndef _NO_LZMA
+
 LZMACompressor::LZMACompressor(uint32_t preset, lzma_check check_type) {
   bzero(&stream, sizeof(stream));
   if (lzma_easy_encoder(&stream, preset, check_type) != LZMA_OK)
@@ -108,5 +114,7 @@ bool LZMACompressor::append(const char* data, size_t len) {
   } while (stream.avail_out == 0);
   return true;
 };
+
+#endif //_NO_LZMA
 
 };

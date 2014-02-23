@@ -18,6 +18,8 @@
 #ifndef _COMPRESSOR_H
 #define _COMPRESSOR_H
 
+#include "defines.h"
+
 #include <stdint.h>
 
 #include "String.h"
@@ -64,6 +66,8 @@ protected:
   static int BUFFER_SIZE;
 };
 
+#ifndef _NO_GZIP
+
 /**
  * @brief A gzip implementation of the Compressor interface
  */
@@ -83,6 +87,10 @@ private:
   // @endcond
 };
 
+#endif //_NO_GZIP
+
+#ifndef _NO_LZMA
+
 /**
  * @brief A lzma implementation of the Compressor interface
  */
@@ -99,6 +107,8 @@ public:
 private:
   lzma_stream stream;
 };
+
+#endif //_NO_LZMA
 
 };
 
