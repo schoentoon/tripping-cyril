@@ -18,6 +18,10 @@
 #ifndef _POSTGRES_H
 #define _POSTGRES_H
 
+#include "defines.h"
+
+#ifndef _NO_POSTGRES
+
 #include <libpq-fe.h>
 #include <event2/event.h>
 #include <deque>
@@ -90,5 +94,7 @@ private:
 };
 
 };
+
+#endif //_NO_POSTGRES
 
 #endif // _POSTGRES_H

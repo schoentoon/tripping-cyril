@@ -17,6 +17,8 @@
 
 #include "Postgres.h"
 
+#ifndef _NO_POSTGRES
+
 #include "Global.h"
 #include "TermUtils.h"
 
@@ -218,3 +220,5 @@ void BlockingPostGres::Connect() {
 };
 
 };
+
+#endif //_NO_POSTGRES

@@ -36,4 +36,10 @@
  */
 //#define _NO_LZMA
 
+/**
+ * Disables the Postgresql database implementation
+ * @note You may get rid of the link against libpq
+ */
+//#define _NO_POSTGRES
+
 #endif //_DEFINES_H
