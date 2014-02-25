@@ -1,12 +1,13 @@
 var searchData=
 [
   ['data',['data',['../classtrippingcyril_1_1_compressor.html#a18bbab3aa292439d2d8c8f58ef08202a',1,'trippingcyril::Compressor']]],
-  ['database',['Database',['../classtrippingcyril_1_1_database.html',1,'trippingcyril']]],
   ['database',['Database',['../classtrippingcyril_1_1_database.html#a2c73634569590616e4a92740c66c3eac',1,'trippingcyril::Database']]],
+  ['database',['Database',['../classtrippingcyril_1_1_database.html',1,'trippingcyril']]],
   ['database_2eh',['Database.h',['../_database_8h.html',1,'']]],
   ['dbcallback',['DBCallback',['../classtrippingcyril_1_1_d_b_callback.html',1,'trippingcyril']]],
   ['dbresult',['DBResult',['../classtrippingcyril_1_1_d_b_result.html',1,'trippingcyril']]],
   ['decompession_5ferror',['DECOMPESSION_ERROR',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a29a1fe6175a7f7640e32c7cfe5e8eb27',1,'trippingcyril::SimpleHTTPSocket']]],
+  ['defines_2eh',['defines.h',['../defines_8h.html',1,'']]],
   ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File']]],
   ['detach',['Detach',['../classtrippingcyril_1_1_thread.html#a304092a2bc70f45c573acf7b87a15a4e',1,'trippingcyril::Thread']]],
   ['dir',['Dir',['../classtrippingcyril_1_1_dir.html',1,'trippingcyril']]],

@@ -7,6 +7,7 @@ var searchData=
   ['_7edbcallback',['~DBCallback',['../classtrippingcyril_1_1_d_b_callback.html#a04cbf4b0218b461f2d5eb31d2d3c677e',1,'trippingcyril::DBCallback']]],
   ['_7edbresult',['~DBResult',['../classtrippingcyril_1_1_d_b_result.html#a6908512be224ec6fc4bd5d4bc60fd4da',1,'trippingcyril::DBResult']]],
   ['_7edir',['~Dir',['../classtrippingcyril_1_1_dir.html#ac3c95790e33f3160d3ea170fe7214a83',1,'trippingcyril::Dir']]],
+  ['_7eevent',['~Event',['../classtrippingcyril_1_1_event.html#a60c84ad0ad8eebade897f80b2dd66b85',1,'trippingcyril::Event']]],
   ['_7efile',['~File',['../classtrippingcyril_1_1_file.html#a450323808997b54f71eec826e3b30121',1,'trippingcyril::File']]],
   ['_7efileobservercallback',['~FileObserverCallback',['../classtrippingcyril_1_1_file_observer_callback.html#ae2fe81963443ec841315638ec4a911b9',1,'trippingcyril::FileObserverCallback']]],
   ['_7egzipcompressor',['~GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#a7319451d0e399d113fd0a0f7a7959a0b',1,'trippingcyril::GZipCompressor']]],
