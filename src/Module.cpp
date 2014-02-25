@@ -41,10 +41,8 @@ Module::Module(ModHandle pSo, const String& pModName, const String& pPath)
 Module::~Module() {
   if (modThread != NULL)
     delete modThread;
-  while (sockets.empty() == false)
-    delete *sockets.begin();
-  while (timers.empty() == false)
-    delete *timers.begin();
+  while (events.empty() == false)
+    delete *events.begin();
   if (event_base != Global::Get()->GetEventBase())
     event_base_free(event_base);
 };
@@ -73,27 +71,14 @@ Module* Module::LoadModule(const String& path, const String& modName, String& re
   return output;
 };
 
-void Module::AddSocket(Socket* socket) const {
-  sockets.insert(socket);
+void Module::AddEvent(const Event* event) const {
+  events.insert(event);
 };
 
-void Module::DelSocket(Socket* socket) const {
-  for (set<Socket*>::iterator iter = sockets.begin(); iter != sockets.end(); ++iter) {
-    if (*iter == socket) {
-      sockets.erase(iter);
-      break;
-    };
-  };
-};
-
-void Module::AddTimer(Timer* timer) const {
-  timers.insert(timer);
-};
-
-void Module::DelTimer(Timer* timer) const {
-  for (set<Timer*>::iterator iter = timers.begin(); iter != timers.end(); ++iter) {
-    if (*iter == timer) {
-      timers.erase(iter);
+void Module::DelEvent(const Event* event) const {
+  for (set<const Event*>::iterator iter = events.begin(); iter != events.end(); ++iter) {
+    if (*iter == event) {
+      events.erase(iter);
       break;
     };
   };

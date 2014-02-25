@@ -30,9 +30,7 @@
 namespace trippingcyril {
 
 Socket::Socket(const Module* pModule)
-: module(pModule) {
-  if (module != NULL)
-    module->AddSocket(this);
+: Event(pModule) {
   connection = NULL;
   readline = 0;
   is_connected = 0;
@@ -45,7 +43,7 @@ Socket::Socket(const Module* pModule)
 };
 
 Socket::Socket(struct bufferevent* event)
-: module(NULL) {
+: Event(NULL) {
   connection = event;
   readline = 0;
   is_connected = 0;
@@ -60,8 +58,6 @@ Socket::Socket(struct bufferevent* event)
 Socket::~Socket() {
   if (connection != NULL)
     bufferevent_free(connection);
-  if (module != NULL)
-    module->DelSocket(this);
 };
 
 void Socket::Write(const char* data, size_t len) {

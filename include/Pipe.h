@@ -29,7 +29,7 @@ namespace trippingcyril {
 /**
  * @brief A wrapper class for pipes
  */
-class Pipe {
+class Pipe : public Event {
 public:
   /**
    * General constructor
@@ -65,12 +65,9 @@ public:
    * Override this method with your own stuff to do when read operations happen
    */
   virtual void OnRead() = 0;
-  /** @return The module we registered with */
-  const Module* GetModule() const { return module; };
 private:
   // @cond
   int fds[2];
-  const Module* module;
   struct event* read_event;
   Mutex mutex;
   static void EventCallback(evutil_socket_t fd, short event, void* arg);

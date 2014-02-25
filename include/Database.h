@@ -72,14 +72,14 @@ public:
 /**
  * @brief Database interface
  */
-class Database {
+class Database : public Event {
 public:
   /**
    * General constructor
    * @param pModule The module to register this database on
    */
   Database(const Module *pModule = NULL)
-  : module(pModule) {
+  : Event(pModule) {
     autocommit = false;
     stay_connected = false;
   };
@@ -104,12 +104,9 @@ public:
   void enableAutoCommit() { autocommit = true; };
   /** @brief Enables auto commiting */
   void disableAutoCommit() { autocommit = false; };
-  /** @return The module we registered on */
-  const Module* GetModule() const { return module; };
   /** Set the stay connected mode on or off */
   void SetStayConnected(bool b) { stay_connected = b; };
 protected:
-  const Module *module;
   /**
    * Marks if we should use autocommit or not
    */

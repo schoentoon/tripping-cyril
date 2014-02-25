@@ -27,7 +27,7 @@ namespace trippingcyril {
 /**
  * @brief General timer class
  */
-class Timer {
+class Timer : public Event {
 public:
   /**
    * General constructor
@@ -61,10 +61,6 @@ public:
    * Stops the timer and it'll get deleted as soon as possible.
    */
   void Stop();
-  /**
-   * Used to get the module used to initialize this timer
-   */
-  const Module* GetModule() const { return module; };
 protected:
   /**
    * Called on every interval
@@ -77,7 +73,6 @@ protected:
   virtual void Finished() {};
 private:
   // @cond
-  const Module* module;
   unsigned int maxCycles;
   unsigned int currentCycle;
   unsigned char stop : 1;

@@ -24,17 +24,13 @@
 namespace trippingcyril {
 
 Timer::Timer(const Module* pModule)
-: module(pModule) {
-  if (module != NULL)
-    module->AddTimer(this);
+: Event(pModule) {
   this->timer = NULL;
   this->stop = 0;
 };
 
 Timer::Timer(const Module* pModule, double interval, unsigned int maxCycles)
-: module(pModule) {
-  if (module != NULL)
-    module->AddTimer(this);
+: Event(pModule) {
   this->timer = NULL;
   this->maxCycles = maxCycles;
   this->stop = 0;
@@ -49,8 +45,6 @@ Timer::Timer(const Module* pModule, double interval, unsigned int maxCycles)
 Timer::~Timer() {
   if (timer != NULL)
     event_free(timer);
-  if (module != NULL)
-    module->DelTimer(this);
 };
 
 void Timer::Start(double interval) {

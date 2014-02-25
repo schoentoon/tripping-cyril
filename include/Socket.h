@@ -36,7 +36,7 @@ class IPAddress;
 /**
  * @brief General tcp socket class, fully async using libevent
  */
-class Socket {
+class Socket : public Event {
 public:
   /**
    * General constructor
@@ -88,10 +88,6 @@ public:
    */
   void DisableTimeout() { SetTimeout(-1); };
   /**
-   * Used to get the module used to initialize this socket
-   */
-  const Module* GetModule() const { return module; };
-  /**
    * Get the ip address of the remote end
    */
   const IPAddress* GetIP() const;
@@ -142,7 +138,6 @@ private:
   int tcp_keep_alive_interval;
   struct timeval timeout;
   struct bufferevent* connection;
-  const Module* module;
   static void readcb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
   friend class test::LibEventHelper;

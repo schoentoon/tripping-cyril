@@ -23,6 +23,7 @@
 #include <set>
 
 #include "String.h"
+#include "Event.h"
 
 #define MODCONSTRUCTOR(CLASS) \
   CLASS::CLASS(ModHandle so, const String& modName, const String& path) \
@@ -113,18 +114,14 @@ protected:
   struct event_base* event_base;
   struct evdns_base* dns_base;
 private:
-  mutable set<Socket*> sockets;
-  mutable set<Timer*> timers;
-  void AddSocket(Socket* socket) const;
-  void DelSocket(Socket* socket) const;
-  void AddTimer(Timer* timer) const;
-  void DelTimer(Timer* timer) const;
+  mutable set<const Event*> events;
+  void AddEvent(const Event* event) const;
+  void DelEvent(const Event* event) const;
   const ModHandle so;
   const String modName;
   const String path;
   friend class Global;
-  friend class Socket;
-  friend class Timer;
+  friend class Event;
 
   Thread* modThread;
   friend class ModuleThread;

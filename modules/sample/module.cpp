@@ -50,7 +50,7 @@ MODCONSTRUCTOR(SampleModule) {
   cerr << "module::sample::SampleModule::SampleModule();" << endl;
   wantsThread = true;
   unloadOnCrash = true;
-  reloadOnCrash = true;
+  //reloadOnCrash = true;
 };
 
 SampleModule::~SampleModule() {

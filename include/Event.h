@@ -15,34 +15,27 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Pipe.h"
-
-#include <string.h>
-#include <errno.h>
-
-#include "Global.h"
+#ifndef _EVENT_INTERFACE_H
+#define _EVENT_INTERFACE_H
 
 namespace trippingcyril {
 
-Pipe::Pipe(const Module* pModule)
-: Event(pModule) {
-  if (pipe(fds) != 0)
-    throw String(strerror(errno));
-  fcntl(fds[0], F_SETFL, O_NONBLOCK);
-  read_event = event_new(module != NULL ? module->GetEventBase() : Global::Get()->GetEventBase()
-                        ,fds[0], EV_PERSIST|EV_READ, Pipe::EventCallback, this);
-  event_add(read_event, NULL);
-};
+// @cond
+class Module;
+// @endcond
 
-Pipe::~Pipe() {
-  close(fds[0]);
-  close(fds[1]);
-  event_free(read_event);
-};
-
-void Pipe::EventCallback(evutil_socket_t fd, short event, void* arg) {
-  Pipe* pipe = (Pipe*) arg;
-  pipe->OnRead();
+class Event {
+public:
+  Event(const Module* module);
+  virtual ~Event();
+  /**
+   * Used to get the module used to initialize this event
+   */
+  const Module* GetModule() const { return module; };
+protected:
+  const Module* module;
 };
 
 };
+
+#endif //_EVENT_INTERFACE_H
