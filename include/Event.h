@@ -24,15 +24,24 @@ namespace trippingcyril {
 class Module;
 // @endcond
 
+/**
+ * @brief Event class to automatically register and unregister event driven classes
+ * with modules, simply implement this from any event driven class
+ */
 class Event {
 public:
+  /** General constructor that registers with the module, may be NULL */
   Event(const Module* module);
+  /** General deconstructor that unregisters from the module */
   virtual ~Event();
   /**
    * Used to get the module used to initialize this event
    */
   const Module* GetModule() const { return module; };
 protected:
+  /** No need to keep track of the module yourself in your class, just access this
+   * one
+   */
   const Module* module;
 };
 
