@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['data',['data',['../classtrippingcyril_1_1_compressor.html#a18bbab3aa292439d2d8c8f58ef08202a',1,'trippingcyril::Compressor']]],
+  ['data',['data',['../classtrippingcyril_1_1_compressor.html#a18bbab3aa292439d2d8c8f58ef08202a',1,'trippingcyril::Compressor::data()'],['../classtrippingcyril_1_1_decompressor.html#ac04152cfaa855c208824410e1e45ae09',1,'trippingcyril::Decompressor::data()']]],
   ['database',['Database',['../classtrippingcyril_1_1_database.html#a2c73634569590616e4a92740c66c3eac',1,'trippingcyril::Database']]],
+  ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html#a1d780c1b891883bc3568ff397a74a3cf',1,'trippingcyril::Decompressor']]],
   ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File']]],
   ['detach',['Detach',['../classtrippingcyril_1_1_thread.html#a304092a2bc70f45c573acf7b87a15a4e',1,'trippingcyril::Thread']]],
   ['dir',['Dir',['../classtrippingcyril_1_1_dir.html#a2f31a058b92a77b08f39637f4a0a7a02',1,'trippingcyril::Dir']]],

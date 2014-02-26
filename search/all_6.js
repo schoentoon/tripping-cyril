@@ -27,6 +27,8 @@ var searchData=
   ['getversion',['GetVersion',['../classtrippingcyril_1_1_module.html#a0988c68f7b871cdfdae709ecc1e7120a',1,'trippingcyril::Module']]],
   ['global',['Global',['../classtrippingcyril_1_1_global.html',1,'trippingcyril']]],
   ['global_2eh',['Global.h',['../_global_8h.html',1,'']]],
+  ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#a0fc3fc9c3ab227088957fc4db08e3390',1,'trippingcyril::GZipCompressor']]],
   ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html',1,'trippingcyril']]],
-  ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#a0fc3fc9c3ab227088957fc4db08e3390',1,'trippingcyril::GZipCompressor']]]
+  ['gzipdecompressor',['GZipDecompressor',['../classtrippingcyril_1_1_g_zip_decompressor.html',1,'trippingcyril']]],
+  ['gzipdecompressor',['GZipDecompressor',['../classtrippingcyril_1_1_g_zip_decompressor.html#a2f24352c71abaf5e1a19d0184ec28b04',1,'trippingcyril::GZipDecompressor']]]
 ];

@@ -15,7 +15,7 @@ var searchData=
   ['shoulddelete',['shouldDelete',['../classtrippingcyril_1_1_should_delete.html#a3b594213c584d521b5ff0677859a74bb',1,'trippingcyril::ShouldDelete']]],
   ['signal',['Signal',['../classtrippingcyril_1_1_cond_var.html#ac18865cb4895d31553128ab87353b970',1,'trippingcyril::CondVar']]],
   ['simplehttpsocket',['SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a8e2703d72db1bdc5fb9e7577a14af140',1,'trippingcyril::SimpleHTTPSocket']]],
-  ['size',['size',['../classtrippingcyril_1_1_compressor.html#ac7ca7806b99ec2b9f3d9f47e5c019f22',1,'trippingcyril::Compressor']]],
+  ['size',['size',['../classtrippingcyril_1_1_compressor.html#ac7ca7806b99ec2b9f3d9f47e5c019f22',1,'trippingcyril::Compressor::size()'],['../classtrippingcyril_1_1_decompressor.html#ad5aac206cb05b393a2d1dc42a2c09fd9',1,'trippingcyril::Decompressor::size()']]],
   ['socket',['Socket',['../classtrippingcyril_1_1_socket.html#a2b39145643c0496c45b2e57fd606b861',1,'trippingcyril::Socket::Socket(const Module *module)'],['../classtrippingcyril_1_1_socket.html#abe98beeee9e08a2e8a866ff34217a13f',1,'trippingcyril::Socket::Socket(struct bufferevent *event)']]],
   ['ssllistener',['SSLListener',['../classtrippingcyril_1_1_s_s_l_listener.html#a2199a5af5644e368507147f014ebe0a6',1,'trippingcyril::SSLListener']]],
   ['stacktrace',['StackTrace',['../namespacetrippingcyril_1_1crash.html#a08003661d1c50c0c4d51aec9087ee4cc',1,'trippingcyril::crash']]],
