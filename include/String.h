@@ -166,6 +166,9 @@ public:
    * @return The length of the resulting string.
    */
   unsigned long Base64Decode(String& sRet) const;
+
+  /** Returns a SHA512 hash of this string */
+  String SHA512() const;
 };
 
 };

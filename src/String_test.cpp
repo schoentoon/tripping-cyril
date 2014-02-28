@@ -154,4 +154,12 @@ TEST(String, Base64Decoding) {
   EXPECT_EQ(output, "test");
 };
 
+TEST(String, SHA512) {
+  String correctoutput("811aa0c53c0039b6ead0ca878b096eed1d39ed873fd2d2d270abfb9ca620d3ed561c565d6dbd1114c323d38e3f59c00df475451fc9b30074f2abda3529df2fa7");
+  String s("Test string");
+  String hash = s.SHA512();
+  EXPECT_EQ(correctoutput, hash);
+  EXPECT_EQ(128, hash.size());
+};
+
 };
