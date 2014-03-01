@@ -262,11 +262,13 @@ unsigned long String::Base64Decode(String& sRet) const {
   return uRet;
 };
 
-String String::SHA512() const {
+String String::SHA512(bool raw) const {
   unsigned char digest[SHA512_DIGEST_LENGTH];
   ::SHA512((unsigned char*) data(), size(), (unsigned char*) digest);
-  char output[SHA512_DIGEST_LENGTH*2];
+  if (raw)
+    return String((const char*) digest, sizeof(digest));
 
+  char output[SHA512_DIGEST_LENGTH*2];
   for (int i = 0; i < SHA512_DIGEST_LENGTH; i++)
     sprintf(&output[i*2], "%02x", (unsigned int)digest[i]);
   return String(output, sizeof(output));
