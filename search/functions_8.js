@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['increment',['Increment',['../classtrippingcyril_1_1_statsd_client.html#ac56b249c7054272cd91f79afeff6793f',1,'trippingcyril::StatsdClient']]],
   ['initcrashhandler',['InitCrashHandler',['../namespacetrippingcyril_1_1crash.html#a1de8b6a3a20b0945914f0f7bbdde1687',1,'trippingcyril::crash']]],
   ['initsslcontext',['initSSLContext',['../classtrippingcyril_1_1_s_s_l_listener.html#a24dbd4347ec7f36edf9bc739c07cb07b',1,'trippingcyril::SSLListener']]],
   ['insert',['Insert',['../classtrippingcyril_1_1_database.html#a72a2744d8ff8d598d0cc1b7b7107d3e5',1,'trippingcyril::Database::Insert()'],['../classtrippingcyril_1_1_post_gres.html#a4aa480f4d0102b2efa7aa7420724dda2',1,'trippingcyril::PostGres::Insert()'],['../classtrippingcyril_1_1_blocking_post_gres.html#af8aa6924c07285baa99cac3fab90bf79',1,'trippingcyril::BlockingPostGres::Insert()']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['gauge',['Gauge',['../classtrippingcyril_1_1_statsd_client.html#a116580d4ad8cfbedc112af9ac7d880f3',1,'trippingcyril::StatsdClient']]],
   ['get',['Get',['../classtrippingcyril_1_1_file_observer.html#afd7cbc6c2876ec0553271f91b97069d3',1,'trippingcyril::FileObserver::Get()'],['../classtrippingcyril_1_1_global.html#a0745b9231ad1e3c4b8acf9c4878c7c2d',1,'trippingcyril::Global::Get()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a10a4dceac83ea6a0786d57949e23054c',1,'trippingcyril::SimpleHTTPSocket::Get()'],['../classtrippingcyril_1_1_thread_manager.html#a2107b2ca1fa66ad34702d9ec21f3b745',1,'trippingcyril::ThreadManager::Get()']]],
   ['getatime',['GetATime',['../classtrippingcyril_1_1_file.html#a584e2d3fcd0a1735b9b731af9950451b',1,'trippingcyril::File']]],
   ['getctime',['GetCTime',['../classtrippingcyril_1_1_file.html#aa7eb7705a09e3b77a448f462154a16b9',1,'trippingcyril::File']]],
@@ -16,6 +17,7 @@ var searchData=
   ['getmodule',['GetModule',['../classtrippingcyril_1_1_event.html#a3e9d99c0626d733b543936120600ec6b',1,'trippingcyril::Event::GetModule()'],['../classtrippingcyril_1_1_job_thread.html#ab66dc388e25e7974e985b90c99f29a0b',1,'trippingcyril::JobThread::GetModule()']]],
   ['getmtime',['GetMTime',['../classtrippingcyril_1_1_file.html#aa8e222b853c0dfeecf98f886aad85284',1,'trippingcyril::File']]],
   ['getname',['GetName',['../classtrippingcyril_1_1_file.html#a16cf1517c53b5af2ab6600074cb2e7cd',1,'trippingcyril::File::GetName()'],['../classtrippingcyril_1_1_thread.html#a4513668b611241f44002f4b6530e4508',1,'trippingcyril::Thread::GetName()']]],
+  ['getnamespace',['getNamespace',['../classtrippingcyril_1_1_statsd_client.html#a176ca999d1e6a69947d61fe199ef9590',1,'trippingcyril::StatsdClient']]],
   ['getpath',['GetPath',['../classtrippingcyril_1_1_module.html#a8c285e144d80a290a765695d83fda4a0',1,'trippingcyril::Module']]],
   ['getreturnedvalue',['getReturnedValue',['../classtrippingcyril_1_1_thread.html#a625c10a75d509e883183b672311233fe',1,'trippingcyril::Thread']]],
   ['getshortname',['GetShortName',['../classtrippingcyril_1_1_file.html#a81dc0248b834d538f7b18747d2a7d729',1,'trippingcyril::File']]],
