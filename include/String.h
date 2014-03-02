@@ -168,8 +168,13 @@ public:
   unsigned long Base64Decode(String& sRet) const;
 
   /**
+   * Returns a SHA256 hash of this string
+   * @param raw If true it'll return the raw unencoded hash, probably not printable
+   */
+  String SHA256(bool raw = false) const;
+  /**
    * Returns a SHA512 hash of this string
-   * @param raw If true it'll return the raw hash unencoded hash, probably not printable
+   * @param raw If true it'll return the raw unencoded hash, probably not printable
    */
   String SHA512(bool raw = false) const;
 };
