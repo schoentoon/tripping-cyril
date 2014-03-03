@@ -32,21 +32,20 @@ StatsdClient::StatsdClient(const String& pNm, const String& hostname, uint16_t p
     throw "socket() returned -1";
   address.sin_family = AF_INET;
   address.sin_port = htons(port);
-  struct addrinfo* result = NULL, hints;
-  bzero(&hints, sizeof(hints));
-  int error;
-  if ((error = getaddrinfo(hostname.c_str(), NULL, &hints, &result)))
-    throw gai_strerror(error);
-  memcpy(&address.sin_addr, &((struct sockaddr_in*)result->ai_addr)->sin_addr, sizeof(struct in_addr));
-  freeaddrinfo(result);
-  if (inet_aton(hostname.c_str(), &address.sin_addr) == 0)
-    throw "inet_aton() returned 0";
+  if (inet_aton(hostname.c_str(), &address.sin_addr) == 0) {
+    struct addrinfo* result = NULL, hints;
+    bzero(&hints, sizeof(hints));
+    int error;
+    if ((error = getaddrinfo(hostname.c_str(), NULL, &hints, &result)))
+      throw gai_strerror(error);
+    memcpy(&address.sin_addr, &((struct sockaddr_in*)result->ai_addr)->sin_addr, sizeof(struct in_addr));
+    freeaddrinfo(result);
+  };
 };
 
 StatsdClient::~StatsdClient() {
   if (sock != -1)
     close(sock);
-  free(&address);
 };
 
 void StatsdClient::Count(const String& stat, size_t value, float sample_rate) {
