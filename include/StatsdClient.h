@@ -37,6 +37,7 @@ public:
    */
   StatsdClient(const String& nm = "", const String& hostname = "127.0.0.1", uint16_t port = 8125);
   virtual ~StatsdClient();
+  static bool DRY_RUN;
   /** @return The namespace for this statd object */
   String getNamespace() const { return ns; };
   void Count(const String& stat, size_t value, float sample_rate = 1.0);

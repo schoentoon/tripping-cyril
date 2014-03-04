@@ -17,7 +17,10 @@
 
 #include <gtest/gtest.h>
 
+#include "StatsdClient.h"
+
 int main(int argc, char** argv) {
+  trippingcyril::StatsdClient::DRY_RUN = true;
   ::testing::FLAGS_gtest_death_test_style = "threadsafe";
   ::testing::FLAGS_gtest_shuffle = true;
   ::testing::InitGoogleTest(&argc, argv);

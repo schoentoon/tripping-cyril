@@ -48,6 +48,8 @@ StatsdClient::~StatsdClient() {
     close(sock);
 };
 
+bool StatsdClient::DRY_RUN = false;
+
 void StatsdClient::Count(const String& stat, size_t value, float sample_rate) {
   send_stat((char*) stat.c_str(), value, "c", sample_rate);
 };
@@ -77,6 +79,8 @@ bool StatsdClient::shouldSend(float sample_rate) {
 };
 
 bool StatsdClient::send(const char* message, size_t len) {
+  if (DRY_RUN)
+    return true;
   if (sendto(sock, message, len, 0, (struct sockaddr*) &address, sizeof(address)) == -1)
     return false;
   return true;
