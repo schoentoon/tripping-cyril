@@ -24,9 +24,11 @@
 #include "Module.h"
 
 // @cond
+#ifdef _TEST
 namespace test {
   class LibEventHelper;
 };
+#endif //_TEST
 // @endcond
 
 namespace trippingcyril {
@@ -140,7 +142,9 @@ private:
   struct bufferevent* connection;
   static void readcb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
+#ifdef _TEST
   friend class test::LibEventHelper;
+#endif //_TEST
   // @endcond
 };
 

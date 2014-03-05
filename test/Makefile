@@ -1,5 +1,5 @@
 PKGS            := libevent libevent_openssl openssl zlib libpq liblzma
-override CFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare $(shell pkg-config --cflags $(PKGS))
+override CFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare -D_TEST $(shell pkg-config --cflags $(PKGS))
 INC             += -I../include -I. -Igtest-1.7.0/include
 LDFLAGS         := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
 CC              := gcc
