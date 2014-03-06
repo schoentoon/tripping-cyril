@@ -16,3 +16,4 @@ tripping-cyril
 sys/
 crashes/
 doc/
+*.pid

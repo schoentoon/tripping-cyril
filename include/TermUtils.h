@@ -36,6 +36,10 @@ public:
    * Pretty print an error message
    */
   static void PrintError(const String& msg);
+  /**
+   * Write the pid to path
+   */
+  static bool WritePidFile(const String& path, String& retMsg);
 private:
   // @cond
   TermUtils() {};

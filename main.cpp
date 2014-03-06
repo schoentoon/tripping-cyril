@@ -83,6 +83,8 @@ int main(int argc, char **argv) {
     bool ret = Global::Get()->LoadModule("modules/sample.so", msg);
     TermUtils::PrintStatus(ret, msg);
     FileObserver::Get()->Register("./sys", new ModuleLoader);
+    ret = TermUtils::WritePidFile("./trippingcyril.pid", msg);
+    TermUtils::PrintStatus(ret, msg);
   }
   Global::Get()->Loop();
   return 0;

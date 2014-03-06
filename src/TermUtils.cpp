@@ -17,7 +17,11 @@
 
 #include "TermUtils.h"
 
+#include "Files.h"
+
+#include <errno.h>
 #include <stdio.h>
+#include <string.h>
 
 namespace trippingcyril {
 
@@ -33,6 +37,23 @@ void TermUtils::PrintStatus(bool status, const String& pMsg) {
 
 void TermUtils::PrintError(const String& msg) {
   PrintStatus(false, msg);
+};
+
+bool TermUtils::WritePidFile(const String& path, String& retMsg) {
+  File file(path);
+  retMsg.clear();
+  if (file.Open(O_WRONLY | O_CREAT)) {
+    String data(getpid());
+    if (file.Write(data) != (int) data.size()) {
+      retMsg = "Failed to write to " + path + " (" + strerror(errno) + ")";
+      return false;
+    };
+    retMsg = "Succesfully wrote pid to " + path;
+    return true;
+  } else {
+    retMsg = "Failed to open " + path + " (" + strerror(errno) + ")";
+    return false;
+  };
 };
 
 };
