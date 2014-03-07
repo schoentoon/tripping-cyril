@@ -47,7 +47,6 @@ public:
 };
 
 MODCONSTRUCTOR(SampleModule) {
-  cerr << "module::sample::SampleModule::SampleModule();" << endl;
   wantsThread = true;
   unloadOnCrash = true;
   //reloadOnCrash = true;
@@ -58,7 +57,6 @@ SampleModule::~SampleModule() {
 };
 
 void SampleModule::OnLoaded() {
-  cerr << "module::sample::SampleModule::OnLoaded();" << endl;
   trippingcyril::SimpleHTTPSocket* socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Get("http://httpbin.org/stream/100");
   socket = new SimpleHTTPSocket(this, new PrintHttp);

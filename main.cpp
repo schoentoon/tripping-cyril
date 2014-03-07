@@ -55,17 +55,22 @@ protected:
         String msg;
         bool ret = false;
         switch (mode) {
-        case UNLOAD:
+        case UNLOAD: {
+          TermUtils::StatusPrinter status("Unloading " + line);
           ret = Global::Get()->UnloadModule(line, msg);
+          status.PrintStatus(ret, msg);
           break;
-        case LOAD:
+        }
+        case LOAD: {
+          TermUtils::StatusPrinter status("Loading " + line);
           ret = Global::Get()->LoadModule(line, msg);
+          status.PrintStatus(ret, msg);
           break;
+        }
         case UNKNOWN:
         default:
-          TermUtils::PrintStatus(false, "Hey there buddy, what are you trying to do?..");
+          TermUtils::PrintError("Hey there buddy, what are you trying to do?..");
         };
-        TermUtils::PrintStatus(ret, msg);
       };
     };
     File null("/dev/null");
@@ -79,9 +84,10 @@ int main(int argc, char **argv) {
       TermUtils::PrintStatus(true, "Registered our crash handler");
     else
       TermUtils::PrintStatus(false, "Something went wrong while registering our crash handler");
+    TermUtils::StatusPrinter status("Loading [sample.so]");
     String msg;
     bool ret = Global::Get()->LoadModule("modules/sample.so", msg);
-    TermUtils::PrintStatus(ret, msg);
+    status.PrintStatus(ret, msg);
     FileObserver::Get()->Register("./sys", new ModuleLoader);
     ret = TermUtils::WritePidFile("./trippingcyril.pid", msg);
     TermUtils::PrintStatus(ret, msg);

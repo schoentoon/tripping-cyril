@@ -40,6 +40,20 @@ public:
    * Write the pid to path
    */
   static bool WritePidFile(const String& path, String& retMsg);
+  /**
+   * @brief Pretty print loading statuses
+   */
+  class StatusPrinter {
+  public:
+    /**
+     * Will show a [ .. ] message indicator until PrintStatus is called
+     */
+    StatusPrinter(const String& start_message);
+    /**
+     * Replace the previously printed [ .. ] message with the regular TermUtils::PrintStatus output
+     */
+    void PrintStatus(bool status, const String& msg);
+  };
 private:
   // @cond
   TermUtils() {};
