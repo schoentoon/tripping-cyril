@@ -49,10 +49,13 @@ public:
      * Will show a [ .. ] message indicator until PrintStatus is called
      */
     StatusPrinter(const String& start_message);
+    virtual ~StatusPrinter();
     /**
      * Replace the previously printed [ .. ] message with the regular TermUtils::PrintStatus output
      */
     void PrintStatus(bool status, const String& msg);
+  private:
+    bool called;
   };
 private:
   // @cond

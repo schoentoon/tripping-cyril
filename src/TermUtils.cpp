@@ -57,13 +57,20 @@ bool TermUtils::WritePidFile(const String& path, String& retMsg) {
 };
 
 TermUtils::StatusPrinter::StatusPrinter(const String& start_message) {
+  called = false;
   String msg(start_message);
   msg.Trim();
   fprintf(stdout, " \033[1m\033[34m[\033[0m .. \033[1m\033[34m]\033[39m\033[22m %s", msg.c_str());
   fflush(stdout);
 };
 
+TermUtils::StatusPrinter::~StatusPrinter() {
+  if (called == false)
+    PrintStatus(false, "You never called PrintStatus");
+};
+
 void TermUtils::StatusPrinter::PrintStatus(bool status, const String& msg) {
+  called = true;
   fprintf(stdout, "\r");
   fflush(stdout);
   TermUtils::PrintStatus(status, msg);
