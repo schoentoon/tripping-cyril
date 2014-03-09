@@ -41,6 +41,10 @@ public:
    */
   static bool WritePidFile(const String& path, String& retMsg);
   /**
+   * Print a fancy Tripping Cyril message of the day
+   */
+  static void PrintMotd();
+  /**
    * @brief Pretty print loading statuses
    */
   class StatusPrinter {

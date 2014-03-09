@@ -56,6 +56,26 @@ bool TermUtils::WritePidFile(const String& path, String& retMsg) {
   };
 };
 
+void TermUtils::PrintMotd() {
+  const String motd =
+  "  _______   _             _\n"
+  " |__   __| (_)           (_)\n"
+  "    | |_ __ _ _ __  _ __  _ _ __   __ _\n"
+  "    | | '__| | '_ \\| '_ \\| | '_ \\ / _` |\n"
+  "    | | |  | | |_) | |_) | | | | | (_| |\n"
+  "    |_|_|  |_| .__/| .__/|_|_| |_|\\__, |\n"
+  "      _____  | |   | |_ _          __/ |\n"
+  "     / ____| |_|   |_(_) |        |___/\n"
+  "    | |    _   _ _ __ _| |\n"
+  "    | |   | | | | '__| | |\n"
+  "    | |___| |_| | |  | | |\n"
+  "     \\_____\\__, |_|  |_|_|\n"
+  "            __/ |\n"
+  "           |___/\n";
+  fprintf(stdout, "%s", motd.c_str());
+  fflush(stdout);
+};
+
 TermUtils::StatusPrinter::StatusPrinter(const String& start_message) {
   called = false;
   String msg(start_message);

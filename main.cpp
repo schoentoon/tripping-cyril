@@ -80,6 +80,7 @@ protected:
 
 int main(int argc, char **argv) {
   {
+    TermUtils::PrintMotd();
     if (crash::InitCrashHandler() == true)
       TermUtils::PrintStatus(true, "Registered our crash handler");
     else
