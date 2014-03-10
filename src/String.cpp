@@ -262,6 +262,18 @@ unsigned long String::Base64Decode(String& sRet) const {
   return uRet;
 };
 
+String String::SHA1(bool raw) const {
+  unsigned char digest[20];
+  ::SHA1((unsigned char*) data(), size(), (unsigned char*) digest);
+  if (raw)
+    return String((const char*) digest, sizeof(digest));
+
+  char output[sizeof(digest)*2];
+  for (unsigned int i = 0; i < sizeof(digest); i++)
+    sprintf(&output[i*2], "%02x", (unsigned int)digest[i]);
+  return String(output, sizeof(output));
+};
+
 String String::SHA256(bool raw) const {
   unsigned char digest[SHA256_DIGEST_LENGTH];
   ::SHA256((unsigned char*) data(), size(), (unsigned char*) digest);
@@ -269,7 +281,7 @@ String String::SHA256(bool raw) const {
     return String((const char*) digest, sizeof(digest));
 
   char output[SHA256_DIGEST_LENGTH*2];
-  for (int i = 0; i < SHA256_DIGEST_LENGTH; i++)
+  for (unsigned int i = 0; i < SHA256_DIGEST_LENGTH; i++)
     sprintf(&output[i*2], "%02x", (unsigned int)digest[i]);
   return String(output, sizeof(output));
 };
@@ -281,7 +293,7 @@ String String::SHA512(bool raw) const {
     return String((const char*) digest, sizeof(digest));
 
   char output[SHA512_DIGEST_LENGTH*2];
-  for (int i = 0; i < SHA512_DIGEST_LENGTH; i++)
+  for (unsigned int i = 0; i < SHA512_DIGEST_LENGTH; i++)
     sprintf(&output[i*2], "%02x", (unsigned int)digest[i]);
   return String(output, sizeof(output));
 };

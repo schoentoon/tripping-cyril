@@ -154,6 +154,19 @@ TEST(String, Base64Decoding) {
   EXPECT_EQ(output, "test");
 };
 
+TEST(String, SHA1) {
+  String correctoutput("18af819125b70879d36378431c4e8d9bfa6a2599");
+  String s("Test string");
+  String hash = s.SHA1();
+  EXPECT_EQ(correctoutput, hash);
+  EXPECT_EQ(40, hash.size());
+  hash = s.SHA1(true);
+  EXPECT_EQ(20, hash.size());
+  unsigned char rawhash[] = { 0x18, 0xaf, 0x81, 0x91, 0x25, 0xb7, 0x08, 0x79, 0xd3, 0x63
+    , 0x78, 0x43, 0x1c, 0x4e, 0x8d, 0x9b, 0xfa, 0x6a, 0x25, 0x99 };
+  EXPECT_EQ(String((const char*) rawhash, sizeof(rawhash)), hash);
+};
+
 TEST(String, SHA256) {
   String correctoutput("a3e49d843df13c2e2a7786f6ecd7e0d184f45d718d1ac1a8a63e570466e489dd");
   String s("Test string");
@@ -165,7 +178,7 @@ TEST(String, SHA256) {
   unsigned char rawhash[] = { 0xa3, 0xe4, 0x9d, 0x84, 0x3d, 0xf1, 0x3c, 0x2e, 0x2a, 0x77
     , 0x86, 0xf6, 0xec, 0xd7, 0xe0, 0xd1, 0x84, 0xf4, 0x5d, 0x71, 0x8d, 0x1a, 0xc1, 0xa8
     , 0xa6, 0x3e, 0x57, 0x04, 0x66, 0xe4, 0x89, 0xdd };
-    EXPECT_EQ(String((const char*) rawhash, sizeof(rawhash)), hash);
+  EXPECT_EQ(String((const char*) rawhash, sizeof(rawhash)), hash);
 };
 
 TEST(String, SHA512) {
