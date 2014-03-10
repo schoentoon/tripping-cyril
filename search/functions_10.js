@@ -11,6 +11,7 @@ var searchData=
   ['settcpkeepalive',['SetTCPKeepAlive',['../classtrippingcyril_1_1_socket.html#a3925ce7141da424edfba46895c639366',1,'trippingcyril::Socket']]],
   ['settcpnodelay',['SetTCPNoDelay',['../classtrippingcyril_1_1_socket.html#a5a701948d4517ac3e53d6a828e7dc0fb',1,'trippingcyril::Socket']]],
   ['settimeout',['SetTimeout',['../classtrippingcyril_1_1_socket.html#a051d0803aadf5bf213ec4c5b04fc6513',1,'trippingcyril::Socket']]],
+  ['sha1',['SHA1',['../classtrippingcyril_1_1_string.html#a0965d09e82835252624c06bab8798a30',1,'trippingcyril::String']]],
   ['sha256',['SHA256',['../classtrippingcyril_1_1_string.html#a9d626121a4033c591ee6079885929d72',1,'trippingcyril::String']]],
   ['sha512',['SHA512',['../classtrippingcyril_1_1_string.html#a8c42e84d0e5b402736ab9b7752b1bea9',1,'trippingcyril::String']]],
   ['shouldcontinue',['shouldContinue',['../classtrippingcyril_1_1_thread.html#ae130d6632c18856adbdaae54785d290f',1,'trippingcyril::Thread']]],
