@@ -61,7 +61,7 @@ String String::ToByteStr(unsigned long long d) {
   return String(d) + " B";
 };
 
-bool String::WildCmp(const String& sWild) {
+bool String::WildCmp(const String& sWild) const {
   const char* wild = sWild.c_str();
   const char* str = this->c_str();
   const char* cp = NULL;
