@@ -20,8 +20,9 @@
 
 #include <event2/event.h>
 
-#include "Module.h"
 #include "Files.h"
+#include "Writer.h"
+#include "Module.h"
 #include "Thread.h"
 
 namespace trippingcyril {
@@ -29,7 +30,7 @@ namespace trippingcyril {
 /**
  * @brief A wrapper class for pipes
  */
-class Pipe : public Event {
+class Pipe : public Event, public Writer {
 public:
   /**
    * General constructor
@@ -54,12 +55,6 @@ public:
   int Write(const char* buffer, size_t len) {
     MutexLocker lock(&mutex);
     return write(fds[1], buffer, len);
-  };
-  /**
-   * @see Write
-   */
-  int Write(const String& data) {
-    return Write(data.data(), data.size());
   };
   /**
    * Override this method with your own stuff to do when read operations happen

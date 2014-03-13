@@ -22,6 +22,7 @@
 
 #include "String.h"
 #include "Module.h"
+#include "Writer.h"
 
 // @cond
 #ifdef _TEST
@@ -38,7 +39,7 @@ class IPAddress;
 /**
  * @brief General tcp socket class, fully async using libevent
  */
-class Socket : public Event {
+class Socket : public Event, public Writer {
 public:
   /**
    * General constructor
@@ -68,13 +69,12 @@ public:
    */
   bool Connect(const String& hostname, uint16_t port, bool ssl = false, double timeout = 60.0);
   /**
-   * Used to write data to the socket
+   * Write data to socket
+   * @param data The actual data
+   * @param len The length of the data
+   * @return Amount of bytes written, should be equal to len
    */
-  void Write(const char* data, size_t len);
-  /**
-   * Used to write data to the socket
-   */
-  void Write(const String& data);
+  int Write(const char* data, size_t len);
   /**
    * Enable/disable read line mode, decides if ReadLine or ReadData should be called
    */

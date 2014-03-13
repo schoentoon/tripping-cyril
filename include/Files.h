@@ -28,13 +28,14 @@
 #include <map>
 
 #include "String.h"
+#include "Writer.h"
 
 namespace trippingcyril {
 
 /**
  * @brief A general file access class
  */
-class File {
+class File : public Writer {
 public:
   File(const String& path);
   virtual ~File();
@@ -113,8 +114,6 @@ public:
   /** @return The amount of bytes written into the file, similar to
    * <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a> */
   virtual int Write(const char* buffer, size_t len);
-  /** @see Write */
-  virtual int Write(const String& data);
   /** Closes the file if it was previously opened with Open */
   void Close();
 protected:

@@ -69,7 +69,7 @@ TEST_F(Pipe, OnRead) {
   pipe->done = &done;
   String testdata = "This is a simple test.";
   pipe->expectedReads.push_back(testdata);
-  EXPECT_EQ(pipe->Write(testdata), testdata.length());
+  EXPECT_EQ(pipe->WriteString(testdata), testdata.length());
   while (done == false && event_base->Loop());
   delete pipe;
 };
@@ -82,7 +82,7 @@ public:
     this->writeData = writeData;
   };
   void* run() {
-    EXPECT_EQ(pipe->Write(writeData), writeData.length());
+    EXPECT_EQ(pipe->WriteString(writeData), writeData.length());
     return NULL;
   };
 private:

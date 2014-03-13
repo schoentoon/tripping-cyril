@@ -34,7 +34,7 @@ static const String IPSUM = "Bacon ipsum dolor sit amet jowl drumstick chuck, sh
 
 TEST(Compressor, GZip) {
   GZipCompressor compressor;
-  EXPECT_TRUE(compressor.append(IPSUM.data(), IPSUM.size()));
+  EXPECT_LT(0, compressor.WriteString(IPSUM));
   EXPECT_LT(compressor.size(), compressor.totalBytesIn());
 };
 
@@ -44,7 +44,7 @@ TEST(Compressor, GZip) {
 
 TEST(Compressor, LZMA) {
   LZMACompressor compressor;
-  EXPECT_TRUE(compressor.append(IPSUM.data(), IPSUM.size()));
+  EXPECT_LT(0, compressor.WriteString(IPSUM));
   EXPECT_LT(compressor.size(), compressor.totalBytesIn());
 };
 

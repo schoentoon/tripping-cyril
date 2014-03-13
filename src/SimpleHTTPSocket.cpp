@@ -129,7 +129,7 @@ bool SimpleHTTPSocket::Post(const String& url, const String& postData, const Str
 };
 
 void SimpleHTTPSocket::Connected() {
-  Write(buffer);
+  WriteString(buffer);
   buffer.clear();
   SetReadLine(true);
 };

@@ -242,10 +242,6 @@ int File::Write(const char* buffer, size_t len) {
   return write(fd, buffer, len);
 };
 
-int File::Write(const String& data) {
-  return Write(data.data(), data.size());
-};
-
 void File::Close() {
   if (fd > 0) {
     close(fd);

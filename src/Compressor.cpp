@@ -50,12 +50,13 @@ GZipCompressor::~GZipCompressor() {
   deflateEnd(&zlib_stream);
 };
 
-bool GZipCompressor::append(const char* data, size_t len) {
+int GZipCompressor::Write(const char* data, size_t len) {
   zlib_stream.next_in = (Bytef*) data;
   zlib_stream.avail_in = len;
   total_in += len;
   int zlib_ret;
   char buf[BUFFER_SIZE];
+  int out_len = 0;
   do {
     zlib_stream.next_out = (Bytef*) buf;
     zlib_stream.avail_out = sizeof(buf);
@@ -64,6 +65,7 @@ bool GZipCompressor::append(const char* data, size_t len) {
     case Z_OK:
     case Z_STREAM_END:
       buffer.append(buf, zlib_stream.total_out);
+      out_len += zlib_stream.total_out;
       break;
     case Z_BUF_ERROR:
       break;
@@ -71,10 +73,10 @@ bool GZipCompressor::append(const char* data, size_t len) {
     case Z_DATA_ERROR:
     case Z_NEED_DICT:
     default:
-      return false;
+      return -1;
     };
   } while (zlib_stream.avail_out == 0);
-  return true;
+  return out_len;
 };
 
 #endif //_NO_GZIP
@@ -91,11 +93,12 @@ LZMACompressor::~LZMACompressor() {
   lzma_end(&stream);
 };
 
-bool LZMACompressor::append(const char* data, size_t len) {
+int LZMACompressor::Write(const char* data, size_t len) {
   stream.next_in = (uint8_t*) data;
   stream.avail_in = len;
   total_in += len;
   int lzma_ret;
+  int out_len = 0;
   char buf[BUFFER_SIZE];
   do {
     stream.next_out = (uint8_t*) buf;
@@ -105,14 +108,15 @@ bool LZMACompressor::append(const char* data, size_t len) {
     case LZMA_OK:
     case LZMA_STREAM_END:
       buffer.append(buf, stream.total_out);
+      out_len += stream.total_out;
       break;
     case LZMA_MEM_ERROR:
     case LZMA_DATA_ERROR:
     default:
-      return false;
+      return -1;
     };
   } while (stream.avail_out == 0);
-  return true;
+  return out_len;
 };
 
 #endif //_NO_LZMA

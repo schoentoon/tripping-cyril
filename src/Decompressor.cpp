@@ -46,11 +46,12 @@ GZipDecompressor::~GZipDecompressor() {
   inflateEnd(&zlib_stream);
 };
 
-bool GZipDecompressor::append(const char* data, size_t len) {
+int GZipDecompressor::Write(const char* data, size_t len) {
   zlib_stream.next_in = (Bytef*) data;
   zlib_stream.avail_in = len;
   total_in += len;
   int zlib_ret;
+  int out_len = 0;
   char buf[BUFFER_SIZE];
   do {
     zlib_stream.next_out = (Bytef*) buf;
@@ -60,6 +61,7 @@ bool GZipDecompressor::append(const char* data, size_t len) {
     case Z_OK:
     case Z_STREAM_END:
       buffer.append(buf, zlib_stream.total_out);
+      out_len += zlib_stream.total_out;
       break;
     case Z_BUF_ERROR:
       break;
@@ -67,10 +69,10 @@ bool GZipDecompressor::append(const char* data, size_t len) {
     case Z_DATA_ERROR:
     case Z_NEED_DICT:
     default:
-      return false;
+      return -1;
     };
   } while (zlib_stream.avail_out == 0);
-  return true;
+  return out_len;
 };
 
 #endif //_NO_GZIP

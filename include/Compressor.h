@@ -23,6 +23,7 @@
 #include <stdint.h>
 
 #include "String.h"
+#include "Writer.h"
 
 #ifndef _NO_GZIP
 #  include <zlib.h>
@@ -37,7 +38,7 @@ namespace trippingcyril {
 /**
  * @brief Abstract compressor
  */
-class Compressor {
+class Compressor : public Writer {
 public:
   /** General constructor */
   Compressor();
@@ -47,9 +48,9 @@ public:
    * Feed data into the compressor to compress
    * @param data The actual data to compress
    * @param len The length of the data to compress
-   * @return True if succesfully compressed
+   * @return Amount of output bytes
    */
-  virtual bool append(const char* data, size_t len) = 0;
+  virtual int Write(const char* data, size_t len) = 0;
   /** @return The compressed data */
   const char* data() const { return buffer.data(); };
   /** @return The length of the compressed data */
@@ -85,7 +86,7 @@ public:
    */
   GZipCompressor(int level = 6, int memory_level = 8);
   virtual ~GZipCompressor();
-  virtual bool append(const char* data, size_t len);
+  virtual int Write(const char* data, size_t len);
 private:
   // @cond
   z_stream zlib_stream;
@@ -108,7 +109,7 @@ public:
    */
   LZMACompressor(uint32_t preset = 6, lzma_check check_type = LZMA_CHECK_CRC64);
   virtual ~LZMACompressor();
-  virtual bool append(const char* data, size_t len);
+  virtual int Write(const char* data, size_t len);
 private:
   lzma_stream stream;
 };

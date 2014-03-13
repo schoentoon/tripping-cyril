@@ -44,7 +44,7 @@ bool TermUtils::WritePidFile(const String& path, String& retMsg) {
   retMsg.clear();
   if (file.Open(O_WRONLY | O_CREAT)) {
     String data(getpid());
-    if (file.Write(data) != (int) data.size()) {
+    if (file.WriteString(data) != (int) data.size()) {
       retMsg = "Failed to write to " + path + " (" + strerror(errno) + ")";
       return false;
     };

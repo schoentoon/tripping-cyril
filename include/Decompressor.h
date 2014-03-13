@@ -23,6 +23,7 @@
 #include <stdint.h>
 
 #include "String.h"
+#include "Writer.h"
 
 #ifndef _NO_GZIP
 #  include <zlib.h>
@@ -33,7 +34,7 @@ namespace trippingcyril {
 /**
  * @brief Abstract decompressor
  */
-class Decompressor {
+class Decompressor : public Writer {
 public:
   /** General constructor */
   Decompressor();
@@ -43,9 +44,9 @@ public:
    * Feed data into the decompressor to decompress
    * @param data The actual data to decompress
    * @param len The length of the data to decompress
-   * @return True if succesfully decompressed
+   * @return Amount of uncompressed bytes
    */
-  virtual bool append(const char* data, size_t len) = 0;
+  virtual int Write(const char* data, size_t len) = 0;
   /** @return The decompressed data */
   const char* data() const { return buffer.data(); };
   /** @return The length of the decompressed data */
@@ -76,7 +77,7 @@ class GZipDecompressor : public Decompressor {
 public:
   GZipDecompressor();
   virtual ~GZipDecompressor();
-  virtual bool append(const char* data, size_t len);
+  virtual int Write(const char* data, size_t len);
 private:
   // @cond
   z_stream zlib_stream;
