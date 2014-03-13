@@ -1,3 +1,4 @@
 <map id="trippingcyril::Compressor" name="trippingcyril::Compressor">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_string.html" title="A wrapper string class to make a various amount of things just easier to type. All strings used shoul..." alt="" coords="23,83,153,109"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="5,83,136,109"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_string.html" title="A wrapper string class to make a various amount of things just easier to type. All strings used shoul..." alt="" coords="160,83,291,109"/>
 </map>

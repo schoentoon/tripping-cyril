@@ -1,3 +1,4 @@
 <map id="trippingcyril::Decompressor" name="trippingcyril::Decompressor">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="5,80,213,107"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="5,155,213,181"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="44,5,175,32"/>
 </map>

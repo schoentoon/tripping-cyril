@@ -1,4 +1,5 @@
 <map id="trippingcyril::Compressor" name="trippingcyril::Compressor">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="5,80,200,107"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_l_z_m_a_compressor.html" title="A lzma implementation of the Compressor interface. " alt="" coords="224,80,427,107"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="5,155,200,181"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_l_z_m_a_compressor.html" title="A lzma implementation of the Compressor interface. " alt="" coords="224,155,427,181"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="148,5,279,32"/>
 </map>

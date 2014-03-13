@@ -1,0 +1,12 @@
+<map id="trippingcyril::Writer" name="trippingcyril::Writer">
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="191,56,358,83"/>
+<area shape="rect" id="node5" href="$classtrippingcyril_1_1_decompressor.html" title="Abstract decompressor. " alt="" coords="184,107,365,133"/>
+<area shape="rect" id="node7" href="$classtrippingcyril_1_1_file.html" title="A general file access class. " alt="" coords="216,157,333,184"/>
+<area shape="rect" id="node9" href="$classtrippingcyril_1_1_pipe.html" title="A wrapper class for pipes. " alt="" coords="213,208,336,235"/>
+<area shape="rect" id="node10" href="$classtrippingcyril_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="206,259,343,285"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="423,5,617,32"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_l_z_m_a_compressor.html" title="A lzma implementation of the Compressor interface. " alt="" coords="419,56,621,83"/>
+<area shape="rect" id="node6" href="$classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="415,107,625,133"/>
+<area shape="rect" id="node8" href="$classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="445,157,595,184"/>
+<area shape="rect" id="node11" href="$classtrippingcyril_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="414,259,626,285"/>
+</map>

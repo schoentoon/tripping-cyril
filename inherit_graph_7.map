@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtrippingcyril_1_1_file_observer.html" title="An inotify wrapper class. " alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node1" href="$classtrippingcyril_1_1_i_p_address.html" title="Simple ip address class. " alt="" coords="5,5,163,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_i_pv4_address.html" title="The IPv4 implementation of our ip address class. " alt="" coords="211,5,381,32"/>
 </map>

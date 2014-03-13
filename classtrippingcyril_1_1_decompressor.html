@@ -105,14 +105,14 @@ Inheritance diagram for trippingcyril::Decompressor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrippingcyril_1_1_decompressor__inherit__graph.png" border="0" usemap="#trippingcyril_1_1_decompressor_inherit__map" alt="Inheritance graph"/></div>
 <map name="trippingcyril_1_1_decompressor_inherit__map" id="trippingcyril_1_1_decompressor_inherit__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="5,80,213,107"/></map>
+<area shape="rect" id="node3" href="classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="5,155,213,181"/><area shape="rect" id="node2" href="classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="44,5,175,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for trippingcyril::Decompressor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrippingcyril_1_1_decompressor__coll__graph.png" border="0" usemap="#trippingcyril_1_1_decompressor_coll__map" alt="Collaboration graph"/></div>
 <map name="trippingcyril_1_1_decompressor_coll__map" id="trippingcyril_1_1_decompressor_coll__map">
-<area shape="rect" id="node2" href="classtrippingcyril_1_1_string.html" title="A wrapper string class to make a various amount of things just easier to type. All strings used shoul..." alt="" coords="31,83,161,109"/></map>
+<area shape="rect" id="node2" href="classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="5,83,136,109"/><area shape="rect" id="node3" href="classtrippingcyril_1_1_string.html" title="A wrapper string class to make a various amount of things just easier to type. All strings used shoul..." alt="" coords="160,83,291,109"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1d780c1b891883bc3568ff397a74a3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1912bf32af2828714962da3ef7c25f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_decompressor.html#ace1912bf32af2828714962da3ef7c25f">~Decompressor</a> ()</td></tr>
 <tr class="separator:ace1912bf32af2828714962da3ef7c25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeccf804384d7eb861615bf987866d3c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_decompressor.html#aaeccf804384d7eb861615bf987866d3c">append</a> (const char *<a class="el" href="classtrippingcyril_1_1_decompressor.html#ac04152cfaa855c208824410e1e45ae09">data</a>, size_t len)=0</td></tr>
-<tr class="separator:aaeccf804384d7eb861615bf987866d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c6ecc7400972dcc61e6c3e179b92667"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_decompressor.html#a7c6ecc7400972dcc61e6c3e179b92667">Write</a> (const char *<a class="el" href="classtrippingcyril_1_1_decompressor.html#ac04152cfaa855c208824410e1e45ae09">data</a>, size_t len)=0</td></tr>
+<tr class="separator:a7c6ecc7400972dcc61e6c3e179b92667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac04152cfaa855c208824410e1e45ae09"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_decompressor.html#ac04152cfaa855c208824410e1e45ae09">data</a> () const </td></tr>
 <tr class="separator:ac04152cfaa855c208824410e1e45ae09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5aac206cb05b393a2d1dc42a2c09fd9"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_decompressor.html#ad5aac206cb05b393a2d1dc42a2c09fd9">size</a> () const </td></tr>
@@ -131,6 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1672f163bead6647a592edbc5082e85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c10feebd0c8a8b505385c0e83c5653b"><td class="memItemLeft" align="right" valign="top">const uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_decompressor.html#a5c10feebd0c8a8b505385c0e83c5653b">totalBytesIn</a> () const </td></tr>
 <tr class="separator:a5c10feebd0c8a8b505385c0e83c5653b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classtrippingcyril_1_1_writer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtrippingcyril_1_1_writer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtrippingcyril_1_1_writer.html">trippingcyril::Writer</a></td></tr>
+<tr class="memitem:a3b128b362403e4744fec354ec2a8b52a inherit pub_methods_classtrippingcyril_1_1_writer"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_writer.html#a3b128b362403e4744fec354ec2a8b52a">WriteString</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data)</td></tr>
+<tr class="separator:a3b128b362403e4744fec354ec2a8b52a inherit pub_methods_classtrippingcyril_1_1_writer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -188,51 +191,6 @@ Static Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aaeccf804384d7eb861615bf987866d3c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool trippingcyril::Decompressor::append </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Feed data into the decompressor to decompress </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The actual data to decompress </td></tr>
-    <tr><td class="paramname">len</td><td>The length of the data to decompress </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if succesfully decompressed </dd></dl>
-
-<p>Implemented in <a class="el" href="classtrippingcyril_1_1_g_zip_decompressor.html#adc2b6b1c1b87fb506950935c90107d7f">trippingcyril::GZipDecompressor</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a1672f163bead6647a592edbc5082e85c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -329,6 +287,53 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7c6ecc7400972dcc61e6c3e179b92667"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int trippingcyril::Decompressor::Write </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Feed data into the decompressor to decompress </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The actual data to decompress </td></tr>
+    <tr><td class="paramname">len</td><td>The length of the data to decompress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Amount of uncompressed bytes </dd></dl>
+
+<p>Implements <a class="el" href="classtrippingcyril_1_1_writer.html#ab523fbf79f31dc97f592ff906cf3dd23">trippingcyril::Writer</a>.</p>
+
+<p>Implemented in <a class="el" href="classtrippingcyril_1_1_g_zip_decompressor.html#afce108cd850738ac13f9d55551b64654">trippingcyril::GZipDecompressor</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a59d7ac27504a4ac342dbd7a125bf6efc"></a>
 <div class="memitem">
@@ -399,7 +404,7 @@ Static Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 12 2014 16:11:14 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 13 2014 11:17:04 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

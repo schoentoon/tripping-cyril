@@ -1,4 +1,5 @@
 <map id="trippingcyril::Socket" name="trippingcyril::Socket">
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="5,155,216,181"/>
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="45,5,176,32"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="42,155,253,181"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="5,5,136,32"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="160,5,291,32"/>
 </map>

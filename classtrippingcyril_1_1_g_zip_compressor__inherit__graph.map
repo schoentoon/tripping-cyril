@@ -1,3 +1,4 @@
 <map id="trippingcyril::GZipCompressor" name="trippingcyril::GZipCompressor">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="19,5,185,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="19,80,185,107"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="37,5,168,32"/>
 </map>

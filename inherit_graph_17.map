@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtrippingcyril_1_1_statsd_client.html" title="A simple StatsdClient. " alt="" coords="5,5,173,32"/>
+<area shape="rect" id="node1" href="$classtrippingcyril_1_1_thread.html" title="Simple thread class. " alt="" coords="5,5,141,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_job_thread.html" title="A job queue that will run your jobs on a seperate thread. " alt="" coords="189,5,347,32"/>
 </map>

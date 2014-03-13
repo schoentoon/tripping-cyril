@@ -1,3 +1,4 @@
 <map id="trippingcyril::LZMACompressor" name="trippingcyril::LZMACompressor">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="23,5,189,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="23,80,189,107"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="41,5,172,32"/>
 </map>
