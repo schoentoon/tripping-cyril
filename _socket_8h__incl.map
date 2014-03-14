@@ -1,6 +1,7 @@
 <map id="include/Socket.h" name="include/Socket.h">
-<area shape="rect" id="node3" href="$_string_8h.html" title="String.h" alt="" coords="151,155,217,181"/>
-<area shape="rect" id="node5" href="$_module_8h.html" title="Module.h" alt="" coords="348,80,423,107"/>
-<area shape="rect" id="node10" href="$_writer_8h.html" title="Writer.h" alt="" coords="222,80,289,107"/>
-<area shape="rect" id="node9" href="$_event_8h.html" title="Event.h" alt="" coords="560,155,627,181"/>
+<area shape="rect" id="node3" href="$_string_8h.html" title="String.h" alt="" coords="413,155,480,181"/>
+<area shape="rect" id="node5" href="$_module_8h.html" title="Module.h" alt="" coords="291,80,365,107"/>
+<area shape="rect" id="node10" href="$_writer_8h.html" title="Writer.h" alt="" coords="441,80,508,107"/>
+<area shape="rect" id="node9" href="$_event_8h.html" title="Event.h" alt="" coords="323,155,389,181"/>
+<area shape="rect" id="node11" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="505,155,615,181"/>
 </map>

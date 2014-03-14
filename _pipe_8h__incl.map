@@ -1,8 +1,9 @@
 <map id="include/Pipe.h" name="include/Pipe.h">
-<area shape="rect" id="node3" href="$_files_8h.html" title="Files.h" alt="" coords="572,80,633,107"/>
-<area shape="rect" id="node14" href="$_writer_8h.html" title="Writer.h" alt="" coords="814,155,881,181"/>
-<area shape="rect" id="node15" href="$_module_8h.html" title="Module.h" alt="" coords="1369,80,1444,107"/>
-<area shape="rect" id="node19" href="$_thread_8h.html" title="Thread.h" alt="" coords="989,80,1061,107"/>
-<area shape="rect" id="node12" href="$_string_8h.html" title="String.h" alt="" coords="885,229,952,256"/>
-<area shape="rect" id="node18" href="$_event_8h.html" title="Event.h" alt="" coords="1588,155,1655,181"/>
+<area shape="rect" id="node3" href="$_files_8h.html" title="Files.h" alt="" coords="525,80,587,107"/>
+<area shape="rect" id="node14" href="$_writer_8h.html" title="Writer.h" alt="" coords="26,155,93,181"/>
+<area shape="rect" id="node16" href="$_module_8h.html" title="Module.h" alt="" coords="1393,80,1468,107"/>
+<area shape="rect" id="node20" href="$_thread_8h.html" title="Thread.h" alt="" coords="1010,80,1083,107"/>
+<area shape="rect" id="node12" href="$_string_8h.html" title="String.h" alt="" coords="559,229,625,256"/>
+<area shape="rect" id="node15" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="5,229,115,256"/>
+<area shape="rect" id="node19" href="$_event_8h.html" title="Event.h" alt="" coords="1436,155,1503,181"/>
 </map>

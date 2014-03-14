@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data',['data',['../classtrippingcyril_1_1_compressor.html#a18bbab3aa292439d2d8c8f58ef08202a',1,'trippingcyril::Compressor::data()'],['../classtrippingcyril_1_1_decompressor.html#ac04152cfaa855c208824410e1e45ae09',1,'trippingcyril::Decompressor::data()']]],
+  ['data',['data',['../classtrippingcyril_1_1_decompressor.html#ac04152cfaa855c208824410e1e45ae09',1,'trippingcyril::Decompressor']]],
   ['database',['Database',['../classtrippingcyril_1_1_database.html#a2c73634569590616e4a92740c66c3eac',1,'trippingcyril::Database']]],
   ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html#a1d780c1b891883bc3568ff397a74a3cf',1,'trippingcyril::Decompressor']]],
   ['decrement',['Decrement',['../classtrippingcyril_1_1_statsd_client.html#af5e6bd757820058defbd40e57dbe4814',1,'trippingcyril::StatsdClient']]],

@@ -32,6 +32,7 @@ var searchData=
   ['_7estatsdclient',['~StatsdClient',['../classtrippingcyril_1_1_statsd_client.html#a84c38cd167f1acf9835061483c86f084',1,'trippingcyril::StatsdClient']]],
   ['_7estatusprinter',['~StatusPrinter',['../classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a2b40599adfefc58219e089bbb8093808',1,'trippingcyril::TermUtils::StatusPrinter']]],
   ['_7estring',['~String',['../classtrippingcyril_1_1_string.html#af4e4a4cb687d06e2167b30c831b3a735',1,'trippingcyril::String']]],
+  ['_7estringwriter',['~StringWriter',['../classtrippingcyril_1_1_string_writer.html#a05e0aab01b379919a1ac1ce5b0ef1738',1,'trippingcyril::StringWriter']]],
   ['_7etempfile',['~TempFile',['../classtrippingcyril_1_1_temp_file.html#af328575a02ef76727a0c542253f0b22a',1,'trippingcyril::TempFile']]],
   ['_7ethread',['~Thread',['../classtrippingcyril_1_1_thread.html#a3ec18f1d2f7ae7e3b424dc1027c7c772',1,'trippingcyril::Thread']]],
   ['_7etimer',['~Timer',['../classtrippingcyril_1_1_timer.html#ad5c93bb572e43696312437e2118f336c',1,'trippingcyril::Timer']]]

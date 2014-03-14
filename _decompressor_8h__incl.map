@@ -1,5 +1,6 @@
 <map id="include/Decompressor.h" name="include/Decompressor.h">
 <area shape="rect" id="node2" href="$defines_8h.html" title="defines.h" alt="" coords="5,80,80,107"/>
-<area shape="rect" id="node4" href="$_string_8h.html" title="String.h" alt="" coords="211,155,277,181"/>
+<area shape="rect" id="node4" href="$_string_8h.html" title="String.h" alt="" coords="175,155,241,181"/>
 <area shape="rect" id="node6" href="$_writer_8h.html" title="Writer.h" alt="" coords="246,80,313,107"/>
+<area shape="rect" id="node7" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="266,155,376,181"/>
 </map>

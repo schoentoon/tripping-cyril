@@ -1,4 +1,5 @@
 <map id="trippingcyril::File" name="trippingcyril::File">
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="5,155,155,181"/>
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="15,5,145,32"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="17,229,167,256"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="27,80,157,107"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_should_delete.html" title="A simple interface to determine if the object should be deleted or not. " alt="" coords="5,5,179,32"/>
 </map>

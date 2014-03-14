@@ -1,5 +1,5 @@
 <map id="trippingcyril::LZMACompressor" name="trippingcyril::LZMACompressor">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="37,173,203,200"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="5,83,136,109"/>
-<area shape="rect" id="node4" href="$classtrippingcyril_1_1_string.html" title="A wrapper string class to make a various amount of things just easier to type. All strings used shoul..." alt="" coords="160,83,291,109"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="23,173,189,200"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="41,83,172,109"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_should_delete.html" title="A simple interface to determine if the object should be deleted or not. " alt="" coords="19,5,193,32"/>
 </map>

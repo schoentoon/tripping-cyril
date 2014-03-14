@@ -3,6 +3,7 @@ var searchData=
   ['gauge',['Gauge',['../classtrippingcyril_1_1_statsd_client.html#a116580d4ad8cfbedc112af9ac7d880f3',1,'trippingcyril::StatsdClient']]],
   ['get',['Get',['../classtrippingcyril_1_1_file_observer.html#afd7cbc6c2876ec0553271f91b97069d3',1,'trippingcyril::FileObserver::Get()'],['../classtrippingcyril_1_1_global.html#a0745b9231ad1e3c4b8acf9c4878c7c2d',1,'trippingcyril::Global::Get()'],['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a10a4dceac83ea6a0786d57949e23054c',1,'trippingcyril::SimpleHTTPSocket::Get()'],['../classtrippingcyril_1_1_thread_manager.html#a2107b2ca1fa66ad34702d9ec21f3b745',1,'trippingcyril::ThreadManager::Get()']]],
   ['getatime',['GetATime',['../classtrippingcyril_1_1_file.html#a584e2d3fcd0a1735b9b731af9950451b',1,'trippingcyril::File']]],
+  ['getbuffer',['GetBuffer',['../classtrippingcyril_1_1_string_writer.html#a4e3f8bb9dc6b1667b5cf9d85f451ed92',1,'trippingcyril::StringWriter']]],
   ['getctime',['GetCTime',['../classtrippingcyril_1_1_file.html#aa7eb7705a09e3b77a448f462154a16b9',1,'trippingcyril::File']]],
   ['getcurrentthread',['getCurrentThread',['../classtrippingcyril_1_1_thread_manager.html#a01f52e0e4ba1ab37822a50ee3fbfc1b2',1,'trippingcyril::ThreadManager']]],
   ['getcwd',['GetCWD',['../classtrippingcyril_1_1_dir.html#abb191e4350141c4d72279785bdd6b798',1,'trippingcyril::Dir']]],
@@ -27,10 +28,11 @@ var searchData=
   ['geturl',['getURL',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a0d2eee6aef6ff0bd522118ea9335dd9a',1,'trippingcyril::SimpleHTTPSocket']]],
   ['getvalue',['getValue',['../classtrippingcyril_1_1_d_b_result.html#ad4b5d95b0687508fb86beba456d4362e',1,'trippingcyril::DBResult']]],
   ['getversion',['GetVersion',['../classtrippingcyril_1_1_module.html#a0988c68f7b871cdfdae709ecc1e7120a',1,'trippingcyril::Module']]],
+  ['getwriter',['getWriter',['../classtrippingcyril_1_1_compressor.html#a6bfbdd722a7aa6e836fda695ed7fae29',1,'trippingcyril::Compressor']]],
   ['global',['Global',['../classtrippingcyril_1_1_global.html',1,'trippingcyril']]],
   ['global_2eh',['Global.h',['../_global_8h.html',1,'']]],
   ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html',1,'trippingcyril']]],
-  ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#a0fc3fc9c3ab227088957fc4db08e3390',1,'trippingcyril::GZipCompressor']]],
+  ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#acdbb1216ead2bf8707509f6231734c95',1,'trippingcyril::GZipCompressor']]],
   ['gzipdecompressor',['GZipDecompressor',['../classtrippingcyril_1_1_g_zip_decompressor.html',1,'trippingcyril']]],
   ['gzipdecompressor',['GZipDecompressor',['../classtrippingcyril_1_1_g_zip_decompressor.html#a2f24352c71abaf5e1a19d0184ec28b04',1,'trippingcyril::GZipDecompressor']]]
 ];

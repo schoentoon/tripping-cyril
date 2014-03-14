@@ -1,5 +1,6 @@
 <map id="trippingcyril::SimpleHTTPSocket" name="trippingcyril::SimpleHTTPSocket">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="79,80,216,107"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="5,5,136,32"/>
-<area shape="rect" id="node4" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="160,5,291,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="79,155,216,181"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="5,80,136,107"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="160,80,291,107"/>
+<area shape="rect" id="node5" href="$classtrippingcyril_1_1_should_delete.html" title="A simple interface to determine if the object should be deleted or not. " alt="" coords="138,5,312,32"/>
 </map>
