@@ -19,6 +19,7 @@
 #define _WRITE_INTERFACE_H
 
 #include "String.h"
+#include "ShouldDelete.h"
 
 namespace trippingcyril {
 
@@ -26,7 +27,7 @@ namespace trippingcyril {
  * @brief Writer class to provide a general writing operation so it's easier to
  * write wrapper classes for write operations.
  */
-class Writer {
+class Writer : public ShouldDelete {
 public:
   // @cond
   virtual ~Writer() {
@@ -45,6 +46,25 @@ public:
   inline int WriteString(const String& data) { // Why can't I name this Write() :(
     return Write(data.data(), data.size());
   };
+  virtual bool shouldDelete() const { return false; };
+};
+
+/**
+ * @brief Simple in memory writer that just writes everything to a string
+ * @note This will clean itself up if the other end respects ShouldDelete
+ */
+class StringWriter : public Writer {
+public:
+  virtual ~StringWriter() {
+  };
+  virtual int Write(const char* data, size_t len) {
+    buffer.append(data, len);
+    return len;
+  };
+  virtual bool shouldDelete() const { return true; };
+  String& GetBuffer() { return buffer; };
+private:
+  String buffer;
 };
 
 };

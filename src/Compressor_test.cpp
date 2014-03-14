@@ -33,9 +33,13 @@ static const String IPSUM = "Bacon ipsum dolor sit amet jowl drumstick chuck, sh
 #ifndef _NO_GZIP
 
 TEST(Compressor, GZip) {
-  GZipCompressor compressor;
-  EXPECT_LT(0, compressor.WriteString(IPSUM));
-  EXPECT_LT(compressor.size(), compressor.totalBytesIn());
+  StringWriter* writer = new StringWriter;
+  {
+    GZipCompressor compressor(writer);
+    EXPECT_LT(0, compressor.WriteString(IPSUM));
+    EXPECT_LT(writer->GetBuffer().size(), compressor.totalBytesIn());
+  }
+  EXPECT_DEATH(delete writer, "");
 };
 
 #endif //_NO_GZIP
@@ -43,9 +47,13 @@ TEST(Compressor, GZip) {
 #ifndef _NO_LZMA
 
 TEST(Compressor, LZMA) {
-  LZMACompressor compressor;
-  EXPECT_LT(0, compressor.WriteString(IPSUM));
-  EXPECT_LT(compressor.size(), compressor.totalBytesIn());
+  StringWriter* writer = new StringWriter;
+  {
+    LZMACompressor compressor(writer);
+    EXPECT_LT(0, compressor.WriteString(IPSUM));
+    EXPECT_LT(writer->GetBuffer().size(), compressor.totalBytesIn());
+  }
+  EXPECT_DEATH(delete writer, "");
 };
 
 #endif //_NO_LZMA

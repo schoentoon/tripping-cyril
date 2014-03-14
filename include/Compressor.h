@@ -40,9 +40,13 @@ namespace trippingcyril {
  */
 class Compressor : public Writer {
 public:
-  /** General constructor */
-  Compressor();
-  /** General deconstructor */
+  /** Constructor
+   * @param pWriter The underlying writer to write the output to
+   */
+  Compressor(Writer* pWriter);
+  /** General deconstructor
+   * @note ShouldDelete on writer is respected
+   */
   virtual ~Compressor();
   /**
    * Feed data into the compressor to compress
@@ -51,25 +55,19 @@ public:
    * @return Amount of output bytes
    */
   virtual int Write(const char* data, size_t len) = 0;
-  /** @return The compressed data */
-  const char* data() const { return buffer.data(); };
-  /** @return The length of the compressed data */
-  const size_t size() const { return buffer.size(); };
-  /** @return The compressed data wrapped into a String, probably not printable! */
-  const String asString() const { return String(data(), size()); };
   /** @return The amount of bytes you fed into the compressor */
   const uint64_t totalBytesIn() const { return total_in; };
+  /** @return The underlying writer */
+  Writer* getWriter() const { return writer; };
 protected:
-  /** The output buffer, when implementing this compressor put your output data
-   * in here
-   */
-  String buffer;
   /** The amount of bytes that we fed into you, you'll have to increase this yourself
    */
   uint64_t total_in;
 
   /** Just a hint for the buffer size in case you'er implementing this compressor */
   static int BUFFER_SIZE;
+  /** Write your compressed data into this writer */
+  Writer* writer;
 };
 
 #ifndef _NO_GZIP
@@ -81,10 +79,11 @@ class GZipCompressor : public Compressor {
 public:
   /**
    * General constructor
+   * @param pWriter The underlying writer to write the output to
    * @param level The compression level
    * @param memory_level The internal gzip memory level
    */
-  GZipCompressor(int level = 6, int memory_level = 8);
+  GZipCompressor(Writer* pWriter, int level = 6, int memory_level = 8);
   virtual ~GZipCompressor();
   virtual int Write(const char* data, size_t len);
 private:
@@ -104,10 +103,11 @@ class LZMACompressor : public Compressor {
 public:
   /**
    * General constructor
+   * @param pWriter The underlying writer to write the output to
    * @param preset The level of compression, should be between 1 and 9 or LZMA_PRESET_EXTREME
    * @param check_type The type of checks the algorithm should apply, see the lzma docs
    */
-  LZMACompressor(uint32_t preset = 6, lzma_check check_type = LZMA_CHECK_CRC64);
+  LZMACompressor(Writer* pWriter, uint32_t preset = 6, lzma_check check_type = LZMA_CHECK_CRC64);
   virtual ~LZMACompressor();
   virtual int Write(const char* data, size_t len);
 private:

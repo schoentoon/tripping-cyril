@@ -21,11 +21,14 @@
 
 namespace trippingcyril {
 
-Compressor::Compressor() {
+Compressor::Compressor(Writer* pWriter) {
   total_in = 0;
+  writer = pWriter;
 };
 
 Compressor::~Compressor() {
+  if (writer->shouldDelete())
+    delete writer;
 };
 
 int Compressor::BUFFER_SIZE = 4096;
@@ -35,7 +38,8 @@ int Compressor::BUFFER_SIZE = 4096;
 #define windowBits 15
 #define GZIP_ENCODING 16
 
-GZipCompressor::GZipCompressor(int level, int memory_level) {
+GZipCompressor::GZipCompressor(Writer* pWriter, int level, int memory_level)
+: Compressor(pWriter) {
   bzero(&zlib_stream, sizeof(zlib_stream));
   if (deflateInit2(&zlib_stream,
                    (level > 0 && level < 10) ? level : 6,
@@ -64,7 +68,7 @@ int GZipCompressor::Write(const char* data, size_t len) {
     switch ((zlib_ret = deflate(&zlib_stream, Z_SYNC_FLUSH))) {
     case Z_OK:
     case Z_STREAM_END:
-      buffer.append(buf, zlib_stream.total_out);
+      writer->Write(buf, zlib_stream.total_out);
       out_len += zlib_stream.total_out;
       break;
     case Z_BUF_ERROR:
@@ -83,7 +87,8 @@ int GZipCompressor::Write(const char* data, size_t len) {
 
 #ifndef _NO_LZMA
 
-LZMACompressor::LZMACompressor(uint32_t preset, lzma_check check_type) {
+LZMACompressor::LZMACompressor(Writer* pWriter, uint32_t preset, lzma_check check_type)
+: Compressor(pWriter) {
   bzero(&stream, sizeof(stream));
   if (lzma_easy_encoder(&stream, preset, check_type) != LZMA_OK)
     throw "Error during lzma_easy_encoder";
@@ -107,7 +112,7 @@ int LZMACompressor::Write(const char* data, size_t len) {
     switch ((lzma_ret = lzma_code(&stream, LZMA_RUN))) {
     case LZMA_OK:
     case LZMA_STREAM_END:
-      buffer.append(buf, stream.total_out);
+      writer->Write(buf, stream.total_out);
       out_len += stream.total_out;
       break;
     case LZMA_MEM_ERROR:

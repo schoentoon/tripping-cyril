@@ -34,11 +34,12 @@ static const String IPSUM = "Bacon ipsum dolor sit amet jowl drumstick chuck, sh
 #ifndef _NO_GZIP
 
 TEST(Decompressor, GZip) {
-  GZipCompressor compressor;
+  StringWriter* writer = new StringWriter;
+  GZipCompressor compressor(writer);
   EXPECT_LT(0, compressor.WriteString(IPSUM));
-  EXPECT_LT(compressor.size(), compressor.totalBytesIn());
+  EXPECT_LT(writer->GetBuffer().size(), compressor.totalBytesIn());
   GZipDecompressor decompressor;
-  EXPECT_EQ(decompressor.Write(compressor.data(), compressor.size()), IPSUM.size());
+  EXPECT_EQ(decompressor.WriteString(writer->GetBuffer()), IPSUM.size());
   ASSERT_EQ(compressor.totalBytesIn(), decompressor.size());
   for (int i = 0; i < decompressor.size(); ++i) {
     EXPECT_EQ(IPSUM.data()[i], decompressor.data()[i]);
