@@ -63,7 +63,7 @@ public:
     if (done)
       *done = true;
   };
-  bool shouldDelete() { return !keepAround; };
+  bool shouldDelete() const { return !keepAround; };
   bool keepAround;
   map<String, String> expectedHeaders;
   unsigned int expectedResponseCode;

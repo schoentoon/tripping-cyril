@@ -29,7 +29,7 @@ public:
    * Return true from this method if the object should be deleted
    * @returns True by default
    */
-  virtual bool shouldDelete() { return true; };
+  virtual bool shouldDelete() const { return true; };
 };
 
 };
