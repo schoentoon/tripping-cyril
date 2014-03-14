@@ -15,7 +15,7 @@ var searchData=
   ['sha256',['SHA256',['../classtrippingcyril_1_1_string.html#a9d626121a4033c591ee6079885929d72',1,'trippingcyril::String']]],
   ['sha512',['SHA512',['../classtrippingcyril_1_1_string.html#a8c42e84d0e5b402736ab9b7752b1bea9',1,'trippingcyril::String']]],
   ['shouldcontinue',['shouldContinue',['../classtrippingcyril_1_1_thread.html#ae130d6632c18856adbdaae54785d290f',1,'trippingcyril::Thread']]],
-  ['shoulddelete',['shouldDelete',['../classtrippingcyril_1_1_should_delete.html#a3b594213c584d521b5ff0677859a74bb',1,'trippingcyril::ShouldDelete']]],
+  ['shoulddelete',['shouldDelete',['../classtrippingcyril_1_1_should_delete.html#abee8f619e360227b56baac4d6914c6d3',1,'trippingcyril::ShouldDelete']]],
   ['signal',['Signal',['../classtrippingcyril_1_1_cond_var.html#ac18865cb4895d31553128ab87353b970',1,'trippingcyril::CondVar']]],
   ['simplehttpsocket',['SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a8e2703d72db1bdc5fb9e7577a14af140',1,'trippingcyril::SimpleHTTPSocket']]],
   ['size',['size',['../classtrippingcyril_1_1_compressor.html#ac7ca7806b99ec2b9f3d9f47e5c019f22',1,'trippingcyril::Compressor::size()'],['../classtrippingcyril_1_1_decompressor.html#ad5aac206cb05b393a2d1dc42a2c09fd9',1,'trippingcyril::Decompressor::size()']]],
