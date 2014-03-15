@@ -36,9 +36,13 @@ namespace trippingcyril {
  */
 class Decompressor : public Writer {
 public:
-  /** General constructor */
-  Decompressor();
-  /** General deconstructor */
+  /** Constructor
+   * @param pWriter The underlying writer to write the output to
+   */
+  Decompressor(Writer* pWriter);
+  /** General deconstructor
+   * @note ShouldDelete on writer is respected
+   */
   virtual ~Decompressor();
   /**
    * Feed data into the decompressor to decompress
@@ -47,25 +51,17 @@ public:
    * @return Amount of uncompressed bytes
    */
   virtual int Write(const char* data, size_t len) = 0;
-  /** @return The decompressed data */
-  const char* data() const { return buffer.data(); };
-  /** @return The length of the decompressed data */
-  const size_t size() const { return buffer.size(); };
-  /** @return The decompressed data wrapped into a String, probably not printable! */
-  const String asString() const { return String(data(), size()); };
   /** @return The amount of bytes you fed into the decompressor */
   const uint64_t totalBytesIn() const { return total_in; };
 protected:
-  /** The output buffer, when implementing this decompressor put your output data
-   * in here
-   */
-  String buffer;
   /** The amount of bytes that we fed into you, you'll have to increase this yourself
    */
   uint64_t total_in;
 
   /** Just a hint for the buffer size in case you'er implementing this decompressor */
   static int BUFFER_SIZE;
+  /** Write your compressed data into this writer */
+  Writer* writer;
 };
 
 #ifndef _NO_GZIP
@@ -75,7 +71,7 @@ protected:
  */
 class GZipDecompressor : public Decompressor {
 public:
-  GZipDecompressor();
+  GZipDecompressor(Writer* pWriter);
   virtual ~GZipDecompressor();
   virtual int Write(const char* data, size_t len);
 private:

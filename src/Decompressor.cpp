@@ -21,11 +21,14 @@
 
 namespace trippingcyril {
 
-Decompressor::Decompressor() {
+Decompressor::Decompressor(Writer* pWriter) {
   total_in = 0;
+  writer = pWriter;
 };
 
 Decompressor::~Decompressor() {
+  if (writer->shouldDelete())
+    delete writer;
 };
 
 int Decompressor::BUFFER_SIZE = 4096;
@@ -35,7 +38,8 @@ int Decompressor::BUFFER_SIZE = 4096;
 #define windowBits 15
 #define GZIP_ENCODING 16
 
-GZipDecompressor::GZipDecompressor() {
+GZipDecompressor::GZipDecompressor(Writer* pWriter)
+: Decompressor(pWriter) {
   bzero(&zlib_stream, sizeof(zlib_stream));
   if (inflateInit2(&zlib_stream,
                    windowBits | GZIP_ENCODING) != Z_OK)
@@ -60,7 +64,7 @@ int GZipDecompressor::Write(const char* data, size_t len) {
     switch ((zlib_ret = inflate(&zlib_stream, Z_SYNC_FLUSH))) {
     case Z_OK:
     case Z_STREAM_END:
-      buffer.append(buf, zlib_stream.total_out);
+      writer->Write(buf, zlib_stream.total_out);
       out_len += zlib_stream.total_out;
       break;
     case Z_BUF_ERROR:

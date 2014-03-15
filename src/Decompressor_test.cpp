@@ -38,11 +38,12 @@ TEST(Decompressor, GZip) {
   GZipCompressor compressor(writer);
   EXPECT_LT(0, compressor.WriteString(IPSUM));
   EXPECT_LT(writer->GetBuffer().size(), compressor.totalBytesIn());
-  GZipDecompressor decompressor;
+  StringWriter* outputWriter = new StringWriter;
+  GZipDecompressor decompressor(outputWriter);
   EXPECT_EQ(decompressor.WriteString(writer->GetBuffer()), IPSUM.size());
-  ASSERT_EQ(compressor.totalBytesIn(), decompressor.size());
-  for (int i = 0; i < decompressor.size(); ++i) {
-    EXPECT_EQ(IPSUM.data()[i], decompressor.data()[i]);
+  ASSERT_EQ(compressor.totalBytesIn(), outputWriter->GetBuffer().size());
+  for (int i = 0; i < outputWriter->GetBuffer().size(); ++i) {
+    EXPECT_EQ(IPSUM.data()[i], outputWriter->GetBuffer()[i]);
   };
 };
 
