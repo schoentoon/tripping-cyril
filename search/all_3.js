@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['data',['data',['../classtrippingcyril_1_1_decompressor.html#ac04152cfaa855c208824410e1e45ae09',1,'trippingcyril::Decompressor']]],
   ['database',['Database',['../classtrippingcyril_1_1_database.html',1,'trippingcyril']]],
   ['database',['Database',['../classtrippingcyril_1_1_database.html#a2c73634569590616e4a92740c66c3eac',1,'trippingcyril::Database']]],
   ['database_2eh',['Database.h',['../_database_8h.html',1,'']]],
@@ -8,7 +7,7 @@ var searchData=
   ['dbresult',['DBResult',['../classtrippingcyril_1_1_d_b_result.html',1,'trippingcyril']]],
   ['decompession_5ferror',['DECOMPESSION_ERROR',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a29a1fe6175a7f7640e32c7cfe5e8eb27',1,'trippingcyril::SimpleHTTPSocket']]],
   ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html',1,'trippingcyril']]],
-  ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html#a1d780c1b891883bc3568ff397a74a3cf',1,'trippingcyril::Decompressor']]],
+  ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html#a96104e975d08b9bab70bf0472de6b6d8',1,'trippingcyril::Decompressor']]],
   ['decompressor_2eh',['Decompressor.h',['../_decompressor_8h.html',1,'']]],
   ['decrement',['Decrement',['../classtrippingcyril_1_1_statsd_client.html#af5e6bd757820058defbd40e57dbe4814',1,'trippingcyril::StatsdClient']]],
   ['defines_2eh',['defines.h',['../defines_8h.html',1,'']]],

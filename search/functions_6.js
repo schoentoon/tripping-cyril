@@ -30,5 +30,5 @@ var searchData=
   ['getversion',['GetVersion',['../classtrippingcyril_1_1_module.html#a0988c68f7b871cdfdae709ecc1e7120a',1,'trippingcyril::Module']]],
   ['getwriter',['getWriter',['../classtrippingcyril_1_1_compressor.html#a6bfbdd722a7aa6e836fda695ed7fae29',1,'trippingcyril::Compressor']]],
   ['gzipcompressor',['GZipCompressor',['../classtrippingcyril_1_1_g_zip_compressor.html#acdbb1216ead2bf8707509f6231734c95',1,'trippingcyril::GZipCompressor']]],
-  ['gzipdecompressor',['GZipDecompressor',['../classtrippingcyril_1_1_g_zip_decompressor.html#a2f24352c71abaf5e1a19d0184ec28b04',1,'trippingcyril::GZipDecompressor']]]
+  ['gzipdecompressor',['GZipDecompressor',['../classtrippingcyril_1_1_g_zip_decompressor.html#a52c0aea1da5f3e8dc4775dfa340fd9d2',1,'trippingcyril::GZipDecompressor']]]
 ];
