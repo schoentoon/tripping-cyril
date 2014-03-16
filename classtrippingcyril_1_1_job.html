@@ -117,8 +117,8 @@ Collaboration diagram for trippingcyril::Job:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a740cb3fb2f1a779f0ecc0dcce269efe4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_job.html#a740cb3fb2f1a779f0ecc0dcce269efe4">~Job</a> ()</td></tr>
 <tr class="separator:a740cb3fb2f1a779f0ecc0dcce269efe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0287cc6c37659d63c5a3112617b8177"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_job.html#ac0287cc6c37659d63c5a3112617b8177">preExecuteMain</a> ()=0</td></tr>
-<tr class="separator:ac0287cc6c37659d63c5a3112617b8177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa031b171adfb6523312aa97276298370"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_job.html#aa031b171adfb6523312aa97276298370">preExecuteMain</a> ()=0</td></tr>
+<tr class="separator:aa031b171adfb6523312aa97276298370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c306aea820e446232c1ea5c9124c509"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_job.html#a0c306aea820e446232c1ea5c9124c509">execute</a> ()=0</td></tr>
 <tr class="separator:a0c306aea820e446232c1ea5c9124c509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aa64e6090d5815eebfbf31fa02a1ce4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_job.html#a6aa64e6090d5815eebfbf31fa02a1ce4">postExecuteMain</a> ()=0</td></tr>
@@ -203,7 +203,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac0287cc6c37659d63c5a3112617b8177"></a>
+<a class="anchor" id="aa031b171adfb6523312aa97276298370"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -211,7 +211,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void trippingcyril::Job::preExecuteMain </td>
+          <td class="memname">virtual bool trippingcyril::Job::preExecuteMain </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -224,6 +224,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>This method will be executed on the 'main' thread before execution </p>
+<dl class="section return"><dt>Returns</dt><dd>True if it should actually run </dd></dl>
 
 </div>
 </div>
@@ -233,7 +234,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 15 2014 15:15:32 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 16 2014 16:23:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
