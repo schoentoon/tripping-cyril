@@ -39,12 +39,16 @@ public:
       switch (jobr.mode) {
       case 0:
       case 1:
-        jobr.job->preExecuteMain();
-        if (jobr.mode == 0)
-          thread->jobs.push_back(jobr.job);
-        else if (jobr.mode == 1)
-          thread->jobs.push_front(jobr.job);
-        thread->condvar->Signal();
+        if (jobr.job->preExecuteMain()) {
+          if (jobr.mode == 0)
+            thread->jobs.push_back(jobr.job);
+          else if (jobr.mode == 1)
+            thread->jobs.push_front(jobr.job);
+          thread->condvar->Signal();
+        } else {
+          if (jobr.job->shouldDelete())
+            delete jobr.job;
+        };
         break;
       case 2:
         jobr.job->postExecuteMain();

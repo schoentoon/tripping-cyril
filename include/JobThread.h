@@ -38,8 +38,9 @@ public:
   virtual ~Job() {};
   /**
    * This method will be executed on the 'main' thread before execution
+   * @return True if it should actually run
    */
-  virtual void preExecuteMain() = 0;
+  virtual bool preExecuteMain() = 0;
   /**
    * This method will run on the JobThread
    */

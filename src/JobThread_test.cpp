@@ -35,14 +35,26 @@ public:
     this->module = module;
     this->mainThread = 0;
     this->counter = 0;
+    this->shouldRun = true;
   };
   virtual ~TestJob() {
+    if (shouldRun) {
+      EXPECT_EQ(3, counter);
+    } else {
+      EXPECT_EQ(1, counter);
+    };
   };
-  virtual void preExecuteMain() {
+  virtual bool preExecuteMain() {
     if (mainThread != 0) {
       EXPECT_EQ(mainThread, pthread_self());
     }
     EXPECT_EQ(0, counter++);
+    if (shouldRun == false) {
+      if (done != NULL)
+        *done = true;
+      event_base_loopbreak(module->GetEventBase());
+    };
+    return shouldRun;
   };
   virtual void execute() {
     if (mainThread != 0) {
@@ -63,6 +75,7 @@ public:
   Module* module;
   pthread_t mainThread;
   int counter;
+  bool shouldRun;
 };
 
 TEST_F(JobThread, TestJob) {
@@ -75,6 +88,21 @@ TEST_F(JobThread, TestJob) {
   thread->Add(job);
   while (done == false && event_base->Loop());
   delete thread;
+  EXPECT_DEATH(delete job, "");
+};
+
+TEST_F(JobThread, DontRun) {
+  trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
+  ASSERT_TRUE(thread->Start());
+  TestJob* job = new TestJob(event_base);
+  job->shouldRun = false;
+  job->mainThread = pthread_self();
+  bool done = false;
+  job->done = &done;
+  thread->Add(job);
+  while (done == false && event_base->Loop());
+  delete thread;
+  EXPECT_DEATH(delete job, "");
 };
 
 };
