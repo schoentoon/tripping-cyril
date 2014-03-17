@@ -39,19 +39,19 @@ void TermUtils::PrintError(const String& msg) {
   PrintStatus(false, msg);
 };
 
-bool TermUtils::WritePidFile(const String& path, String& retMsg) {
+bool TermUtils::WritePidFile(const String& path) {
+  StatusPrinter status("Writing pid to " + path);
   File file(path);
-  retMsg.clear();
   if (file.Open(O_WRONLY | O_CREAT)) {
     String data(getpid());
     if (file.WriteString(data) != (int) data.size()) {
-      retMsg = "Failed to write to " + path + " (" + strerror(errno) + ")";
+      status.PrintStatus(false, "Failed to write to " + path + " (" + strerror(errno) + ")");
       return false;
     };
-    retMsg = "Succesfully wrote pid to " + path;
+    status.PrintStatus(true, "Succesfully wrote pid to " + path);
     return true;
   } else {
-    retMsg = "Failed to open " + path + " (" + strerror(errno) + ")";
+    status.PrintStatus(false, "Failed to open " + path + " (" + strerror(errno) + ")");
     return false;
   };
 };

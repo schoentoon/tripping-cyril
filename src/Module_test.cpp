@@ -27,7 +27,7 @@ namespace test {
 TEST(Module, DISABLED_LoadDummy) { //TODO Figure out why this sometimes failed :/
   String msg;
   EXPECT_EQ(0, Global::Get()->LoadedModules());
-  ASSERT_TRUE(Global::Get()->LoadModule("./dummymod.so", msg));
+  ASSERT_TRUE(Global::Get()->LoadModule("./dummymod.so"));
   EXPECT_EQ(msg, "Loaded module [dummymod] [./dummymod.so]");
   EXPECT_EQ(1, Global::Get()->LoadedModules());
   ASSERT_TRUE(Global::Get()->UnloadModule("dummymod", msg));

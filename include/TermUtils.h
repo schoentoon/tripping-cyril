@@ -39,7 +39,7 @@ public:
   /**
    * Write the pid to path
    */
-  static bool WritePidFile(const String& path, String& retMsg);
+  static bool WritePidFile(const String& path);
   /**
    * Print a fancy Tripping Cyril message of the day
    */
