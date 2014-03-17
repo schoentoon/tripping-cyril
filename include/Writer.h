@@ -47,6 +47,8 @@ public:
     return Write(data.data(), data.size());
   };
   virtual bool shouldDelete() const { return false; };
+  /** Buffer size hint for any operations that require buffering */
+  static const int BUFFER_SIZE = 1024 * 16;
 };
 
 /**

@@ -31,8 +31,6 @@ Compressor::~Compressor() {
     delete writer;
 };
 
-int Compressor::BUFFER_SIZE = 4096;
-
 #ifndef _NO_GZIP
 
 #define windowBits 15

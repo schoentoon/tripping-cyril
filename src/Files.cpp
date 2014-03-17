@@ -239,7 +239,16 @@ bool File::ReadFile(String& data, size_t maxSize) {
 int File::Write(const char* buffer, size_t len) {
   if (fd == -1)
     return -1;
-  return write(fd, buffer, len);
+  char* p = (char*) buffer;
+  int left = len;
+  while (left > 0) {
+    int wrote = write(fd, p, std::min(BUFFER_SIZE, left));
+    if (wrote < 0)
+      return wrote;
+    left -= wrote;
+    p += wrote;
+  };
+  return len;
 };
 
 void File::Close() {

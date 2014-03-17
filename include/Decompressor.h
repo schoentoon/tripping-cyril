@@ -57,9 +57,6 @@ protected:
   /** The amount of bytes that we fed into you, you'll have to increase this yourself
    */
   uint64_t total_in;
-
-  /** Just a hint for the buffer size in case you'er implementing this decompressor */
-  static int BUFFER_SIZE;
   /** Write your compressed data into this writer */
   Writer* writer;
 };
