@@ -5,5 +5,5 @@ var searchData=
   ['block',['BLOCK',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66a9d0d73c15da832c2781645dcb0bcaf82',1,'trippingcyril::File']]],
   ['blockingpostgres',['BlockingPostGres',['../classtrippingcyril_1_1_blocking_post_gres.html',1,'trippingcyril']]],
   ['blockingpostgres',['BlockingPostGres',['../classtrippingcyril_1_1_blocking_post_gres.html#ae715832d1f9320017e15d177ff7c986d',1,'trippingcyril::BlockingPostGres']]],
-  ['buffer_5fsize',['BUFFER_SIZE',['../classtrippingcyril_1_1_compressor.html#aa8c5107e6eb31f8dc8c81d0c8c7b2a09',1,'trippingcyril::Compressor::BUFFER_SIZE()'],['../classtrippingcyril_1_1_decompressor.html#a033d206b40ed4e62690e901c3ac0d14f',1,'trippingcyril::Decompressor::BUFFER_SIZE()']]]
+  ['buffer_5fsize',['BUFFER_SIZE',['../classtrippingcyril_1_1_writer.html#a5b97c376652c879f99fbdc61e59044a1',1,'trippingcyril::Writer']]]
 ];

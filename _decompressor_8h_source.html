@@ -129,29 +129,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_decompressor.html#a5c10feebd0c8a8b505385c0e83c5653b">   55</a></span>&#160;  <span class="keyword">const</span> uint64_t <a class="code" href="classtrippingcyril_1_1_decompressor.html#a5c10feebd0c8a8b505385c0e83c5653b">totalBytesIn</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classtrippingcyril_1_1_decompressor.html#aff109a0f9a67f90f7edeea414ac4ccd8">total_in</a>; };</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  uint64_t <a class="code" href="classtrippingcyril_1_1_decompressor.html#aff109a0f9a67f90f7edeea414ac4ccd8">total_in</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_decompressor.html#a033d206b40ed4e62690e901c3ac0d14f">   62</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_decompressor.html#a033d206b40ed4e62690e901c3ac0d14f">BUFFER_SIZE</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_decompressor.html#aa91289cb01a310cc6e0de245854df048">   64</a></span>&#160;  <a class="code" href="classtrippingcyril_1_1_writer.html">Writer</a>* <a class="code" href="classtrippingcyril_1_1_decompressor.html#aa91289cb01a310cc6e0de245854df048">writer</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifndef _NO_GZIP</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_g_zip_decompressor.html">   72</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html">GZipDecompressor</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_decompressor.html">Decompressor</a> {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a52c0aea1da5f3e8dc4775dfa340fd9d2">GZipDecompressor</a>(<a class="code" href="classtrippingcyril_1_1_writer.html">Writer</a>* pWriter);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a0e509f3bdb316c562dc09c1a686870b7">~GZipDecompressor</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#afce108cd850738ac13f9d55551b64654">Write</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  z_stream zlib_stream;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">// @endcond</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif // _DECOMPRESSOR_H</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_decompressor.html#aa91289cb01a310cc6e0de245854df048">   61</a></span>&#160;  <a class="code" href="classtrippingcyril_1_1_writer.html">Writer</a>* <a class="code" href="classtrippingcyril_1_1_decompressor.html#aa91289cb01a310cc6e0de245854df048">writer</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifndef _NO_GZIP</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_g_zip_decompressor.html">   69</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html">GZipDecompressor</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_decompressor.html">Decompressor</a> {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a52c0aea1da5f3e8dc4775dfa340fd9d2">GZipDecompressor</a>(<a class="code" href="classtrippingcyril_1_1_writer.html">Writer</a>* pWriter);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a0e509f3bdb316c562dc09c1a686870b7">~GZipDecompressor</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#afce108cd850738ac13f9d55551b64654">Write</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  z_stream zlib_stream;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">// @endcond</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif // _DECOMPRESSOR_H</span></div>
 <div class="ttc" id="classtrippingcyril_1_1_g_zip_decompressor_html_afce108cd850738ac13f9d55551b64654"><div class="ttname"><a href="classtrippingcyril_1_1_g_zip_decompressor.html#afce108cd850738ac13f9d55551b64654">trippingcyril::GZipDecompressor::Write</a></div><div class="ttdeci">virtual int Write(const char *data, size_t len)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_decompressor_html"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html">trippingcyril::Decompressor</a></div><div class="ttdoc">Abstract decompressor. </div><div class="ttdef"><b>Definition:</b> Decompressor.h:37</div></div>
 <div class="ttc" id="_writer_8h_html"><div class="ttname"><a href="_writer_8h.html">Writer.h</a></div></div>
@@ -160,18 +158,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classtrippingcyril_1_1_decompressor_html_a7c6ecc7400972dcc61e6c3e179b92667"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#a7c6ecc7400972dcc61e6c3e179b92667">trippingcyril::Decompressor::Write</a></div><div class="ttdeci">virtual int Write(const char *data, size_t len)=0</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_decompressor_html_a96104e975d08b9bab70bf0472de6b6d8"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#a96104e975d08b9bab70bf0472de6b6d8">trippingcyril::Decompressor::Decompressor</a></div><div class="ttdeci">Decompressor(Writer *pWriter)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_g_zip_decompressor_html_a0e509f3bdb316c562dc09c1a686870b7"><div class="ttname"><a href="classtrippingcyril_1_1_g_zip_decompressor.html#a0e509f3bdb316c562dc09c1a686870b7">trippingcyril::GZipDecompressor::~GZipDecompressor</a></div><div class="ttdeci">virtual ~GZipDecompressor()</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_decompressor_html_aa91289cb01a310cc6e0de245854df048"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#aa91289cb01a310cc6e0de245854df048">trippingcyril::Decompressor::writer</a></div><div class="ttdeci">Writer * writer</div><div class="ttdef"><b>Definition:</b> Decompressor.h:64</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_decompressor_html_aa91289cb01a310cc6e0de245854df048"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#aa91289cb01a310cc6e0de245854df048">trippingcyril::Decompressor::writer</a></div><div class="ttdeci">Writer * writer</div><div class="ttdef"><b>Definition:</b> Decompressor.h:61</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_writer_html"><div class="ttname"><a href="classtrippingcyril_1_1_writer.html">trippingcyril::Writer</a></div><div class="ttdoc">Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write...</div><div class="ttdef"><b>Definition:</b> Writer.h:30</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_decompressor_html_a5c10feebd0c8a8b505385c0e83c5653b"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#a5c10feebd0c8a8b505385c0e83c5653b">trippingcyril::Decompressor::totalBytesIn</a></div><div class="ttdeci">const uint64_t totalBytesIn() const </div><div class="ttdef"><b>Definition:</b> Decompressor.h:55</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_decompressor_html_aff109a0f9a67f90f7edeea414ac4ccd8"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#aff109a0f9a67f90f7edeea414ac4ccd8">trippingcyril::Decompressor::total_in</a></div><div class="ttdeci">uint64_t total_in</div><div class="ttdef"><b>Definition:</b> Decompressor.h:55</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_decompressor_html_a033d206b40ed4e62690e901c3ac0d14f"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#a033d206b40ed4e62690e901c3ac0d14f">trippingcyril::Decompressor::BUFFER_SIZE</a></div><div class="ttdeci">static int BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> Decompressor.h:62</div></div>
 <div class="ttc" id="_string_8h_html"><div class="ttname"><a href="_string_8h.html">String.h</a></div></div>
-<div class="ttc" id="classtrippingcyril_1_1_g_zip_decompressor_html"><div class="ttname"><a href="classtrippingcyril_1_1_g_zip_decompressor.html">trippingcyril::GZipDecompressor</a></div><div class="ttdoc">A gzip implementation of the Decompressor interface. </div><div class="ttdef"><b>Definition:</b> Decompressor.h:72</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_g_zip_decompressor_html"><div class="ttname"><a href="classtrippingcyril_1_1_g_zip_decompressor.html">trippingcyril::GZipDecompressor</a></div><div class="ttdoc">A gzip implementation of the Decompressor interface. </div><div class="ttdef"><b>Definition:</b> Decompressor.h:69</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_g_zip_decompressor_html_a52c0aea1da5f3e8dc4775dfa340fd9d2"><div class="ttname"><a href="classtrippingcyril_1_1_g_zip_decompressor.html#a52c0aea1da5f3e8dc4775dfa340fd9d2">trippingcyril::GZipDecompressor::GZipDecompressor</a></div><div class="ttdeci">GZipDecompressor(Writer *pWriter)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 16 2014 16:23:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 17 2014 17:08:53 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
