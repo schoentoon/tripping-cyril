@@ -91,7 +91,7 @@ TEST_F(JobThread, TestJob) {
   EXPECT_DEATH(delete job, "");
 };
 
-TEST_F(JobThread, DontRun) {
+TEST_F(JobThread, DISABLED_DontRun) {
   trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
   ASSERT_TRUE(thread->Start());
   TestJob* job = new TestJob(event_base);
