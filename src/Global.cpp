@@ -52,10 +52,8 @@ public:
       String sRetMsg;
       bool success = Global::Get()->UnloadModule(data.module->GetModName(), sRetMsg);
       TermUtils::PrintStatus(success, sRetMsg);
-      if (data.reload) {
-        success = Global::Get()->LoadModule(path, sRetMsg);
-        TermUtils::PrintStatus(success, sRetMsg);
-      };
+      if (data.reload)
+        Global::Get()->LoadModule(path);
     };
   };
 };
@@ -140,11 +138,12 @@ private:
   const bool reloadOnCrash;
 };
 
-bool Global::LoadModule(const String& path, String& retMsg) {
+bool Global::LoadModule(const String& path) {
+  TermUtils::StatusPrinter status("Loading [" + path + "]");
   File f(path);
   for (unsigned int i = 0; i < modules.size(); i++) {
     if (modules[i]->GetModName() == f.GetShortName()) {
-      retMsg = "Module [" + f.GetShortName() + "] is already loaded";
+      status.PrintStatus(false, "Module [" + f.GetShortName() + "] is already loaded");
       return false;
     };
   };
@@ -152,11 +151,13 @@ bool Global::LoadModule(const String& path, String& retMsg) {
   String::size_type sPos = modname.rfind('.');
   if (sPos != String::npos)
     modname = modname.substr(0, sPos);
+  String retMsg;
   Module* module = Module::LoadModule(path, modname, retMsg);
   if (module == NULL) {
-    std::cerr << retMsg << std::endl;
+    status.PrintStatus(false, retMsg);
     return false;
   };
+  status.PrintStatus(true, retMsg);
   modules.push_back(module);
   if (module->wantsThread) {
     ModuleThread* thread = new ModuleThread(module);

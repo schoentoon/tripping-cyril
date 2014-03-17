@@ -63,8 +63,7 @@ protected:
         }
         case LOAD: {
           TermUtils::StatusPrinter status("Loading " + line);
-          ret = Global::Get()->LoadModule(line, msg);
-          status.PrintStatus(ret, msg);
+          Global::Get()->LoadModule(line);
           break;
         }
         case UNKNOWN:
@@ -85,12 +84,10 @@ int main(int argc, char **argv) {
       TermUtils::PrintStatus(true, "Registered our crash handler");
     else
       TermUtils::PrintStatus(false, "Something went wrong while registering our crash handler");
-    TermUtils::StatusPrinter status("Loading [sample.so]");
-    String msg;
-    bool ret = Global::Get()->LoadModule("modules/sample.so", msg);
-    status.PrintStatus(ret, msg);
+    Global::Get()->LoadModule("modules/sample.so");
     FileObserver::Get()->Register("./sys", new ModuleLoader);
-    ret = TermUtils::WritePidFile("./trippingcyril.pid", msg);
+    String msg;
+    bool ret = TermUtils::WritePidFile("./trippingcyril.pid", msg);
     TermUtils::PrintStatus(ret, msg);
   }
   Global::Get()->Loop();

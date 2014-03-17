@@ -40,10 +40,9 @@ public:
   /**
    * @brief Loads to module
    * @param path The path of the module to load
-   * @param retMsg The return message, similar to Module::LoadModule
    * @return True if the module was succesfully loaded
    */
-  bool LoadModule(const String& path, String& retMsg);
+  bool LoadModule(const String& path);
   /**
    * @brief Unloads a previously loaded module
    * @param modName The name of the module to unload
