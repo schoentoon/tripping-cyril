@@ -48,7 +48,7 @@ public:
   };
   virtual bool shouldDelete() const { return false; };
   /** Buffer size hint for any operations that require buffering */
-  static const int BUFFER_SIZE = 1024 * 16;
+  static const int BUFFER_SIZE;
 };
 
 /**
@@ -59,10 +59,7 @@ class StringWriter : public Writer {
 public:
   virtual ~StringWriter() {
   };
-  virtual int Write(const char* data, size_t len) {
-    buffer.append(data, len);
-    return len;
-  };
+  virtual int Write(const char* data, size_t len);
   virtual bool shouldDelete() const { return true; };
   String& GetBuffer() { return buffer; };
 private:
