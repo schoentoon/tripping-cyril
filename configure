@@ -27,7 +27,7 @@ except Exception as e:
 
 args = {}
 def arg(text, **kwargs):
-	args.setdefault(text, {"PKGS": {}, "CFLAGS": []})
+	args.setdefault(text, {"PKGS": {}, "CFLAGS": {}})
 	if "PKGS" in kwargs:
 		for pkg in kwargs["PKGS"]:
 			if pkg.startswith("+"):
@@ -35,7 +35,13 @@ def arg(text, **kwargs):
 			elif pkg.startswith("-"):
 				args[text]["PKGS"][pkg[1:]] = False
 	if "CFLAGS" in kwargs:
-		args[text]["CFLAGS"].extend(kwargs["CFLAGS"])
+		for cflag in kwargs["CFLAGS"]:
+			if cflag.startswith("+"):
+				args[text]["CFLAGS"][cflag[1:]] = True
+			elif cflag.startswith("-"):
+				args[text]["CFLAGS"][cflag[1:]] = False
+	if "about" in kwargs:
+		args[text]["about"] = kwargs["about"]
 
 # the first argument (eg "disable-zlib") is the command line arg that
 # will be prepended with --
@@ -43,10 +49,20 @@ def arg(text, **kwargs):
 # the PKGS keyword argument expects a list of things to add or remove
 # from PKGS, if the package name is prepended with -, it is removed
 # if it is prepended with +, it is added
-arg("disable-zlib", CFLAGS=["-D_NO_GZIP"], PKGS=["-zlib"])
+arg("disable-zlib", CFLAGS=["+-D_NO_GZIP"], PKGS=["-zlib"], about="Disabled zlib")
+arg("enable-zlib", CFLAGS=["--D_NO_GZIP"], PKGS=["+zlib"], about="Enable zlib")
+
+help_set = set(["--help", "-h"])
+if len(set(sys.argv) & set(["--help", "-h"])) > 0:
+	print "Configuration options:"
+	for option in args:
+		if "about" in args[option]:
+			print "   --%s: %s" % (option, args[option]["about"])
 
 made_changes = False
 for program_arg in sys.argv[1:]:
+	if program_arg in help_set:
+		continue
 	if not program_arg.startswith("--"):
 		sys.stderr.write("wrongly formatted arg '%s'!\n" % program_arg)
 		sys.exit(1)
@@ -54,14 +70,24 @@ for program_arg in sys.argv[1:]:
 	if program_arg in args:
 		cflags = args[program_arg]["CFLAGS"]
 		for cflag in cflags:
-			if not " %s " % cflag in makefile_cflags:
-				# this is printed when a clag is added
-				print "Adding '%s' to CFLAGS" % cflag
-				makefile_cflags += "%s " % cflag
-				made_changes = True
+			if cflags[cflag]:
+				if not " %s " % cflag in makefile_cflags:
+					# this is printed when a clag is added
+					print "Adding '%s' to CFLAGS" % cflag
+					makefile_cflags += "%s " % cflag
+					made_changes = True
+				else:
+					# this is the thing printed when a CFLAG is already added
+					print "'%s' is already added to CFLAGS" % cflag
 			else:
-				# this is the thing printed when a CFLAG is already added
-				print "'%s' is already added to CFLAGS" % cflag
+				if " %s " % cflag in makefile_cflags:
+					# this is the thing printed when removing a CFLAG
+					print "Removing '%s' from CFLAGS" % cflag
+					makefile_cflags = makefile_cflags.replace(" %s" % cflag, "")
+					made_changes = True
+				else:
+					# this is the thing printed when a CFLAG is already removed
+					print "'%s' is already removed from CFLAGS" % cflag
 		makefile_lines[makefile_cflags_index] = makefile_cflags
 		pkgs = args[program_arg]["PKGS"]
 		for pkg in pkgs:
