@@ -1,0 +1,103 @@
+#!/usr/bin/python
+import os, sys
+
+directory = os.path.dirname(os.path.abspath(__file__))
+
+try:
+	makefile = open("%s/Makefile" % directory)
+	makefile_lines = []
+	makefile_cflags = ""
+	makefile_pkgs = ""
+	makefile_cflags_index = -1
+	makefile_pkgs_index = -1
+	for n, line in enumerate(makefile):
+		line = line.rstrip("\r\n")
+		makefile_lines.append(line)
+		if line.startswith("CLFAGS") or line.startswith("override CFLAGS "):
+			makefile_cflags = line.rstrip() + " "
+			makefile_cflags_index = n
+		elif line.startswith("PKGS "):
+			makefile_pkgs = line.rstrip() + " "
+			makefile_pkgs_index = n
+	makefile.close()
+except Exception as e:
+	# this is the thing printed when it can't read the makefile
+	sys.stderr.write("Failed to open makefile;\n%s\n" % e)
+	sys.exit(1)
+
+args = {}
+def arg(text, **kwargs):
+	args.setdefault(text, {"PKGS": {}, "CFLAGS": []})
+	if "PKGS" in kwargs:
+		for pkg in kwargs["PKGS"]:
+			if pkg.startswith("+"):
+				args[text]["PKGS"][pkg[1:]] = True
+			elif pkg.startswith("-"):
+				args[text]["PKGS"][pkg[1:]] = False
+	if "CFLAGS" in kwargs:
+		args[text]["CFLAGS"].extend(kwargs["CFLAGS"])
+
+# the first argument (eg "disable-zlib") is the command line arg that
+# will be prepended with --
+# the CFLAGS keyword argument expects a list of things to add to CFLAGS
+# the PKGS keyword argument expects a list of things to add or remove
+# from PKGS, if the package name is prepended with -, it is removed
+# if it is prepended with +, it is added
+arg("disable-zlib", CFLAGS=["-D_NO_GZIP"], PKGS=["-zlib"])
+
+made_changes = False
+for program_arg in sys.argv[1:]:
+	if not program_arg.startswith("--"):
+		sys.stderr.write("wrongly formatted arg '%s'!\n" % program_arg)
+		sys.exit(1)
+	program_arg = program_arg[2:]
+	if program_arg in args:
+		cflags = args[program_arg]["CFLAGS"]
+		for cflag in cflags:
+			if not " %s " % cflag in makefile_cflags:
+				# this is printed when a clag is added
+				print "Adding '%s' to CFLAGS" % cflag
+				makefile_cflags += "%s " % cflag
+				made_changes = True
+			else:
+				# this is the thing printed when a CFLAG is already added
+				print "'%s' is already added to CFLAGS" % cflag
+		makefile_lines[makefile_cflags_index] = makefile_cflags
+		pkgs = args[program_arg]["PKGS"]
+		for pkg in pkgs:
+			if pkgs[pkg]:
+				if not " %s " % pkg in makefile_pkgs:
+					# this is the thing printed when adding a package
+					print "Adding '%s' to PKGS" % pkg
+					makefile_pkgs += "%s " % pkg
+					made_changes = True
+				else:
+					# this is the thing printed when a package is already added
+					print "'%s' is already added to PKGS" % pkg
+			else:
+				if " %s " % pkg in makefile_pkgs:
+					# this is the thing printed when removing a package
+					print "Removing '%s' from PKGS" % pkg
+					makefile_pkgs = makefile_pkgs.replace(" %s" % pkg, "")
+					made_changes = True
+				else:
+					# this is the thing printed when a package is already removed
+					print "'%s' is already removed from PKGS" % pkg
+		makefile_lines[makefile_pkgs_index] = makefile_pkgs
+
+if not made_changes:
+	# this is the thing printed when nothing is changed in the makefile
+	sys.stderr.write("Nothing changed\n")
+	sys.exit(1)
+
+try:
+	makefile = open("%s/Makefile" % directory, "w")
+	for line in makefile_lines:
+		makefile.write("%s\n" % line)
+	makefile.close()
+	# this is the thing printed when everything is done
+	print "Done!"
+except Exception as e:
+	# this is the thing printed when it can't write the makefile
+	sys.stderr.write("Failed to open makefile to write configuration;\n%s\n" % e)
+	sys.exit(1)
