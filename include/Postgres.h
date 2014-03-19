@@ -18,8 +18,6 @@
 #ifndef _POSTGRES_H
 #define _POSTGRES_H
 
-#include "defines.h"
-
 #ifndef _NO_POSTGRES
 
 #include <libpq-fe.h>

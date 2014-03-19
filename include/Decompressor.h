@@ -18,8 +18,6 @@
 #ifndef _DECOMPRESSOR_H
 #define _DECOMPRESSOR_H
 
-#include "defines.h"
-
 #include <stdint.h>
 
 #include "String.h"

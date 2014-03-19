@@ -18,8 +18,6 @@
 #ifndef _HTTP_SOCKET_H
 #define _HTTP_SOCKET_H
 
-#include "defines.h"
-
 #include <map>
 
 #ifndef _NO_GZIP
