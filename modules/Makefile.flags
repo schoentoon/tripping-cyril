@@ -1,5 +1,7 @@
-PKGS            := libevent libevent_openssl openssl
-override CFLAGS += -g -Wall -O2 -pipe -fPIC $(shell pkg-config --cflags $(PKGS))
+include ../../make.conf
+
+PKGS            += libevent libevent_openssl openssl
+override CFLAGS += -g -Wall -O2 -pipe -fPIC $(shell pkg-config --cflags $(PKGS) $(LINK_PKGS))
 INC             += -I../../include
 LDFLAGS         := -Wl,--export-dynamic
 MODLINK         := -shared
@@ -15,7 +17,7 @@ all: $(MODBIN)
 	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
 
 $(MODBIN): $(DEPS)
-	$(CXX) $(CFLAGS) $(DEFINES) $(LDFLAGS) $(MODLINK) $(INC) -o $(MODBIN) $(DEPS)
+	$(CXX) $(CFLAGS) $(DEFINES) $(LDFLAGS) $(MODLINK) $(INC) -o $(MODBIN) $(DEPS) $(shell pkg-config --libs $(LINK_PKGS)) $(MAN_LINKS)
 
 clean:
 	rm -fv $(DEPS)

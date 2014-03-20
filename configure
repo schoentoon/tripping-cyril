@@ -45,7 +45,7 @@ def arg(text, **kwargs):
 
 # the first argument (eg "disable-zlib") is the command line arg that
 # will be prepended with --
-# the CFLAGS keyword argument expects a list of things to add to CFLAGS
+# the CFLAGS keyword argument expects a list of things to add or remove to CFLAGS
 # the PKGS keyword argument expects a list of things to add or remove
 # from PKGS, if the package name is prepended with -, it is removed
 # if it is prepended with +, it is added
