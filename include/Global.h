@@ -72,6 +72,8 @@ public:
   struct evdns_base* GetDNSBase() const { return dns_base; };
   /** @brief Main application loop */
   void Loop();
+  std::vector<Module*>::const_iterator begin() const { return modules.begin(); };
+  std::vector<Module*>::const_iterator end() const { return modules.end(); };
 private:
   // @cond
   Global();
