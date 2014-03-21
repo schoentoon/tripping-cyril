@@ -27,6 +27,7 @@
 #include <vector>
 #include <map>
 
+#include "Closable.h"
 #include "String.h"
 #include "Writer.h"
 
@@ -35,7 +36,7 @@ namespace trippingcyril {
 /**
  * @brief A general file access class
  */
-class File : public Writer {
+class File : public Writer, public Closable {
 public:
   File(const String& path);
   virtual ~File();

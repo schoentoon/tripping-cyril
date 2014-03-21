@@ -20,6 +20,7 @@
 
 #include <event2/bufferevent.h>
 
+#include "Closable.h"
 #include "String.h"
 #include "Module.h"
 #include "Writer.h"
@@ -39,7 +40,7 @@ class IPAddress;
 /**
  * @brief General tcp socket class, fully async using libevent
  */
-class Socket : public Event, public Writer {
+class Socket : public Event, public Writer, public Closable {
 public:
   /**
    * General constructor
