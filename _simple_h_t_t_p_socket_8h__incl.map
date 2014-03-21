@@ -1,9 +1,9 @@
 <map id="include/SimpleHTTPSocket.h" name="include/SimpleHTTPSocket.h">
-<area shape="rect" id="node2" href="$defines_8h.html" title="defines.h" alt="" coords="123,80,197,107"/>
-<area shape="rect" id="node5" href="$_string_8h.html" title="String.h" alt="" coords="415,229,481,256"/>
-<area shape="rect" id="node7" href="$_socket_8h.html" title="Socket.h" alt="" coords="421,80,496,107"/>
-<area shape="rect" id="node15" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="598,229,708,256"/>
-<area shape="rect" id="node9" href="$_module_8h.html" title="Module.h" alt="" coords="247,155,321,181"/>
-<area shape="rect" id="node14" href="$_writer_8h.html" title="Writer.h" alt="" coords="473,155,540,181"/>
-<area shape="rect" id="node13" href="$_event_8h.html" title="Event.h" alt="" coords="5,229,72,256"/>
+<area shape="rect" id="node4" href="$_string_8h.html" title="String.h" alt="" coords="491,229,557,256"/>
+<area shape="rect" id="node6" href="$_socket_8h.html" title="Socket.h" alt="" coords="451,80,525,107"/>
+<area shape="rect" id="node15" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="618,229,728,256"/>
+<area shape="rect" id="node8" href="$_closable_8h.html" title="Closable.h" alt="" coords="258,155,341,181"/>
+<area shape="rect" id="node9" href="$_module_8h.html" title="Module.h" alt="" coords="159,155,233,181"/>
+<area shape="rect" id="node14" href="$_writer_8h.html" title="Writer.h" alt="" coords="583,155,651,181"/>
+<area shape="rect" id="node13" href="$_event_8h.html" title="Event.h" alt="" coords="201,229,268,256"/>
 </map>

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['enableautocommit',['enableAutoCommit',['../classtrippingcyril_1_1_database.html#a53ec8368c8b8824126fa217f74150834',1,'trippingcyril::Database']]],
+  ['end',['end',['../classtrippingcyril_1_1_global.html#a6cfe38ddde45059ba8963c7116505a5d',1,'trippingcyril::Global']]],
   ['event',['Event',['../classtrippingcyril_1_1_event.html#ad00ea777fc372f72ac8584c140571b4a',1,'trippingcyril::Event']]],
   ['event',['Event',['../classtrippingcyril_1_1_event.html',1,'trippingcyril']]],
   ['event_2eh',['Event.h',['../_event_8h.html',1,'']]],

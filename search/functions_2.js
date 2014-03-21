@@ -2,7 +2,7 @@ var searchData=
 [
   ['chmod',['Chmod',['../classtrippingcyril_1_1_file.html#ac5a9a6a3887ae674124f99e5dabca88b',1,'trippingcyril::File']]],
   ['cleanupinterdata',['CleanUpInterData',['../classtrippingcyril_1_1_module.html#ab0def3a140e42dec66daa59506829043',1,'trippingcyril::Module']]],
-  ['close',['Close',['../classtrippingcyril_1_1_file.html#ad2562a6854b5cb6d0c69f8b8563fd6d5',1,'trippingcyril::File::Close()'],['../classtrippingcyril_1_1_socket.html#aa9b4a7fbb140ddf44f0bf1622e5ccacc',1,'trippingcyril::Socket::Close()']]],
+  ['close',['Close',['../classtrippingcyril_1_1_closable.html#a0726a7965512b131552be83828611f7c',1,'trippingcyril::Closable::Close()'],['../classtrippingcyril_1_1_file.html#ad2562a6854b5cb6d0c69f8b8563fd6d5',1,'trippingcyril::File::Close()'],['../classtrippingcyril_1_1_socket.html#aa9b4a7fbb140ddf44f0bf1622e5ccacc',1,'trippingcyril::Socket::Close()']]],
   ['columns',['columns',['../classtrippingcyril_1_1_d_b_result.html#aaf84bbcb1d5091bf7f3773266c86c7b2',1,'trippingcyril::DBResult']]],
   ['compressor',['Compressor',['../classtrippingcyril_1_1_compressor.html#aa1eecaa6887b39b6636c916e04d5e573',1,'trippingcyril::Compressor']]],
   ['condvar',['CondVar',['../classtrippingcyril_1_1_cond_var.html#acbf972f3f2b3beca9362962203897410',1,'trippingcyril::CondVar']]],
