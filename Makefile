@@ -11,7 +11,8 @@ BINARY := tripping-cyril
 DEPS := build/String.o build/Global.o build/Socket.o build/Files.o build/Timer.o \
 build/Module.o build/SimpleHTTPSocket.o build/TermUtils.o build/StackTrace.o \
 build/Thread.o build/Pipe.o build/JobThread.o build/Listener.o build/Postgres.o \
-build/Compressor.o build/Decompressor.o build/Event.o build/StatsdClient.o build/Writer.o
+build/Compressor.o build/Decompressor.o build/Event.o build/StatsdClient.o build/Writer.o \
+build/BackoffTimer.o
 
 all: $(BINARY) modules
 

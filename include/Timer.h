@@ -65,7 +65,7 @@ protected:
   /**
    * Called on every interval
    */
-  virtual void RunJob() {};
+  virtual void RunJob() = 0;
   /**
    * Called once our timer has ran its last cycle, will not get called if you
    * delete the timer yourself.
