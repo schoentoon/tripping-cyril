@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['database_2eh',['Database.h',['../_database_8h.html',1,'']]],
-  ['decompressor_2eh',['Decompressor.h',['../_decompressor_8h.html',1,'']]]
+  ['closable_2eh',['Closable.h',['../_closable_8h.html',1,'']]],
+  ['compressor_2eh',['Compressor.h',['../_compressor_8h.html',1,'']]]
 ];

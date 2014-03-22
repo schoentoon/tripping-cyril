@@ -8,6 +8,7 @@ var searchData=
   ['setinteractive',['SetInteractive',['../namespacetrippingcyril_1_1crash.html#ac00752234e0b2edb7dbfb1ff2f2bc00f',1,'trippingcyril::crash']]],
   ['setreadline',['SetReadLine',['../classtrippingcyril_1_1_socket.html#ad9f3f8f3df1f95eadd9cf30226ecb311',1,'trippingcyril::Socket']]],
   ['setstayconnected',['SetStayConnected',['../classtrippingcyril_1_1_database.html#a36795eceac1a6fec7b0590e096da3cb9',1,'trippingcyril::Database']]],
+  ['setstillfailing',['SetStillFailing',['../classtrippingcyril_1_1_backoff_timer.html#a96657a0f10196b5fed02155da096b9c0',1,'trippingcyril::BackoffTimer']]],
   ['settcpkeepalive',['SetTCPKeepAlive',['../classtrippingcyril_1_1_socket.html#a3925ce7141da424edfba46895c639366',1,'trippingcyril::Socket']]],
   ['settcpnodelay',['SetTCPNoDelay',['../classtrippingcyril_1_1_socket.html#a5a701948d4517ac3e53d6a828e7dc0fb',1,'trippingcyril::Socket']]],
   ['settimeout',['SetTimeout',['../classtrippingcyril_1_1_socket.html#a051d0803aadf5bf213ec4c5b04fc6513',1,'trippingcyril::Socket']]],

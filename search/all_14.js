@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['_7ebackofftimer',['~BackoffTimer',['../classtrippingcyril_1_1_backoff_timer.html#a5f46988cd29417e028094c6c7c6e7e8a',1,'trippingcyril::BackoffTimer']]],
   ['_7eblockingpostgres',['~BlockingPostGres',['../classtrippingcyril_1_1_blocking_post_gres.html#ad470d72eea76a4ec898e9d0993812d4a',1,'trippingcyril::BlockingPostGres']]],
   ['_7ecompressor',['~Compressor',['../classtrippingcyril_1_1_compressor.html#a0ef1a00b3cbb012b61424d7623330603',1,'trippingcyril::Compressor']]],
   ['_7econdvar',['~CondVar',['../classtrippingcyril_1_1_cond_var.html#a8b06f9145f9e615b9e35b0dc797a56df',1,'trippingcyril::CondVar']]],
