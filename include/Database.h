@@ -105,7 +105,7 @@ public:
   /** @brief Enables auto commiting */
   void disableAutoCommit() { autocommit = false; };
   /** Set the stay connected mode on or off */
-  void SetStayConnected(bool b) { stay_connected = b; };
+  virtual void SetStayConnected(bool b) { stay_connected = b; };
 protected:
   /**
    * Marks if we should use autocommit or not

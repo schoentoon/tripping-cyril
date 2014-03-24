@@ -61,9 +61,7 @@ public:
   };
   const bool hasError() const {
     ExecStatusType status = PQresultStatus(result);
-    return (status == PGRES_BAD_RESPONSE
-        or status == PGRES_NONFATAL_ERROR
-        or status == PGRES_FATAL_ERROR);
+    return status != PGRES_COMMAND_OK;
   };
   const String getError() const {
     String error(PQresultErrorMessage(result));
@@ -94,6 +92,12 @@ PostGres::~PostGres() {
     delete jobs.front();
     jobs.pop_front();
   };
+  while (!listeners.empty()) {
+    std::map<String, PGNotifyListener*>::iterator iter = listeners.begin();
+    if (iter->second->shouldDelete())
+      delete iter->second;
+    listeners.erase(iter);
+  };
 };
 
 const DBResult* PostGres::Select(const String& query, DBCallback* callback) {
@@ -108,6 +112,25 @@ const DBResult* PostGres::Insert(const String& query, DBCallback* callback) {
   return Select(query, callback);
 };
 
+void PostGres::Listen(const String& key, PGNotifyListener* listener) {
+  std::map<String, PGNotifyListener*>::iterator iter = listeners.find(key);
+  if (iter == listeners.end()) {
+    listeners[key] = listener;
+    stay_connected = true;
+    Select("LISTEN \"" + key + "\"");
+  };
+};
+
+void PostGres::Unlisten(const String& key) {
+  std::map<String, PGNotifyListener*>::iterator iter = listeners.find(key);
+  if (iter != listeners.end()) {
+    if (iter->second->shouldDelete())
+      delete iter->second;
+    listeners.erase(iter);
+    Select("UNLISTEN \"" + key + "\"");
+  };
+};
+
 void PostGres::EventCallback(int fd, short int event, void* ctx) {
   PostGres* pg = (PostGres*) ctx;
   pg->Loop();
@@ -116,43 +139,52 @@ void PostGres::EventCallback(int fd, short int event, void* ctx) {
 void PostGres::Loop() {
   if (in_loop)
     return;
-  if (jobs.empty()) {
-    if (event && conn && stay_connected == false) {
-      event_free(event);
-      PQfinish(conn);
-      conn = NULL;
-      event = NULL;
-    };
-  } else if (conn != NULL && !jobs.empty()) {
-    PQJob* job = jobs[0];
-    if (!job->sent) {
-      PQsendQuery(conn, job->query.c_str());
-      job->sent = true;
-    };
+  if (conn != NULL) {
     if (PQconsumeInput(conn) != 1)
       TermUtils::PrintStatus(false, PQerrorMessage(conn));
     if (PQisBusy(conn) == 0) {
-      in_loop = true;
-      PGresult *result = PQgetResult(conn);
-      while (result != NULL) {
-        DBPGResult dbresult(result);
-        if (dbresult.hasError()) {
-          if (job->callback != NULL)
-            job->callback->QueryError(dbresult.getError(), job->query);
-        } else {
-          if (job->callback != NULL)
-            job->callback->QueryResult(&dbresult, job->query);
-        };
-        result = PQgetResult(conn);
+      PGnotify* notify;
+      while ((notify = PQnotifies(conn)) != NULL) {
+        std::map<String, PGNotifyListener*>::const_iterator iter = listeners.find(notify->relname);
+        if (iter != listeners.end() && iter->second != NULL)
+          iter->second->onNotify(notify->relname, notify->extra, notify->be_pid);
+        PQfreemem(notify);
       };
-      if (job->callback)
-        job->callback->QueryDone();
-      jobs.pop_front();
-      delete job;
-      in_loop = false;
-      Loop();
+      if (jobs.empty() == false) {
+        PQJob* job = jobs[0];
+        if (!job->sent) {
+          PQsendQuery(conn, job->query.c_str());
+          job->sent = true;
+        };
+        in_loop = true;
+        PGresult *result = PQgetResult(conn);
+        while (result != NULL) {
+          DBPGResult dbresult(result);
+          if (dbresult.hasError()) {
+            if (job->callback != NULL)
+              job->callback->QueryError(dbresult.getError(), job->query);
+          } else {
+            if (job->callback != NULL)
+              job->callback->QueryResult(&dbresult, job->query);
+          };
+          result = PQgetResult(conn);
+        };
+        if (job->callback)
+          job->callback->QueryDone();
+        jobs.pop_front();
+        delete job;
+        in_loop = false;
+        Loop();
+      };
+    } else if (jobs.empty() && listeners.empty() && stay_connected == false) {
+      if (event != NULL) {
+        event_free(event);
+        PQfinish(conn);
+        conn = NULL;
+        event = NULL;
+      };
     };
-  } else if (jobs.empty() == false) {
+  } else if (jobs.empty() == false && conn == NULL) {
     conn = PQconnectdb(connstring.c_str());
     if (PQstatus(conn) != CONNECTION_OK) {
       TermUtils::PrintStatus(false, PQerrorMessage(conn));
@@ -163,6 +195,12 @@ void PostGres::Loop() {
       if (autocommit) {
         PQJob* autocommit_job = new PQJob("SET AUTOCOMMIT = ON");
         jobs.push_front(autocommit_job);
+      };
+      if (listeners.empty() == false) {
+        for (std::map<String, PGNotifyListener*>::const_iterator iter = listeners.begin(); iter != listeners.end(); ++iter) {
+          PQJob* job = new PQJob("LISTEN \"" + iter->first + "\"");
+          jobs.push_front(job);
+        };
       };
       if (event == NULL) {
         event = event_new((module) ? module->GetEventBase() : Global::Get()->GetEventBase(), PQsocket(conn), EV_READ|EV_PERSIST, PostGres::EventCallback, this);

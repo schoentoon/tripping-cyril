@@ -23,6 +23,7 @@
 #include <libpq-fe.h>
 #include <event2/event.h>
 #include <deque>
+#include <map>
 
 #include "Database.h"
 
@@ -31,6 +32,22 @@ namespace trippingcyril {
 // @cond
 class PQJob;
 // @endcond
+
+/**
+ * @brief Callback for listen/notify operations within PostGres, use this with PostGres::Listen
+ */
+class PGNotifyListener : public ShouldDelete {
+public:
+  virtual ~PGNotifyListener() {
+  };
+  /**
+   * Will get called upon a notify operation
+   * @param key The key, or channel as they call it within postgres
+   * @param payload The optional payload
+   * @param pid The process id of the postgresql backend
+   */
+  virtual void onNotify(const String& key, const String& payload, const int pid) = 0;
+};
 
 /**
  * @brief A non blocking postgresql implementation of the Database interface
@@ -52,6 +69,15 @@ public:
   virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
   virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
   bool isIdle() const { return conn == NULL; };
+  /**
+   * Demands SetStayConnected(true), will apply automatically
+   */
+  void Listen(const String& key, PGNotifyListener* listener);
+  void Unlisten(const String& key);
+  virtual void SetStayConnected(bool b) {
+    if (listeners.empty())
+      stay_connected = b;
+  };
 private:
   // @cond
   String connstring;
@@ -61,6 +87,7 @@ private:
   bool in_loop : 1;
   static void EventCallback(evutil_socket_t fd, short event, void* ctx);
   void Loop();
+  std::map<String, PGNotifyListener*> listeners;
   // @endcond
 };
 
