@@ -1,17 +1,18 @@
 <map id="trippingcyril::ShouldDelete" name="trippingcyril::ShouldDelete">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_d_b_callback.html" title="Database callback class. " alt="" coords="238,31,405,57"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_h_t_t_p_callback.html" title="Callback class for our SimpleHTTPSocket. " alt="" coords="230,81,413,108"/>
-<area shape="rect" id="node4" href="$classtrippingcyril_1_1_job.html" title="Job base class With main thread we really just mean the thread the Module that the JobThread we are p..." alt="" coords="263,132,380,159"/>
-<area shape="rect" id="node5" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="256,183,387,209"/>
-<area shape="rect" id="node6" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="469,56,635,83"/>
-<area shape="rect" id="node9" href="$classtrippingcyril_1_1_decompressor.html" title="Abstract decompressor. " alt="" coords="461,107,643,133"/>
-<area shape="rect" id="node11" href="$classtrippingcyril_1_1_file.html" title="A general file access class. " alt="" coords="493,157,611,184"/>
-<area shape="rect" id="node13" href="$classtrippingcyril_1_1_pipe.html" title="A wrapper class for pipes. " alt="" coords="491,208,613,235"/>
-<area shape="rect" id="node14" href="$classtrippingcyril_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="483,259,621,285"/>
-<area shape="rect" id="node16" href="$classtrippingcyril_1_1_string_writer.html" title="Simple in memory writer that just writes everything to a string. " alt="" coords="469,309,635,336"/>
-<area shape="rect" id="node7" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="700,5,895,32"/>
-<area shape="rect" id="node8" href="$classtrippingcyril_1_1_l_z_m_a_compressor.html" title="A lzma implementation of the Compressor interface. " alt="" coords="696,56,899,83"/>
-<area shape="rect" id="node10" href="$classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="693,107,902,133"/>
-<area shape="rect" id="node12" href="$classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="722,157,873,184"/>
-<area shape="rect" id="node15" href="$classtrippingcyril_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="691,259,903,285"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_d_b_callback.html" title="Database callback class. " alt="" coords="245,5,411,32"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_h_t_t_p_callback.html" title="Callback class for our SimpleHTTPSocket. " alt="" coords="237,56,419,83"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_job.html" title="Job base class With main thread we really just mean the thread the Module that the JobThread we are p..." alt="" coords="269,107,387,133"/>
+<area shape="rect" id="node5" href="$classtrippingcyril_1_1_p_g_notify_listener.html" title="Callback for listen/notify operations within PostGres, use this with PostGres::Listen. " alt="" coords="230,157,426,184"/>
+<area shape="rect" id="node6" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="263,208,393,235"/>
+<area shape="rect" id="node7" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="482,81,649,108"/>
+<area shape="rect" id="node10" href="$classtrippingcyril_1_1_decompressor.html" title="Abstract decompressor. " alt="" coords="475,132,656,159"/>
+<area shape="rect" id="node12" href="$classtrippingcyril_1_1_file.html" title="A general file access class. " alt="" coords="507,183,624,209"/>
+<area shape="rect" id="node14" href="$classtrippingcyril_1_1_pipe.html" title="A wrapper class for pipes. " alt="" coords="504,233,627,260"/>
+<area shape="rect" id="node15" href="$classtrippingcyril_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="497,284,634,311"/>
+<area shape="rect" id="node17" href="$classtrippingcyril_1_1_string_writer.html" title="Simple in memory writer that just writes everything to a string. " alt="" coords="483,335,648,361"/>
+<area shape="rect" id="node8" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="713,31,908,57"/>
+<area shape="rect" id="node9" href="$classtrippingcyril_1_1_l_z_m_a_compressor.html" title="A lzma implementation of the Compressor interface. " alt="" coords="709,81,912,108"/>
+<area shape="rect" id="node11" href="$classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="706,132,915,159"/>
+<area shape="rect" id="node13" href="$classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="735,183,886,209"/>
+<area shape="rect" id="node16" href="$classtrippingcyril_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="705,284,917,311"/>
 </map>

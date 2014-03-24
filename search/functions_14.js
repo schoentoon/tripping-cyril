@@ -25,6 +25,7 @@ var searchData=
   ['_7emodule',['~Module',['../classtrippingcyril_1_1_module.html#aeb7a5777b2489432e87253104937a3bc',1,'trippingcyril::Module']]],
   ['_7emutex',['~Mutex',['../classtrippingcyril_1_1_mutex.html#ab1f7faaca49b01aa2ecd0b06de9bd8e5',1,'trippingcyril::Mutex']]],
   ['_7emutexlocker',['~MutexLocker',['../classtrippingcyril_1_1_mutex_locker.html#afbf94baffb443de7c870cff7daebf4b2',1,'trippingcyril::MutexLocker']]],
+  ['_7epgnotifylistener',['~PGNotifyListener',['../classtrippingcyril_1_1_p_g_notify_listener.html#a8a13dd057a12268f7f29fb48ae02402d',1,'trippingcyril::PGNotifyListener']]],
   ['_7epipe',['~Pipe',['../classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d',1,'trippingcyril::Pipe']]],
   ['_7epostgres',['~PostGres',['../classtrippingcyril_1_1_post_gres.html#a50b2f8dedef392f2f87d1e4e851dfdf8',1,'trippingcyril::PostGres']]],
   ['_7esimplehttpsocket',['~SimpleHTTPSocket',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a279bb1590211ed1e7ff698d470c80e1e',1,'trippingcyril::SimpleHTTPSocket']]],
