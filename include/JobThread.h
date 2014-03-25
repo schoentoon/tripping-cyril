@@ -34,6 +34,7 @@ namespace trippingcyril {
  */
 class Job : public ShouldDelete {
 public:
+  Job() { runPostHook = true; };
   /** Deconstructor */
   virtual ~Job() {};
   /**
@@ -49,6 +50,12 @@ public:
    * This method will run on the 'main' thread after execution of execute()
    */
   virtual void postExecuteMain() = 0;
+  /**
+   * Set this to false if you don't want postExecuteMain() to run, true by default
+   * @note This can in theory improve performance as you won't cause unnecessary
+   * activity on the main thread.
+   */
+  bool runPostHook : 1;
 };
 
 // @cond

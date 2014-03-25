@@ -31,12 +31,12 @@ namespace test {
 
 class LibEventHelper : public Module {
 public:
-  LibEventHelper()
+  LibEventHelper(unsigned int timeout = 10)
   : Module(NULL, "libevent", "/dev/null") {
     event_base = event_base_new();
     struct timeval tm;
     tm.tv_usec = 0;
-    tm.tv_sec = 10;
+    tm.tv_sec = timeout;
     EXPECT_EQ(0, event_base_loopexit(event_base, &tm));
   };
   String GetVersion() const { return "test"; };
@@ -57,10 +57,14 @@ public:
 
 class LibEventTest : public ::testing::Test {
 public:
+  LibEventTest() {
+    timeout = 10;
+  };
   LibEventHelper* event_base;
 protected:
+  unsigned int timeout;
   virtual void SetUp() {
-    event_base = new LibEventHelper;
+    event_base = new LibEventHelper(timeout);
   };
   virtual void TearDown() {
     delete event_base;

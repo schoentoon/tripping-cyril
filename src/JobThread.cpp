@@ -51,7 +51,8 @@ public:
         };
         break;
       case 2:
-        jobr.job->postExecuteMain();
+        if (jobr.job->runPostHook)
+          jobr.job->postExecuteMain();
         if (jobr.job->shouldDelete())
           delete jobr.job;
         break;

@@ -26,11 +26,17 @@ using namespace trippingcyril;
 namespace test {
 
 class JobThread : public LibEventTest {
+public:
+  JobThread()
+  : LibEventTest() {
+    timeout = 1;
+  };
 };
 
 class TestJob : public Job {
 public:
-  TestJob(Module* module) {
+  TestJob(Module* module)
+  : Job() {
     this->done = NULL;
     this->module = module;
     this->mainThread = 0;
@@ -38,10 +44,12 @@ public:
     this->shouldRun = true;
   };
   virtual ~TestJob() {
-    if (shouldRun) {
+    if (shouldRun && runPostHook) {
       EXPECT_EQ(3, counter);
-    } else {
+    } else if (shouldRun == false) {
       EXPECT_EQ(1, counter);
+    } else if (runPostHook == false) {
+      EXPECT_EQ(2, counter);
     };
   };
   virtual bool preExecuteMain() {
@@ -61,6 +69,8 @@ public:
       EXPECT_NE(mainThread, pthread_self());
     }
     EXPECT_EQ(1, counter++);
+    if (runPostHook == false && done != NULL)
+      *done = true;
   };
   virtual void postExecuteMain() {
     if (mainThread != 0) {
@@ -82,6 +92,20 @@ TEST_F(JobThread, TestJob) {
   trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
   ASSERT_TRUE(thread->Start());
   TestJob* job = new TestJob(event_base);
+  job->mainThread = pthread_self();
+  bool done = false;
+  job->done = &done;
+  thread->Add(job);
+  while (done == false && event_base->Loop());
+  delete thread;
+  EXPECT_DEATH(delete job, "");
+};
+
+TEST_F(JobThread, NoPostHook) {
+  trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
+  ASSERT_TRUE(thread->Start());
+  TestJob* job = new TestJob(event_base);
+  job->runPostHook = false;
   job->mainThread = pthread_self();
   bool done = false;
   job->done = &done;
