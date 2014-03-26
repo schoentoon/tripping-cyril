@@ -14,3 +14,4 @@ env:
   - CONFIGURE_ARGS=--disable-postgres
   - CONFIGURE_ARGS=--disable-lzma
   - CONFIGURE_ARGS=--disable-zlib
+  - CONFIGURE_ARGS=
