@@ -118,7 +118,7 @@ for program_arg in sys.argv[1:]:
 if not made_changes:
 	# this is the thing printed when nothing is changed in the makefile
 	sys.stderr.write("Nothing changed\n")
-	sys.exit(1)
+	sys.exit(0)
 
 try:
 	makefile = open("%s/make.conf" % directory, "w")
