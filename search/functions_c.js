@@ -7,6 +7,7 @@ var searchData=
   ['oncreate',['OnCreate',['../classtrippingcyril_1_1_file_observer_callback.html#a5aa6f9181e05f2094606277eaef480d6',1,'trippingcyril::FileObserverCallback']]],
   ['ondelete',['OnDelete',['../classtrippingcyril_1_1_file_observer_callback.html#a6f2388ee3a282d7c93e4a91806ad45c2',1,'trippingcyril::FileObserverCallback']]],
   ['onloaded',['OnLoaded',['../classtrippingcyril_1_1_module.html#a049988ec7e10969554f195ff1c13cd5d',1,'trippingcyril::Module']]],
+  ['onlycontains',['OnlyContains',['../classtrippingcyril_1_1_string.html#a5e5be42c21879511fa33dda436b5d2b5',1,'trippingcyril::String']]],
   ['onmodify',['OnModify',['../classtrippingcyril_1_1_file_observer_callback.html#a457c25567a48bd682c8b5c6be3505cde',1,'trippingcyril::FileObserverCallback']]],
   ['onnotify',['onNotify',['../classtrippingcyril_1_1_p_g_notify_listener.html#a1063699c6bd1787ac727b34fdea65dd0',1,'trippingcyril::PGNotifyListener']]],
   ['onread',['OnRead',['../classtrippingcyril_1_1_pipe.html#a41a4a156109a34614db332b05519f18e',1,'trippingcyril::Pipe']]],

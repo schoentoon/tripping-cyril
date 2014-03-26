@@ -27,7 +27,7 @@ var searchData=
   ['socket',['Socket',['../classtrippingcyril_1_1_socket.html#a2b39145643c0496c45b2e57fd606b861',1,'trippingcyril::Socket::Socket(const Module *module)'],['../classtrippingcyril_1_1_socket.html#abe98beeee9e08a2e8a866ff34217a13f',1,'trippingcyril::Socket::Socket(struct bufferevent *event)']]],
   ['socket',['Socket',['../classtrippingcyril_1_1_socket.html',1,'trippingcyril']]],
   ['socket_2eh',['Socket.h',['../_socket_8h.html',1,'']]],
-  ['ssllistener',['SSLListener',['../classtrippingcyril_1_1_s_s_l_listener.html#a2199a5af5644e368507147f014ebe0a6',1,'trippingcyril::SSLListener']]],
+  ['ssllistener',['SSLListener',['../classtrippingcyril_1_1_s_s_l_listener.html#a62de58431aefb1b8c97ab767a46100ab',1,'trippingcyril::SSLListener']]],
   ['ssllistener',['SSLListener',['../classtrippingcyril_1_1_s_s_l_listener.html',1,'trippingcyril']]],
   ['stacktrace',['StackTrace',['../namespacetrippingcyril_1_1crash.html#a08003661d1c50c0c4d51aec9087ee4cc',1,'trippingcyril::crash']]],
   ['stacktrace_2eh',['StackTrace.h',['../_stack_trace_8h.html',1,'']]],

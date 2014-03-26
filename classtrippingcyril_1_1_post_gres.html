@@ -127,8 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4aa480f4d0102b2efa7aa7420724dda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0456d6a0df5cd1a05f032028863acd78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_post_gres.html#a0456d6a0df5cd1a05f032028863acd78">isIdle</a> () const </td></tr>
 <tr class="separator:a0456d6a0df5cd1a05f032028863acd78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bc1dfaf4ca6a2be40ce8bb7d5c0841f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_post_gres.html#a6bc1dfaf4ca6a2be40ce8bb7d5c0841f">Listen</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;key, <a class="el" href="classtrippingcyril_1_1_p_g_notify_listener.html">PGNotifyListener</a> *listener)</td></tr>
-<tr class="separator:a6bc1dfaf4ca6a2be40ce8bb7d5c0841f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec60e3cbce57a48fc44aded01a6215e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_post_gres.html#aec60e3cbce57a48fc44aded01a6215e6">Listen</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;key, <a class="el" href="classtrippingcyril_1_1_p_g_notify_listener.html">PGNotifyListener</a> *listener)</td></tr>
+<tr class="separator:aec60e3cbce57a48fc44aded01a6215e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cf2ceed22a538e86352185dc2d1d8ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_post_gres.html#a0cf2ceed22a538e86352185dc2d1d8ea">Unlisten</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;key)</td></tr>
 <tr class="separator:a0cf2ceed22a538e86352185dc2d1d8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeffcdc7bbe27dd91c47ae5f802facc0d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_post_gres.html#aeffcdc7bbe27dd91c47ae5f802facc0d">SetStayConnected</a> (bool b)</td></tr>
@@ -298,12 +298,12 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6bc1dfaf4ca6a2be40ce8bb7d5c0841f"></a>
+<a class="anchor" id="aec60e3cbce57a48fc44aded01a6215e6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void trippingcyril::PostGres::Listen </td>
+          <td class="memname">bool trippingcyril::PostGres::Listen </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -322,6 +322,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Demands SetStayConnected(true), will apply automatically </p>
+<dl class="section return"><dt>Returns</dt><dd>False if you're already listening for this or if it contained some invalid characters </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classtrippingcyril_1_1_string.html#a5e5be42c21879511fa33dda436b5d2b5">String::OnlyContains</a> </dd></dl>
 
 </div>
 </div>
@@ -420,7 +422,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 25 2014 22:08:21 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 26 2014 16:03:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
