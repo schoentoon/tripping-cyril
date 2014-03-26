@@ -30,13 +30,13 @@ namespace trippingcyril {
 /**
  * @brief Generic listener class
  */
-class Listener {
+class Listener : public Event {
 public:
   /**
    * General constructor
    * @param pPort The port to listen on
    */
-  Listener(uint16_t pPort);
+  Listener(const Module* module, uint16_t pPort);
   /** Deconstructor */
   virtual ~Listener();
   /** @return True if we are listening */
@@ -74,7 +74,7 @@ public:
    * General constructor
    * @param pPort The port to listen on
    */
-  SSLListener(uint16_t pPort);
+  SSLListener(const Module* module, uint16_t pPort);
   /** General deconstructor */
   virtual ~SSLListener();
 protected:

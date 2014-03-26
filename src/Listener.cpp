@@ -23,8 +23,9 @@
 
 namespace trippingcyril {
 
-Listener::Listener(uint16_t pPort)
-: port(pPort) {
+Listener::Listener(const Module* module, uint16_t pPort)
+: Event(module)
+, port(pPort) {
   listener = NULL;
 };
 
@@ -62,8 +63,8 @@ void Listener::listener_cb(evconnlistener* evlistener, int fd, sockaddr* sa, int
     listener->createSocket(bev);
 };
 
-SSLListener::SSLListener(uint16_t pPort)
-: Listener(pPort) {
+SSLListener::SSLListener(const Module* module, uint16_t pPort)
+: Listener(module, pPort) {
   ssl_ctx = initSSLContext();
 };
 
