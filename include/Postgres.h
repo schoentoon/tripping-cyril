@@ -71,8 +71,10 @@ public:
   bool isIdle() const { return conn == NULL; };
   /**
    * Demands SetStayConnected(true), will apply automatically
+   * @return False if you're already listening for this or if it contained some
+   * invalid characters @see String::OnlyContains
    */
-  void Listen(const String& key, PGNotifyListener* listener);
+  bool Listen(const String& key, PGNotifyListener* listener);
   void Unlisten(const String& key);
   virtual void SetStayConnected(bool b) {
     if (listeners.empty())

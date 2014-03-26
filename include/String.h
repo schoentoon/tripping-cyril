@@ -104,7 +104,7 @@ public:
    * Check if the string is formed with only the characters provided
    * @return False if a character not listed in the parameter is found
    */
-  bool OnlyContains(const String& characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-");
+  bool OnlyContains(const String& characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-") const;
 
   /** @return True if this string is not "false". */
   bool ToBool() const;

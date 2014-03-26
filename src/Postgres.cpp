@@ -112,13 +112,17 @@ const DBResult* PostGres::Insert(const String& query, DBCallback* callback) {
   return Select(query, callback);
 };
 
-void PostGres::Listen(const String& key, PGNotifyListener* listener) {
+bool PostGres::Listen(const String& key, PGNotifyListener* listener) {
+  if (key.OnlyContains("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-") == false)
+    return false;
   std::map<String, PGNotifyListener*>::iterator iter = listeners.find(key);
   if (iter == listeners.end()) {
     listeners[key] = listener;
     stay_connected = true;
     Select("LISTEN \"" + key + "\"");
+    return true;
   };
+  return false;
 };
 
 void PostGres::Unlisten(const String& key) {
