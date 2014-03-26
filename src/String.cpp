@@ -133,6 +133,15 @@ String& String::MakeUpper() {
   return *this;
 };
 
+bool String::OnlyContains(const String& characters) {
+  for (unsigned int c = 0; c < length(); ++c) {
+    char ch = (*this)[c];
+    if (characters.find(ch) == string::npos)
+      return false;
+  };
+  return true;
+};
+
 bool String::ToBool() const {
   return *this == "true";
 };

@@ -25,6 +25,12 @@ using namespace trippingcyril;
 
 namespace test {
 
+TEST(String, OnlyContains) {
+  String str("abcdef");
+  EXPECT_TRUE(str.OnlyContains("abcdefghijklmnop"));
+  EXPECT_FALSE(str.OnlyContains("ABCDEF"));
+};
+
 TEST(String, ToPercent) {
   String percent = String::ToPercent(1.337);
   EXPECT_EQ(percent, "1.34%");
