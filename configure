@@ -2,14 +2,14 @@
 import os, sys
 
 directory = os.path.dirname(os.path.abspath(__file__))
+makefile_lines = []
+makefile_cflags = ""
+makefile_pkgs = ""
+makefile_cflags_index = -1
+makefile_pkgs_index = -1
 
 try:
 	makefile = open("%s/make.conf" % directory)
-	makefile_lines = []
-	makefile_cflags = ""
-	makefile_pkgs = ""
-	makefile_cflags_index = -1
-	makefile_pkgs_index = -1
 	for n, line in enumerate(makefile):
 		line = line.rstrip("\r\n")
 		makefile_lines.append(line)
@@ -26,7 +26,7 @@ except Exception as e:
 	sys.exit(1)
 
 args = {}
-def arg(text, **kwargs):
+def add_arg(text, **kwargs):
 	args.setdefault(text, {"PKGS": {}, "CFLAGS": {}})
 	if "PKGS" in kwargs:
 		for pkg in kwargs["PKGS"]:
@@ -49,12 +49,12 @@ def arg(text, **kwargs):
 # the PKGS keyword argument expects a list of things to add or remove
 # from PKGS, if the package name is prepended with -, it is removed
 # if it is prepended with +, it is added
-arg("disable-zlib", CFLAGS=["+-D_NO_GZIP"], PKGS=["-zlib"], about="Disable zlib")
-arg("enable-zlib", CFLAGS=["--D_NO_GZIP"], PKGS=["+zlib"], about="Enable zlib")
-arg("disable-lzma", CFLAGS=["+-D_NO_LZMA"], PKGS=["-liblzma"], about="Disable lzma")
-arg("enable-lzma", CFLAGS=["--D_NO_LZMA"], PKGS=["+liblzma"], about="Enable lzma")
-arg("disable-postgres", CFLAGS=["+-D_NO_POSTGRES"], PKGS=["-libpq"], about="Disable postgres")
-arg("enable-postgres", CFLAGS=["--D_NO_POSTGRES"], PKGS=["+libpq"], about="Enable postgres")
+add_arg("disable-zlib", CFLAGS=["+-D_NO_GZIP"], PKGS=["-zlib"], about="Disable zlib")
+add_arg("enable-zlib", CFLAGS=["--D_NO_GZIP"], PKGS=["+zlib"], about="Enable zlib")
+add_arg("disable-lzma", CFLAGS=["+-D_NO_LZMA"], PKGS=["-liblzma"], about="Disable lzma")
+add_arg("enable-lzma", CFLAGS=["--D_NO_LZMA"], PKGS=["+liblzma"], about="Enable lzma")
+add_arg("disable-postgres", CFLAGS=["+-D_NO_POSTGRES"], PKGS=["-libpq"], about="Disable postgres")
+add_arg("enable-postgres", CFLAGS=["--D_NO_POSTGRES"], PKGS=["+libpq"], about="Enable postgres")
 
 help_set = set(["--help", "-h"])
 if len(set(sys.argv) & set(["--help", "-h"])) > 0:
@@ -64,13 +64,26 @@ if len(set(sys.argv) & set(["--help", "-h"])) > 0:
 			print "   --%s: %s" % (option, args[option]["about"])
 
 made_changes = False
-for program_arg in sys.argv[1:]:
+def parse_arg(program_arg):
+	global made_changes
+	global makefile_cflags
+	global makefile_pkgs
 	if program_arg in help_set:
-		continue
+		return
 	if not program_arg.startswith("--"):
 		sys.stderr.write("wrongly formatted arg '%s'!\n" % program_arg)
 		sys.exit(1)
 	program_arg = program_arg[2:]
+	if program_arg == "disable-all":
+		for available_option in args:
+			if available_option.startswith("disable-"):
+				parse_arg("--%s" % available_option)
+		return False
+	if program_arg == "enable-all":
+		for available_option in args:
+			if available_option.startswith("enable-"):
+				parse_arg("--%s" % available_option)
+		return False
 	if program_arg in args:
 		cflags = args[program_arg]["CFLAGS"]
 		for cflag in cflags:
@@ -114,6 +127,12 @@ for program_arg in sys.argv[1:]:
 					# this is the thing printed when a package is already removed
 					print "'%s' is already removed from PKGS" % pkg
 		makefile_lines[makefile_pkgs_index] = makefile_pkgs
+	else:
+		sys.stderr.write("Uknown arg provided: '%s'\n" % program_arg)
+
+for arg in sys.argv[1:]:
+	if not parse_arg(arg) == None:
+		break
 
 if not made_changes:
 	# this is the thing printed when nothing is changed in the makefile
