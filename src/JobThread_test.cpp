@@ -88,7 +88,7 @@ public:
   bool shouldRun;
 };
 
-TEST_F(JobThread, TestJob) {
+TEST_F(JobThread, DISABLED_TestJob) {
   trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
   ASSERT_TRUE(thread->Start());
   TestJob* job = new TestJob(event_base);
@@ -101,7 +101,7 @@ TEST_F(JobThread, TestJob) {
   EXPECT_DEATH(delete job, "");
 };
 
-TEST_F(JobThread, NoPostHook) {
+TEST_F(JobThread, DISABLED_NoPostHook) {
   trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
   ASSERT_TRUE(thread->Start());
   TestJob* job = new TestJob(event_base);

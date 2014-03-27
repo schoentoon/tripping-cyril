@@ -11,6 +11,8 @@ script:
   - make test CXX=$CXX CC=$CC CFLAGS=-Werror
 env:
   matrix:
+  - CONFIGURE_ARGS=--enable-all
+  - CONFIGURE_ARGS=--disable-all
   - CONFIGURE_ARGS=--disable-postgres
   - CONFIGURE_ARGS=--disable-lzma
   - CONFIGURE_ARGS=--disable-zlib
