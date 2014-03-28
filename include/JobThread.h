@@ -75,14 +75,11 @@ public:
   void Add(Job* job);
   /** Add a new job to the front of our job queue */
   void AddFront(Job* job);
-  /** Get the module this thread was created with */
-  const Module* GetModule() const { return module; };
 protected:
   Job* Remove();
   void* run();
 private:
   // @cond
-  const Module* module;
   list<Job*> jobs;
   Mutex* mutex;
   CondVar* condvar;

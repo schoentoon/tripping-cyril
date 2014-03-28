@@ -64,8 +64,7 @@ private:
 };
 
 JobThread::JobThread(const String& pName, const Module* pModule)
-: Thread(pName)
-, module(pModule) {
+: Thread(pName, pModule) {
   mutex = new Mutex;
   condvar = new CondVar;
   pipe = new JobRunnerPipe(this);

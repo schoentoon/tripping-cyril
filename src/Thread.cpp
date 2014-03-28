@@ -23,8 +23,9 @@
 
 namespace trippingcyril {
 
-Thread::Thread(const String& pName)
-: name(pName) {
+Thread::Thread(const String& pName, const Module* pModule)
+: Event(pModule)
+, name(pName) {
   tid = 0;
   running = 0;
   detached = 0;

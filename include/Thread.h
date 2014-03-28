@@ -23,19 +23,20 @@
 #include <pthread.h>
 
 #include "String.h"
+#include "Event.h"
 
 namespace trippingcyril {
 
 /**
  * @brief Simple thread class
  */
-class Thread {
+class Thread : public Event {
 public:
   /**
    * Standard constructor
    * @param pName The name the thread will get
    */
-  Thread(const String& pName);
+  Thread(const String& pName, const Module* pModule);
   /**
    * Standard deconstructor
    */

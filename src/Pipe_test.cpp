@@ -77,7 +77,7 @@ TEST_F(Pipe, OnRead) {
 class WriteThread : public Thread {
 public:
   WriteThread(TestPipe* pipe, const String& writeData)
-  : Thread("pipewritethread") {
+  : Thread("pipewritethread", NULL) {
     this->pipe = pipe;
     this->writeData = writeData;
   };

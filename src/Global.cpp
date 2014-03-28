@@ -83,7 +83,7 @@ void Global::Loop() {
 class ModuleThread : public Thread {
 public:
   ModuleThread(Module* pModule)
-  : Thread(pModule->GetModName())
+  : Thread(pModule->GetModName(), pModule)
   , unloadOnCrash(pModule->unloadOnCrash)
   , reloadOnCrash(pModule->reloadOnCrash) {
     module = pModule;

@@ -26,7 +26,7 @@ namespace tests {
 class JoinThread : public Thread {
 public:
   JoinThread(const String& name, void* output)
-  : Thread(name) {
+  : Thread(name, NULL) {
     this->output = output;
   };
   void* run() {
