@@ -45,6 +45,7 @@ public:
     Module* module;
     bool reload : 1;
   };
+protected:
   virtual void OnRead() {
     OnCrashStruct data;
     while (Read((char*) &data, sizeof(data)) == sizeof(data) && data.module != NULL) {

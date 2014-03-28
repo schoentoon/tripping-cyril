@@ -56,6 +56,7 @@ public:
     MutexLocker lock(&mutex);
     return write(fds[1], buffer, len);
   };
+protected:
   /**
    * Override this method with your own stuff to do when read operations happen
    */

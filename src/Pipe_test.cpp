@@ -40,6 +40,9 @@ public:
       ADD_FAILURE() << "There were expected reads which I haven't seen.";
     };
   };
+  bool* done;
+  deque<String> expectedReads;
+protected:
   virtual void OnRead() {
     char buf[4096];
     int ret = Read(buf, sizeof(buf));
@@ -59,8 +62,6 @@ public:
       *done = true;
     event_base_loopbreak(GetModule()->GetEventBase());
   };
-  bool* done;
-  deque<String> expectedReads;
 };
 
 TEST_F(Pipe, OnRead) {

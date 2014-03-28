@@ -33,6 +33,7 @@ public:
     char mode;
     Job* job;
   };
+protected:
   virtual void OnRead() {
     JobRunner jobr;
     while (Read((char*) &jobr, sizeof(jobr)) == sizeof(jobr) && jobr.job != NULL) {

@@ -31,6 +31,7 @@ namespace trippingcyril {
 
 // @cond
 class PQJob;
+class PostGres;
 // @endcond
 
 /**
@@ -40,6 +41,7 @@ class PGNotifyListener : public ShouldDelete {
 public:
   virtual ~PGNotifyListener() {
   };
+protected:
   /**
    * Will get called upon a notify operation
    * @param key The key, or channel as they call it within postgres
@@ -47,6 +49,9 @@ public:
    * @param pid The process id of the postgresql backend
    */
   virtual void onNotify(const String& key, const String& payload, const int pid) = 0;
+  // @cond
+  friend class PostGres;
+  // @endcond
 };
 
 /**
