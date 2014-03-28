@@ -76,6 +76,10 @@ void TermUtils::PrintMotd() {
   fflush(stdout);
 };
 
+int TermUtils::GetCPUCount() {
+  return sysconf(_SC_NPROCESSORS_ONLN);
+};
+
 TermUtils::StatusPrinter::StatusPrinter(const String& start_message) {
   called = false;
   String msg(start_message);

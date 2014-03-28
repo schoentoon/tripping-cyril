@@ -45,6 +45,10 @@ public:
    */
   static void PrintMotd();
   /**
+   * @return The amount of online processors the system has, useful to determine your amount of threads
+   */
+  static int GetCPUCount();
+  /**
    * @brief Pretty print loading statuses
    */
   class StatusPrinter {
