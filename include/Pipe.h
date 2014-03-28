@@ -53,7 +53,6 @@ public:
    * <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a>
    */
   int Write(const char* buffer, size_t len) {
-    MutexLocker lock(&mutex);
     return write(fds[1], buffer, len);
   };
 protected:
@@ -65,7 +64,6 @@ private:
   // @cond
   int fds[2];
   struct event* read_event;
-  Mutex mutex;
   static void EventCallback(evutil_socket_t fd, short event, void* arg);
   // @endcond
 };
