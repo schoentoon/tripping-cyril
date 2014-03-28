@@ -88,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classtrippingcyril_1_1_p_g_notify_listener-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">trippingcyril::PGNotifyListener Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -117,11 +118,14 @@ Collaboration diagram for trippingcyril::PGNotifyListener:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a13dd057a12268f7f29fb48ae02402d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_p_g_notify_listener.html#a8a13dd057a12268f7f29fb48ae02402d">~PGNotifyListener</a> ()</td></tr>
 <tr class="separator:a8a13dd057a12268f7f29fb48ae02402d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1063699c6bd1787ac727b34fdea65dd0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_p_g_notify_listener.html#a1063699c6bd1787ac727b34fdea65dd0">onNotify</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;key, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;payload, const int pid)=0</td></tr>
-<tr class="separator:a1063699c6bd1787ac727b34fdea65dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtrippingcyril_1_1_should_delete"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtrippingcyril_1_1_should_delete')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtrippingcyril_1_1_should_delete.html">trippingcyril::ShouldDelete</a></td></tr>
 <tr class="memitem:abee8f619e360227b56baac4d6914c6d3 inherit pub_methods_classtrippingcyril_1_1_should_delete"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_should_delete.html#abee8f619e360227b56baac4d6914c6d3">shouldDelete</a> () const </td></tr>
 <tr class="separator:abee8f619e360227b56baac4d6914c6d3 inherit pub_methods_classtrippingcyril_1_1_should_delete"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1063699c6bd1787ac727b34fdea65dd0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_p_g_notify_listener.html#a1063699c6bd1787ac727b34fdea65dd0">onNotify</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;key, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;payload, const int pid)=0</td></tr>
+<tr class="separator:a1063699c6bd1787ac727b34fdea65dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Callback for listen/notify operations within <a class="el" href="classtrippingcyril_1_1_post_gres.html" title="A non blocking postgresql implementation of the Database interface. ">PostGres</a>, use this with <a class="el" href="classtrippingcyril_1_1_post_gres.html#aec60e3cbce57a48fc44aded01a6215e6">PostGres::Listen</a>. </p>
@@ -183,7 +187,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -205,7 +209,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 26 2014 16:03:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 28 2014 14:36:55 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

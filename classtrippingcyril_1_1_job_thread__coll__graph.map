@@ -1,3 +1,5 @@
 <map id="trippingcyril::JobThread" name="trippingcyril::JobThread">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_thread.html" title="Simple thread class. " alt="" coords="16,5,152,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_thread.html" title="Simple thread class. " alt="" coords="16,173,152,200"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="19,96,149,123"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_module.html" title="Base class for modules. " alt="" coords="15,5,153,32"/>
 </map>
