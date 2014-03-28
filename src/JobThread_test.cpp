@@ -97,7 +97,6 @@ TEST_F(JobThread, DISABLED_TestJob) {
   job->done = &done;
   thread->Add(job);
   while (done == false && event_base->Loop());
-  delete thread;
   EXPECT_DEATH(delete job, "");
 };
 
@@ -111,7 +110,6 @@ TEST_F(JobThread, DISABLED_NoPostHook) {
   job->done = &done;
   thread->Add(job);
   while (done == false && event_base->Loop());
-  delete thread;
   EXPECT_DEATH(delete job, "");
 };
 
@@ -125,7 +123,6 @@ TEST_F(JobThread, DISABLED_DontRun) {
   job->done = &done;
   thread->Add(job);
   while (done == false && event_base->Loop());
-  delete thread;
   EXPECT_DEATH(delete job, "");
 };
 

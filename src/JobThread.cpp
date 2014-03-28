@@ -111,10 +111,13 @@ void* JobThread::run() {
     if (job == NULL)
       break;
     job->execute();
-    JobRunnerPipe::JobRunner runner;
-    runner.mode = 2;
-    runner.job = job;
-    pipe->Write((const char*) &runner, sizeof(runner));
+    if (job->runPostHook) {
+      JobRunnerPipe::JobRunner runner;
+      runner.mode = 2;
+      runner.job = job;
+      pipe->Write((const char*) &runner, sizeof(runner));
+    } else if (job->shouldDelete())
+      delete job;
   };
   return NULL;
 };
