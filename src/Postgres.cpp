@@ -75,10 +75,27 @@ private:
   PGresult* result;
 };
 
+class PostGresBackoff : public BackoffTimer {
+public:
+  PostGresBackoff(PostGres* pPg)
+  : BackoffTimer(pPg->GetModule(), _PG_BACKOFF_START, _PG_BACKOFF_STEP, _PG_BACKOFF_MAX) {
+    pg = pPg;
+  };
+  virtual ~PostGresBackoff() {
+  };
+protected:
+  virtual void RunJob() {
+    pg->Connect();
+  };
+private:
+  PostGres* pg;
+};
+
 PostGres::PostGres(const String& connstring, const Module* pModule)
 : Database(pModule) {
   conn = NULL;
   event = NULL;
+  backoff = NULL;
   in_loop = false;
   this->connstring = connstring;
 };
@@ -88,6 +105,8 @@ PostGres::~PostGres() {
     PQfinish(conn);
   if (event)
     event_free(event);
+  if (backoff)
+    delete backoff;
   while (!jobs.empty()) {
     delete jobs.front();
     jobs.pop_front();
@@ -144,8 +163,18 @@ void PostGres::Loop() {
   if (in_loop)
     return;
   if (conn != NULL) {
-    if (PQconsumeInput(conn) != 1)
-      TermUtils::PrintStatus(false, PQerrorMessage(conn));
+    if (PQconsumeInput(conn) != 1) {
+      if (PQstatus(conn) != CONNECTION_OK && event != NULL) {
+        event_free(event);
+        PQfinish(conn);
+        conn = NULL;
+        event = NULL;
+        if (stay_connected || jobs.empty() == false) {
+          if (backoff == NULL)
+            backoff = new PostGresBackoff(this);
+        };
+      };
+    };
     if (PQisBusy(conn) == 0) {
       PGnotify* notify;
       while ((notify = PQnotifies(conn)) != NULL) {
@@ -188,13 +217,25 @@ void PostGres::Loop() {
         event = NULL;
       };
     };
-  } else if (jobs.empty() == false && conn == NULL) {
+  } else if (jobs.empty() == false && conn == NULL)
+    Connect();
+};
+
+void PostGres::Connect() {
+  if (conn == NULL) {
     conn = PQconnectdb(connstring.c_str());
     if (PQstatus(conn) != CONNECTION_OK) {
-      TermUtils::PrintStatus(false, PQerrorMessage(conn));
       PQfinish(conn);
       conn = NULL;
+      if (backoff != NULL)
+        backoff->SetStillFailing();
+      else if (stay_connected || jobs.empty() == false)
+        backoff = new PostGresBackoff(this);
     } else {
+      if (backoff != NULL) {
+        delete backoff;
+        backoff = NULL;
+      };
       PQsetnonblocking(conn, 1);
       if (autocommit) {
         PQJob* autocommit_job = new PQJob("SET AUTOCOMMIT = ON");

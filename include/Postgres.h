@@ -20,18 +20,24 @@
 
 #ifndef _NO_POSTGRES
 
+#define _PG_BACKOFF_START 5.0
+#define _PG_BACKOFF_STEP 5.0
+#define _PG_BACKOFF_MAX 15.0
+
 #include <libpq-fe.h>
 #include <event2/event.h>
 #include <deque>
 #include <map>
 
 #include "Database.h"
+#include "BackoffTimer.h"
 
 namespace trippingcyril {
 
 // @cond
 class PQJob;
 class PostGres;
+class PostGresBackoff;
 // @endcond
 
 /**
@@ -94,7 +100,10 @@ private:
   bool in_loop : 1;
   static void EventCallback(evutil_socket_t fd, short event, void* ctx);
   void Loop();
+  void Connect();
   std::map<String, PGNotifyListener*> listeners;
+  BackoffTimer* backoff;
+  friend class PostGresBackoff;
   // @endcond
 };
 
