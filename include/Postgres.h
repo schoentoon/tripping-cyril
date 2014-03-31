@@ -20,9 +20,15 @@
 
 #ifndef _NO_POSTGRES
 
-#define _PG_BACKOFF_START 5.0
-#define _PG_BACKOFF_STEP 5.0
-#define _PG_BACKOFF_MAX 15.0
+#ifndef _PG_BACKOFF_START
+#  define _PG_BACKOFF_START 5.0
+#endif
+#ifndef _PG_BACKOFF_STEP
+#  define _PG_BACKOFF_STEP 5.0
+#endif
+#ifndef _PG_BACKOFF_MAX
+#  define _PG_BACKOFF_MAX 15.0
+#endif
 
 #include <libpq-fe.h>
 #include <event2/event.h>
