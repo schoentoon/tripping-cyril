@@ -13,7 +13,7 @@ try:
 	for n, line in enumerate(makefile):
 		line = line.rstrip("\r\n")
 		makefile_lines.append(line)
-		if line.startswith("CFLAGS") or line.startswith("override CFLAGS "):
+		if line.startswith("CXXFLAGS") or line.startswith("override CXXFLAGS "):
 			makefile_cflags = line.rstrip() + " "
 			makefile_cflags_index = n
 		elif line.startswith("PKGS "):
@@ -27,34 +27,34 @@ except Exception as e:
 
 args = {}
 def add_arg(text, **kwargs):
-	args.setdefault(text, {"PKGS": {}, "CFLAGS": {}})
+	args.setdefault(text, {"PKGS": {}, "CXXFLAGS": {}})
 	if "PKGS" in kwargs:
 		for pkg in kwargs["PKGS"]:
 			if pkg.startswith("+"):
 				args[text]["PKGS"][pkg[1:]] = True
 			elif pkg.startswith("-"):
 				args[text]["PKGS"][pkg[1:]] = False
-	if "CFLAGS" in kwargs:
-		for cflag in kwargs["CFLAGS"]:
+	if "CXXFLAGS" in kwargs:
+		for cflag in kwargs["CXXFLAGS"]:
 			if cflag.startswith("+"):
-				args[text]["CFLAGS"][cflag[1:]] = True
+				args[text]["CXXFLAGS"][cflag[1:]] = True
 			elif cflag.startswith("-"):
-				args[text]["CFLAGS"][cflag[1:]] = False
+				args[text]["CXXFLAGS"][cflag[1:]] = False
 	if "about" in kwargs:
 		args[text]["about"] = kwargs["about"]
 
 # the first argument (eg "disable-zlib") is the command line arg that
 # will be prepended with --
-# the CFLAGS keyword argument expects a list of things to add or remove to CFLAGS
+# the CXXFLAGS keyword argument expects a list of things to add or remove to CXXFLAGS
 # the PKGS keyword argument expects a list of things to add or remove
 # from PKGS, if the package name is prepended with -, it is removed
 # if it is prepended with +, it is added
-add_arg("disable-zlib", CFLAGS=["+-D_NO_GZIP"], PKGS=["-zlib"], about="Disable zlib")
-add_arg("enable-zlib", CFLAGS=["--D_NO_GZIP"], PKGS=["+zlib"], about="Enable zlib")
-add_arg("disable-lzma", CFLAGS=["+-D_NO_LZMA"], PKGS=["-liblzma"], about="Disable lzma")
-add_arg("enable-lzma", CFLAGS=["--D_NO_LZMA"], PKGS=["+liblzma"], about="Enable lzma")
-add_arg("disable-postgres", CFLAGS=["+-D_NO_POSTGRES"], PKGS=["-libpq"], about="Disable postgres")
-add_arg("enable-postgres", CFLAGS=["--D_NO_POSTGRES"], PKGS=["+libpq"], about="Enable postgres")
+add_arg("disable-zlib", CXXFLAGS=["+-D_NO_GZIP"], PKGS=["-zlib"], about="Disable zlib")
+add_arg("enable-zlib", CXXFLAGS=["--D_NO_GZIP"], PKGS=["+zlib"], about="Enable zlib")
+add_arg("disable-lzma", CXXFLAGS=["+-D_NO_LZMA"], PKGS=["-liblzma"], about="Disable lzma")
+add_arg("enable-lzma", CXXFLAGS=["--D_NO_LZMA"], PKGS=["+liblzma"], about="Enable lzma")
+add_arg("disable-postgres", CXXFLAGS=["+-D_NO_POSTGRES"], PKGS=["-libpq"], about="Disable postgres")
+add_arg("enable-postgres", CXXFLAGS=["--D_NO_POSTGRES"], PKGS=["+libpq"], about="Enable postgres")
 
 help_set = set(["--help", "-h"])
 if len(set(sys.argv) & set(["--help", "-h"])) > 0:
@@ -85,26 +85,26 @@ def parse_arg(program_arg):
 				parse_arg("--%s" % available_option)
 		return False
 	if program_arg in args:
-		cflags = args[program_arg]["CFLAGS"]
+		cflags = args[program_arg]["CXXFLAGS"]
 		for cflag in cflags:
 			if cflags[cflag]:
 				if not " %s " % cflag in makefile_cflags:
 					# this is printed when a clag is added
-					print "Adding '%s' to CFLAGS" % cflag
+					print "Adding '%s' to CXXFLAGS" % cflag
 					makefile_cflags += "%s " % cflag
 					made_changes = True
 				else:
 					# this is the thing printed when a CFLAG is already added
-					print "'%s' is already added to CFLAGS" % cflag
+					print "'%s' is already added to CXXFLAGS" % cflag
 			else:
 				if " %s " % cflag in makefile_cflags:
 					# this is the thing printed when removing a CFLAG
-					print "Removing '%s' from CFLAGS" % cflag
+					print "Removing '%s' from CXXFLAGS" % cflag
 					makefile_cflags = makefile_cflags.replace(" %s" % cflag, "")
 					made_changes = True
 				else:
 					# this is the thing printed when a CFLAG is already removed
-					print "'%s' is already removed from CFLAGS" % cflag
+					print "'%s' is already removed from CXXFLAGS" % cflag
 		makefile_lines[makefile_cflags_index] = makefile_cflags
 		pkgs = args[program_arg]["PKGS"]
 		for pkg in pkgs:

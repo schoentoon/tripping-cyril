@@ -1,11 +1,11 @@
 include ./make.conf
 
-PKGS            += libevent libevent_openssl openssl
-override CFLAGS += -g -Wall -O2 -pipe $(shell pkg-config --cflags $(PKGS))
-INC             += -Iinclude
-LDFLAGS         := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
-CC              := gcc
-CXX             := g++
+PKGS              += libevent libevent_openssl openssl
+override CXXFLAGS += -g -Wall -O2 -pipe $(shell pkg-config --cflags $(PKGS))
+INC               += -Iinclude
+LDFLAGS           := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
+CC                := gcc
+CXX               := g++
 
 BINARY := tripping-cyril
 DEPS := build/String.o build/Global.o build/Socket.o build/Files.o build/Timer.o \
@@ -20,10 +20,10 @@ build:
 	mkdir build
 
 build/%.o: src/%.cpp include/%.h
-	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(DEFINES) $(INC) -c $< -o $@
 
 $(BINARY): build $(DEPS)
-	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) $(LDFLAGS)
 
 .PHONY: modules
 

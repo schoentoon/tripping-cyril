@@ -7,8 +7,8 @@ before_script:
   - sudo apt-get install libevent-dev liblzma-dev
 script:
   - ./configure ${CONFIGURE_ARGS}
-  - make CXX=$CXX CC=$CC CFLAGS=-Werror
-  - make test CXX=$CXX CC=$CC CFLAGS=-Werror
+  - make CXX=$CXX CC=$CC CXXFLAGS=-Werror
+  - make test CXX=$CXX CC=$CC CXXFLAGS=-Werror
 env:
   matrix:
   - CONFIGURE_ARGS=--enable-all

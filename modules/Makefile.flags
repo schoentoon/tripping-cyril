@@ -1,23 +1,23 @@
 include ../../make.conf
 
-PKGS            += libevent libevent_openssl openssl
-override CFLAGS += -g -Wall -O2 -pipe -fPIC $(shell pkg-config --cflags $(PKGS) $(LINK_PKGS))
-INC             += -I../../include
-LDFLAGS         := -Wl,--export-dynamic
-MODLINK         := -shared
-CC              := gcc
-CXX             := g++
-MODBIN          := $(shell pwd).so
+PKGS              += libevent libevent_openssl openssl
+override CXXFLAGS += -g -Wall -O2 -pipe -fPIC $(shell pkg-config --cflags $(PKGS) $(LINK_PKGS))
+INC               += -I../../include
+LDFLAGS           := -Wl,--export-dynamic
+MODLINK           := -shared
+CC                := gcc
+CXX               := g++
+MODBIN            := $(shell pwd).so
 
 .PHONY: all clean
 
 all: $(MODBIN)
 
 %.o: %.cpp
-	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(DEFINES) $(INC) -c $< -o $@
 
 $(MODBIN): $(DEPS)
-	$(CXX) $(CFLAGS) $(DEFINES) $(LDFLAGS) $(MODLINK) $(INC) -o $(MODBIN) $(DEPS) $(shell pkg-config --libs $(LINK_PKGS)) $(MAN_LINKS)
+	$(CXX) $(CXXFLAGS) $(DEFINES) $(LDFLAGS) $(MODLINK) $(INC) -o $(MODBIN) $(DEPS) $(shell pkg-config --libs $(LINK_PKGS)) $(MAN_LINKS)
 
 clean:
 	rm -fv $(DEPS)

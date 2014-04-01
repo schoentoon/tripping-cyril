@@ -1,11 +1,11 @@
 include ../make.conf
 
-PKGS            += libevent libevent_openssl openssl
-override CFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare -D_TEST $(shell pkg-config --cflags $(PKGS))
-INC             += -I../include -I. -Igtest-1.7.0/include
-LDFLAGS         := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
-CC              := gcc
-CXX             := g++
+PKGS              += libevent libevent_openssl openssl
+override CXXFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare -D_TEST $(shell pkg-config --cflags $(PKGS))
+INC               += -I../include -I. -Igtest-1.7.0/include
+LDFLAGS           := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl
+CC                := gcc
+CXX               := g++
 
 BINARY := test.out
 MODS := dummymod.so
@@ -14,13 +14,13 @@ DEPS := $(patsubst %_test.cpp, %_test.o, $(shell find .. -name \*_test.cpp -type
 all: $(BINARY)
 
 %.o: %.cpp libgtest.a
-	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(DEFINES) $(INC) -c $< -o $@
 
 %.so: %.cpp libgtest.a
-	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -shared -fPIC -Wl,--export-dynamic -o $@ $<
+	$(CXX) $(CXXFLAGS) $(DEFINES) $(INC) -shared -fPIC -Wl,--export-dynamic -o $@ $<
 
 $(BINARY): $(DEPS) $(MODS) main.cpp
-	$(CXX) $(CFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) ../build/*.o libgtest.a -pthread $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(DEFINES) $(INC) -o $(BINARY) main.cpp $(DEPS) ../build/*.o libgtest.a -pthread $(LDFLAGS)
 
 libgtest.a:
 	wget -q http://googletest.googlecode.com/files/gtest-1.7.0.zip
