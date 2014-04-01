@@ -18,6 +18,10 @@
 #ifndef _DATABASE_H
 #define _DATABASE_H
 
+#if __cplusplus >= 201103
+#  include <functional>
+#endif
+
 #include "String.h"
 #include "Module.h"
 #include "ShouldDelete.h"
@@ -84,6 +88,34 @@ public:
     stay_connected = false;
   };
   virtual ~Database() {};
+#if __cplusplus >= 201103
+  /**
+   * @brief Do a select operation but use a lamdba as a callback instead of a DBCallback class
+   * @param query The query to execute
+   * @param callback The sucess callback
+   * @param errorcallback The errorcallback
+   * @note In case you're implementing the database class you are not required to do anything special,
+   * however if you want you may do so anyway.
+   */
+  virtual void SelectLamdba(const String& query
+                           ,const std::function<void(const DBResult* result, const String& query)> &callback
+                           ,const std::function<void(const String& error, const String& query)> &errorcallback) {
+    Select(query, new LamdbaCallback(callback, errorcallback));
+  };
+  /**
+   * @brief Do a select operation but use a lamdba as a callback instead of a DBCallback class
+   * @param query The query to execute
+   * @param callback The sucess callback
+   * @param errorcallback The errorcallback
+   * @note In case you're implementing the database class you are not required to do anything special,
+   * however if you want you may do so anyway.
+   */
+  virtual void InsertLamdba(const String& query
+                           ,const std::function<void(const DBResult* result, const String& query)> &callback
+                           ,const std::function<void(const String& error, const String& query)> &errorcallback) {
+    Insert(query, new LamdbaCallback(callback, errorcallback));
+  };
+#endif
   /**
    * @brief Do or queue (depends on implementation) a select operation
    * @param query The query to execute
@@ -115,6 +147,29 @@ protected:
    * Marks if we should stay connected or not
    */
   bool stay_connected : 1;
+private:
+#if __cplusplus >= 201103
+  // @cond
+  class LamdbaCallback : public DBCallback {
+  public:
+    LamdbaCallback(const std::function<void(const DBResult* result, const String& query)> &_callback
+    , const std::function<void(const String& error, const String& query)> &_errorcallback)
+    : callback(_callback)
+    , errorcallback(_errorcallback) {
+    };
+    virtual ~LamdbaCallback() {};
+    virtual void QueryResult(const DBResult* result, const String& query) {
+      callback(result, query);
+    };
+    virtual void QueryError(const String& error, const String& query) {
+      errorcallback(error, query);
+    };
+  private:
+    const std::function<void(const DBResult* result, const String& query)> callback;
+    const std::function<void(const String& error, const String& query)> errorcallback;
+  };
+  // @endcond
+#endif
 };
 
 };
