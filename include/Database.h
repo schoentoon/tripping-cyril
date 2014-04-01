@@ -100,7 +100,7 @@ public:
   virtual void SelectLamdba(const String& query
                            ,const std::function<void(const DBResult* result, const String& query)> &callback
                            ,const std::function<void(const String& error, const String& query)> &errorcallback) {
-    Select(query, new LamdbaCallback(callback, errorcallback));
+    Select(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
   /**
    * @brief Do a select operation but use a lamdba as a callback instead of a DBCallback class
@@ -113,7 +113,7 @@ public:
   virtual void InsertLamdba(const String& query
                            ,const std::function<void(const DBResult* result, const String& query)> &callback
                            ,const std::function<void(const String& error, const String& query)> &errorcallback) {
-    Insert(query, new LamdbaCallback(callback, errorcallback));
+    Insert(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
 #endif
   /**
@@ -150,14 +150,14 @@ protected:
 private:
 #if __cplusplus >= 201103
   // @cond
-  class LamdbaCallback : public DBCallback {
+  class DatabaseLamdbaCallback : public DBCallback {
   public:
-    LamdbaCallback(const std::function<void(const DBResult* result, const String& query)> &_callback
+    DatabaseLamdbaCallback(const std::function<void(const DBResult* result, const String& query)> &_callback
     , const std::function<void(const String& error, const String& query)> &_errorcallback)
     : callback(_callback)
     , errorcallback(_errorcallback) {
     };
-    virtual ~LamdbaCallback() {};
+    virtual ~DatabaseLamdbaCallback() {};
     virtual void QueryResult(const DBResult* result, const String& query) {
       callback(result, query);
     };

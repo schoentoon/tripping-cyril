@@ -24,6 +24,10 @@
 #  include <zlib.h>
 #endif //_NO_GZIP
 
+#if __cplusplus >= 201103
+#  include <functional>
+#endif
+
 #include "String.h"
 #include "Socket.h"
 #include "ShouldDelete.h"
@@ -65,6 +69,14 @@ public:
    * General constructor and the place to register your callback
    */
   SimpleHTTPSocket(const Module* module, HTTPCallback* callback = NULL);
+#if __cplusplus >= 201103
+  /**
+   * General constructor that uses lamdba functions instead of a general callback
+   */
+  SimpleHTTPSocket(const Module* module
+                  ,const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> &callback
+                  ,const std::function<void(int errorCode, const String& url)> &errorcallback);
+#endif
   /** Deconstructor */
   virtual ~SimpleHTTPSocket();
   /**

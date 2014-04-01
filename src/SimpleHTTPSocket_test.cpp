@@ -170,7 +170,7 @@ TEST_F(SimpleHTTPSocket, KeepCallbackAround) {
   "Content-Length: 36\r\n"
   "Access-Control-Allow-Origin: *\r\n"
   "Connection: close\r\n\r\n{\"leet\":1337\r\n"
-    ",\"numbers\": [1,2,3,4]}";
+  ",\"numbers\": [1,2,3,4]}";
   event_base->AddData(data, socket);
   while (done == false)
     event_base->Read(socket);
@@ -178,5 +178,34 @@ TEST_F(SimpleHTTPSocket, KeepCallbackAround) {
   EXPECT_DEATH(delete socket, "");
   delete callback; // This shouldn't die this time.
 };
+
+#if __cplusplus >= 201103
+
+TEST_F(SimpleHTTPSocket, Lamdba) {
+  bool done = false;
+  trippingcyril::SimpleHTTPSocket* socket = new trippingcyril::SimpleHTTPSocket(event_base
+  ,[&done](unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url) {
+    done = true;
+  }
+  ,[&done](int errorCode, const String& url) {
+    done = true;
+  });
+  EXPECT_FALSE(socket->IsConnected());
+  EXPECT_TRUE(socket->Get("http://127.0.0.1/test"));
+  event_base->Event(socket, BEV_EVENT_CONNECTED);
+  EXPECT_TRUE(socket->IsConnected());
+  String data = "HTTP/1.0 200 OK\r\n"
+  "Content-Type: application/json\r\n"
+  "Content-Length: 36\r\n"
+  "Access-Control-Allow-Origin: *\r\n"
+  "Connection: close\r\n\r\n{\"leet\":1337\r\n"
+  ",\"numbers\": [1,2,3,4]}";
+  event_base->AddData(data, socket);
+  while (done == false)
+    event_base->Read(socket);
+  event_base->Event(socket, BEV_EVENT_ERROR);
+};
+
+#endif
 
 };

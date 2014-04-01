@@ -30,6 +30,36 @@ SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
   SetTimeout(60);
 };
 
+#if __cplusplus >= 201103
+
+class HttpLamdbaCallback : public HTTPCallback {
+public:
+  HttpLamdbaCallback(const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> &_callback
+                ,const std::function<void(int errorCode, const String& url)> &_errorcallback)
+  : callback(_callback)
+  , errorcallback(_errorcallback) {
+  };
+  virtual ~HttpLamdbaCallback() {};
+  virtual void OnRequestDone(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url) {
+    callback(responseCode, headers, response, url);
+  };
+  virtual void OnRequestError(int errorCode, const String& url) {
+    errorcallback(errorCode, url);
+  };
+private:
+  const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> callback;
+  const std::function<void(int errorCode, const String& url)> errorcallback;
+};
+
+SimpleHTTPSocket::SimpleHTTPSocket(const Module* module
+                                  ,const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> &callback
+                                  ,const std::function<void(int errorCode, const String& url)> &errorcallback)
+: SimpleHTTPSocket(module, new HttpLamdbaCallback(callback, errorcallback))
+{
+};
+
+#endif
+
 SimpleHTTPSocket::~SimpleHTTPSocket() {
   if (callback != NULL && callback->shouldDelete())
     delete callback;
