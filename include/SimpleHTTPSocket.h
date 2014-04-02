@@ -75,7 +75,7 @@ public:
    */
   SimpleHTTPSocket(const Module* module
                   ,const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> &callback
-                  ,const std::function<void(int errorCode, const String& url)> &errorcallback);
+                  ,const std::function<void(int errorCode, const String& url)> &errorcallback = [](int,const String&){});
 #endif
   /** Deconstructor */
   virtual ~SimpleHTTPSocket();
