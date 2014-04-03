@@ -48,6 +48,11 @@ public:
   virtual const bool isNull(int row, int column) const = 0;
 };
 
+#if __cplusplus >= 201103
+typedef std::function<void(const DBResult* result, const String& query)> DBLamdbaCallback;
+typedef std::function<void(const String& error, const String& query)> DBLamdbaErrorCallback;
+#endif
+
 /**
  * @brief Database callback class
  */
@@ -98,8 +103,8 @@ public:
    * however if you want you may do so anyway.
    */
   virtual void SelectLamdba(const String& query
-                           ,const std::function<void(const DBResult* result, const String& query)> &callback
-                           ,const std::function<void(const String& error, const String& query)> &errorcallback) {
+                           ,const DBLamdbaCallback &callback
+                           ,const DBLamdbaErrorCallback &errorcallback) {
     Select(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
   /**
@@ -111,8 +116,8 @@ public:
    * however if you want you may do so anyway.
    */
   virtual void InsertLamdba(const String& query
-                           ,const std::function<void(const DBResult* result, const String& query)> &callback
-                           ,const std::function<void(const String& error, const String& query)> &errorcallback) {
+                           ,const DBLamdbaCallback &callback
+                           ,const DBLamdbaErrorCallback &errorcallback) {
     Insert(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
 #endif
@@ -152,8 +157,8 @@ private:
   // @cond
   class DatabaseLamdbaCallback : public DBCallback {
   public:
-    DatabaseLamdbaCallback(const std::function<void(const DBResult* result, const String& query)> &_callback
-    , const std::function<void(const String& error, const String& query)> &_errorcallback)
+    DatabaseLamdbaCallback(const DBLamdbaCallback &_callback
+    , const DBLamdbaErrorCallback &_errorcallback)
     : callback(_callback)
     , errorcallback(_errorcallback) {
     };
@@ -165,8 +170,8 @@ private:
       errorcallback(error, query);
     };
   private:
-    const std::function<void(const DBResult* result, const String& query)> callback;
-    const std::function<void(const String& error, const String& query)> errorcallback;
+    const DBLamdbaCallback callback;
+    const DBLamdbaErrorCallback errorcallback;
   };
   // @endcond
 #endif

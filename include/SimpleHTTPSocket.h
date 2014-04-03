@@ -36,6 +36,11 @@ using namespace std;
 
 namespace trippingcyril {
 
+#if __cplusplus >= 201103
+typedef std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> HTTPLamdbaCallback;
+typedef std::function<void(int errorCode, const String& url)> HTTPLamdbaErrorCallback;
+#endif
+
 /**
  * @brief Callback class for our SimpleHTTPSocket
  */
@@ -74,8 +79,8 @@ public:
    * General constructor that uses lamdba functions instead of a general callback
    */
   SimpleHTTPSocket(const Module* module
-                  ,const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> &callback
-                  ,const std::function<void(int errorCode, const String& url)> &errorcallback = [](int,const String&){});
+                  ,const HTTPLamdbaCallback &callback
+                  ,const HTTPLamdbaErrorCallback &errorcallback = [](int,const String&){});
 #endif
   /** Deconstructor */
   virtual ~SimpleHTTPSocket();

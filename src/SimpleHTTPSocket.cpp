@@ -34,8 +34,7 @@ SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
 
 class HttpLamdbaCallback : public HTTPCallback {
 public:
-  HttpLamdbaCallback(const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> &_callback
-                ,const std::function<void(int errorCode, const String& url)> &_errorcallback)
+  HttpLamdbaCallback(const HTTPLamdbaCallback &_callback, const HTTPLamdbaErrorCallback &_errorcallback)
   : callback(_callback)
   , errorcallback(_errorcallback) {
   };
@@ -47,13 +46,11 @@ public:
     errorcallback(errorCode, url);
   };
 private:
-  const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> callback;
-  const std::function<void(int errorCode, const String& url)> errorcallback;
+  const HTTPLamdbaCallback callback;
+  const HTTPLamdbaErrorCallback errorcallback;
 };
 
-SimpleHTTPSocket::SimpleHTTPSocket(const Module* module
-                                  ,const std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> &callback
-                                  ,const std::function<void(int errorCode, const String& url)> &errorcallback)
+SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, const HTTPLamdbaCallback &callback, const HTTPLamdbaErrorCallback &errorcallback)
 : SimpleHTTPSocket(module, new HttpLamdbaCallback(callback, errorcallback))
 {
 };
