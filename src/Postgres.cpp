@@ -30,6 +30,10 @@ public:
   : query(pQuery) {
     callback = NULL;
     sent = false;
+#if __cplusplus >= 201103
+    lamdba_callback = NULL;
+    lamdba_errorcallback = NULL;
+#endif
   }
   virtual ~PQJob() {
     if (callback != NULL && callback->shouldDelete())
@@ -39,6 +43,10 @@ private:
   const String query;
   DBCallback* callback;
   bool sent : 1;
+#if __cplusplus >= 201103
+  const DBLamdbaCallback *lamdba_callback;
+  const DBLamdbaErrorCallback *lamdba_errorcallback;
+#endif
   friend class PostGres;
 };
 
@@ -119,6 +127,20 @@ PostGres::~PostGres() {
   };
 };
 
+#if __cplusplus >= 201103
+void PostGres::SelectLamdba(const String& query, const DBLamdbaCallback& callback, const DBLamdbaErrorCallback& errorcallback) {
+  PQJob *job = new PQJob(query);
+  job->lamdba_callback = &callback;
+  job->lamdba_errorcallback = &errorcallback;
+  jobs.push_back(job);
+  Loop();
+};
+
+void PostGres::InsertLamdba(const String& query, const DBLamdbaCallback& callback, const DBLamdbaErrorCallback& errorcallback) {
+  SelectLamdba(query, callback, errorcallback);
+};
+#endif
+
 const DBResult* PostGres::Select(const String& query, DBCallback* callback) {
   PQJob *job = new PQJob(query);
   job->callback = callback;
@@ -196,13 +218,21 @@ void PostGres::Loop() {
           if (dbresult.hasError()) {
             if (job->callback != NULL)
               job->callback->QueryError(dbresult.getError(), job->query);
+#if __cplusplus >= 201103
+            if (job->lamdba_errorcallback != NULL)
+              (*job->lamdba_errorcallback)(dbresult.getError(), job->query);
+#endif
           } else {
             if (job->callback != NULL)
               job->callback->QueryResult(&dbresult, job->query);
+#if __cplusplus >= 201103
+            if (job->lamdba_callback != NULL)
+              (*job->lamdba_callback)(&dbresult, job->query);
+#endif
           };
           result = PQgetResult(conn);
         };
-        if (job->callback)
+        if (job->callback != NULL)
           job->callback->QueryDone();
         jobs.pop_front();
         delete job;

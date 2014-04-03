@@ -83,6 +83,12 @@ public:
   /** General deconstructor
    */
   virtual ~PostGres();
+#if __cplusplus >= 201103
+  virtual void SelectLamdba(const String& query, const DBLamdbaCallback &callback
+                                               , const DBLamdbaErrorCallback &errorcallback);
+  virtual void InsertLamdba(const String& query, const DBLamdbaCallback &callback
+                                               , const DBLamdbaErrorCallback &errorcallback);
+#endif
   virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
   virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
   bool isIdle() const { return conn == NULL; };
