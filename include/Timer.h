@@ -18,6 +18,10 @@
 #ifndef _TIMER_H
 #define _TIMER_H
 
+#if __cplusplus >= 201103
+#  include <functional>
+#endif
+
 #include <event2/event.h>
 
 #include "Module.h"
@@ -80,6 +84,21 @@ private:
   static void EventCallback(evutil_socket_t fd, short event, void* arg);
   // @endcond
 };
+
+#if __cplusplus >= 201103
+
+typedef std::function<void()> TimerLamdbaCallback;
+class LamdbaTimer : public Timer {
+public:
+  LamdbaTimer(const Module* module, double interval, unsigned int maxCycles, const TimerLamdbaCallback &callback);
+  virtual ~LamdbaTimer() {};
+protected:
+  virtual void RunJob();
+private:
+  const TimerLamdbaCallback callback;
+};
+
+#endif
 
 };
 

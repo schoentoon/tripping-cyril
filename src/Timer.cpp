@@ -89,4 +89,17 @@ void Timer::EventCallback(int fd, short int event, void* arg) {
   };
 };
 
+#if __cplusplus >= 201103
+
+LamdbaTimer::LamdbaTimer(const Module* module, double interval, unsigned int maxCycles, const TimerLamdbaCallback& _callback)
+: Timer(module, interval, maxCycles)
+, callback(_callback) {
+}
+
+void LamdbaTimer::RunJob() {
+  callback();
+}
+
+#endif
+
 };
