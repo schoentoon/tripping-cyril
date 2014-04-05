@@ -173,6 +173,9 @@ private:
  */
 class IPv4Address : public IPAddress {
 public:
+  IPv4Address(struct in_addr* sa) {
+    addr = sa->s_addr;
+  };
   virtual ~IPv4Address() {};
   virtual int GetIPVersion() { return 4; };
   /** @return The ipv4 address as an integer */
@@ -181,9 +184,6 @@ public:
   operator int() { return AsInt(); };
   virtual String AsString() const;
 private:
-  IPv4Address(struct in_addr* sa) {
-    addr = sa->s_addr;
-  };
   in_addr_t addr;
   // @cond
   friend class IPAddress;
