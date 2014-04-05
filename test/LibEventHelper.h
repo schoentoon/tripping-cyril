@@ -43,16 +43,16 @@ public:
   bool Loop() {
     return event_base_dispatch(event_base) == 0;
   };
-  struct bufferevent* GetBufferevent(trippingcyril::Socket* socket) { return socket->connection; };
-  void Event(trippingcyril::Socket* socket, short what) { trippingcyril::Socket::eventcb(socket->connection, what, socket); };
-  void Read(trippingcyril::Socket* socket) { trippingcyril::Socket::readcb(socket->connection, socket); };
-  void AddData(const char* data, size_t len, trippingcyril::Socket* socket) {
+  struct bufferevent* GetBufferevent(trippingcyril::net::Socket* socket) { return socket->connection; };
+  void Event(trippingcyril::net::Socket* socket, short what) { trippingcyril::net::Socket::eventcb(socket->connection, what, socket); };
+  void Read(trippingcyril::net::Socket* socket) { trippingcyril::net::Socket::readcb(socket->connection, socket); };
+  void AddData(const char* data, size_t len, trippingcyril::net::Socket* socket) {
     struct evbuffer* input = bufferevent_get_input(socket->connection);
     ASSERT_EQ(0, evbuffer_unfreeze(input, 0));
     ASSERT_EQ(0, evbuffer_add(input, data, len));
     ASSERT_EQ(0, evbuffer_freeze(input, 0));
   };
-  void AddData(std::string data, trippingcyril::Socket* socket) { AddData(data.data(), data.size(), socket); };
+  void AddData(std::string data, trippingcyril::net::Socket* socket) { AddData(data.data(), data.size(), socket); };
 };
 
 class LibEventTest : public ::testing::Test {

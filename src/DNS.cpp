@@ -21,6 +21,8 @@
 #include "Global.h"
 
 namespace trippingcyril {
+  namespace net {
+    namespace dns {
 
 IPv4Lookup::IPv4Lookup(const Module* pModule, const String& pQuery, DNSCallback* pCallback)
 : Event(pModule)
@@ -61,4 +63,6 @@ void IPv4Lookup::DNSEventCallback(int result, char type, int count, int ttl, voi
   };
 };
 
+    };
+  };
 };

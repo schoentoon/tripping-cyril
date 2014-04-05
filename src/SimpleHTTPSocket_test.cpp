@@ -29,7 +29,7 @@ namespace test {
 class SimpleHTTPSocket : public LibEventTest {
 };
 
-class TestHTTPCallback : public trippingcyril::HTTPCallback {
+class TestHTTPCallback : public trippingcyril::net::http::HTTPCallback {
 public:
   TestHTTPCallback() {
     expectedResponseCode = 0;
@@ -79,7 +79,7 @@ TEST_F(SimpleHTTPSocket, SimpleReply) {
   callback->expectedResponse = "{\"leet\":1337\r\n,\"numbers\": [1,2,3,4]}";
   bool done = false;
   callback->done = &done;
-  trippingcyril::SimpleHTTPSocket* socket = new trippingcyril::SimpleHTTPSocket(event_base, callback);
+  trippingcyril::net::http::SimpleHTTPSocket* socket = new trippingcyril::net::http::SimpleHTTPSocket(event_base, callback);
   EXPECT_FALSE(socket->IsConnected());
   EXPECT_TRUE(socket->Get("http://127.0.0.1/test"));
   event_base->Event(socket, BEV_EVENT_CONNECTED);
@@ -105,7 +105,7 @@ TEST_F(SimpleHTTPSocket, Chunked) {
   callback->expectedResponse = "This is just a simple test";
   bool done = false;
   callback->done = &done;
-  trippingcyril::SimpleHTTPSocket* socket = new trippingcyril::SimpleHTTPSocket(event_base, callback);
+  trippingcyril::net::http::SimpleHTTPSocket* socket = new trippingcyril::net::http::SimpleHTTPSocket(event_base, callback);
   EXPECT_FALSE(socket->IsConnected());
   EXPECT_TRUE(socket->Get("http://127.0.0.1/test_chunked"));
   event_base->Event(socket, BEV_EVENT_CONNECTED);
@@ -135,7 +135,7 @@ TEST_F(SimpleHTTPSocket, GZip) {
   "sunt in culpa qui officia deserunt mollit anim id est laborum.\n";
   bool done = false;
   callback->done = &done;
-  trippingcyril::SimpleHTTPSocket* socket = new trippingcyril::SimpleHTTPSocket(event_base, callback);
+  trippingcyril::net::http::SimpleHTTPSocket* socket = new trippingcyril::net::http::SimpleHTTPSocket(event_base, callback);
   EXPECT_FALSE(socket->IsConnected());
   EXPECT_TRUE(socket->Get("http://127.0.0.1/test_gzip"));
   event_base->Event(socket, BEV_EVENT_CONNECTED);
@@ -160,7 +160,7 @@ TEST_F(SimpleHTTPSocket, KeepCallbackAround) {
   callback->keepAround = true;
   bool done = false;
   callback->done = &done;
-  trippingcyril::SimpleHTTPSocket* socket = new trippingcyril::SimpleHTTPSocket(event_base, callback);
+  trippingcyril::net::http::SimpleHTTPSocket* socket = new trippingcyril::net::http::SimpleHTTPSocket(event_base, callback);
   EXPECT_FALSE(socket->IsConnected());
   EXPECT_TRUE(socket->Get("http://127.0.0.1/test"));
   event_base->Event(socket, BEV_EVENT_CONNECTED);
@@ -183,7 +183,7 @@ TEST_F(SimpleHTTPSocket, KeepCallbackAround) {
 
 TEST_F(SimpleHTTPSocket, Lamdba) {
   bool done = false;
-  trippingcyril::SimpleHTTPSocket* socket = new trippingcyril::SimpleHTTPSocket(event_base
+  trippingcyril::net::http::SimpleHTTPSocket* socket = new trippingcyril::net::http::SimpleHTTPSocket(event_base
   ,[&done](unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url) {
     done = true;
   }

@@ -35,6 +35,8 @@
 using namespace std;
 
 namespace trippingcyril {
+  namespace net {
+    namespace http {
 
 #if __cplusplus >= 201103
 typedef std::function<void(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url)> HTTPLamdbaCallback;
@@ -179,6 +181,8 @@ private:
   // @endcond
 };
 
+    };
+  };
 };
 
 #endif //_HTTP_SOCKET_H

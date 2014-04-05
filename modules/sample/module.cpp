@@ -22,6 +22,8 @@
 
 #include <iostream>
 
+using namespace trippingcyril::net::http;
+
 using namespace module::sample;
 
 class TestTimer : public Timer {
@@ -57,7 +59,7 @@ SampleModule::~SampleModule() {
 };
 
 void SampleModule::OnLoaded() {
-  trippingcyril::SimpleHTTPSocket* socket = new SimpleHTTPSocket(this, new PrintHttp);
+  SimpleHTTPSocket* socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Get("http://httpbin.org/stream/100");
   socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Get("http://httpbin.org/gzip");

@@ -29,6 +29,8 @@
 #include <iostream>
 
 namespace trippingcyril {
+  namespace net {
+    namespace dns {
 
 /**
  * @brief DNS callback class
@@ -76,6 +78,8 @@ private:
   // @endcond
 };
 
+    };
+  };
 };
 
 #endif //_DNS_H

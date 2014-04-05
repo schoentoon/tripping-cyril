@@ -28,9 +28,9 @@ namespace test {
 class Socket : public LibEventTest {
 };
 
-class TestSocket : public trippingcyril::Socket {
+class TestSocket : public trippingcyril::net::Socket {
 public:
-  TestSocket(Module* module) : trippingcyril::Socket(module) {
+  TestSocket(Module* module) : trippingcyril::net::Socket(module) {
     timed_out = NULL;
     connected = NULL;
     disconnected = NULL;

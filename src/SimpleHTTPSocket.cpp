@@ -22,6 +22,8 @@
 #include <strings.h>
 
 namespace trippingcyril {
+  namespace net {
+    namespace http {
 
 SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
 : Socket(module), parser(this) {
@@ -341,4 +343,6 @@ bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
   return false;
 };
 
+    };
+  };
 };

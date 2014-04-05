@@ -22,6 +22,7 @@
 #include "Global.h"
 
 namespace trippingcyril {
+  namespace net {
 
 Listener::Listener(const Module* module, uint16_t pPort)
 : Event(module)
@@ -87,4 +88,5 @@ struct bufferevent* SSLListener::createBufferEvent(int fd) {
                                        ,BUFFEREVENT_SSL_ACCEPTING, BEV_OPT_CLOSE_ON_FREE|BEV_OPT_THREADSAFE);
 };
 
+  };
 };

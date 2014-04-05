@@ -34,6 +34,7 @@ namespace test {
 // @endcond
 
 namespace trippingcyril {
+  namespace net {
 
 class IPAddress;
 
@@ -190,6 +191,7 @@ private:
   // @endcond
 };
 
+  };
 };
 
 #endif //_SOCKET_H

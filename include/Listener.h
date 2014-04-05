@@ -26,6 +26,7 @@
 #include "Socket.h"
 
 namespace trippingcyril {
+  namespace net {
 
 /**
  * @brief Generic listener class
@@ -97,6 +98,7 @@ private:
   // @endcond
 };
 
+  };
 };
 
 #endif //_LISTENER_H

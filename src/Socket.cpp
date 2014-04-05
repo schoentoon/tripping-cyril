@@ -28,6 +28,7 @@
 #include <iostream>
 
 namespace trippingcyril {
+  namespace net {
 
 Socket::Socket(const Module* pModule)
 : Event(pModule) {
@@ -224,4 +225,5 @@ String IPv4Address::AsString() const {
   return String(buf, len);
 };
 
+  };
 };
