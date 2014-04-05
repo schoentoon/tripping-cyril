@@ -1,13 +1,14 @@
 <map id="include/ShouldDelete.h" name="include/ShouldDelete.h">
-<area shape="rect" id="node2" href="$_writer_8h.html" title="include/Writer.h" alt="" coords="295,80,408,107"/>
-<area shape="rect" id="node7" href="$_job_thread_8h.html" title="include/JobThread.h" alt="" coords="383,304,521,331"/>
-<area shape="rect" id="node10" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="523,229,717,256"/>
-<area shape="rect" id="node11" href="$_database_8h.html" title="include/Database.h" alt="" coords="793,80,927,107"/>
-<area shape="rect" id="node3" href="$_compressor_8h.html" title="include/Compressor.h" alt="" coords="187,155,336,181"/>
-<area shape="rect" id="node4" href="$_decompressor_8h.html" title="include/Decompressor.h" alt="" coords="360,155,523,181"/>
-<area shape="rect" id="node5" href="$_files_8h.html" title="include/Files.h" alt="" coords="5,155,112,181"/>
-<area shape="rect" id="node6" href="$_pipe_8h.html" title="include/Pipe.h" alt="" coords="97,229,201,256"/>
-<area shape="rect" id="node8" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="547,155,665,181"/>
-<area shape="rect" id="node9" href="$_listener_8h.html" title="include/Listener.h" alt="" coords="374,229,497,256"/>
-<area shape="rect" id="node12" href="$_postgres_8h.html" title="include/Postgres.h" alt="" coords="795,155,925,181"/>
+<area shape="rect" id="node2" href="$_writer_8h.html" title="include/Writer.h" alt="" coords="407,80,519,107"/>
+<area shape="rect" id="node6" href="$_d_n_s_8h.html" title="include/DNS.h" alt="" coords="37,229,143,256"/>
+<area shape="rect" id="node8" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="167,229,362,256"/>
+<area shape="rect" id="node11" href="$_job_thread_8h.html" title="include/JobThread.h" alt="" coords="278,304,417,331"/>
+<area shape="rect" id="node12" href="$_database_8h.html" title="include/Database.h" alt="" coords="721,80,855,107"/>
+<area shape="rect" id="node3" href="$_compressor_8h.html" title="include/Compressor.h" alt="" coords="469,155,618,181"/>
+<area shape="rect" id="node4" href="$_decompressor_8h.html" title="include/Decompressor.h" alt="" coords="138,155,301,181"/>
+<area shape="rect" id="node5" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="325,155,443,181"/>
+<area shape="rect" id="node9" href="$_files_8h.html" title="include/Files.h" alt="" coords="642,155,749,181"/>
+<area shape="rect" id="node10" href="$_pipe_8h.html" title="include/Pipe.h" alt="" coords="643,229,747,256"/>
+<area shape="rect" id="node7" href="$_listener_8h.html" title="include/Listener.h" alt="" coords="387,229,510,256"/>
+<area shape="rect" id="node13" href="$_postgres_8h.html" title="include/Postgres.h" alt="" coords="823,155,954,181"/>
 </map>

@@ -7,6 +7,6 @@ var searchData=
   ['detach',['Detach',['../classtrippingcyril_1_1_thread.html#a304092a2bc70f45c573acf7b87a15a4e',1,'trippingcyril::Thread']]],
   ['dir',['Dir',['../classtrippingcyril_1_1_dir.html#a2f31a058b92a77b08f39637f4a0a7a02',1,'trippingcyril::Dir']]],
   ['disableautocommit',['disableAutoCommit',['../classtrippingcyril_1_1_database.html#a21e6e7f52aaaff4117d7a0735bf3a948',1,'trippingcyril::Database']]],
-  ['disabletimeout',['DisableTimeout',['../classtrippingcyril_1_1_socket.html#afd236ae873bae17551b08d098f02efad',1,'trippingcyril::Socket']]],
-  ['disconnected',['Disconnected',['../classtrippingcyril_1_1_simple_h_t_t_p_socket.html#a79d4c405e401441b5e1c352eea36dd8f',1,'trippingcyril::SimpleHTTPSocket::Disconnected()'],['../classtrippingcyril_1_1_socket.html#abbc799120fa62b9fed7455deb1401b06',1,'trippingcyril::Socket::Disconnected()']]]
+  ['disabletimeout',['DisableTimeout',['../classtrippingcyril_1_1net_1_1_socket.html#a019892d87b80a093332c404bd900130e',1,'trippingcyril::net::Socket']]],
+  ['disconnected',['Disconnected',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a45466fb8a9eefd81f9eaaab3c6bf712f',1,'trippingcyril::net::http::SimpleHTTPSocket::Disconnected()'],['../classtrippingcyril_1_1net_1_1_socket.html#a991f5fbbbdd7eaf638ed58af2e3a50a0',1,'trippingcyril::net::Socket::Disconnected()']]]
 ];

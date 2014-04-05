@@ -1,7 +1,0 @@
-<map id="trippingcyril::Socket" name="trippingcyril::Socket">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="23,96,153,123"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_module.html" title="Base class for modules. " alt="" coords="5,5,144,32"/>
-<area shape="rect" id="node4" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="184,96,315,123"/>
-<area shape="rect" id="node5" href="$classtrippingcyril_1_1_should_delete.html" title="A simple interface to determine if the object should be deleted or not. " alt="" coords="169,5,343,32"/>
-<area shape="rect" id="node6" href="$classtrippingcyril_1_1_closable.html" title="Writer class to provide a general closing operation. " alt="" coords="339,96,485,123"/>
-</map>

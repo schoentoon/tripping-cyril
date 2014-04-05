@@ -1,14 +1,15 @@
 <map id="trippingcyril::Event" name="trippingcyril::Event">
 <area shape="rect" id="node2" href="$classtrippingcyril_1_1_backoff_timer.html" title="General backoff timer. " alt="" coords="185,5,359,32"/>
 <area shape="rect" id="node3" href="$classtrippingcyril_1_1_database.html" title="Database interface. " alt="" coords="196,56,348,83"/>
-<area shape="rect" id="node6" href="$classtrippingcyril_1_1_listener.html" title="Generic listener class. " alt="" coords="201,107,343,133"/>
-<area shape="rect" id="node8" href="$classtrippingcyril_1_1_pipe.html" title="A wrapper class for pipes. " alt="" coords="211,157,333,184"/>
-<area shape="rect" id="node9" href="$classtrippingcyril_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="203,208,341,235"/>
-<area shape="rect" id="node11" href="$classtrippingcyril_1_1_thread.html" title="Simple thread class. " alt="" coords="204,259,340,285"/>
-<area shape="rect" id="node13" href="$classtrippingcyril_1_1_timer.html" title="General timer class. " alt="" coords="207,309,337,336"/>
-<area shape="rect" id="node4" href="$classtrippingcyril_1_1_blocking_post_gres.html" title="A blocking postgresql implementation of the Database interface. " alt="" coords="414,5,615,32"/>
-<area shape="rect" id="node5" href="$classtrippingcyril_1_1_post_gres.html" title="A non blocking postgresql implementation of the Database interface. " alt="" coords="439,56,590,83"/>
-<area shape="rect" id="node7" href="$classtrippingcyril_1_1_s_s_l_listener.html" title="Generic ssl listener class. " alt="" coords="431,107,598,133"/>
-<area shape="rect" id="node10" href="$classtrippingcyril_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="409,208,621,235"/>
-<area shape="rect" id="node12" href="$classtrippingcyril_1_1_job_thread.html" title="A job queue that will run your jobs on a seperate thread. " alt="" coords="436,259,593,285"/>
+<area shape="rect" id="node6" href="$classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html" title="A simple IPv4 lookup event. " alt="" coords="208,107,336,149"/>
+<area shape="rect" id="node7" href="$classtrippingcyril_1_1net_1_1_listener.html" title="Generic listener class. " alt="" coords="215,173,329,214"/>
+<area shape="rect" id="node9" href="$classtrippingcyril_1_1net_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="215,238,329,279"/>
+<area shape="rect" id="node11" href="$classtrippingcyril_1_1_pipe.html" title="A wrapper class for pipes. " alt="" coords="211,304,333,331"/>
+<area shape="rect" id="node12" href="$classtrippingcyril_1_1_thread.html" title="Simple thread class. " alt="" coords="204,355,340,381"/>
+<area shape="rect" id="node14" href="$classtrippingcyril_1_1_timer.html" title="General timer class. " alt="" coords="207,405,337,432"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1_blocking_post_gres.html" title="A blocking postgresql implementation of the Database interface. " alt="" coords="409,31,610,57"/>
+<area shape="rect" id="node5" href="$classtrippingcyril_1_1_post_gres.html" title="A non blocking postgresql implementation of the Database interface. " alt="" coords="434,81,585,108"/>
+<area shape="rect" id="node8" href="$classtrippingcyril_1_1net_1_1_s_s_l_listener.html" title="Generic ssl listener class. " alt="" coords="452,173,567,214"/>
+<area shape="rect" id="node10" href="$classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="421,238,597,279"/>
+<area shape="rect" id="node13" href="$classtrippingcyril_1_1_job_thread.html" title="A job queue that will run your jobs on a seperate thread. " alt="" coords="431,355,588,381"/>
 </map>

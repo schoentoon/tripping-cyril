@@ -3,6 +3,6 @@ var searchData=
   ['add',['Add',['../classtrippingcyril_1_1_job_thread.html#ad013d0e34926f7abd8c572418c1aeddf',1,'trippingcyril::JobThread']]],
   ['addfront',['AddFront',['../classtrippingcyril_1_1_job_thread.html#abad810c1967cda345c9e56b486d72268',1,'trippingcyril::JobThread']]],
   ['amountwatchedfolders',['amountWatchedFolders',['../classtrippingcyril_1_1_file_observer.html#a1438a0360d52539be679580789fca27d',1,'trippingcyril::FileObserver']]],
-  ['asint',['AsInt',['../classtrippingcyril_1_1_i_pv4_address.html#a1fd50096e52ea7d2ffb51b9eac281e28',1,'trippingcyril::IPv4Address']]],
-  ['asstring',['AsString',['../classtrippingcyril_1_1_i_p_address.html#a3783e127ac945f1b8267fe58029d1081',1,'trippingcyril::IPAddress::AsString()'],['../classtrippingcyril_1_1_i_pv4_address.html#aba1223bce004a45eceab9146f4530f27',1,'trippingcyril::IPv4Address::AsString()']]]
+  ['asint',['AsInt',['../classtrippingcyril_1_1net_1_1_i_pv4_address.html#ad87f8d3623dae6330d8ded69deb69dab',1,'trippingcyril::net::IPv4Address']]],
+  ['asstring',['AsString',['../classtrippingcyril_1_1net_1_1_i_p_address.html#a293bce78bd5515ffe68c77dc236d3099',1,'trippingcyril::net::IPAddress::AsString()'],['../classtrippingcyril_1_1net_1_1_i_pv4_address.html#a8cf72b61adad524bf3bfe469f096c0b3',1,'trippingcyril::net::IPv4Address::AsString()']]]
 ];

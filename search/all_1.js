@@ -1,13 +1,9 @@
 var searchData=
 [
-  ['backofftimer',['BackoffTimer',['../classtrippingcyril_1_1_backoff_timer.html',1,'trippingcyril']]],
-  ['backofftimer',['BackoffTimer',['../classtrippingcyril_1_1_backoff_timer.html#a33608520d5b0106e1b36b906073757d3',1,'trippingcyril::BackoffTimer']]],
-  ['backofftimer_2eh',['BackoffTimer.h',['../_backoff_timer_8h.html',1,'']]],
-  ['base64decode',['Base64Decode',['../classtrippingcyril_1_1_string.html#a282af5b5720df2bbd62870e0eb302f28',1,'trippingcyril::String']]],
-  ['base64encode',['Base64Encode',['../classtrippingcyril_1_1_string.html#af94268c74b7b90dc3729eb3e72a10d23',1,'trippingcyril::String']]],
-  ['begin',['begin',['../classtrippingcyril_1_1_global.html#a1b550d5efe229c4d825df70175b229fc',1,'trippingcyril::Global']]],
-  ['block',['BLOCK',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66a9d0d73c15da832c2781645dcb0bcaf82',1,'trippingcyril::File']]],
-  ['blockingpostgres',['BlockingPostGres',['../classtrippingcyril_1_1_blocking_post_gres.html',1,'trippingcyril']]],
-  ['blockingpostgres',['BlockingPostGres',['../classtrippingcyril_1_1_blocking_post_gres.html#ae715832d1f9320017e15d177ff7c986d',1,'trippingcyril::BlockingPostGres']]],
-  ['buffer_5fsize',['BUFFER_SIZE',['../classtrippingcyril_1_1_writer.html#a5b97c376652c879f99fbdc61e59044a1',1,'trippingcyril::Writer']]]
+  ['add',['Add',['../classtrippingcyril_1_1_job_thread.html#ad013d0e34926f7abd8c572418c1aeddf',1,'trippingcyril::JobThread']]],
+  ['addfront',['AddFront',['../classtrippingcyril_1_1_job_thread.html#abad810c1967cda345c9e56b486d72268',1,'trippingcyril::JobThread']]],
+  ['amountwatchedfolders',['amountWatchedFolders',['../classtrippingcyril_1_1_file_observer.html#a1438a0360d52539be679580789fca27d',1,'trippingcyril::FileObserver']]],
+  ['asint',['AsInt',['../classtrippingcyril_1_1net_1_1_i_pv4_address.html#ad87f8d3623dae6330d8ded69deb69dab',1,'trippingcyril::net::IPv4Address']]],
+  ['asstring',['AsString',['../classtrippingcyril_1_1net_1_1_i_p_address.html#a293bce78bd5515ffe68c77dc236d3099',1,'trippingcyril::net::IPAddress::AsString()'],['../classtrippingcyril_1_1net_1_1_i_pv4_address.html#a8cf72b61adad524bf3bfe469f096c0b3',1,'trippingcyril::net::IPv4Address::AsString()']]],
+  ['autocommit',['autocommit',['../classtrippingcyril_1_1_database.html#a6ba81ac1a4c9c6c099c0e215320d76fe',1,'trippingcyril::Database']]]
 ];
