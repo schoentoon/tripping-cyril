@@ -19,6 +19,7 @@
 
 #include "Module.h"
 #include "Global.h"
+#include <string.h>
 
 namespace trippingcyril {
   namespace net {
@@ -30,6 +31,8 @@ IPv4Lookup::IPv4Lookup(const Module* pModule, const String& pQuery, DNSCallback*
   callback = pCallback;
   request = evdns_base_resolve_ipv4((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
     ,query.c_str(), 0, IPv4Lookup::DNSEventCallback, this);
+  if (request == NULL)
+    throw "Failed to create request";
 };
 
 IPv4Lookup::~IPv4Lookup() {
@@ -57,6 +60,40 @@ void IPv4Lookup::DNSEventCallback(int result, char type, int count, int ttl, voi
           output.erase(output.begin());
         };
       } else
+        lookup->callback->Error(lookup->query, result, evdns_err_to_string(result));
+    };
+    delete lookup;
+  };
+};
+
+IPv4ReverseLookup::IPv4ReverseLookup(const Module* pModule, const String& pQuery, DNSReverseCallback* pCallback)
+: Event(pModule)
+, query(pQuery) {
+  callback = pCallback;
+  struct in_addr in;
+  bzero(&in, sizeof(in));
+  if (evutil_inet_pton(AF_INET, query.c_str(), &(in.s_addr)) != 1)
+    throw "Invalid ip address";
+  request = evdns_base_resolve_reverse((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
+    ,&in, 0, IPv4ReverseLookup::DNSEventCallback, this);
+  if (request == NULL)
+    throw "Failed to create request";
+};
+
+IPv4ReverseLookup::~IPv4ReverseLookup() {
+  if (callback && callback->shouldDelete())
+    delete callback;
+  if (request)
+    evdns_cancel_request((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase(), request);
+};
+
+void IPv4ReverseLookup::DNSEventCallback(int result, char type, int count, int ttl, void* addresses, void* arg) {
+  IPv4ReverseLookup* lookup = (IPv4ReverseLookup*) arg;
+  if (lookup) {
+    if (lookup->callback) {
+      if (result == DNS_ERR_NONE && count == 1)
+        lookup->callback->QueryResult(lookup->query, *(char**) addresses, ttl);
+      else
         lookup->callback->Error(lookup->query, result, evdns_err_to_string(result));
     };
     delete lookup;

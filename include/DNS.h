@@ -78,6 +78,52 @@ private:
   // @endcond
 };
 
+/**
+ * @brief Reverse dns callback
+ */
+class DNSReverseCallback : public ShouldDelete {
+public:
+  virtual ~DNSReverseCallback() {};
+  /**
+   * This will get called on succesful dns lookups
+   * @param query The original query address
+   * @param result The found hostname
+   * @param ttl The time to live of the result
+   */
+  virtual void QueryResult(const String& query, const String& result, int ttl) = 0;
+  /**
+   * There was an error while looking up this domain name
+   * @param query The original query address
+   * @param errorCode The internal libevent error code
+   * @param error A human readable error
+   */
+  virtual void Error(const String& query, int errorCode, const String& error) {};
+};
+
+/**
+ * @brief Do a reverse ipv4 lookup
+ */
+class IPv4ReverseLookup : public Event {
+public:
+  /**
+   * General constructor
+   * @param pModule The module to register this database on
+   * @param query The ip address to lookup
+   * @param callback The callback object
+   */
+  IPv4ReverseLookup(const Module* module, const String& query, DNSReverseCallback* callback);
+  virtual ~IPv4ReverseLookup();
+  /** The query */
+  const String GetQuery() const { return query; };
+private:
+  // @cond
+  static void DNSEventCallback(int result, char type, int count, int ttl, void *addresses, void* arg);
+  struct evdns_request* request;
+  const String query;
+  DNSReverseCallback* callback;
+  // @endcond
+};
+
     };
   };
 };
