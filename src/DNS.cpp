@@ -66,14 +66,11 @@ void IPv4Lookup::DNSEventCallback(int result, char type, int count, int ttl, voi
   };
 };
 
-IPv4ReverseLookup::IPv4ReverseLookup(const Module* pModule, const String& pQuery, DNSReverseCallback* pCallback)
+IPv4ReverseLookup::IPv4ReverseLookup(const Module* pModule, const IPv4Address& pQuery, DNSReverseCallback* pCallback)
 : Event(pModule)
 , query(pQuery) {
   callback = pCallback;
-  struct in_addr in;
-  bzero(&in, sizeof(in));
-  if (evutil_inet_pton(AF_INET, query.c_str(), &(in.s_addr)) != 1)
-    throw "Invalid ip address";
+  struct in_addr in = query;
   request = evdns_base_resolve_reverse((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
     ,&in, 0, IPv4ReverseLookup::DNSEventCallback, this);
   if (request == NULL)

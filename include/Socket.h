@@ -157,11 +157,11 @@ class IPAddress {
 public:
   virtual ~IPAddress() {};
   /** @return The ip version */
-  virtual int GetIPVersion() = 0;
+  virtual int GetIPVersion() const = 0;
   /** @return Returns the human readable representation of the ip address */
   virtual String AsString() const = 0;
   /** @return Returns the human readable representation of the ip address */
-  operator String() { return AsString(); };
+  operator String() const { return AsString(); };
   // @cond
 private:
   static IPAddress* fromFD(int fd);
@@ -177,12 +177,25 @@ public:
   IPv4Address(struct in_addr* sa) {
     addr = sa->s_addr;
   };
+  /**
+   * Construct from a String
+   * @throws const char* on not an ip address
+   */
+  IPv4Address(const String& ip) {
+    if (evutil_inet_pton(AF_INET, ip.c_str(), &addr) != 1)
+      throw "Invalid ip address";
+  };
   virtual ~IPv4Address() {};
-  virtual int GetIPVersion() { return 4; };
+  virtual int GetIPVersion() const { return 4; };
   /** @return The ipv4 address as an integer */
   virtual int AsInt() const { return addr; }
   /** @return The ipv4 address as an integer */
-  operator int() { return AsInt(); };
+  operator int() const { return AsInt(); };
+  operator in_addr() const {
+    struct in_addr in;
+    in.s_addr = addr;
+    return in;
+  };
   virtual String AsString() const;
 private:
   in_addr_t addr;
