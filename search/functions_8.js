@@ -7,6 +7,7 @@ var searchData=
   ['internalapicall',['InternalApiCall',['../classtrippingcyril_1_1_module.html#a972caf8683fd9385d0508eacbdd2ccbf',1,'trippingcyril::Module']]],
   ['ipv4address',['IPv4Address',['../classtrippingcyril_1_1net_1_1_i_pv4_address.html#aecc054d2baec7a2f3418e5445976e206',1,'trippingcyril::net::IPv4Address']]],
   ['ipv4lookup',['IPv4Lookup',['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#a4283368313c5f689cefa802d266669f1',1,'trippingcyril::net::dns::IPv4Lookup']]],
+  ['ipv4reverselookup',['IPv4ReverseLookup',['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#a7a5f8af5f8f0544a59c83e08f2c1b17b',1,'trippingcyril::net::dns::IPv4ReverseLookup']]],
   ['isconnected',['IsConnected',['../classtrippingcyril_1_1net_1_1_socket.html#a4f8ff7c47806aad3545695acbe9e2fe5',1,'trippingcyril::net::Socket']]],
   ['isidle',['isIdle',['../classtrippingcyril_1_1_database.html#a4d370c006aff7373ea66a20b7fcb3cdb',1,'trippingcyril::Database::isIdle()'],['../classtrippingcyril_1_1_post_gres.html#a0456d6a0df5cd1a05f032028863acd78',1,'trippingcyril::PostGres::isIdle()'],['../classtrippingcyril_1_1_blocking_post_gres.html#a587e9de759532199d85e007f012e4944',1,'trippingcyril::BlockingPostGres::isIdle()']]],
   ['islistening',['isListening',['../classtrippingcyril_1_1net_1_1_listener.html#a95f77645b3c6df219c96a34321b8ba44',1,'trippingcyril::net::Listener']]],

@@ -20,5 +20,6 @@ var searchData=
   ['disconnected',['Disconnected',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a45466fb8a9eefd81f9eaaab3c6bf712f',1,'trippingcyril::net::http::SimpleHTTPSocket::Disconnected()'],['../classtrippingcyril_1_1net_1_1_socket.html#a991f5fbbbdd7eaf638ed58af2e3a50a0',1,'trippingcyril::net::Socket::Disconnected()']]],
   ['dns_2eh',['DNS.h',['../_d_n_s_8h.html',1,'']]],
   ['dnscallback',['DNSCallback',['../classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_callback.html',1,'trippingcyril::net::dns']]],
+  ['dnsreversecallback',['DNSReverseCallback',['../classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_reverse_callback.html',1,'trippingcyril::net::dns']]],
   ['dry_5frun',['DRY_RUN',['../classtrippingcyril_1_1_statsd_client.html#a77daa15b58efe24ec47605689d3ee146',1,'trippingcyril::StatsdClient']]]
 ];

@@ -21,7 +21,7 @@ var searchData=
   ['getname',['GetName',['../classtrippingcyril_1_1_file.html#a16cf1517c53b5af2ab6600074cb2e7cd',1,'trippingcyril::File::GetName()'],['../classtrippingcyril_1_1_thread.html#a4513668b611241f44002f4b6530e4508',1,'trippingcyril::Thread::GetName()']]],
   ['getnamespace',['getNamespace',['../classtrippingcyril_1_1_statsd_client.html#a176ca999d1e6a69947d61fe199ef9590',1,'trippingcyril::StatsdClient']]],
   ['getpath',['GetPath',['../classtrippingcyril_1_1_module.html#a8c285e144d80a290a765695d83fda4a0',1,'trippingcyril::Module']]],
-  ['getquery',['GetQuery',['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#a976bf2be36dc65f1b032ff33b05b0a73',1,'trippingcyril::net::dns::IPv4Lookup']]],
+  ['getquery',['GetQuery',['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#a976bf2be36dc65f1b032ff33b05b0a73',1,'trippingcyril::net::dns::IPv4Lookup::GetQuery()'],['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#aecf4694fe51b0383c79cf129a829c40a',1,'trippingcyril::net::dns::IPv4ReverseLookup::GetQuery()']]],
   ['getreturnedvalue',['getReturnedValue',['../classtrippingcyril_1_1_thread.html#a625c10a75d509e883183b672311233fe',1,'trippingcyril::Thread']]],
   ['getshortname',['GetShortName',['../classtrippingcyril_1_1_file.html#a81dc0248b834d538f7b18747d2a7d729',1,'trippingcyril::File']]],
   ['getsize',['GetSize',['../classtrippingcyril_1_1_file.html#a0acd3b2257a65b7064dd071d315d406e',1,'trippingcyril::File']]],
