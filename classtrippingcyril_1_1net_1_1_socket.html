@@ -127,6 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a398d8ebab99ddf81d0aa51934ee85ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcea7fae9b7e188503754b8a98461447"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#adcea7fae9b7e188503754b8a98461447">Connect</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;hostname, uint16_t port, bool ssl=false, double timeout=60.0)</td></tr>
 <tr class="separator:adcea7fae9b7e188503754b8a98461447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa814bedbccf69f17552b348ab9e511e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#aaa814bedbccf69f17552b348ab9e511e">Connect</a> (const <a class="el" href="classtrippingcyril_1_1net_1_1_i_p_address.html">IPAddress</a> *ip, uint16_t port, bool ssl=false, double timeout=60.0)</td></tr>
+<tr class="separator:aaa814bedbccf69f17552b348ab9e511e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f3d7ed8f11bd799b5cbefb077815a5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a3f3d7ed8f11bd799b5cbefb077815a5b">Write</a> (const char *data, size_t len)</td></tr>
 <tr class="separator:a3f3d7ed8f11bd799b5cbefb077815a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c4f03f0194352fa25fea8b9ce1431eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a7c4f03f0194352fa25fea8b9ce1431eb">SetReadLine</a> (bool b)</td></tr>
@@ -317,6 +319,55 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hostname</td><td>The hostname to connect to </td></tr>
+    <tr><td class="paramname">port</td><td>The port to connect to </td></tr>
+    <tr><td class="paramname">ssl</td><td>True if you want to use a ssl socket </td></tr>
+    <tr><td class="paramname">timeout</td><td>Connect/read/write timeout </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>False if already connected or trying to connect </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaa814bedbccf69f17552b348ab9e511e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trippingcyril::net::Socket::Connect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1net_1_1_i_p_address.html">IPAddress</a> *&#160;</td>
+          <td class="paramname"><em>ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ssl</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>60.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Connect the actual socket </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>The ip address to connect to </td></tr>
     <tr><td class="paramname">port</td><td>The port to connect to </td></tr>
     <tr><td class="paramname">ssl</td><td>True if you want to use a ssl socket </td></tr>
     <tr><td class="paramname">timeout</td><td>Connect/read/write timeout </td></tr>
@@ -704,7 +755,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 20:04:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 7 2014 15:39:10 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
