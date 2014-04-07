@@ -71,6 +71,15 @@ public:
    */
   bool Connect(const String& hostname, uint16_t port, bool ssl = false, double timeout = 60.0);
   /**
+   * Connect the actual socket
+   * @param ip The ip address to connect to
+   * @param port The port to connect to
+   * @param ssl True if you want to use a ssl socket
+   * @param timeout Connect/read/write timeout
+   * @return False if already connected or trying to connect
+   */
+  bool Connect(const IPAddress* ip, uint16_t port, bool ssl = false, double timeout= 60.0);
+  /**
    * Write data to socket
    * @param data The actual data
    * @param len The length of the data

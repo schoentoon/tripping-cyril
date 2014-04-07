@@ -174,7 +174,7 @@ bool Socket::SetTCPKeepAlive(bool enable, int delay) {
 };
 
 static SSL_CTX* createSSL_CTX() {
-  SSL_CTX* ssl_ctx = SSL_CTX_new(SSLv23_method());
+  static SSL_CTX* ssl_ctx = SSL_CTX_new(SSLv23_method());
   SSL_CTX_set_options(ssl_ctx, SSL_OP_NO_SSLv2);
   return ssl_ctx;
 };
@@ -185,14 +185,56 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTi
   struct event_base* base = (module != NULL) ? module->GetEventBase() : Global::Get()->GetEventBase();
   struct evdns_base* dns = (module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase();
   if (ssl) {
-    static SSL_CTX* ssl_ctx = createSSL_CTX();
+    SSL_CTX* ssl_ctx = createSSL_CTX();
     SSL* ssl_obj = SSL_new(ssl_ctx);
     connection = bufferevent_openssl_socket_new(base, -1, ssl_obj, BUFFEREVENT_SSL_CONNECTING, BEV_OPT_CLOSE_ON_FREE);
   } else
     connection = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
-  bufferevent_socket_connect_hostname(connection, dns, AF_INET, hostname.c_str(), port);
+  if (bufferevent_socket_connect_hostname(connection, dns, AF_INET, hostname.c_str(), port) != 0) {
+    bufferevent_free(connection);
+    connection = NULL;
+    return false;
+  };
   if (dTimeout > 0)
     SetTimeout(dTimeout);
+  bufferevent_setcb(connection, Socket::readcb, NULL, Socket::eventcb, this);
+  bufferevent_enable(connection, EV_READ);
+  return true;
+};
+
+bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeout) {
+  if (connection != NULL)
+    return false; // Already connected.
+  struct event_base* base = (module != NULL) ? module->GetEventBase() : Global::Get()->GetEventBase();
+  if (ssl) {
+    SSL_CTX* ssl_ctx = createSSL_CTX();
+    SSL* ssl_obj = SSL_new(ssl_ctx);
+    connection = bufferevent_openssl_socket_new(base, -1, ssl_obj, BUFFEREVENT_SSL_CONNECTING, BEV_OPT_CLOSE_ON_FREE);
+  } else
+    connection = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
+  int ret;
+  switch (ip->GetIPVersion()) {
+  case 4: {
+    const IPv4Address* ipv4 = (const IPv4Address*) ip;
+    struct sockaddr_in addr;
+    bzero(&addr, sizeof(addr));
+    addr.sin_addr = *ipv4;
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port);
+    ret = bufferevent_socket_connect(connection, (struct sockaddr*) &addr, sizeof(struct sockaddr));
+    break;
+  };
+  default:
+    ret = -1;
+    break;
+  };
+  if (ret != 0) {
+    bufferevent_free(connection);
+    connection = NULL;
+    return false;
+  };
+  if (timeout > 0)
+    SetTimeout(timeout);
   bufferevent_setcb(connection, Socket::readcb, NULL, Socket::eventcb, this);
   bufferevent_enable(connection, EV_READ);
   return true;
