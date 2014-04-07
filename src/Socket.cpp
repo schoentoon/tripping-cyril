@@ -182,8 +182,8 @@ static SSL_CTX* createSSL_CTX() {
 bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTimeout) {
   if (connection != NULL)
     return false; // Already connected.
-  struct event_base* base = (module != NULL) ? module->GetEventBase() : Global::Get()->GetEventBase();
-  struct evdns_base* dns = (module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase();
+  struct event_base* base = GetEventBase();
+  struct evdns_base* dns = GetDNSBase();
   if (ssl) {
     SSL_CTX* ssl_ctx = createSSL_CTX();
     SSL* ssl_obj = SSL_new(ssl_ctx);
@@ -205,7 +205,7 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTi
 bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeout) {
   if (connection != NULL)
     return false; // Already connected.
-  struct event_base* base = (module != NULL) ? module->GetEventBase() : Global::Get()->GetEventBase();
+  struct event_base* base = GetEventBase();
   if (ssl) {
     SSL_CTX* ssl_ctx = createSSL_CTX();
     SSL* ssl_obj = SSL_new(ssl_ctx);

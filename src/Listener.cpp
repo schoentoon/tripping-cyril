@@ -47,14 +47,14 @@ bool Listener::Listen() {
   sin.sin_port = htons(port);
   if (bind(fd, (struct sockaddr*) &sin, sizeof(sin)) < 0)
     return false;
-  listener = evconnlistener_new_bind(Global::Get()->GetEventBase(), Listener::listener_cb, this
+  listener = evconnlistener_new_bind(GetEventBase(), Listener::listener_cb, this
                                     ,LEV_OPT_REUSEABLE|LEV_OPT_CLOSE_ON_FREE|LEV_OPT_THREADSAFE, fd
                                     ,(struct sockaddr*) &sin, sizeof(sin));
   return listener != NULL;
 };
 
 struct bufferevent* Listener::createBufferEvent(evutil_socket_t fd) {
-  return bufferevent_socket_new(Global::Get()->GetEventBase(), fd, BEV_OPT_CLOSE_ON_FREE|BEV_OPT_THREADSAFE);
+  return bufferevent_socket_new(GetEventBase(), fd, BEV_OPT_CLOSE_ON_FREE|BEV_OPT_THREADSAFE);
 };
 
 void Listener::listener_cb(evconnlistener* evlistener, int fd, sockaddr* sa, int socklen, void* context) {
@@ -84,7 +84,7 @@ SSL_CTX* SSLListener::initSSLContext() {
 };
 
 struct bufferevent* SSLListener::createBufferEvent(int fd) {
-  return bufferevent_openssl_socket_new(Global::Get()->GetEventBase(), fd, SSL_new(ssl_ctx)
+  return bufferevent_openssl_socket_new(GetEventBase(), fd, SSL_new(ssl_ctx)
                                        ,BUFFEREVENT_SSL_ACCEPTING, BEV_OPT_CLOSE_ON_FREE|BEV_OPT_THREADSAFE);
 };
 

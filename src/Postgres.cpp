@@ -278,7 +278,7 @@ void PostGres::Connect() {
         };
       };
       if (event == NULL) {
-        event = event_new((module) ? module->GetEventBase() : Global::Get()->GetEventBase(), PQsocket(conn), EV_READ|EV_PERSIST, PostGres::EventCallback, this);
+        event = event_new(GetEventBase(), PQsocket(conn), EV_READ|EV_PERSIST, PostGres::EventCallback, this);
         event_add(event, NULL);
       };
       Loop();

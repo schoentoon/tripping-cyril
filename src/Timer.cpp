@@ -56,7 +56,7 @@ void Timer::Start(double interval) {
 
 void Timer::Start(struct timeval& tv) {
   if (timer == NULL) {
-    timer = event_new(module != NULL ? module->GetEventBase() : Global::Get()->GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
+    timer = event_new(GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
     evtimer_add(timer, &tv);
   };
 };

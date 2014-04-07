@@ -29,7 +29,7 @@ Pipe::Pipe(const Module* pModule)
   if (pipe(fds) != 0)
     throw String(strerror(errno));
   fcntl(fds[0], F_SETFL, O_NONBLOCK);
-  read_event = event_new(module != NULL ? module->GetEventBase() : Global::Get()->GetEventBase()
+  read_event = event_new(GetEventBase()
                         ,fds[0], EV_PERSIST|EV_READ, Pipe::EventCallback, this);
   event_add(read_event, NULL);
 };

@@ -18,6 +18,9 @@
 #ifndef _EVENT_INTERFACE_H
 #define _EVENT_INTERFACE_H
 
+#include <event2/dns.h>
+#include <event2/event.h>
+
 namespace trippingcyril {
 
 // @cond
@@ -43,6 +46,8 @@ protected:
    * one
    */
   const Module* module;
+  event_base* GetEventBase() const;
+  evdns_base* GetDNSBase() const;
 };
 
 };

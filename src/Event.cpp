@@ -18,6 +18,7 @@
 #include "Event.h"
 
 #include "Module.h"
+#include "Global.h"
 
 namespace trippingcyril {
 
@@ -31,5 +32,14 @@ Event::~Event() {
   if (module != NULL)
     module->DelEvent(this);
 };
+
+event_base* Event::GetEventBase() const {
+  return (module != NULL) ? module->GetEventBase() : Global::Get()->GetEventBase();
+};
+
+evdns_base* Event::GetDNSBase() const {
+  return (module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase();
+};
+
 
 };
