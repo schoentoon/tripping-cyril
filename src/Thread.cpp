@@ -22,6 +22,7 @@
 #include <stdio.h>
 
 namespace trippingcyril {
+  namespace thread {
 
 Thread::Thread(const String& pName, const Module* pModule)
 : Event(pModule)
@@ -181,4 +182,5 @@ void ThreadManager::unregisterThread(Thread* thread) {
     threads.erase(iter);
 };
 
+  };
 };

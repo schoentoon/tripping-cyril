@@ -81,7 +81,7 @@ void Global::Loop() {
     event_base_dispatch(event_base);
 };
 
-class ModuleThread : public Thread {
+class ModuleThread : public thread::Thread {
 public:
   ModuleThread(Module* pModule)
   : Thread(pModule->GetModName(), pModule)
@@ -118,7 +118,7 @@ protected:
   };
 private:
   static void CrashHandler(int sig, siginfo_t* info, void* f) {
-    Thread* thread = ThreadManager::Get()->getCurrentThread();
+    Thread* thread = thread::ThreadManager::Get()->getCurrentThread();
     if (thread != NULL) {
       crash::StackTrace();
       ModuleThread* modThread = (ModuleThread*) thread;

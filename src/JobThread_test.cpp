@@ -22,6 +22,7 @@
 #include "LibEventHelper.h"
 
 using namespace trippingcyril;
+using namespace trippingcyril::thread;
 
 namespace test {
 
@@ -89,7 +90,7 @@ public:
 };
 
 TEST_F(JobThread, DISABLED_TestJob) {
-  trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
+  trippingcyril::thread::JobThread* thread = new trippingcyril::thread::JobThread("jobthread", event_base);
   ASSERT_TRUE(thread->Start());
   TestJob* job = new TestJob(event_base);
   job->mainThread = pthread_self();
@@ -101,7 +102,7 @@ TEST_F(JobThread, DISABLED_TestJob) {
 };
 
 TEST_F(JobThread, DISABLED_NoPostHook) {
-  trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
+  trippingcyril::thread::JobThread* thread = new trippingcyril::thread::JobThread("jobthread", event_base);
   ASSERT_TRUE(thread->Start());
   TestJob* job = new TestJob(event_base);
   job->runPostHook = false;
@@ -114,7 +115,7 @@ TEST_F(JobThread, DISABLED_NoPostHook) {
 };
 
 TEST_F(JobThread, DISABLED_DontRun) {
-  trippingcyril::JobThread* thread = new trippingcyril::JobThread("jobthread", event_base);
+  trippingcyril::thread::JobThread* thread = new trippingcyril::thread::JobThread("jobthread", event_base);
   ASSERT_TRUE(thread->Start());
   TestJob* job = new TestJob(event_base);
   job->shouldRun = false;

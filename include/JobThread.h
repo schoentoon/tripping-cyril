@@ -26,6 +26,7 @@
 #include "Pipe.h"
 
 namespace trippingcyril {
+  namespace thread {
 
 /**
  * @brief Job base class
@@ -88,6 +89,7 @@ private:
   // @endcond
 };
 
+  };
 };
 
 #endif //_JOB_THREAD_H

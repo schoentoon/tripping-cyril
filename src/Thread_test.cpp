@@ -20,6 +20,7 @@
 #include "Thread.h"
 
 using namespace trippingcyril;
+using namespace trippingcyril::thread;
 
 namespace tests {
 

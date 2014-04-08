@@ -23,6 +23,8 @@
 #include "TermUtils.h"
 
 namespace trippingcyril {
+  namespace database {
+    namespace postgres {
 
 class PQJob {
 public:
@@ -332,6 +334,8 @@ void BlockingPostGres::Connect() {
   };
 };
 
+    };
+  };
 };
 
 #endif //_NO_POSTGRES

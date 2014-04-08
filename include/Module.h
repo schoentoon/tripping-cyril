@@ -44,12 +44,15 @@ namespace trippingcyril {
 typedef void* ModHandle;
 
 // @cond
+namespace thread {
 class ModuleThread;
-// @endcond
-
 class Thread;
-class Socket;
+};
+namespace net {
+  class Socket;
+};
 class Timer;
+// @endcond
 
 /**
  * @brief Base class for modules
@@ -123,7 +126,7 @@ private:
   friend class Global;
   friend class Event;
 
-  Thread* modThread;
+  thread::Thread* modThread;
   friend class ModuleThread;
   // @endcond
 };

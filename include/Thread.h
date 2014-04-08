@@ -26,6 +26,7 @@
 #include "Event.h"
 
 namespace trippingcyril {
+  namespace thread {
 
 /**
  * @brief Simple thread class
@@ -201,6 +202,7 @@ private:
   // @endcond
 };
 
+  };
 };
 
 #endif //_THREAD_H

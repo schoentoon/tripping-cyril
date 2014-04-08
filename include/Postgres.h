@@ -39,6 +39,8 @@
 #include "BackoffTimer.h"
 
 namespace trippingcyril {
+  namespace database {
+    namespace postgres {
 
 // @cond
 class PQJob;
@@ -146,6 +148,8 @@ private:
   // @endcond
 };
 
+    };
+  };
 };
 
 #endif //_NO_POSTGRES

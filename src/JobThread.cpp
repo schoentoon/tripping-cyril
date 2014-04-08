@@ -20,6 +20,7 @@
 #include <iostream>
 
 namespace trippingcyril {
+  namespace thread {
 
 class JobRunnerPipe : public Pipe {
 public:
@@ -123,4 +124,5 @@ void* JobThread::run() {
   return NULL;
 };
 
+  };
 };

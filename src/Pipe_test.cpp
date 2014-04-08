@@ -75,7 +75,7 @@ TEST_F(Pipe, OnRead) {
   delete pipe;
 };
 
-class WriteThread : public Thread {
+class WriteThread : public thread::Thread {
 public:
   WriteThread(TestPipe* pipe, const String& writeData)
   : Thread("pipewritethread", NULL) {

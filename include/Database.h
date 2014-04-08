@@ -27,6 +27,7 @@
 #include "ShouldDelete.h"
 
 namespace trippingcyril {
+  namespace database {
 
 /**
  * @brief Abstraction for database results
@@ -177,6 +178,7 @@ private:
 #endif
 };
 
+  };
 };
 
 #endif //_DATABASE_H
