@@ -1,5 +1,0 @@
-<map id="trippingcyril::Database" name="trippingcyril::Database">
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_blocking_post_gres.html" title="A blocking postgresql implementation of the Database interface. " alt="" coords="5,155,205,181"/>
-<area shape="rect" id="node4" href="$classtrippingcyril_1_1_post_gres.html" title="A non blocking postgresql implementation of the Database interface. " alt="" coords="230,155,380,181"/>
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="140,5,271,32"/>
-</map>

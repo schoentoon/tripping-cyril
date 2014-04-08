@@ -1,8 +1,8 @@
 var searchData=
 [
   ['tempfile',['TempFile',['../classtrippingcyril_1_1_temp_file.html#aef5f65a2003113d6d31b5d1d5a8ea405',1,'trippingcyril::TempFile']]],
-  ['thread',['Thread',['../classtrippingcyril_1_1_thread.html#a33221a2f5158ecaf0b10529799f7f9ed',1,'trippingcyril::Thread']]],
-  ['threadcount',['threadCount',['../classtrippingcyril_1_1_thread_manager.html#a61838ed4d14a1148d1296f5e317d03e6',1,'trippingcyril::ThreadManager']]],
+  ['thread',['Thread',['../classtrippingcyril_1_1thread_1_1_thread.html#a849508f38f05af136e11a269c6848601',1,'trippingcyril::thread::Thread']]],
+  ['threadcount',['threadCount',['../classtrippingcyril_1_1thread_1_1_thread_manager.html#a9a300b1ea81802fd815096fee9092951',1,'trippingcyril::thread::ThreadManager']]],
   ['timeout',['Timeout',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a7d56c2a77a85d04b83d8d8bc3f97c43b',1,'trippingcyril::net::http::SimpleHTTPSocket::Timeout()'],['../classtrippingcyril_1_1net_1_1_socket.html#a53315a2582a954729784bea8026af444',1,'trippingcyril::net::Socket::Timeout()']]],
   ['timer',['Timer',['../classtrippingcyril_1_1_timer.html#abcb21c82546a40d8d861b1b04cf91557',1,'trippingcyril::Timer::Timer(const Module *module)'],['../classtrippingcyril_1_1_timer.html#a4fc8eda5c103e9a39af41f7bd6d19339',1,'trippingcyril::Timer::Timer(const Module *module, double interval, unsigned int maxCycles=0)']]],
   ['timing',['Timing',['../classtrippingcyril_1_1_statsd_client.html#ab66a7a3d82fcc95f1bcb1b0741d1541f',1,'trippingcyril::StatsdClient']]],

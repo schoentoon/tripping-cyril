@@ -9,7 +9,7 @@ var searchData=
   ['onloaded',['OnLoaded',['../classtrippingcyril_1_1_module.html#a049988ec7e10969554f195ff1c13cd5d',1,'trippingcyril::Module']]],
   ['onlycontains',['OnlyContains',['../classtrippingcyril_1_1_string.html#a5e5be42c21879511fa33dda436b5d2b5',1,'trippingcyril::String']]],
   ['onmodify',['OnModify',['../classtrippingcyril_1_1_file_observer_callback.html#a457c25567a48bd682c8b5c6be3505cde',1,'trippingcyril::FileObserverCallback']]],
-  ['onnotify',['onNotify',['../classtrippingcyril_1_1_p_g_notify_listener.html#a1063699c6bd1787ac727b34fdea65dd0',1,'trippingcyril::PGNotifyListener']]],
+  ['onnotify',['onNotify',['../classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener.html#a8fd1ae71dde3e4c91e86df3bc04ca0d6',1,'trippingcyril::database::postgres::PGNotifyListener']]],
   ['onread',['OnRead',['../classtrippingcyril_1_1_pipe.html#a41a4a156109a34614db332b05519f18e',1,'trippingcyril::Pipe']]],
   ['onrequestdone',['OnRequestDone',['../classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html#adf924967957fca91b88134cb3e8c3cfc',1,'trippingcyril::net::http::HTTPCallback']]],
   ['onrequesterror',['OnRequestError',['../classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html#ace49e9ab2b98e7373f3c5d45bfe87061',1,'trippingcyril::net::http::HTTPCallback']]],
