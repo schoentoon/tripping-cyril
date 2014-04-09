@@ -26,7 +26,7 @@ namespace trippingcyril {
   namespace database {
     namespace postgres {
 
-class PQJob {
+struct PQJob {
 public:
   PQJob(const String &pQuery)
   : query(pQuery) {
@@ -52,7 +52,7 @@ private:
   friend class PostGres;
 };
 
-class DBPGResult : public DBResult {
+struct DBPGResult : public DBResult {
 public:
   DBPGResult(PGresult* result) {
     this->result = result;

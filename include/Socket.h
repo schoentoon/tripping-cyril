@@ -162,7 +162,7 @@ private:
 /**
  * @brief Simple ip address class
  */
-class IPAddress {
+struct IPAddress {
 public:
   virtual ~IPAddress() {};
   /** @return The ip version */
@@ -181,7 +181,7 @@ private:
 /**
  * @brief The IPv4 implementation of our ip address class
  */
-class IPv4Address : public IPAddress {
+struct IPv4Address : public IPAddress {
 public:
   IPv4Address(struct in_addr* sa) {
     addr = sa->s_addr;

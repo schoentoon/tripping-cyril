@@ -32,7 +32,7 @@ namespace trippingcyril {
 /**
  * @brief Abstraction for database results
  */
-class DBResult {
+struct DBResult {
 public:
   virtual ~DBResult() {};
   /** @return The amount of columns in the result */
