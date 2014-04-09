@@ -36,7 +36,7 @@ namespace test {
 namespace trippingcyril {
   namespace net {
 
-class IPAddress;
+struct IPAddress;
 
 /**
  * @brief General tcp socket class, fully async using libevent
@@ -208,9 +208,6 @@ public:
   virtual String AsString() const;
 private:
   in_addr_t addr;
-  // @cond
-  friend class IPAddress;
-  // @endcond
 };
 
   };

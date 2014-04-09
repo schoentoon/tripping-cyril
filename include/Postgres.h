@@ -43,7 +43,7 @@ namespace trippingcyril {
     namespace postgres {
 
 // @cond
-class PQJob;
+struct PQJob;
 class PostGres;
 class PostGresBackoff;
 // @endcond
