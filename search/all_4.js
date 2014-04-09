@@ -4,7 +4,7 @@ var searchData=
   ['database',['Database',['../classtrippingcyril_1_1database_1_1_database.html#a5fc04c17b266d45b8afa082bf827fda6',1,'trippingcyril::database::Database']]],
   ['database_2eh',['Database.h',['../_database_8h.html',1,'']]],
   ['dbcallback',['DBCallback',['../classtrippingcyril_1_1database_1_1_d_b_callback.html',1,'trippingcyril::database']]],
-  ['dbresult',['DBResult',['../classtrippingcyril_1_1database_1_1_d_b_result.html',1,'trippingcyril::database']]],
+  ['dbresult',['DBResult',['../structtrippingcyril_1_1database_1_1_d_b_result.html',1,'trippingcyril::database']]],
   ['decompession_5ferror',['DECOMPESSION_ERROR',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a0a1e77ff5365300bbd1a0bf3f00e46da',1,'trippingcyril::net::http::SimpleHTTPSocket']]],
   ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html',1,'trippingcyril']]],
   ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html#a96104e975d08b9bab70bf0472de6b6d8',1,'trippingcyril::Decompressor']]],

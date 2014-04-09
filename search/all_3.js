@@ -6,7 +6,7 @@ var searchData=
   ['closable',['Closable',['../classtrippingcyril_1_1_closable.html',1,'trippingcyril']]],
   ['closable_2eh',['Closable.h',['../_closable_8h.html',1,'']]],
   ['close',['Close',['../classtrippingcyril_1_1_closable.html#a0726a7965512b131552be83828611f7c',1,'trippingcyril::Closable::Close()'],['../classtrippingcyril_1_1_file.html#ad2562a6854b5cb6d0c69f8b8563fd6d5',1,'trippingcyril::File::Close()'],['../classtrippingcyril_1_1net_1_1_socket.html#a398d8ebab99ddf81d0aa51934ee85ef7',1,'trippingcyril::net::Socket::Close()']]],
-  ['columns',['columns',['../classtrippingcyril_1_1database_1_1_d_b_result.html#a6caf6713fb3d659707935c76b2ff5793',1,'trippingcyril::database::DBResult']]],
+  ['columns',['columns',['../structtrippingcyril_1_1database_1_1_d_b_result.html#a6caf6713fb3d659707935c76b2ff5793',1,'trippingcyril::database::DBResult']]],
   ['compressor',['Compressor',['../classtrippingcyril_1_1_compressor.html',1,'trippingcyril']]],
   ['compressor',['Compressor',['../classtrippingcyril_1_1_compressor.html#aa1eecaa6887b39b6636c916e04d5e573',1,'trippingcyril::Compressor']]],
   ['compressor_2eh',['Compressor.h',['../_compressor_8h.html',1,'']]],

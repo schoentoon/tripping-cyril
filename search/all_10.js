@@ -9,7 +9,7 @@ var searchData=
   ['regular',['REGULAR',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66a3b077b6d2cdaca3947b0b27c80578dd1',1,'trippingcyril::File']]],
   ['reloadoncrash',['reloadOnCrash',['../classtrippingcyril_1_1_module.html#a8f28c21759110be5cdb6c94dc647575e',1,'trippingcyril::Module']]],
   ['remove',['Remove',['../classtrippingcyril_1_1thread_1_1_job_thread.html#a8029d0e0b355dccb4f22bbb00172f0af',1,'trippingcyril::thread::JobThread']]],
-  ['rows',['rows',['../classtrippingcyril_1_1database_1_1_d_b_result.html#abe61e38670cb5a1d1ba6236f09e18208',1,'trippingcyril::database::DBResult']]],
+  ['rows',['rows',['../structtrippingcyril_1_1database_1_1_d_b_result.html#abe61e38670cb5a1d1ba6236f09e18208',1,'trippingcyril::database::DBResult']]],
   ['run',['run',['../classtrippingcyril_1_1thread_1_1_job_thread.html#a51bc1d67eb117c89d8a8cac9437a7cc2',1,'trippingcyril::thread::JobThread::run()'],['../classtrippingcyril_1_1thread_1_1_thread.html#a51bfb2fdb2be297cbc6e69a0c8f821d4',1,'trippingcyril::thread::Thread::run()']]],
   ['runjob',['RunJob',['../classtrippingcyril_1_1_backoff_timer.html#ad86f7f51f0396a567580e4b5eed8f7a0',1,'trippingcyril::BackoffTimer::RunJob()'],['../classtrippingcyril_1_1_timer.html#ad9b45611d24e019d170d2e86b43b160c',1,'trippingcyril::Timer::RunJob()']]],
   ['runposthook',['runPostHook',['../classtrippingcyril_1_1thread_1_1_job.html#af2095be48768cc97eb06fc8242fab24d',1,'trippingcyril::thread::Job']]]
