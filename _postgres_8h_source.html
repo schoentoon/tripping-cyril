@@ -133,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacetrippingcyril_1_1database_1_1postgres.html">   43</a></span>&#160;    <span class="keyword">namespace </span>postgres {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// @cond</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span>PQJob;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">struct </span>PQJob;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html">PostGres</a>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">class </span>PostGresBackoff;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// @endcond</span></div>
@@ -179,7 +179,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordtype">void</span> Loop();</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">void</span> Connect();</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  std::map&lt;String, PGNotifyListener*&gt; listeners;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <a class="code" href="classtrippingcyril_1_1_backoff_timer.html">BackoffTimer</a>* backoff;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <a class="code" href="classtrippingcyril_1_1timing_1_1_backoff_timer.html">timing::BackoffTimer</a>* backoff;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span>PostGresBackoff;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="comment">// @endcond</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
@@ -224,12 +224,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres_html_a6cdca048170c022689b16b69604a133a"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a6cdca048170c022689b16b69604a133a">trippingcyril::database::postgres::PostGres::~PostGres</a></div><div class="ttdeci">virtual ~PostGres()</div></div>
 <div class="ttc" id="classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener_html"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener.html">trippingcyril::database::postgres::PGNotifyListener</a></div><div class="ttdoc">Callback for listen/notify operations within PostGres, use this with PostGres::Listen. </div><div class="ttdef"><b>Definition:</b> Postgres.h:54</div></div>
 <div class="ttc" id="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres_html_a4dfe1e0d4fc9e4096a9051af1b60d6be"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#a4dfe1e0d4fc9e4096a9051af1b60d6be">trippingcyril::database::postgres::BlockingPostGres::BlockingPostGres</a></div><div class="ttdeci">BlockingPostGres(const String &amp;connstring, const Module *pModule=NULL)</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:60</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:62</div></div>
 <div class="ttc" id="classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener_html_a8fd1ae71dde3e4c91e86df3bc04ca0d6"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener.html#a8fd1ae71dde3e4c91e86df3bc04ca0d6">trippingcyril::database::postgres::PGNotifyListener::onNotify</a></div><div class="ttdeci">virtual void onNotify(const String &amp;key, const String &amp;payload, const int pid)=0</div></div>
 <div class="ttc" id="_database_8h_html"><div class="ttname"><a href="_database_8h.html">Database.h</a></div></div>
 <div class="ttc" id="classtrippingcyril_1_1_string_html"><div class="ttname"><a href="classtrippingcyril_1_1_string.html">trippingcyril::String</a></div><div class="ttdoc">A wrapper string class to make a various amount of things just easier to type. All strings used shoul...</div><div class="ttdef"><b>Definition:</b> String.h:32</div></div>
 <div class="ttc" id="classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener_html_a0698792fdbcfb6a02b951333acde0c97"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener.html#a0698792fdbcfb6a02b951333acde0c97">trippingcyril::database::postgres::PGNotifyListener::~PGNotifyListener</a></div><div class="ttdeci">virtual ~PGNotifyListener()</div><div class="ttdef"><b>Definition:</b> Postgres.h:56</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_backoff_timer_html"><div class="ttname"><a href="classtrippingcyril_1_1_backoff_timer.html">trippingcyril::BackoffTimer</a></div><div class="ttdoc">General backoff timer. </div><div class="ttdef"><b>Definition:</b> BackoffTimer.h:32</div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_backoff_timer_html"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_backoff_timer.html">trippingcyril::timing::BackoffTimer</a></div><div class="ttdoc">General backoff timer. </div><div class="ttdef"><b>Definition:</b> BackoffTimer.h:33</div></div>
 <div class="ttc" id="classtrippingcyril_1_1database_1_1_d_b_callback_html"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1_d_b_callback.html">trippingcyril::database::DBCallback</a></div><div class="ttdoc">Database callback class. </div><div class="ttdef"><b>Definition:</b> Database.h:60</div></div>
 <div class="ttc" id="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres_html_a63daf9e25d9fe1147b878284a453c389"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a63daf9e25d9fe1147b878284a453c389">trippingcyril::database::postgres::PostGres::isIdle</a></div><div class="ttdeci">bool isIdle() const </div><div class="ttdef"><b>Definition:</b> Postgres.h:96</div></div>
 <div class="ttc" id="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres_html"><div class="ttname"><a href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html">trippingcyril::database::postgres::PostGres</a></div><div class="ttdoc">A non blocking postgresql implementation of the Database interface. </div><div class="ttdef"><b>Definition:</b> Postgres.h:77</div></div>
@@ -237,7 +237,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 9 2014 11:42:31 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 10 2014 15:06:36 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

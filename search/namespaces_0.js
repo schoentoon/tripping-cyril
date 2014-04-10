@@ -7,5 +7,6 @@ var searchData=
   ['net',['net',['../namespacetrippingcyril_1_1net.html',1,'trippingcyril']]],
   ['postgres',['postgres',['../namespacetrippingcyril_1_1database_1_1postgres.html',1,'trippingcyril::database']]],
   ['thread',['thread',['../namespacetrippingcyril_1_1thread.html',1,'trippingcyril']]],
+  ['timing',['timing',['../namespacetrippingcyril_1_1timing.html',1,'trippingcyril']]],
   ['trippingcyril',['trippingcyril',['../namespacetrippingcyril.html',1,'']]]
 ];

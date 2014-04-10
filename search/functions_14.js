@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7ebackofftimer',['~BackoffTimer',['../classtrippingcyril_1_1_backoff_timer.html#a5f46988cd29417e028094c6c7c6e7e8a',1,'trippingcyril::BackoffTimer']]],
+  ['_7ebackofftimer',['~BackoffTimer',['../classtrippingcyril_1_1timing_1_1_backoff_timer.html#a484dba7fde90098f8acb160eb5a760bb',1,'trippingcyril::timing::BackoffTimer']]],
   ['_7eblockingpostgres',['~BlockingPostGres',['../classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#a456b0228df87d2ad28a33266e759a253',1,'trippingcyril::database::postgres::BlockingPostGres']]],
   ['_7ecompressor',['~Compressor',['../classtrippingcyril_1_1_compressor.html#a0ef1a00b3cbb012b61424d7623330603',1,'trippingcyril::Compressor']]],
   ['_7econdvar',['~CondVar',['../classtrippingcyril_1_1thread_1_1_cond_var.html#adb5418e3f864a7e1e5d446714e4f9176',1,'trippingcyril::thread::CondVar']]],
@@ -41,5 +41,5 @@ var searchData=
   ['_7estringwriter',['~StringWriter',['../classtrippingcyril_1_1_string_writer.html#a05e0aab01b379919a1ac1ce5b0ef1738',1,'trippingcyril::StringWriter']]],
   ['_7etempfile',['~TempFile',['../classtrippingcyril_1_1_temp_file.html#af328575a02ef76727a0c542253f0b22a',1,'trippingcyril::TempFile']]],
   ['_7ethread',['~Thread',['../classtrippingcyril_1_1thread_1_1_thread.html#aac737f881aa2256423094a5d1b66c07f',1,'trippingcyril::thread::Thread']]],
-  ['_7etimer',['~Timer',['../classtrippingcyril_1_1_timer.html#ad5c93bb572e43696312437e2118f336c',1,'trippingcyril::Timer']]]
+  ['_7etimer',['~Timer',['../classtrippingcyril_1_1timing_1_1_timer.html#ade60f0196125de7167003511713ac830',1,'trippingcyril::timing::Timer']]]
 ];

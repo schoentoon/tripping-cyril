@@ -1,34 +1,34 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtrippingcyril_1_1_closable.html" title="Writer class to provide a general closing operation. " alt="" coords="251,292,397,319"/>
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_file.html" title="A general file access class. " alt="" coords="499,567,616,593"/>
-<area shape="rect" id="node4" href="$classtrippingcyril_1_1net_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="500,434,615,475"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="726,567,877,593"/>
-<area shape="rect" id="node5" href="$classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="713,434,889,475"/>
-<area shape="rect" id="node6" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="259,241,389,268"/>
-<area shape="rect" id="node7" href="$classtrippingcyril_1_1_backoff_timer.html" title="General backoff timer. " alt="" coords="470,187,645,213"/>
-<area shape="rect" id="node8" href="$classtrippingcyril_1_1database_1_1_database.html" title="Database interface. " alt="" coords="483,238,632,279"/>
-<area shape="rect" id="node11" href="$classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html" title="A simple IPv4 lookup event. " alt="" coords="493,303,621,345"/>
-<area shape="rect" id="node12" href="$classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html" title="Do a reverse ipv4 lookup. " alt="" coords="469,369,646,410"/>
-<area shape="rect" id="node13" href="$classtrippingcyril_1_1net_1_1_listener.html" title="Generic listener class. " alt="" coords="500,5,615,46"/>
-<area shape="rect" id="node15" href="$classtrippingcyril_1_1_pipe.html" title="A wrapper class for pipes. " alt="" coords="496,505,619,532"/>
-<area shape="rect" id="node16" href="$classtrippingcyril_1_1thread_1_1_thread.html" title="Simple thread class. " alt="" coords="491,70,623,111"/>
-<area shape="rect" id="node18" href="$classtrippingcyril_1_1_timer.html" title="General timer class. " alt="" coords="493,136,622,163"/>
-<area shape="rect" id="node9" href="$classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html" title="A blocking postgresql implementation of the Database interface. " alt="" coords="705,271,898,313"/>
-<area shape="rect" id="node10" href="$classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html" title="A non blocking postgresql implementation of the Database interface. " alt="" coords="727,206,876,247"/>
-<area shape="rect" id="node14" href="$classtrippingcyril_1_1net_1_1_s_s_l_listener.html" title="Generic ssl listener class. " alt="" coords="744,5,859,46"/>
-<area shape="rect" id="node17" href="$classtrippingcyril_1_1thread_1_1_job_thread.html" title="A job queue that will run your jobs on a seperate thread. " alt="" coords="735,70,867,111"/>
-<area shape="rect" id="node19" href="$classtrippingcyril_1_1_should_delete.html" title="A simple interface to determine if the object should be deleted or not. " alt="" coords="6,547,181,573"/>
-<area shape="rect" id="node20" href="$classtrippingcyril_1_1database_1_1_d_b_callback.html" title="Database callback class. " alt="" coords="249,343,399,385"/>
-<area shape="rect" id="node21" href="$classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener.html" title="Callback for listen/notify operations within PostGres, use this with PostGres::Listen. " alt="" coords="230,409,418,450"/>
-<area shape="rect" id="node22" href="$classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_callback.html" title="DNS callback class. " alt="" coords="255,474,393,515"/>
-<area shape="rect" id="node23" href="$classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_reverse_callback.html" title="Reverse dns callback. " alt="" coords="230,539,418,581"/>
-<area shape="rect" id="node24" href="$classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html" title="Callback class for our SimpleHTTPSocket. " alt="" coords="251,605,397,646"/>
-<area shape="rect" id="node25" href="$classtrippingcyril_1_1thread_1_1_job.html" title="Job base class With main thread we really just mean the thread the Module that the JobThread we are p..." alt="" coords="243,671,405,697"/>
-<area shape="rect" id="node26" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="259,721,389,748"/>
-<area shape="rect" id="node27" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="474,671,641,697"/>
-<area shape="rect" id="node30" href="$classtrippingcyril_1_1_decompressor.html" title="Abstract decompressor. " alt="" coords="467,721,648,748"/>
-<area shape="rect" id="node32" href="$classtrippingcyril_1_1_string_writer.html" title="Simple in memory writer that just writes everything to a string. " alt="" coords="475,772,640,799"/>
-<area shape="rect" id="node28" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="704,620,899,647"/>
-<area shape="rect" id="node29" href="$classtrippingcyril_1_1_l_z_m_a_compressor.html" title="A lzma implementation of the Compressor interface. " alt="" coords="700,671,903,697"/>
-<area shape="rect" id="node31" href="$classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="697,721,906,748"/>
+<area shape="rect" id="node1" href="$classtrippingcyril_1_1_closable.html" title="Writer class to provide a general closing operation. " alt="" coords="251,320,397,347"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1_file.html" title="A general file access class. " alt="" coords="499,595,616,621"/>
+<area shape="rect" id="node4" href="$classtrippingcyril_1_1net_1_1_socket.html" title="General tcp socket class, fully async using libevent. " alt="" coords="500,462,615,503"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_temp_file.html" title="An easy way to get temporary files in /tmp which will be deleted upon destruction of the object..." alt="" coords="726,595,877,621"/>
+<area shape="rect" id="node5" href="$classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html" title="A simple http client. " alt="" coords="713,462,889,503"/>
+<area shape="rect" id="node6" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="259,269,389,296"/>
+<area shape="rect" id="node7" href="$classtrippingcyril_1_1database_1_1_database.html" title="Database interface. " alt="" coords="483,201,632,242"/>
+<area shape="rect" id="node10" href="$classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html" title="A simple IPv4 lookup event. " alt="" coords="493,266,621,307"/>
+<area shape="rect" id="node11" href="$classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html" title="Do a reverse ipv4 lookup. " alt="" coords="469,331,646,373"/>
+<area shape="rect" id="node12" href="$classtrippingcyril_1_1net_1_1_listener.html" title="Generic listener class. " alt="" coords="500,397,615,438"/>
+<area shape="rect" id="node14" href="$classtrippingcyril_1_1_pipe.html" title="A wrapper class for pipes. " alt="" coords="496,533,619,560"/>
+<area shape="rect" id="node15" href="$classtrippingcyril_1_1thread_1_1_thread.html" title="Simple thread class. " alt="" coords="491,5,623,46"/>
+<area shape="rect" id="node17" href="$classtrippingcyril_1_1timing_1_1_backoff_timer.html" title="General backoff timer. " alt="" coords="492,70,623,111"/>
+<area shape="rect" id="node18" href="$classtrippingcyril_1_1timing_1_1_timer.html" title="General timer class. " alt="" coords="492,135,623,177"/>
+<area shape="rect" id="node8" href="$classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html" title="A blocking postgresql implementation of the Database interface. " alt="" coords="705,234,898,275"/>
+<area shape="rect" id="node9" href="$classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html" title="A non blocking postgresql implementation of the Database interface. " alt="" coords="727,169,876,210"/>
+<area shape="rect" id="node13" href="$classtrippingcyril_1_1net_1_1_s_s_l_listener.html" title="Generic ssl listener class. " alt="" coords="744,397,859,438"/>
+<area shape="rect" id="node16" href="$classtrippingcyril_1_1thread_1_1_job_thread.html" title="A job queue that will run your jobs on a seperate thread. " alt="" coords="735,5,867,46"/>
+<area shape="rect" id="node19" href="$classtrippingcyril_1_1_should_delete.html" title="A simple interface to determine if the object should be deleted or not. " alt="" coords="6,575,181,601"/>
+<area shape="rect" id="node20" href="$classtrippingcyril_1_1database_1_1_d_b_callback.html" title="Database callback class. " alt="" coords="249,371,399,413"/>
+<area shape="rect" id="node21" href="$classtrippingcyril_1_1database_1_1postgres_1_1_p_g_notify_listener.html" title="Callback for listen/notify operations within PostGres, use this with PostGres::Listen. " alt="" coords="230,437,418,478"/>
+<area shape="rect" id="node22" href="$classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_callback.html" title="DNS callback class. " alt="" coords="255,502,393,543"/>
+<area shape="rect" id="node23" href="$classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_reverse_callback.html" title="Reverse dns callback. " alt="" coords="230,567,418,609"/>
+<area shape="rect" id="node24" href="$classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html" title="Callback class for our SimpleHTTPSocket. " alt="" coords="251,633,397,674"/>
+<area shape="rect" id="node25" href="$classtrippingcyril_1_1thread_1_1_job.html" title="Job base class With main thread we really just mean the thread the Module that the JobThread we are p..." alt="" coords="243,699,405,725"/>
+<area shape="rect" id="node26" href="$classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write..." alt="" coords="259,749,389,776"/>
+<area shape="rect" id="node27" href="$classtrippingcyril_1_1_compressor.html" title="Abstract compressor. " alt="" coords="474,699,641,725"/>
+<area shape="rect" id="node30" href="$classtrippingcyril_1_1_decompressor.html" title="Abstract decompressor. " alt="" coords="467,749,648,776"/>
+<area shape="rect" id="node32" href="$classtrippingcyril_1_1_string_writer.html" title="Simple in memory writer that just writes everything to a string. " alt="" coords="475,800,640,827"/>
+<area shape="rect" id="node28" href="$classtrippingcyril_1_1_g_zip_compressor.html" title="A gzip implementation of the Compressor interface. " alt="" coords="704,648,899,675"/>
+<area shape="rect" id="node29" href="$classtrippingcyril_1_1_l_z_m_a_compressor.html" title="A lzma implementation of the Compressor interface. " alt="" coords="700,699,903,725"/>
+<area shape="rect" id="node31" href="$classtrippingcyril_1_1_g_zip_decompressor.html" title="A gzip implementation of the Decompressor interface. " alt="" coords="697,749,906,776"/>
 </map>

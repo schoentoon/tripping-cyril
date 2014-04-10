@@ -10,5 +10,5 @@ var searchData=
   ['files_2eh',['Files.h',['../_files_8h.html',1,'']]],
   ['filetype',['FileType',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66',1,'trippingcyril::File']]],
   ['findmodule',['FindModule',['../classtrippingcyril_1_1_global.html#a953cb9341e602eed3672ddba208b0e3e',1,'trippingcyril::Global']]],
-  ['finished',['Finished',['../classtrippingcyril_1_1_timer.html#a317e38a985219401afefb319cd89f129',1,'trippingcyril::Timer']]]
+  ['finished',['Finished',['../classtrippingcyril_1_1timing_1_1_timer.html#adf8610be0bc1612ba0703cba61dd2698',1,'trippingcyril::timing::Timer']]]
 ];

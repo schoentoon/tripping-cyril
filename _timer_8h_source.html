@@ -117,63 +117,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_module_8h.html">Module.h</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_timer.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_timer.html">Timer</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_event.html">Event</a> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classtrippingcyril_1_1_timer.html#abcb21c82546a40d8d861b1b04cf91557">Timer</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* <a class="code" href="classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da">module</a>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="classtrippingcyril_1_1_timer.html#abcb21c82546a40d8d861b1b04cf91557">Timer</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* module, <span class="keywordtype">double</span> interval, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles = 0);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_timer.html#ad5c93bb572e43696312437e2118f336c">~Timer</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_timer.html#a5a73727fd42236a14c2e64eb1b9dcea5">Start</a>(<span class="keywordtype">double</span> interval);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_timer.html#a5a73727fd42236a14c2e64eb1b9dcea5">Start</a>(<span class="keyword">struct</span> timeval&amp; tv);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_timer.html#a88a5d083adb07f3841946a1d6390746b">StartMaxCycles</a>(<span class="keywordtype">double</span> interval, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_timer.html#aca480cb45e8f568f2c74add01cc8101f">Stop</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_timer.html#ad9b45611d24e019d170d2e86b43b160c">RunJob</a>() = 0;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_timer.html#a317e38a985219401afefb319cd89f129">   77</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_timer.html#a317e38a985219401afefb319cd89f129">Finished</a>() {};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> currentCycle;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> stop : 1;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">struct </span>event* timer;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> EventCallback(evutil_socket_t fd, <span class="keywordtype">short</span> event, <span class="keywordtype">void</span>* arg);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">// @endcond</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#if __cplusplus &gt;= 201103</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">typedef</span> std::function&lt;void()&gt; TimerLamdbaCallback;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">class </span>LamdbaTimer : <span class="keyword">public</span> Timer {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  LamdbaTimer(<span class="keyword">const</span> Module* module, <span class="keywordtype">double</span> interval, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles, <span class="keyword">const</span> TimerLamdbaCallback &amp;callback);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">virtual</span> ~LamdbaTimer() {};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> RunJob();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keyword">const</span> TimerLamdbaCallback callback;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif //_TIMER_H</span></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html_abcb21c82546a40d8d861b1b04cf91557"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html#abcb21c82546a40d8d861b1b04cf91557">trippingcyril::Timer::Timer</a></div><div class="ttdeci">Timer(const Module *module)</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html_ad9b45611d24e019d170d2e86b43b160c"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html#ad9b45611d24e019d170d2e86b43b160c">trippingcyril::Timer::RunJob</a></div><div class="ttdeci">virtual void RunJob()=0</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html_aca480cb45e8f568f2c74add01cc8101f"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html#aca480cb45e8f568f2c74add01cc8101f">trippingcyril::Timer::Stop</a></div><div class="ttdeci">void Stop()</div></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">namespace </span>timing {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1timing_1_1_timer.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html">Timer</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_event.html">Event</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#aeb532307c279ad7c6ff60ea88d2f3828">Timer</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* <a class="code" href="classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da">module</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#aeb532307c279ad7c6ff60ea88d2f3828">Timer</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* module, <span class="keywordtype">double</span> interval, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles = 0);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#ade60f0196125de7167003511713ac830">~Timer</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#a26f7feb6f02da7f96e5069f76d94ab6b">Start</a>(<span class="keywordtype">double</span> interval);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#a26f7feb6f02da7f96e5069f76d94ab6b">Start</a>(<span class="keyword">struct</span> timeval&amp; tv);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#a85487cd1184183271bc50c5fe7d16d0f">StartMaxCycles</a>(<span class="keywordtype">double</span> interval, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#adf5d447f86d118c96a6f3a6d7705341c">Stop</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#ae8a840a31387c9b87676a47ccb58f119">RunJob</a>() = 0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1timing_1_1_timer.html#adf8610be0bc1612ba0703cba61dd2698">   78</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1timing_1_1_timer.html#adf8610be0bc1612ba0703cba61dd2698">Finished</a>() {};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> currentCycle;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> stop : 1;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">struct </span>event* timer;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> EventCallback(evutil_socket_t fd, <span class="keywordtype">short</span> event, <span class="keywordtype">void</span>* arg);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment">// @endcond</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#if __cplusplus &gt;= 201103</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">typedef</span> std::function&lt;void()&gt; TimerLamdbaCallback;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">class </span>LamdbaTimer : <span class="keyword">public</span> Timer {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  LamdbaTimer(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* module, <span class="keywordtype">double</span> interval, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxCycles, <span class="keyword">const</span> TimerLamdbaCallback &amp;callback);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keyword">virtual</span> ~LamdbaTimer() {};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> RunJob();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keyword">const</span> TimerLamdbaCallback callback;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif //_TIMER_H</span></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html_ade60f0196125de7167003511713ac830"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html#ade60f0196125de7167003511713ac830">trippingcyril::timing::Timer::~Timer</a></div><div class="ttdeci">virtual ~Timer()</div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html_ae8a840a31387c9b87676a47ccb58f119"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html#ae8a840a31387c9b87676a47ccb58f119">trippingcyril::timing::Timer::RunJob</a></div><div class="ttdeci">virtual void RunJob()=0</div></div>
 <div class="ttc" id="_module_8h_html"><div class="ttname"><a href="_module_8h.html">Module.h</a></div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html_a85487cd1184183271bc50c5fe7d16d0f"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html#a85487cd1184183271bc50c5fe7d16d0f">trippingcyril::timing::Timer::StartMaxCycles</a></div><div class="ttdeci">void StartMaxCycles(double interval, unsigned int maxCycles)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_event_html_af09c126ed77c7ee18ff72ecab86e09da"><div class="ttname"><a href="classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da">trippingcyril::Event::module</a></div><div class="ttdeci">const Module * module</div><div class="ttdef"><b>Definition:</b> Event.h:43</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html_a317e38a985219401afefb319cd89f129"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html#a317e38a985219401afefb319cd89f129">trippingcyril::Timer::Finished</a></div><div class="ttdeci">virtual void Finished()</div><div class="ttdef"><b>Definition:</b> Timer.h:77</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:60</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html">trippingcyril::Timer</a></div><div class="ttdoc">General timer class. </div><div class="ttdef"><b>Definition:</b> Timer.h:34</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html_a5a73727fd42236a14c2e64eb1b9dcea5"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html#a5a73727fd42236a14c2e64eb1b9dcea5">trippingcyril::Timer::Start</a></div><div class="ttdeci">void Start(double interval)</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:62</div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html_adf8610be0bc1612ba0703cba61dd2698"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html#adf8610be0bc1612ba0703cba61dd2698">trippingcyril::timing::Timer::Finished</a></div><div class="ttdeci">virtual void Finished()</div><div class="ttdef"><b>Definition:</b> Timer.h:78</div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html">trippingcyril::timing::Timer</a></div><div class="ttdoc">General timer class. </div><div class="ttdef"><b>Definition:</b> Timer.h:35</div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html_a26f7feb6f02da7f96e5069f76d94ab6b"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html#a26f7feb6f02da7f96e5069f76d94ab6b">trippingcyril::timing::Timer::Start</a></div><div class="ttdeci">void Start(double interval)</div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html_adf5d447f86d118c96a6f3a6d7705341c"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html#adf5d447f86d118c96a6f3a6d7705341c">trippingcyril::timing::Timer::Stop</a></div><div class="ttdeci">void Stop()</div></div>
+<div class="ttc" id="classtrippingcyril_1_1timing_1_1_timer_html_aeb532307c279ad7c6ff60ea88d2f3828"><div class="ttname"><a href="classtrippingcyril_1_1timing_1_1_timer.html#aeb532307c279ad7c6ff60ea88d2f3828">trippingcyril::timing::Timer::Timer</a></div><div class="ttdeci">Timer(const Module *module)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_event_html"><div class="ttname"><a href="classtrippingcyril_1_1_event.html">trippingcyril::Event</a></div><div class="ttdoc">Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. </div><div class="ttdef"><b>Definition:</b> Event.h:34</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html_ad5c93bb572e43696312437e2118f336c"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html#ad5c93bb572e43696312437e2118f336c">trippingcyril::Timer::~Timer</a></div><div class="ttdeci">virtual ~Timer()</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_timer_html_a88a5d083adb07f3841946a1d6390746b"><div class="ttname"><a href="classtrippingcyril_1_1_timer.html#a88a5d083adb07f3841946a1d6390746b">trippingcyril::Timer::StartMaxCycles</a></div><div class="ttdeci">void StartMaxCycles(double interval, unsigned int maxCycles)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 9 2014 11:42:31 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 10 2014 15:06:36 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

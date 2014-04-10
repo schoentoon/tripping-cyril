@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['backofftimer',['BackoffTimer',['../classtrippingcyril_1_1_backoff_timer.html',1,'trippingcyril']]],
-  ['backofftimer',['BackoffTimer',['../classtrippingcyril_1_1_backoff_timer.html#a33608520d5b0106e1b36b906073757d3',1,'trippingcyril::BackoffTimer']]],
+  ['backofftimer',['BackoffTimer',['../classtrippingcyril_1_1timing_1_1_backoff_timer.html',1,'trippingcyril::timing']]],
+  ['backofftimer',['BackoffTimer',['../classtrippingcyril_1_1timing_1_1_backoff_timer.html#a73ee8280f3cceddcecd72a3f99a2628d',1,'trippingcyril::timing::BackoffTimer']]],
   ['backofftimer_2eh',['BackoffTimer.h',['../_backoff_timer_8h.html',1,'']]],
   ['base64decode',['Base64Decode',['../classtrippingcyril_1_1_string.html#a282af5b5720df2bbd62870e0eb302f28',1,'trippingcyril::String']]],
   ['base64encode',['Base64Encode',['../classtrippingcyril_1_1_string.html#af94268c74b7b90dc3729eb3e72a10d23',1,'trippingcyril::String']]],
