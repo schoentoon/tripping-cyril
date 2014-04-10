@@ -26,10 +26,10 @@ namespace test {
 class BackoffTimer : public LibEventTest {
 };
 
-class BackoffTimerTest : public trippingcyril::BackoffTimer {
+class BackoffTimerTest : public trippingcyril::timing::BackoffTimer {
 public:
   BackoffTimerTest(trippingcyril::Module* pModule, double start_step, double step, double max_interval)
-  : trippingcyril::BackoffTimer(pModule, start_step, step, max_interval) {
+  : trippingcyril::timing::BackoffTimer(pModule, start_step, step, max_interval) {
     counter = 0;
     stopAt = 0;
     done = NULL;

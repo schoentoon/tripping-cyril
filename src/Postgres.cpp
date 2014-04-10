@@ -85,10 +85,10 @@ private:
   PGresult* result;
 };
 
-class PostGresBackoff : public BackoffTimer {
+class PostGresBackoff : public timing::BackoffTimer {
 public:
   PostGresBackoff(PostGres* pPg)
-  : BackoffTimer(pPg->GetModule(), _PG_BACKOFF_START, _PG_BACKOFF_STEP, _PG_BACKOFF_MAX) {
+  : timing::BackoffTimer(pPg->GetModule(), _PG_BACKOFF_START, _PG_BACKOFF_STEP, _PG_BACKOFF_MAX) {
     pg = pPg;
   };
   virtual ~PostGresBackoff() {

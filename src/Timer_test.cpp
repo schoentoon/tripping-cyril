@@ -26,10 +26,10 @@ namespace test {
 class Timer : public LibEventTest {
 };
 
-class TimerTest : public trippingcyril::Timer {
+class TimerTest : public trippingcyril::timing::Timer {
 public:
   TimerTest(trippingcyril::Module* pModule)
-  : trippingcyril::Timer(pModule) {
+  : trippingcyril::timing::Timer(pModule) {
     counter = 0;
     stopAt = 0;
     done = NULL;

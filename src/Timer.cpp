@@ -22,6 +22,7 @@
 #include "Global.h"
 
 namespace trippingcyril {
+  namespace timing {
 
 Timer::Timer(const Module* pModule)
 : Event(pModule) {
@@ -102,4 +103,5 @@ void LamdbaTimer::RunJob() {
 
 #endif
 
+  };
 };

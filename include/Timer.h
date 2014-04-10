@@ -27,6 +27,7 @@
 #include "Module.h"
 
 namespace trippingcyril {
+  namespace timing {
 
 /**
  * @brief General timer class
@@ -100,6 +101,7 @@ private:
 
 #endif
 
+  };
 };
 
 #endif //_TIMER_H

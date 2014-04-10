@@ -23,6 +23,7 @@
 #include <iostream>
 
 using namespace trippingcyril::net::http;
+using namespace trippingcyril::timing;
 
 using namespace module::sample;
 

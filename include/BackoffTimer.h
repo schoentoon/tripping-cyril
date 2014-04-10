@@ -21,6 +21,7 @@
 #include "Timer.h"
 
 namespace trippingcyril {
+  namespace timing {
 
 // @cond
 class BackoffTimerImpl;
@@ -59,6 +60,7 @@ private:
   // @endcond
 };
 
+  };
 };
 
 #endif //_BACKOFF_TIMER_H

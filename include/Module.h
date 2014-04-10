@@ -51,7 +51,9 @@ class Thread;
 namespace net {
   class Socket;
 };
-class Timer;
+namespace timing {
+  class Timer;
+};
 // @endcond
 
 /**

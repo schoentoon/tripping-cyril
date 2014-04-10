@@ -116,7 +116,7 @@ private:
   void Loop();
   void Connect();
   std::map<String, PGNotifyListener*> listeners;
-  BackoffTimer* backoff;
+  timing::BackoffTimer* backoff;
   friend class PostGresBackoff;
   // @endcond
 };

@@ -18,6 +18,7 @@
 #include "BackoffTimer.h"
 
 namespace trippingcyril {
+  namespace timing {
 
 class BackoffTimerImpl : public Timer {
 public:
@@ -68,4 +69,5 @@ void BackoffTimer::ResetTimer() {
   };
 };
 
+  };
 };
