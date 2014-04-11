@@ -99,6 +99,12 @@ begin:
   }
 };
 
+void Socket::writecb(bufferevent* bev, void* ctx) {
+  Socket* socket = (Socket*) ctx;
+  struct evbuffer* output = bufferevent_get_output(bev);
+  socket->OnWrite(evbuffer_get_length(output));
+};
+
 void Socket::eventcb(struct bufferevent* bev, short what, void* ctx) {
   Socket* socket = (Socket*) ctx;
   if (socket != NULL) {
@@ -197,8 +203,8 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTi
   };
   if (dTimeout > 0)
     SetTimeout(dTimeout);
-  bufferevent_setcb(connection, Socket::readcb, NULL, Socket::eventcb, this);
-  bufferevent_enable(connection, EV_READ);
+  bufferevent_setcb(connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
+  bufferevent_enable(connection, EV_READ|EV_WRITE);
   return true;
 };
 
@@ -235,8 +241,8 @@ bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeou
   };
   if (timeout > 0)
     SetTimeout(timeout);
-  bufferevent_setcb(connection, Socket::readcb, NULL, Socket::eventcb, this);
-  bufferevent_enable(connection, EV_READ);
+  bufferevent_setcb(connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
+  bufferevent_enable(connection, EV_READ|EV_WRITE);
   return true;
 };
 

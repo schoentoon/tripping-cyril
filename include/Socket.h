@@ -129,6 +129,11 @@ protected:
    */
   virtual void ReadLine(const String& line) {};
   /**
+   * This will get called once it wrote something to the actual socket
+   * @param bytes_left Amount of bytes left to write in our buffer
+   */
+  virtual void OnWrite(size_t bytes_left) {};
+  /**
    * Determines if ReadData should get called again or not.
    */
   uint8_t read_more : 1;
@@ -152,6 +157,7 @@ private:
   struct timeval timeout;
   struct bufferevent* connection;
   static void readcb(struct bufferevent* bev, void* ctx);
+  static void writecb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
 #ifdef _TEST
   friend class test::LibEventHelper;
