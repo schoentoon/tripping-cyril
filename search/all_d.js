@@ -13,6 +13,7 @@ var searchData=
   ['onread',['OnRead',['../classtrippingcyril_1_1_pipe.html#a41a4a156109a34614db332b05519f18e',1,'trippingcyril::Pipe']]],
   ['onrequestdone',['OnRequestDone',['../classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html#adf924967957fca91b88134cb3e8c3cfc',1,'trippingcyril::net::http::HTTPCallback']]],
   ['onrequesterror',['OnRequestError',['../classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html#ace49e9ab2b98e7373f3c5d45bfe87061',1,'trippingcyril::net::http::HTTPCallback']]],
+  ['onwrite',['OnWrite',['../classtrippingcyril_1_1net_1_1_socket.html#a38905de71b84bb10d4245f1932fd62ad',1,'trippingcyril::net::Socket']]],
   ['open',['Open',['../classtrippingcyril_1_1_file.html#ad51c0224b54a8e7c649682fd0642b782',1,'trippingcyril::File']]],
   ['operator_20bool',['operator bool',['../classtrippingcyril_1_1_string.html#ae7db6fbad12cce6c26e45877676db813',1,'trippingcyril::String']]],
   ['operator_20double',['operator double',['../classtrippingcyril_1_1_string.html#a8e5da58e935968a7608dbaa9fc0e70da',1,'trippingcyril::String']]],

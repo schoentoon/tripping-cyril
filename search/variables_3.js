@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mask',['mask',['../classtrippingcyril_1_1_file_observer_callback.html#a8f8004199e1fed0c4766f1b3221014d4',1,'trippingcyril::FileObserverCallback']]],
-  ['module',['module',['../classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da',1,'trippingcyril::Event']]]
+  ['got_5fresponse_5ftoo_5fearly',['GOT_RESPONSE_TOO_EARLY',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#aaaeafd21597dbd2e554bc724d9695c3b',1,'trippingcyril::net::http::SimpleHTTPSocket']]]
 ];

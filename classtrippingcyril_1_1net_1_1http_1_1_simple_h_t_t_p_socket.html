@@ -173,6 +173,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a0a1e77ff5365300bbd1a0bf3f00e46da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67be5c0a5b14d0320b61646a4379c355"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a67be5c0a5b14d0320b61646a4379c355">TIMEOUT</a> = -2</td></tr>
 <tr class="separator:a67be5c0a5b14d0320b61646a4379c355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaeafd21597dbd2e554bc724d9695c3b"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#aaaeafd21597dbd2e554bc724d9695c3b">GOT_RESPONSE_TOO_EARLY</a> = -3</td></tr>
+<tr class="separator:aaaeafd21597dbd2e554bc724d9695c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_attribs_classtrippingcyril_1_1_writer"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classtrippingcyril_1_1_writer')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classtrippingcyril_1_1_writer.html">trippingcyril::Writer</a></td></tr>
 <tr class="memitem:a5b97c376652c879f99fbdc61e59044a1 inherit pub_static_attribs_classtrippingcyril_1_1_writer"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_writer.html#a5b97c376652c879f99fbdc61e59044a1">BUFFER_SIZE</a></td></tr>
 <tr class="separator:a5b97c376652c879f99fbdc61e59044a1 inherit pub_static_attribs_classtrippingcyril_1_1_writer"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,6 +192,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a83e0510eff0cdf197ada4eaa9ca7e532 inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cce71d92559d344a65131c1c7d77cf7 inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a5cce71d92559d344a65131c1c7d77cf7">ReadLine</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;line)</td></tr>
 <tr class="separator:a5cce71d92559d344a65131c1c7d77cf7 inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38905de71b84bb10d4245f1932fd62ad inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a38905de71b84bb10d4245f1932fd62ad">OnWrite</a> (size_t bytes_left)</td></tr>
+<tr class="separator:a38905de71b84bb10d4245f1932fd62ad inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03fbdefa57b32a5aec1afb9f7c621027 inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a03fbdefa57b32a5aec1afb9f7c621027">SetTCPNoDelay</a> (bool enable)</td></tr>
 <tr class="separator:a03fbdefa57b32a5aec1afb9f7c621027 inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ced1716a7d4c114543084de463e33f6 inherit pro_methods_classtrippingcyril_1_1net_1_1_socket"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a3ced1716a7d4c114543084de463e33f6">SetTCPKeepAlive</a> (bool enable, int delay)</td></tr>
@@ -498,6 +502,27 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aaaeafd21597dbd2e554bc724d9695c3b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int trippingcyril::net::http::SimpleHTTPSocket::GOT_RESPONSE_TOO_EARLY = -3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Error code for when we get a response before we sent out our full request, which of course shouldn't be happening! </p>
+
+</div>
+</div>
 <a class="anchor" id="a67be5c0a5b14d0320b61646a4379c355"></a>
 <div class="memitem">
 <div class="memproto">
@@ -528,7 +553,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 15:06:37 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 11 2014 14:51:28 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
