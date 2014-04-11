@@ -54,6 +54,8 @@ Socket::Socket(struct bufferevent* event)
   tcp_keep_alive = 1;
   tcp_keep_alive_interval = 45;
   SetTimeout(0.0);
+  bufferevent_setcb(connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
+  bufferevent_enable(connection, EV_READ|EV_WRITE);
 };
 
 Socket::~Socket() {
