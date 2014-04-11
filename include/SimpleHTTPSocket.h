@@ -123,6 +123,11 @@ public:
    * @see Socket::Timeout
    */
   static const int TIMEOUT = -2;
+  /**
+   * Error code for when we get a response before we sent out our full request,
+   * which of course shouldn't be happening!
+   */
+  static const int GOT_RESPONSE_TOO_EARLY = -3;
 protected:
   /**
    * Connected event from the Socket class, make sure to call this implemention
@@ -142,6 +147,7 @@ protected:
   // @cond
   void ReadLine(const String& data);
   size_t ReadData(const char* data, size_t len);
+  void OnWrite(size_t bytes_left);
   virtual void OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response);
   virtual void OnRequestError(int errorCode);
 private:
@@ -153,6 +159,7 @@ private:
   map<String, String> extraHeaders;
   String url;
   String buffer;
+  bool sent_data : 1;
   HTTPCallback* callback;
   class HTTPParser {
   public:

@@ -30,6 +30,7 @@ SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
   this->callback = callback;
   SetTCPNoDelay(true);
   SetTimeout(60);
+  sent_data = false;
 };
 
 #if __cplusplus >= 201103
@@ -191,7 +192,10 @@ void SimpleHTTPSocket::OnRequestError(int errorCode) {
 };
 
 void SimpleHTTPSocket::ReadLine(const String& data) {
-  if (parser.headersDone == false)
+  if (sent_data == false) {
+    OnRequestError(GOT_RESPONSE_TOO_EARLY);
+    Close();
+  } else if (parser.headersDone == false)
     parser.ParseLine(data);
   else if (parser.chunked == true && parser.current_chunk <= 0 && data.empty() == false) {
     int chunk = data.ToInt(16);
@@ -240,6 +244,11 @@ size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
     };
   };
   return len;
+};
+
+void SimpleHTTPSocket::OnWrite(size_t bytes_left) {
+  if (bytes_left == 0)
+    sent_data = true;
 };
 
 #ifndef _NO_GZIP
