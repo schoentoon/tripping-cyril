@@ -166,13 +166,11 @@ private:
     HTTPParser(SimpleHTTPSocket* socket);
     virtual ~HTTPParser();
     bool ParseLine(const String& line);
-    bool IsCompressed() const {
 #ifndef _NO_GZIP
+    bool IsCompressed() const {
       return zlib_stream != NULL;
-#else
-      return false;
-#endif //_NO_GZIP
     };
+#endif //_NO_GZIP
     unsigned short responseCode;
     long contentLength;
     bool chunked;

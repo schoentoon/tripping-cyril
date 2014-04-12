@@ -212,33 +212,33 @@ void SimpleHTTPSocket::ReadLine(const String& data) {
 size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
   if (parser.chunked == true && parser.current_chunk > 0) {
     len = std::min(len, (size_t) parser.current_chunk);
-    if (parser.IsCompressed() == true) {
 #ifndef _NO_GZIP
+    if (parser.IsCompressed() == true) {
       len = Decompress(data, len);
-#else
-      perror("You compiled without gzip support but this is a compressed stream anyway?");
-#endif //_NO_GZIP
     } else
+#endif //_NO_GZIP
+    {
       buffer.append(data, len);
+    };
     parser.current_chunk -= len;
     if (parser.current_chunk <= 0)
       SetReadLine(true);
   } else if (parser.chunked == false) {
-    if (parser.IsCompressed() == true) {
 #ifndef _NO_GZIP
+    if (parser.IsCompressed() == true) {
       len = Decompress(data, len);
-#else
-      perror("You compiled without gzip support but this is a compressed stream anyway?");
-#endif //_NO_GZIP
     } else
+#endif //_NO_GZIP
+    {
       buffer.append(data, len);
+    };
   };
   if (parser.contentLength > 0) {
-    if ((parser.IsCompressed() == false && buffer.size() >= (size_t) parser.contentLength)
 #ifndef _NO_GZIP
-      || (parser.IsCompressed() == true && parser.zlib_stream->total_in >= (size_t) parser.contentLength)
+    if ((parser.IsCompressed() == false && buffer.size() >= (size_t) parser.contentLength)
+      || (parser.IsCompressed() == true && parser.zlib_stream->total_in >= (size_t) parser.contentLength))
 #endif //_NO_GZIP
-    ) {
+    {
       OnRequestDone(parser.responseCode, parser.headers, buffer);
       Close();
     };
