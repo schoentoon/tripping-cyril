@@ -105,7 +105,7 @@ public:
    */
   virtual void SelectLamdba(const String& query
                            ,const DBLamdbaCallback &callback
-                           ,const DBLamdbaErrorCallback &errorcallback) {
+                           ,const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) {
     Select(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
   /**
@@ -118,7 +118,7 @@ public:
    */
   virtual void InsertLamdba(const String& query
                            ,const DBLamdbaCallback &callback
-                           ,const DBLamdbaErrorCallback &errorcallback) {
+                           ,const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) {
     Insert(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
 #endif

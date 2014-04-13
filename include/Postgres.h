@@ -87,9 +87,9 @@ public:
   virtual ~PostGres();
 #if __cplusplus >= 201103
   virtual void SelectLamdba(const String& query, const DBLamdbaCallback &callback
-                                               , const DBLamdbaErrorCallback &errorcallback);
+  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){});
   virtual void InsertLamdba(const String& query, const DBLamdbaCallback &callback
-                                               , const DBLamdbaErrorCallback &errorcallback);
+  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){});
 #endif
   virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
   virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);

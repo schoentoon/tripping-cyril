@@ -88,7 +88,7 @@ TEST_F(Timer, Start) {
 TEST_F(Timer, Lamdba) {
   bool done = false;
   int counter = 0;
-  LamdbaTimer* timer = new LamdbaTimer(event_base, 0.0001, 2, [&done,&counter,this]() {
+  trippingcyril::timing::LamdbaTimer* timer = new trippingcyril::timing::LamdbaTimer(event_base, 0.0001, 2, [&done,&counter,this]() {
     if (++counter == 2) {
       done = true;
       event_base_loopbreak(event_base->GetEventBase());
