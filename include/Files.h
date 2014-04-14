@@ -27,6 +27,7 @@
 #include <vector>
 #include <map>
 
+#include "defines.h"
 #include "Closable.h"
 #include "String.h"
 #include "Writer.h"
@@ -114,9 +115,9 @@ public:
   virtual bool ReadFile(String& data, size_t maxSize = 512 * 1024);
   /** @return The amount of bytes written into the file, similar to
    * <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a> */
-  virtual int Write(const char* buffer, size_t len);
+  virtual int Write(const char* buffer, size_t len) OVERRIDE;
   /** Closes the file if it was previously opened with Open */
-  void Close();
+  void Close() OVERRIDE;
 protected:
   // @cond
   String buffer;
@@ -137,7 +138,7 @@ public:
   /** This deconstructor will remove the file */
   virtual ~TempFile();
   /** @return Will always return TEMPORARY */
-  FileType GetType() const { return TEMPORARY; };
+  FileType GetType() const OVERRIDE { return TEMPORARY; };
 };
 
 /**

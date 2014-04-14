@@ -20,6 +20,7 @@
 
 #include <event2/bufferevent.h>
 
+#include "defines.h"
 #include "Closable.h"
 #include "String.h"
 #include "Module.h"
@@ -60,7 +61,7 @@ public:
   /**
    * Close and remove this socket
    */
-  void Close();
+  void Close() OVERRIDE;
   /**
    * Connect the actual socket
    * @param hostname The hostname to connect to
@@ -85,7 +86,7 @@ public:
    * @param len The length of the data
    * @return Amount of bytes written, should be equal to len
    */
-  int Write(const char* data, size_t len);
+  int Write(const char* data, size_t len) OVERRIDE;
   /**
    * Enable/disable read line mode, decides if ReadLine or ReadData should be called
    */
@@ -201,7 +202,7 @@ public:
       throw "Invalid ip address";
   };
   virtual ~IPv4Address() {};
-  virtual int GetIPVersion() const { return 4; };
+  virtual int GetIPVersion() const OVERRIDE { return 4; };
   /** @return The ipv4 address as an integer */
   virtual int AsInt() const { return addr; }
   /** @return The ipv4 address as an integer */
@@ -211,7 +212,7 @@ public:
     in.s_addr = addr;
     return in;
   };
-  virtual String AsString() const;
+  virtual String AsString() const OVERRIDE;
 private:
   in_addr_t addr;
 };

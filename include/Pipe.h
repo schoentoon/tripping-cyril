@@ -20,6 +20,7 @@
 
 #include <event2/event.h>
 
+#include "defines.h"
 #include "Files.h"
 #include "Writer.h"
 #include "Module.h"
@@ -52,7 +53,7 @@ public:
    * Generic write operation to this pipe, similar to
    * <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a>
    */
-  int Write(const char* buffer, size_t len) {
+  int Write(const char* buffer, size_t len) OVERRIDE {
     return write(fds[1], buffer, len);
   };
 protected:

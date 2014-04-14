@@ -35,6 +35,7 @@
 #include <deque>
 #include <map>
 
+#include "defines.h"
 #include "Database.h"
 #include "BackoffTimer.h"
 
@@ -87,13 +88,13 @@ public:
   virtual ~PostGres();
 #if __cplusplus >= 201103
   virtual void SelectLamdba(const String& query, const DBLamdbaCallback &callback
-  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){});
+  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) OVERRIDE;
   virtual void InsertLamdba(const String& query, const DBLamdbaCallback &callback
-  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){});
+  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) OVERRIDE;
 #endif
-  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
-  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
-  bool isIdle() const { return conn == NULL; };
+  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL) OVERRIDE;
+  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL) OVERRIDE;
+  bool isIdle() const OVERRIDE { return conn == NULL; };
   /**
    * Demands SetStayConnected(true), will apply automatically
    * @return False if you're already listening for this or if it contained some
@@ -101,7 +102,7 @@ public:
    */
   bool Listen(const String& key, PGNotifyListener* listener);
   void Unlisten(const String& key);
-  virtual void SetStayConnected(bool b) {
+  virtual void SetStayConnected(bool b) OVERRIDE {
     if (listeners.empty())
       stay_connected = b;
   };
@@ -137,9 +138,9 @@ public:
   /** General deconstructor
    */
   virtual ~BlockingPostGres();
-  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL);
-  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL);
-  bool isIdle() const { return true; };
+  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL) OVERRIDE;
+  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL) OVERRIDE;
+  bool isIdle() const OVERRIDE { return true; };
 private:
   // @cond
   void Connect();

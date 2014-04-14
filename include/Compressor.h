@@ -20,6 +20,7 @@
 
 #include <stdint.h>
 
+#include "defines.h"
 #include "String.h"
 #include "Writer.h"
 
@@ -80,7 +81,7 @@ public:
    */
   GZipCompressor(Writer* pWriter, int level = 6, int memory_level = 8);
   virtual ~GZipCompressor();
-  virtual int Write(const char* data, size_t len);
+  virtual int Write(const char* data, size_t len) OVERRIDE;
 private:
   // @cond
   z_stream zlib_stream;
@@ -104,7 +105,7 @@ public:
    */
   LZMACompressor(Writer* pWriter, uint32_t preset = 6, lzma_check check_type = LZMA_CHECK_CRC64);
   virtual ~LZMACompressor();
-  virtual int Write(const char* data, size_t len);
+  virtual int Write(const char* data, size_t len) OVERRIDE;
 private:
   lzma_stream stream;
 };

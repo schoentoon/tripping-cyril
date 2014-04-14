@@ -28,6 +28,7 @@
 #  include <functional>
 #endif
 
+#include "defines.h"
 #include "String.h"
 #include "Socket.h"
 #include "ShouldDelete.h"
@@ -79,6 +80,7 @@ public:
 #if __cplusplus >= 201103
   /**
    * General constructor that uses lamdba functions instead of a general callback
+   * @note Requires C++11
    */
   SimpleHTTPSocket(const Module* module
                   ,const HTTPLamdbaCallback &callback
@@ -133,21 +135,21 @@ protected:
    * Connected event from the Socket class, make sure to call this implemention
    * in case of overriding this class as it sends of the actual request etc.
    */
-  void Connected();
+  void Connected() OVERRIDE;
   /**
    * Disconnected event from the Socket class, make sure to call this implemention
    * in case of overriding this class as it may call one of the HTTPCallback methods.
    */
-  void Disconnected();
+  void Disconnected() OVERRIDE;
   /**
    * Timeout event from the Socket class.
    * @see TIMEOUT
    */
-  void Timeout();
+  void Timeout() OVERRIDE;
   // @cond
-  void ReadLine(const String& data);
-  size_t ReadData(const char* data, size_t len);
-  void OnWrite(size_t bytes_left);
+  void ReadLine(const String& data) OVERRIDE;
+  size_t ReadData(const char* data, size_t len) OVERRIDE;
+  void OnWrite(size_t bytes_left) OVERRIDE;
   virtual void OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response);
   virtual void OnRequestError(int errorCode);
 private:

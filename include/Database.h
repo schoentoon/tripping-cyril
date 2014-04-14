@@ -100,6 +100,7 @@ public:
    * @param query The query to execute
    * @param callback The sucess callback
    * @param errorcallback The errorcallback
+   * @note Requires C++11
    * @note In case you're implementing the database class you are not required to do anything special,
    * however if you want you may do so anyway.
    */
@@ -113,6 +114,7 @@ public:
    * @param query The query to execute
    * @param callback The sucess callback
    * @param errorcallback The errorcallback
+   * @note Requires C++11
    * @note In case you're implementing the database class you are not required to do anything special,
    * however if you want you may do so anyway.
    */

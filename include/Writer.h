@@ -18,6 +18,7 @@
 #ifndef _WRITE_INTERFACE_H
 #define _WRITE_INTERFACE_H
 
+#include "defines.h"
 #include "String.h"
 #include "ShouldDelete.h"
 
@@ -59,7 +60,7 @@ class StringWriter : public Writer {
 public:
   virtual ~StringWriter() {
   };
-  virtual int Write(const char* data, size_t len);
+  virtual int Write(const char* data, size_t len) OVERRIDE;
   virtual bool shouldDelete() const { return true; };
   String& GetBuffer() { return buffer; };
 private:

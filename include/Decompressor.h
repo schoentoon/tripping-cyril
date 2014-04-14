@@ -20,6 +20,7 @@
 
 #include <stdint.h>
 
+#include "defines.h"
 #include "String.h"
 #include "Writer.h"
 
@@ -68,7 +69,7 @@ class GZipDecompressor : public Decompressor {
 public:
   GZipDecompressor(Writer* pWriter);
   virtual ~GZipDecompressor();
-  virtual int Write(const char* data, size_t len);
+  virtual int Write(const char* data, size_t len) OVERRIDE;
 private:
   // @cond
   z_stream zlib_stream;
