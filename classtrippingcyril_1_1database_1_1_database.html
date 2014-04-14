@@ -120,6 +120,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5fc04c17b266d45b8afa082bf827fda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add3ebf1703263eeff9d70e0022546341"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1database_1_1_database.html#add3ebf1703263eeff9d70e0022546341">~Database</a> ()</td></tr>
 <tr class="separator:add3ebf1703263eeff9d70e0022546341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a437ba86d48a26a8d5af654c4626da74f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1database_1_1_database.html#a437ba86d48a26a8d5af654c4626da74f">SelectLamdba</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;query, const <a class="el" href="namespacetrippingcyril_1_1database.html#a30daaf420776e41b51878a5dc3406471">DBLamdbaCallback</a> &amp;callback, const <a class="el" href="namespacetrippingcyril_1_1database.html#a5ee14524a8d95f11b2a9ac646c03199d">DBLamdbaErrorCallback</a> &amp;errorcallback=[](const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;){})</td></tr>
+<tr class="memdesc:a437ba86d48a26a8d5af654c4626da74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do a select operation but use a lamdba as a callback instead of a <a class="el" href="classtrippingcyril_1_1database_1_1_d_b_callback.html" title="Database callback class. ">DBCallback</a> class.  <a href="#a437ba86d48a26a8d5af654c4626da74f">More...</a><br/></td></tr>
+<tr class="separator:a437ba86d48a26a8d5af654c4626da74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d22d65cdbdf2c44ef44a5e14f0294ad"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1database_1_1_database.html#a2d22d65cdbdf2c44ef44a5e14f0294ad">InsertLamdba</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;query, const <a class="el" href="namespacetrippingcyril_1_1database.html#a30daaf420776e41b51878a5dc3406471">DBLamdbaCallback</a> &amp;callback, const <a class="el" href="namespacetrippingcyril_1_1database.html#a5ee14524a8d95f11b2a9ac646c03199d">DBLamdbaErrorCallback</a> &amp;errorcallback=[](const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;){})</td></tr>
+<tr class="memdesc:a2d22d65cdbdf2c44ef44a5e14f0294ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do a select operation but use a lamdba as a callback instead of a <a class="el" href="classtrippingcyril_1_1database_1_1_d_b_callback.html" title="Database callback class. ">DBCallback</a> class.  <a href="#a2d22d65cdbdf2c44ef44a5e14f0294ad">More...</a><br/></td></tr>
+<tr class="separator:a2d22d65cdbdf2c44ef44a5e14f0294ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28e243daa33ed560d9622294c99ae3c9"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="structtrippingcyril_1_1database_1_1_d_b_result.html">DBResult</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1database_1_1_database.html#a28e243daa33ed560d9622294c99ae3c9">Select</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;query, <a class="el" href="classtrippingcyril_1_1database_1_1_d_b_callback.html">DBCallback</a> *callback=NULL)=0</td></tr>
 <tr class="memdesc:a28e243daa33ed560d9622294c99ae3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do or queue (depends on implementation) a select operation.  <a href="#a28e243daa33ed560d9622294c99ae3c9">More...</a><br/></td></tr>
 <tr class="separator:a28e243daa33ed560d9622294c99ae3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -312,7 +318,62 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Either the result of a query or just NULL </dd></dl>
 
-<p>Implemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#a64ddb33b648500bd94cae378d093e82e">trippingcyril::database::postgres::BlockingPostGres</a>, and <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#acd058535c8634280e6a5af425e27f970">trippingcyril::database::postgres::PostGres</a>.</p>
+<p>Implemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#abff6377907cb84238309ecb283c8df80">trippingcyril::database::postgres::BlockingPostGres</a>, and <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a3c52a336bd8f38a05136df1ec535196f">trippingcyril::database::postgres::PostGres</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d22d65cdbdf2c44ef44a5e14f0294ad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void trippingcyril::database::Database::InsertLamdba </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1database.html#a30daaf420776e41b51878a5dc3406471">DBLamdbaCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1database.html#a5ee14524a8d95f11b2a9ac646c03199d">DBLamdbaErrorCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>errorcallback</em> = <code>[](const&#160;<a class="el" href="classtrippingcyril_1_1_string.html">String</a>&amp;,const&#160;<a class="el" href="classtrippingcyril_1_1_string.html">String</a>&amp;){}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Do a select operation but use a lamdba as a callback instead of a <a class="el" href="classtrippingcyril_1_1database_1_1_d_b_callback.html" title="Database callback class. ">DBCallback</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>The query to execute </td></tr>
+    <tr><td class="paramname">callback</td><td>The sucess callback </td></tr>
+    <tr><td class="paramname">errorcallback</td><td>The errorcallback </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Requires C++11 </dd>
+<dd>
+In case you're implementing the database class you are not required to do anything special, however if you want you may do so anyway. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a280ce4e6fce84b39d4c16ac47e002a34">trippingcyril::database::postgres::PostGres</a>.</p>
 
 </div>
 </div>
@@ -338,7 +399,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>True if the database is idle </dd></dl>
 
-<p>Implemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#ab97e6a880165907ef2a8a0084a98ccac">trippingcyril::database::postgres::BlockingPostGres</a>, and <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a63daf9e25d9fe1147b878284a453c389">trippingcyril::database::postgres::PostGres</a>.</p>
+<p>Implemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#ae462aa30e1f8e562ad2e70303d430906">trippingcyril::database::postgres::BlockingPostGres</a>, and <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#adebbf8bf769c35fdc1ae29a6220e15f8">trippingcyril::database::postgres::PostGres</a>.</p>
 
 </div>
 </div>
@@ -384,7 +445,62 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Either the result of a query or just NULL </dd></dl>
 
-<p>Implemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#a83a2c16f0da181f29bed299b09da9c50">trippingcyril::database::postgres::BlockingPostGres</a>, and <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a5def4b7d4eb2b55cbd49a994ec50cb99">trippingcyril::database::postgres::PostGres</a>.</p>
+<p>Implemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#a370c2634274d8ff1b7ea7af909d28d88">trippingcyril::database::postgres::BlockingPostGres</a>, and <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#aa3bf84028cb3404b3eff3331d6613eea">trippingcyril::database::postgres::PostGres</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a437ba86d48a26a8d5af654c4626da74f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void trippingcyril::database::Database::SelectLamdba </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1database.html#a30daaf420776e41b51878a5dc3406471">DBLamdbaCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1database.html#a5ee14524a8d95f11b2a9ac646c03199d">DBLamdbaErrorCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>errorcallback</em> = <code>[](const&#160;<a class="el" href="classtrippingcyril_1_1_string.html">String</a>&amp;,const&#160;<a class="el" href="classtrippingcyril_1_1_string.html">String</a>&amp;){}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Do a select operation but use a lamdba as a callback instead of a <a class="el" href="classtrippingcyril_1_1database_1_1_d_b_callback.html" title="Database callback class. ">DBCallback</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>The query to execute </td></tr>
+    <tr><td class="paramname">callback</td><td>The sucess callback </td></tr>
+    <tr><td class="paramname">errorcallback</td><td>The errorcallback </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Requires C++11 </dd>
+<dd>
+In case you're implementing the database class you are not required to do anything special, however if you want you may do so anyway. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#ae3ce00553902d60a60c79181e3355aea">trippingcyril::database::postgres::PostGres</a>.</p>
 
 </div>
 </div>
@@ -411,7 +527,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Set the stay connected mode on or off </p>
 
-<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#aeae3a2ff2447bf70752e1ca26f3fcb4d">trippingcyril::database::postgres::PostGres</a>.</p>
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a4c163d13ccfc0d738ae0ffb9992768e5">trippingcyril::database::postgres::PostGres</a>.</p>
 
 </div>
 </div>
@@ -464,7 +580,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 11 2014 14:51:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 14 2014 20:17:16 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -27,5 +27,6 @@ var searchData=
   ['operator_20unsigned_20int',['operator unsigned int',['../classtrippingcyril_1_1_string.html#acd048ec93333ebeeb5fd7144d93c818a',1,'trippingcyril::String']]],
   ['operator_20unsigned_20long',['operator unsigned long',['../classtrippingcyril_1_1_string.html#ae7270aae80b7b47c1d5778a6b03d8d97',1,'trippingcyril::String']]],
   ['operator_20unsigned_20long_20long',['operator unsigned long long',['../classtrippingcyril_1_1_string.html#ab89ef1c504b80e4af97db3253a8c462d',1,'trippingcyril::String']]],
-  ['operator_20unsigned_20short',['operator unsigned short',['../classtrippingcyril_1_1_string.html#a54d0786f85659a035c6e2315142a180b',1,'trippingcyril::String']]]
+  ['operator_20unsigned_20short',['operator unsigned short',['../classtrippingcyril_1_1_string.html#a54d0786f85659a035c6e2315142a180b',1,'trippingcyril::String']]],
+  ['override',['OVERRIDE',['../defines_8h.html#a5dea698950629d9e51d19c1a25be1c30',1,'defines.h']]]
 ];

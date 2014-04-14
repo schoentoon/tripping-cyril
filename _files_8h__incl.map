@@ -1,6 +1,7 @@
 <map id="include/Files.h" name="include/Files.h">
-<area shape="rect" id="node10" href="$_closable_8h.html" title="Closable.h" alt="" coords="834,80,917,107"/>
-<area shape="rect" id="node11" href="$_string_8h.html" title="String.h" alt="" coords="923,155,989,181"/>
-<area shape="rect" id="node13" href="$_writer_8h.html" title="Writer.h" alt="" coords="994,80,1061,107"/>
-<area shape="rect" id="node14" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="1014,155,1124,181"/>
+<area shape="rect" id="node10" href="$defines_8h.html" title="defines.h" alt="" coords="821,155,896,181"/>
+<area shape="rect" id="node11" href="$_closable_8h.html" title="Closable.h" alt="" coords="886,80,969,107"/>
+<area shape="rect" id="node12" href="$_string_8h.html" title="String.h" alt="" coords="1067,155,1133,181"/>
+<area shape="rect" id="node14" href="$_writer_8h.html" title="Writer.h" alt="" coords="994,80,1061,107"/>
+<area shape="rect" id="node15" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="931,155,1041,181"/>
 </map>

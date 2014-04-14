@@ -24,6 +24,7 @@ var searchData=
   ['_7eipv4reverselookup',['~IPv4ReverseLookup',['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#a2d9d582f905470ddd6723271b0cb921c',1,'trippingcyril::net::dns::IPv4ReverseLookup']]],
   ['_7ejob',['~Job',['../classtrippingcyril_1_1thread_1_1_job.html#a0756fdb419b92df5a6fa2abdce677372',1,'trippingcyril::thread::Job']]],
   ['_7ejobthread',['~JobThread',['../classtrippingcyril_1_1thread_1_1_job_thread.html#aaf73675070bacdcaa0553395f69409d7',1,'trippingcyril::thread::JobThread']]],
+  ['_7elamdbatimer',['~LamdbaTimer',['../classtrippingcyril_1_1timing_1_1_lamdba_timer.html#a6d384c5975c57fe451a6e359d4212622',1,'trippingcyril::timing::LamdbaTimer']]],
   ['_7elistener',['~Listener',['../classtrippingcyril_1_1net_1_1_listener.html#a644b0c8536d517d7535a05515274771a',1,'trippingcyril::net::Listener']]],
   ['_7elzmacompressor',['~LZMACompressor',['../classtrippingcyril_1_1_l_z_m_a_compressor.html#a9b6e02a7abc8ff00533a4c5ccfd9cf33',1,'trippingcyril::LZMACompressor']]],
   ['_7emodule',['~Module',['../classtrippingcyril_1_1_module.html#aeb7a5777b2489432e87253104937a3bc',1,'trippingcyril::Module']]],

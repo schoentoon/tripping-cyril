@@ -123,14 +123,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa75cf98f2b10a264bd1c46bf059cde15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada9607285bcee1886fee1789e02d8147"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#ada9607285bcee1886fee1789e02d8147">~Socket</a> ()</td></tr>
 <tr class="separator:ada9607285bcee1886fee1789e02d8147"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a398d8ebab99ddf81d0aa51934ee85ef7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a398d8ebab99ddf81d0aa51934ee85ef7">Close</a> ()</td></tr>
-<tr class="separator:a398d8ebab99ddf81d0aa51934ee85ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0b74e4106a15526bdf5f1d735671ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#afd0b74e4106a15526bdf5f1d735671ba">Close</a> () override</td></tr>
+<tr class="separator:afd0b74e4106a15526bdf5f1d735671ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcea7fae9b7e188503754b8a98461447"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#adcea7fae9b7e188503754b8a98461447">Connect</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;hostname, uint16_t port, bool ssl=false, double timeout=60.0)</td></tr>
 <tr class="separator:adcea7fae9b7e188503754b8a98461447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa814bedbccf69f17552b348ab9e511e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#aaa814bedbccf69f17552b348ab9e511e">Connect</a> (const <a class="el" href="structtrippingcyril_1_1net_1_1_i_p_address.html">IPAddress</a> *ip, uint16_t port, bool ssl=false, double timeout=60.0)</td></tr>
 <tr class="separator:aaa814bedbccf69f17552b348ab9e511e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f3d7ed8f11bd799b5cbefb077815a5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a3f3d7ed8f11bd799b5cbefb077815a5b">Write</a> (const char *data, size_t len)</td></tr>
-<tr class="separator:a3f3d7ed8f11bd799b5cbefb077815a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91067525f6887a3a5e3048f7fde7facd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a91067525f6887a3a5e3048f7fde7facd">Write</a> (const char *data, size_t len) override</td></tr>
+<tr class="separator:a91067525f6887a3a5e3048f7fde7facd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c4f03f0194352fa25fea8b9ce1431eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a7c4f03f0194352fa25fea8b9ce1431eb">SetReadLine</a> (bool b)</td></tr>
 <tr class="separator:a7c4f03f0194352fa25fea8b9ce1431eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f8ff7c47806aad3545695acbe9e2fe5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a4f8ff7c47806aad3545695acbe9e2fe5">IsConnected</a> () const </td></tr>
@@ -261,7 +261,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a398d8ebab99ddf81d0aa51934ee85ef7"></a>
+<a class="anchor" id="afd0b74e4106a15526bdf5f1d735671ba"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -277,7 +277,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -407,7 +407,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Connected callback, will be called once the socket is connected. </p>
 
-<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#addb736ba98c6829b5c135adab5257948">trippingcyril::net::http::SimpleHTTPSocket</a>.</p>
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a739c18652fe62062c988afb47f7d79f6">trippingcyril::net::http::SimpleHTTPSocket</a>.</p>
 
 </div>
 </div>
@@ -457,7 +457,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Disconnected callback, will be called once our socket disconnects. </p>
 
-<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a45466fb8a9eefd81f9eaaab3c6bf712f">trippingcyril::net::http::SimpleHTTPSocket</a>.</p>
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a8d673d9c5f4dc66894c2e807da9db2d6">trippingcyril::net::http::SimpleHTTPSocket</a>.</p>
 
 </div>
 </div>
@@ -716,11 +716,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Timeout callback, will be called once either a connect, read or write timeout occurs. </p>
 
-<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a7d56c2a77a85d04b83d8d8bc3f97c43b">trippingcyril::net::http::SimpleHTTPSocket</a>.</p>
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#afa20a1eb667539cd520579f48d03e837">trippingcyril::net::http::SimpleHTTPSocket</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3f3d7ed8f11bd799b5cbefb077815a5b"></a>
+<a class="anchor" id="a91067525f6887a3a5e3048f7fde7facd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -747,7 +747,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -793,7 +793,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 11 2014 14:51:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 14 2014 20:17:16 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
