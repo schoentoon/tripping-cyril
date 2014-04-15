@@ -37,8 +37,8 @@ public:
 protected:
   virtual void RunJob() {
     cerr << "TestTimer.." << endl;
-    int *foo = (int*)-1;
-    printf("%d", *foo);
+    //int *foo = (int*)-1;
+    //printf("%d", *foo);
   };
 };
 

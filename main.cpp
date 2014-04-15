@@ -85,6 +85,7 @@ int main(int argc, char **argv) {
     else
       TermUtils::PrintStatus(false, "Something went wrong while registering our crash handler");
     Global::Get()->LoadModule("modules/sample.so");
+    Global::Get()->LoadModule("modules/submodules-sample.so");
     FileObserver::Get()->Register("./sys", new ModuleLoader);
     TermUtils::WritePidFile("./trippingcyril.pid");
   }

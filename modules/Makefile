@@ -1,4 +1,4 @@
-MODULES := sample
+MODULES := sample submodules-sample
 
 .PHONY: all clean
 

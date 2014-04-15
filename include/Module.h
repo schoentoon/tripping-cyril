@@ -29,6 +29,10 @@
   CLASS::CLASS(ModHandle so, const String& modName, const String& path) \
   : trippingcyril::Module(so, modName, path)
 
+#define MODINLINECONSTRUCTOR(CLASS) \
+  CLASS(ModHandle so, const String& modName, const String& path) \
+  : trippingcyril::Module(so, modName, path)
+
 #define MODCONSTRUCTORHEADER(CLASS) \
   CLASS(ModHandle so, const String& modName, const String& path)
 
@@ -45,8 +49,8 @@ typedef void* ModHandle;
 
 // @cond
 namespace thread {
-class ModuleThread;
-class Thread;
+  class ModuleThread;
+  class Thread;
 };
 namespace net {
   class Socket;
@@ -126,6 +130,7 @@ private:
   const String modName;
   const String path;
   friend class Global;
+  friend class SubModuleLoader;
   friend class Event;
 
   thread::Thread* modThread;

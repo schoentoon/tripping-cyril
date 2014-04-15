@@ -11,7 +11,7 @@ MODBIN            := $(shell pwd).so
 
 .PHONY: all clean
 
-all: $(MODBIN)
+all: $(MODBIN) $(CUSTOM_TARGETS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(DEFINES) $(INC) -c $< -o $@
@@ -20,4 +20,4 @@ $(MODBIN): $(DEPS)
 	$(CXX) $(CXXFLAGS) $(DEFINES) $(LDFLAGS) $(MODLINK) $(INC) -o $(MODBIN) $(DEPS) $(shell pkg-config --libs $(LINK_PKGS)) $(MAN_LINKS)
 
 clean:
-	rm -fv $(DEPS)
+	rm -fv $(DEPS) $(CUSTOM_CLEAN)
