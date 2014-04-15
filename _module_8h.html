@@ -110,7 +110,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_module_8h__dep__incl.png" border="0" usemap="#include_2_module_8hdep" alt=""/></div>
 <map name="include_2_module_8hdep" id="include_2_module_8hdep">
-<area shape="rect" id="node2" href="_timer_8h.html" title="include/Timer.h" alt="" coords="39,80,149,107"/><area shape="rect" id="node5" href="_database_8h.html" title="include/Database.h" alt="" coords="198,80,332,107"/><area shape="rect" id="node6" href="_socket_8h.html" title="include/Socket.h" alt="" coords="370,80,488,107"/><area shape="rect" id="node10" href="_global_8h.html" title="include/Global.h" alt="" coords="513,80,628,107"/><area shape="rect" id="node11" href="_job_thread_8h.html" title="include/JobThread.h" alt="" coords="735,155,873,181"/><area shape="rect" id="node12" href="_pipe_8h.html" title="include/Pipe.h" alt="" coords="739,80,843,107"/><area shape="rect" id="node3" href="_backoff_timer_8h.html" title="include/BackoffTimer.h" alt="" coords="5,155,160,181"/><area shape="rect" id="node4" href="_postgres_8h.html" title="include/Postgres.h" alt="" coords="75,229,205,256"/><area shape="rect" id="node7" href="_d_n_s_8h.html" title="include/DNS.h" alt="" coords="236,155,343,181"/><area shape="rect" id="node8" href="_listener_8h.html" title="include/Listener.h" alt="" coords="367,155,491,181"/><area shape="rect" id="node9" href="_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="516,155,711,181"/></map>
+<area shape="rect" id="node2" href="_timer_8h.html" title="include/Timer.h" alt="" coords="65,80,175,107"/><area shape="rect" id="node5" href="_database_8h.html" title="include/Database.h" alt="" coords="185,155,319,181"/><area shape="rect" id="node6" href="_socket_8h.html" title="include/Socket.h" alt="" coords="478,80,596,107"/><area shape="rect" id="node10" href="_global_8h.html" title="include/Global.h" alt="" coords="621,80,736,107"/><area shape="rect" id="node11" href="_job_thread_8h.html" title="include/JobThread.h" alt="" coords="843,155,981,181"/><area shape="rect" id="node12" href="_pipe_8h.html" title="include/Pipe.h" alt="" coords="811,80,915,107"/><area shape="rect" id="node13" href="_sub_module_loader_8h.html" title="include/SubModuleLoader.h" alt="" coords="939,80,1121,107"/><area shape="rect" id="node3" href="_backoff_timer_8h.html" title="include/BackoffTimer.h" alt="" coords="5,155,160,181"/><area shape="rect" id="node4" href="_postgres_8h.html" title="include/Postgres.h" alt="" coords="101,229,232,256"/><area shape="rect" id="node7" href="_d_n_s_8h.html" title="include/DNS.h" alt="" coords="344,155,451,181"/><area shape="rect" id="node8" href="_listener_8h.html" title="include/Listener.h" alt="" coords="475,155,599,181"/><area shape="rect" id="node9" href="_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="624,155,819,181"/></map>
 </div>
 </div>
 <p><a href="_module_8h_source.html">Go to the source code of this file.</a></p>
@@ -133,6 +133,8 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a4cb82bfe0e2c41d222152aaec5300156"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_module_8h.html#a4cb82bfe0e2c41d222152aaec5300156">MODCONSTRUCTOR</a>(CLASS)</td></tr>
 <tr class="separator:a4cb82bfe0e2c41d222152aaec5300156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6371f357b9c5befe07b4f860b0c11e7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_module_8h.html#a6371f357b9c5befe07b4f860b0c11e7c">MODINLINECONSTRUCTOR</a>(CLASS)</td></tr>
+<tr class="separator:a6371f357b9c5befe07b4f860b0c11e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7865cf0439fde7b6f652fbffd69477f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_module_8h.html#a7865cf0439fde7b6f652fbffd69477f9">MODCONSTRUCTORHEADER</a>(CLASS)&#160;&#160;&#160;CLASS(ModHandle so, const String&amp; modName, const String&amp; path)</td></tr>
 <tr class="separator:a7865cf0439fde7b6f652fbffd69477f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a861bccdccecfb06ba6696e9e00965d13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_module_8h.html#a861bccdccecfb06ba6696e9e00965d13">MODULEDEFS</a>(CLASS)</td></tr>
@@ -159,8 +161,8 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">CLASS::CLASS(<a class="code" href="namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b">ModHandle</a> so, <span class="keyword">const</span> String&amp; modName, <span class="keyword">const</span> String&amp; path) \</div>
 <div class="line">  : <a class="code" href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a>(so, modName, path)</div>
-<div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:62</div></div>
-<div class="ttc" id="namespacetrippingcyril_html_a0d39d53c6363acd1d33509ac2521b53b"><div class="ttname"><a href="namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b">trippingcyril::ModHandle</a></div><div class="ttdeci">void * ModHandle</div><div class="ttdef"><b>Definition:</b> Module.h:44</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:66</div></div>
+<div class="ttc" id="namespacetrippingcyril_html_a0d39d53c6363acd1d33509ac2521b53b"><div class="ttname"><a href="namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b">trippingcyril::ModHandle</a></div><div class="ttdeci">void * ModHandle</div><div class="ttdef"><b>Definition:</b> Module.h:48</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -178,6 +180,26 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a class="anchor" id="a6371f357b9c5befe07b4f860b0c11e7c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MODINLINECONSTRUCTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CLASS</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">CLASS(<a class="code" href="namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b">ModHandle</a> so, <span class="keyword">const</span> String&amp; modName, <span class="keyword">const</span> String&amp; path) \</div>
+<div class="line">  : <a class="code" href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a>(so, modName, path)</div>
+<div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:66</div></div>
+<div class="ttc" id="namespacetrippingcyril_html_a0d39d53c6363acd1d33509ac2521b53b"><div class="ttname"><a href="namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b">trippingcyril::ModHandle</a></div><div class="ttdeci">void * ModHandle</div><div class="ttdef"><b>Definition:</b> Module.h:48</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a861bccdccecfb06ba6696e9e00965d13"></a>
@@ -198,14 +220,14 @@ Typedefs</h2></td></tr>
 <div class="line">      return <span class="keyword">new</span> CLASS(so, modName, path); \</div>
 <div class="line">    }; \</div>
 <div class="line">  };</div>
-<div class="ttc" id="namespacetrippingcyril_html_a0d39d53c6363acd1d33509ac2521b53b"><div class="ttname"><a href="namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b">trippingcyril::ModHandle</a></div><div class="ttdeci">void * ModHandle</div><div class="ttdef"><b>Definition:</b> Module.h:44</div></div>
+<div class="ttc" id="namespacetrippingcyril_html_a0d39d53c6363acd1d33509ac2521b53b"><div class="ttname"><a href="namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b">trippingcyril::ModHandle</a></div><div class="ttdeci">void * ModHandle</div><div class="ttdef"><b>Definition:</b> Module.h:48</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 14 2014 20:17:16 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 15 2014 21:30:27 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

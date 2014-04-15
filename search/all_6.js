@@ -9,6 +9,6 @@ var searchData=
   ['fileobservercallback',['FileObserverCallback',['../classtrippingcyril_1_1_file_observer_callback.html',1,'trippingcyril']]],
   ['files_2eh',['Files.h',['../_files_8h.html',1,'']]],
   ['filetype',['FileType',['../classtrippingcyril_1_1_file.html#af8f8c6ba3c0706c001186e9a30cece66',1,'trippingcyril::File']]],
-  ['findmodule',['FindModule',['../classtrippingcyril_1_1_global.html#a953cb9341e602eed3672ddba208b0e3e',1,'trippingcyril::Global']]],
+  ['findmodule',['FindModule',['../classtrippingcyril_1_1_global.html#a953cb9341e602eed3672ddba208b0e3e',1,'trippingcyril::Global::FindModule()'],['../classtrippingcyril_1_1_sub_module_loader.html#ae18f2ad25986d5d3f6f34c342b08b486',1,'trippingcyril::SubModuleLoader::FindModule()']]],
   ['finished',['Finished',['../classtrippingcyril_1_1timing_1_1_timer.html#adf8610be0bc1612ba0703cba61dd2698',1,'trippingcyril::timing::Timer']]]
 ];
