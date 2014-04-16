@@ -48,8 +48,8 @@ namespace trippingcyril {
 typedef void* ModHandle;
 
 // @cond
+class ModuleThread;
 namespace thread {
-  class ModuleThread;
   class Thread;
 };
 namespace net {

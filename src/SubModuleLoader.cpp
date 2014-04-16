@@ -23,6 +23,7 @@
 #include "Files.h"
 #include "Module.h"
 #include "TermUtils.h"
+#include "ModuleThread.h"
 
 namespace trippingcyril {
 
@@ -59,7 +60,11 @@ bool SubModuleLoader::LoadModule(const String& path) {
   if (validateModule(module, retMsg)) {
     status.PrintStatus(true, retMsg);
     modules.push_back(module);
-    module->OnLoaded();
+    if (module->wantsThread) {
+      ModuleThread* thread = new ModuleThread(module);
+      thread->Start();
+    } else
+      module->OnLoaded();
   } else {
     status.PrintStatus(false, retMsg);
     delete module;

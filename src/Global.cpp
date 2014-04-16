@@ -18,48 +18,19 @@
 #include "Global.h"
 
 #include <dlfcn.h>
-#include <signal.h>
 #include <setjmp.h>
 #include <iostream>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <openssl/rand.h>
 
-#include "Pipe.h"
 #include "Thread.h"
 #include "Files.h"
 #include "Module.h"
-#include "StackTrace.h"
 #include "TermUtils.h"
+#include "ModuleThread.h"
 
 namespace trippingcyril {
-
-class OnCrashPipe : public Pipe {
-public:
-  OnCrashPipe()
-  : Pipe() {
-  };
-  virtual ~OnCrashPipe() {
-  };
-  struct OnCrashStruct {
-    Module* module;
-    bool reload : 1;
-  };
-protected:
-  virtual void OnRead() {
-    OnCrashStruct data;
-    while (Read((char*) &data, sizeof(data)) == sizeof(data) && data.module != NULL) {
-      const String path = data.module->GetPath();
-      String sRetMsg;
-      bool success = Global::Get()->UnloadModule(data.module->GetModName(), sRetMsg);
-      TermUtils::PrintStatus(success, sRetMsg);
-      if (data.reload)
-        Global::Get()->LoadModule(path);
-    };
-  };
-};
-
-static OnCrashPipe* onCrashPipe = new OnCrashPipe;
 
 Global::Global() {
   SSL_library_init();
@@ -79,64 +50,6 @@ Global::~Global() {
 void Global::Loop() {
   while (true)
     event_base_dispatch(event_base);
-};
-
-class ModuleThread : public thread::Thread {
-public:
-  ModuleThread(Module* pModule)
-  : Thread(pModule->GetModName(), pModule)
-  , unloadOnCrash(pModule->unloadOnCrash)
-  , reloadOnCrash(pModule->reloadOnCrash) {
-    module = pModule;
-    module->modThread = this;
-  };
-  virtual ~ModuleThread() {
-  };
-protected:
-  void* run() {
-    module->event_base = event_base_new();
-    module->OnLoaded();
-    if (unloadOnCrash == false || setjmp(jmp_buffer) == 0) {
-      if (unloadOnCrash) {
-        struct sigaction act;
-        bzero(&act, sizeof(act));
-        sigfillset(&act.sa_mask);
-        act.sa_flags = SA_RESETHAND|SA_SIGINFO;
-        act.sa_sigaction = ModuleThread::CrashHandler;
-        sigaction(SIGABRT, &act, NULL);
-        sigaction(SIGBUS,  &act, NULL);
-        sigaction(SIGFPE,  &act, NULL);
-  #ifdef SIGILL
-        sigaction(SIGILL,  &act, NULL);
-  #endif
-        sigaction(SIGSEGV, &act, NULL);
-      }
-      while (shouldContinue())
-        event_base_loop(module->event_base, EVLOOP_ONCE);
-    };
-    return NULL;
-  };
-private:
-  static void CrashHandler(int sig, siginfo_t* info, void* f) {
-    Thread* thread = thread::ThreadManager::Get()->getCurrentThread();
-    if (thread != NULL) {
-      crash::StackTrace();
-      ModuleThread* modThread = (ModuleThread*) thread;
-      if (modThread) {
-        OnCrashPipe::OnCrashStruct data;
-        data.module = modThread->module;
-        data.reload = modThread->reloadOnCrash;
-        onCrashPipe->Write((const char*) &data, sizeof(data));
-        longjmp(modThread->jmp_buffer, 1);
-      } else
-        perror("What the hell man..");
-    } else
-      perror("What the hell man..");
-  };
-  jmp_buf jmp_buffer;
-  Module* module;
-  const bool unloadOnCrash;
-  const bool reloadOnCrash;
 };
 
 bool Global::LoadModule(const String& path) {
