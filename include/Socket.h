@@ -105,7 +105,6 @@ public:
    * Get the ip address of the remote end
    */
   const IPAddress* GetIP() const;
-  void SetInterface(const String& interface) { this->interface = interface; };
 protected:
   /**
    * Connected callback, will be called once the socket is connected.
@@ -158,10 +157,12 @@ private:
   int tcp_keep_alive_interval;
   struct timeval timeout;
   struct bufferevent* connection;
-  String interface;
   static void readcb(struct bufferevent* bev, void* ctx);
   static void writecb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
+
+  bool createConnection(struct event_base* base, bool ssl = false);
+  void enableCallbacks();
 #ifdef _TEST
   friend class test::LibEventHelper;
 #endif //_TEST

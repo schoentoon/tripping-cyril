@@ -54,8 +54,7 @@ Socket::Socket(struct bufferevent* event)
   tcp_keep_alive = 1;
   tcp_keep_alive_interval = 45;
   SetTimeout(0.0);
-  bufferevent_setcb(connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
-  bufferevent_enable(connection, EV_READ|EV_WRITE);
+  enableCallbacks();
 };
 
 Socket::~Socket() {
@@ -191,18 +190,9 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTi
   if (connection != NULL)
     return false; // Already connected.
   struct event_base* base = GetEventBase();
+  if (createConnection(base, ssl) == false)
+    return false;
   struct evdns_base* dns = GetDNSBase();
-  int fd = -1;
-  if (interface.empty() == false) {
-    fd = socket(AF_INET, SOCK_STREAM, 0);
-    setsockopt(fd, SOL_SOCKET, SO_BINDTODEVICE, interface.data(), interface.size());
-  };
-  if (ssl) {
-    SSL_CTX* ssl_ctx = createSSL_CTX();
-    SSL* ssl_obj = SSL_new(ssl_ctx);
-    connection = bufferevent_openssl_socket_new(base, fd, ssl_obj, BUFFEREVENT_SSL_CONNECTING, BEV_OPT_CLOSE_ON_FREE);
-  } else
-    connection = bufferevent_socket_new(base, fd, BEV_OPT_CLOSE_ON_FREE);
   if (bufferevent_socket_connect_hostname(connection, dns, AF_INET, hostname.c_str(), port) != 0) {
     bufferevent_free(connection);
     connection = NULL;
@@ -210,8 +200,7 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTi
   };
   if (dTimeout > 0)
     SetTimeout(dTimeout);
-  bufferevent_setcb(connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
-  bufferevent_enable(connection, EV_READ|EV_WRITE);
+  enableCallbacks();
   return true;
 };
 
@@ -219,17 +208,8 @@ bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeou
   if (connection != NULL)
     return false; // Already connected.
   struct event_base* base = GetEventBase();
-  int fd = -1;
-  if (interface.empty() == false) {
-    fd = socket(AF_INET, SOCK_STREAM, 0);
-    setsockopt(fd, SOL_SOCKET, SO_BINDTODEVICE, interface.data(), interface.size());
-  };
-  if (ssl) {
-    SSL_CTX* ssl_ctx = createSSL_CTX();
-    SSL* ssl_obj = SSL_new(ssl_ctx);
-    connection = bufferevent_openssl_socket_new(base, fd, ssl_obj, BUFFEREVENT_SSL_CONNECTING, BEV_OPT_CLOSE_ON_FREE);
-  } else
-    connection = bufferevent_socket_new(base, fd, BEV_OPT_CLOSE_ON_FREE);
+  if (createConnection(base, ssl) == false)
+    return false;
   int ret;
   switch (ip->GetIPVersion()) {
   case 4: {
@@ -253,9 +233,25 @@ bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeou
   };
   if (timeout > 0)
     SetTimeout(timeout);
+  enableCallbacks();
+  return true;
+};
+
+bool Socket::createConnection(struct event_base* base, bool ssl) {
+  if (connection != NULL)
+    return false;
+  if (ssl) {
+    SSL_CTX* ssl_ctx = createSSL_CTX();
+    SSL* ssl_obj = SSL_new(ssl_ctx);
+    connection = bufferevent_openssl_socket_new(base, -1, ssl_obj, BUFFEREVENT_SSL_CONNECTING, BEV_OPT_CLOSE_ON_FREE);
+  } else
+    connection = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
+  return connection != NULL;
+};
+
+void Socket::enableCallbacks() {
   bufferevent_setcb(connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
   bufferevent_enable(connection, EV_READ|EV_WRITE);
-  return true;
 };
 
 IPAddress* IPAddress::fromFD(int fd) {
