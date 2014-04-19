@@ -35,6 +35,7 @@ class Thread : public Event {
 public:
   /**
    * Standard constructor
+   * @param pModule The module to register this thread on
    * @param pName The name the thread will get
    */
   Thread(const String& pName, const Module* pModule);

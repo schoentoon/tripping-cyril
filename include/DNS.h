@@ -61,7 +61,7 @@ class IPv4Lookup : public Event {
 public:
   /**
     * General constructor
-    * @param pModule The module to register this database on
+    * @param pModule The module to register this dns lookup on
     * @param query The domain name to lookup
     * @param callback The callback object
     */
@@ -107,7 +107,7 @@ class IPv4ReverseLookup : public Event {
 public:
   /**
    * General constructor
-   * @param pModule The module to register this database on
+   * @param module The module to register this dns lookup on
    * @param ip The ip address to lookup
    * @param callback The callback object
    */

@@ -34,6 +34,7 @@ class BackoffTimer : public Event {
 public:
   /**
    * General constructor
+   * @param module The module to register this backoff timer on
    * @param start_step At what interval should we start backing off?
    * @param step With what steps should we increase the interval
    * @param max_interval At what interval should we stop increasing the interval

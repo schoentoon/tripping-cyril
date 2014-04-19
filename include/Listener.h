@@ -35,6 +35,7 @@ class Listener : public Event {
 public:
   /**
    * General constructor
+   * @param module The module to register this listener on
    * @param pPort The port to listen on
    */
   Listener(const Module* module, uint16_t pPort);
@@ -73,6 +74,7 @@ class SSLListener : public Listener {
 public:
   /**
    * General constructor
+   * @param module The module to register this listener on
    * @param pPort The port to listen on
    */
   SSLListener(const Module* module, uint16_t pPort);

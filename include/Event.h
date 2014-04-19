@@ -33,7 +33,9 @@ class Module;
  */
 class Event {
 public:
-  /** General constructor that registers with the module, may be NULL */
+  /** General constructor that registers with the module, may be NULL
+   * @param module The module to register this event on
+   */
   Event(const Module* module);
   /** General deconstructor that unregisters from the module */
   virtual ~Event();
