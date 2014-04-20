@@ -50,27 +50,27 @@ StatsdClient::~StatsdClient() {
 
 bool StatsdClient::DRY_RUN = false;
 
-void StatsdClient::Count(const String& stat, size_t value, float sample_rate) {
+void StatsdClient::Count(const String& stat, size_t value, float sample_rate) const {
   send_stat((char*) stat.c_str(), value, "c", sample_rate);
 };
 
-void StatsdClient::Increment(const String& stat, float sample_rate) {
+void StatsdClient::Increment(const String& stat, float sample_rate) const {
   Count(stat, 1, sample_rate);
 };
 
-void StatsdClient::Decrement(const String& stat, float sample_rate) {
+void StatsdClient::Decrement(const String& stat, float sample_rate) const {
   Count(stat, -1, sample_rate);
 };
 
-void StatsdClient::Gauge(const String& stat, size_t value, float sample_rate) {
+void StatsdClient::Gauge(const String& stat, size_t value, float sample_rate) const {
   send_stat((char*) stat.c_str(), value, "g", sample_rate);
 };
 
-void StatsdClient::Timing(const String& stat, size_t ms, float sample_rate) {
+void StatsdClient::Timing(const String& stat, size_t ms, float sample_rate) const {
   send_stat((char*) stat.c_str(), ms, "ms", sample_rate);
 };
 
-bool StatsdClient::shouldSend(float sample_rate) {
+bool StatsdClient::shouldSend(float sample_rate) const {
   if (sample_rate < 1.0) {
     float p = ((float) random() / RAND_MAX);
     return sample_rate > p;
@@ -78,7 +78,7 @@ bool StatsdClient::shouldSend(float sample_rate) {
   return true;
 };
 
-bool StatsdClient::send(const char* message, size_t len) {
+bool StatsdClient::send(const char* message, size_t len) const {
   if (DRY_RUN)
     return true;
   if (sendto(sock, message, len, 0, (struct sockaddr*) &address, sizeof(address)) == -1)
@@ -86,14 +86,14 @@ bool StatsdClient::send(const char* message, size_t len) {
   return true;
 };
 
-int StatsdClient::prepare(char* stat, size_t value, const char* type, float sample_rate, char* buf, size_t buflen, bool lf) {
+int StatsdClient::prepare(char* stat, size_t value, const char* type, float sample_rate, char* buf, size_t buflen, bool lf) const {
   if (sample_rate == 1.0)
     return snprintf(buf, buflen, "%s%s:%zd|%s%s", ns.c_str(), stat, value, type, lf ? "\n" : "");
   else
     return snprintf(buf, buflen, "%s%s:%zd|%s|@%.2f%s", ns.c_str(), stat, value, type, sample_rate, lf ? "\n" : "");
 };
 
-void StatsdClient::cleanup(char* stat) {
+void StatsdClient::cleanup(char* stat) const {
   char *p;
   for (p = stat; *p; ++p) {
     if (*p == ':' || *p == '|' || *p == '@')
@@ -101,7 +101,7 @@ void StatsdClient::cleanup(char* stat) {
   };
 };
 
-bool StatsdClient::send_stat(char* stat, size_t value, const char* type, float sample_rate) {
+bool StatsdClient::send_stat(char* stat, size_t value, const char* type, float sample_rate) const {
   if (shouldSend(sample_rate) == false)
     return false;
   char buf[BUFSIZ];

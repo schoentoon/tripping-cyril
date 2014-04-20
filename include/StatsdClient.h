@@ -39,19 +39,19 @@ public:
   virtual ~StatsdClient();
   static bool DRY_RUN;
   /** @return The namespace for this statd object */
-  String getNamespace() const { return ns; };
-  void Count(const String& stat, size_t value, float sample_rate = 1.0);
-  void Increment(const String& stat, float sample_rate = 1.0);
-  void Decrement(const String& stat, float sample_rate = 1.0);
-  void Gauge(const String& stat, size_t value, float sample_rate = 1.0);
-  void Timing(const String& stat, size_t ms, float sample_rate = 1.0);
+  const String getNamespace() const { return ns; };
+  void Count(const String& stat, size_t value, float sample_rate = 1.0) const;
+  void Increment(const String& stat, float sample_rate = 1.0) const;
+  void Decrement(const String& stat, float sample_rate = 1.0) const;
+  void Gauge(const String& stat, size_t value, float sample_rate = 1.0) const;
+  void Timing(const String& stat, size_t ms, float sample_rate = 1.0) const;
 protected:
   // @cond
-  bool shouldSend(float sample_rate);
-  bool send(const char* message, size_t len);
-  int prepare(char *stat, size_t value, const char *type, float sample_rate, char *buf, size_t buflen, bool lf);
-  void cleanup(char *stat);
-  bool send_stat(char* stat, size_t value, const char* type, float sample_rate = 1.0);
+  bool shouldSend(float sample_rate) const;
+  bool send(const char* message, size_t len) const;
+  int prepare(char *stat, size_t value, const char *type, float sample_rate, char *buf, size_t buflen, bool lf) const;
+  void cleanup(char *stat) const;
+  bool send_stat(char* stat, size_t value, const char* type, float sample_rate = 1.0) const;
 
   struct sockaddr_in address;
   int sock;
