@@ -37,8 +37,9 @@ public:
    * General constructor
    * @param module The module to register this listener on
    * @param pPort The port to listen on
+   * @param ssl_ctx The ssl context to use to create new ssl connections, NULL means no ssl
    */
-  Listener(const Module* module, uint16_t pPort);
+  Listener(const Module* module, uint16_t pPort, SSL_CTX *ssl_ctx = NULL);
   /** Deconstructor */
   virtual ~Listener();
   /** @return True if we are listening */
@@ -64,38 +65,6 @@ private:
                          ,struct sockaddr *sa, int socklen, void *context);
   const uint16_t port;
   struct evconnlistener *listener;
-  // @endcond
-};
-
-/**
- * @brief Generic ssl listener class
- */
-class SSLListener : public Listener {
-public:
-  /**
-   * General constructor
-   * @param module The module to register this listener on
-   * @param pPort The port to listen on
-   */
-  SSLListener(const Module* module, uint16_t pPort);
-  /** General deconstructor */
-  virtual ~SSLListener();
-protected:
-  /**
-   * Creates the ssl context for this connection
-   */
-  virtual SSL_CTX* initSSLContext();
-  /**
-   * Used to create the buffer event, you may override this to create it yourself
-   */
-  virtual struct bufferevent* createBufferEvent(evutil_socket_t fd);
-  /**
-   * Used to create the actual socket, create one of your own implementations here
-   * of course.
-   */
-  virtual Socket* createSocket(struct bufferevent* bev) = 0;
-private:
-  // @cond
   SSL_CTX *ssl_ctx;
   // @endcond
 };
