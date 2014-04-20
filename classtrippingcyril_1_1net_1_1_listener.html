@@ -104,7 +104,7 @@ Inheritance diagram for trippingcyril::net::Listener:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrippingcyril_1_1net_1_1_listener__inherit__graph.png" border="0" usemap="#trippingcyril_1_1net_1_1_listener_inherit__map" alt="Inheritance graph"/></div>
 <map name="trippingcyril_1_1net_1_1_listener_inherit__map" id="trippingcyril_1_1net_1_1_listener_inherit__map">
-<area shape="rect" id="node3" href="classtrippingcyril_1_1net_1_1_s_s_l_listener.html" title="Generic ssl listener class. " alt="" coords="13,171,128,213"/><area shape="rect" id="node2" href="classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="5,5,136,32"/></map>
+<area shape="rect" id="node2" href="classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="5,5,136,32"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for trippingcyril::net::Listener:</div>
@@ -116,8 +116,8 @@ Collaboration diagram for trippingcyril::net::Listener:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ecc97356ee89f2001a5dea2eb7ddc72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_listener.html#a0ecc97356ee89f2001a5dea2eb7ddc72">Listener</a> (const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *<a class="el" href="classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da">module</a>, uint16_t pPort)</td></tr>
-<tr class="separator:a0ecc97356ee89f2001a5dea2eb7ddc72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af21b2fcdd56570620fe880ad1814ec59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_listener.html#af21b2fcdd56570620fe880ad1814ec59">Listener</a> (const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *<a class="el" href="classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da">module</a>, uint16_t pPort, SSL_CTX *ssl_ctx=NULL)</td></tr>
+<tr class="separator:af21b2fcdd56570620fe880ad1814ec59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a644b0c8536d517d7535a05515274771a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_listener.html#a644b0c8536d517d7535a05515274771a">~Listener</a> ()</td></tr>
 <tr class="separator:a644b0c8536d517d7535a05515274771a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95f77645b3c6df219c96a34321b8ba44"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_listener.html#a95f77645b3c6df219c96a34321b8ba44">isListening</a> () const </td></tr>
@@ -153,7 +153,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generic listener class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0ecc97356ee89f2001a5dea2eb7ddc72"></a>
+<a class="anchor" id="af21b2fcdd56570620fe880ad1814ec59"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -167,7 +167,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pPort</em>&#160;</td>
+          <td class="paramname"><em>pPort</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SSL_CTX *&#160;</td>
+          <td class="paramname"><em>ssl_ctx</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -181,6 +187,7 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">module</td><td>The module to register this listener on </td></tr>
     <tr><td class="paramname">pPort</td><td>The port to listen on </td></tr>
+    <tr><td class="paramname">ssl_ctx</td><td>The ssl context to use to create new ssl connections, NULL means no ssl </td></tr>
   </table>
   </dd>
 </dl>
@@ -235,8 +242,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Used to create the buffer event, you may override this to create it yourself </p>
 
-<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1net_1_1_s_s_l_listener.html#ae43e580d8dc7fb66f2788ec6e2e64387">trippingcyril::net::SSLListener</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5c7b7ad805b568ccd94c965d4604898a"></a>
@@ -261,8 +266,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Used to create the actual socket, create one of your own implementations here of course. </p>
-
-<p>Implemented in <a class="el" href="classtrippingcyril_1_1net_1_1_s_s_l_listener.html#a7284c89a685ecd72693e8356d697ed8b">trippingcyril::net::SSLListener</a>.</p>
 
 </div>
 </div>
@@ -313,7 +316,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 19 2014 14:35:52 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 21 2014 01:21:23 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -36,7 +36,6 @@ var searchData=
   ['_7epostgres',['~PostGres',['../classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a6cdca048170c022689b16b69604a133a',1,'trippingcyril::database::postgres::PostGres']]],
   ['_7esimplehttpsocket',['~SimpleHTTPSocket',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a6219a95558f6b1e575c9109a1067dacd',1,'trippingcyril::net::http::SimpleHTTPSocket']]],
   ['_7esocket',['~Socket',['../classtrippingcyril_1_1net_1_1_socket.html#ada9607285bcee1886fee1789e02d8147',1,'trippingcyril::net::Socket']]],
-  ['_7essllistener',['~SSLListener',['../classtrippingcyril_1_1net_1_1_s_s_l_listener.html#a5b662cd249f448784e2d022fe8d52866',1,'trippingcyril::net::SSLListener']]],
   ['_7estatsdclient',['~StatsdClient',['../classtrippingcyril_1_1_statsd_client.html#a84c38cd167f1acf9835061483c86f084',1,'trippingcyril::StatsdClient']]],
   ['_7estatusprinter',['~StatusPrinter',['../classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a2b40599adfefc58219e089bbb8093808',1,'trippingcyril::TermUtils::StatusPrinter']]],
   ['_7estring',['~String',['../classtrippingcyril_1_1_string.html#af4e4a4cb687d06e2167b30c831b3a735',1,'trippingcyril::String']]],

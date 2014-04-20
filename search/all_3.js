@@ -16,6 +16,6 @@ var searchData=
   ['connected',['Connected',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a739c18652fe62062c988afb47f7d79f6',1,'trippingcyril::net::http::SimpleHTTPSocket::Connected()'],['../classtrippingcyril_1_1net_1_1_socket.html#a0f44e10ef09523a0bff12e5a15e83062',1,'trippingcyril::net::Socket::Connected()']]],
   ['copy',['Copy',['../classtrippingcyril_1_1_file.html#ad745da22de9ee8bf97a3e00d113124f1',1,'trippingcyril::File']]],
   ['count',['Count',['../classtrippingcyril_1_1_statsd_client.html#aea72f88835758b82b21e4bf81c12ef4e',1,'trippingcyril::StatsdClient']]],
-  ['createbufferevent',['createBufferEvent',['../classtrippingcyril_1_1net_1_1_listener.html#a224fdda38ca9e2a367f9266d62221a31',1,'trippingcyril::net::Listener::createBufferEvent()'],['../classtrippingcyril_1_1net_1_1_s_s_l_listener.html#ae43e580d8dc7fb66f2788ec6e2e64387',1,'trippingcyril::net::SSLListener::createBufferEvent()']]],
-  ['createsocket',['createSocket',['../classtrippingcyril_1_1net_1_1_listener.html#a5c7b7ad805b568ccd94c965d4604898a',1,'trippingcyril::net::Listener::createSocket()'],['../classtrippingcyril_1_1net_1_1_s_s_l_listener.html#a7284c89a685ecd72693e8356d697ed8b',1,'trippingcyril::net::SSLListener::createSocket()']]]
+  ['createbufferevent',['createBufferEvent',['../classtrippingcyril_1_1net_1_1_listener.html#a224fdda38ca9e2a367f9266d62221a31',1,'trippingcyril::net::Listener']]],
+  ['createsocket',['createSocket',['../classtrippingcyril_1_1net_1_1_listener.html#a5c7b7ad805b568ccd94c965d4604898a',1,'trippingcyril::net::Listener']]]
 ];
