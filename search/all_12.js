@@ -22,7 +22,7 @@ var searchData=
   ['timer',['Timer',['../classtrippingcyril_1_1timing_1_1_timer.html#aeb532307c279ad7c6ff60ea88d2f3828',1,'trippingcyril::timing::Timer::Timer(const Module *module)'],['../classtrippingcyril_1_1timing_1_1_timer.html#a5d5d6cc42a713f5f96a5bbc1c0830772',1,'trippingcyril::timing::Timer::Timer(const Module *module, double interval, unsigned int maxCycles=0)']]],
   ['timer_2eh',['Timer.h',['../_timer_8h.html',1,'']]],
   ['timerlamdbacallback',['TimerLamdbaCallback',['../namespacetrippingcyril_1_1timing.html#ad85a63d8a269434dfaec2f669be08a3e',1,'trippingcyril::timing']]],
-  ['timing',['Timing',['../classtrippingcyril_1_1_statsd_client.html#ab66a7a3d82fcc95f1bcb1b0741d1541f',1,'trippingcyril::StatsdClient']]],
+  ['timing',['Timing',['../classtrippingcyril_1_1_statsd_client.html#a00ef808c1896d63b7620ae58b53fd83a',1,'trippingcyril::StatsdClient']]],
   ['timing',['timing',['../namespacetrippingcyril_1_1timing.html',1,'trippingcyril']]],
   ['tobool',['ToBool',['../classtrippingcyril_1_1_string.html#aa2968b5195233f089243e55c80da0430',1,'trippingcyril::String']]],
   ['tobytestr',['ToByteStr',['../classtrippingcyril_1_1_string.html#ae9ac881df9a30caacb37c34b50b91fac',1,'trippingcyril::String']]],

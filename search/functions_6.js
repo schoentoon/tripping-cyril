@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gauge',['Gauge',['../classtrippingcyril_1_1_statsd_client.html#a116580d4ad8cfbedc112af9ac7d880f3',1,'trippingcyril::StatsdClient']]],
+  ['gauge',['Gauge',['../classtrippingcyril_1_1_statsd_client.html#aa19f520c7b3abdb433a464c748164452',1,'trippingcyril::StatsdClient']]],
   ['get',['Get',['../classtrippingcyril_1_1_file_observer.html#afd7cbc6c2876ec0553271f91b97069d3',1,'trippingcyril::FileObserver::Get()'],['../classtrippingcyril_1_1_global.html#a0745b9231ad1e3c4b8acf9c4878c7c2d',1,'trippingcyril::Global::Get()'],['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a18f442beed0095d847972f083160c0fb',1,'trippingcyril::net::http::SimpleHTTPSocket::Get()'],['../classtrippingcyril_1_1thread_1_1_thread_manager.html#a3b0822cc2b2e9ca6e937b9bbedf44f17',1,'trippingcyril::thread::ThreadManager::Get()']]],
   ['getatime',['GetATime',['../classtrippingcyril_1_1_file.html#a584e2d3fcd0a1735b9b731af9950451b',1,'trippingcyril::File']]],
   ['getbuffer',['GetBuffer',['../classtrippingcyril_1_1_string_writer.html#a4e3f8bb9dc6b1667b5cf9d85f451ed92',1,'trippingcyril::StringWriter']]],
@@ -19,7 +19,7 @@ var searchData=
   ['getmodule',['GetModule',['../classtrippingcyril_1_1_event.html#a3e9d99c0626d733b543936120600ec6b',1,'trippingcyril::Event']]],
   ['getmtime',['GetMTime',['../classtrippingcyril_1_1_file.html#aa8e222b853c0dfeecf98f886aad85284',1,'trippingcyril::File']]],
   ['getname',['GetName',['../classtrippingcyril_1_1_file.html#a16cf1517c53b5af2ab6600074cb2e7cd',1,'trippingcyril::File::GetName()'],['../classtrippingcyril_1_1thread_1_1_thread.html#a76d7df5cde33087778f0f274b7eecc6e',1,'trippingcyril::thread::Thread::GetName()']]],
-  ['getnamespace',['getNamespace',['../classtrippingcyril_1_1_statsd_client.html#a176ca999d1e6a69947d61fe199ef9590',1,'trippingcyril::StatsdClient']]],
+  ['getnamespace',['getNamespace',['../classtrippingcyril_1_1_statsd_client.html#ae2563f70b3941c7c6532706b26649feb',1,'trippingcyril::StatsdClient']]],
   ['getpath',['GetPath',['../classtrippingcyril_1_1_module.html#a8c285e144d80a290a765695d83fda4a0',1,'trippingcyril::Module']]],
   ['getquery',['GetQuery',['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#a976bf2be36dc65f1b032ff33b05b0a73',1,'trippingcyril::net::dns::IPv4Lookup::GetQuery()'],['../classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#a1ced9cbd81800718f1dba20b99cbdfe4',1,'trippingcyril::net::dns::IPv4ReverseLookup::GetQuery()']]],
   ['getreturnedvalue',['getReturnedValue',['../classtrippingcyril_1_1thread_1_1_thread.html#ab68dca38e0d44e134bab1b368b117be8',1,'trippingcyril::thread::Thread']]],

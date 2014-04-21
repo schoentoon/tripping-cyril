@@ -9,7 +9,7 @@ var searchData=
   ['connect',['Connect',['../classtrippingcyril_1_1net_1_1_socket.html#adcea7fae9b7e188503754b8a98461447',1,'trippingcyril::net::Socket::Connect(const String &amp;hostname, uint16_t port, bool ssl=false, double timeout=60.0)'],['../classtrippingcyril_1_1net_1_1_socket.html#aaa814bedbccf69f17552b348ab9e511e',1,'trippingcyril::net::Socket::Connect(const IPAddress *ip, uint16_t port, bool ssl=false, double timeout=60.0)']]],
   ['connected',['Connected',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a739c18652fe62062c988afb47f7d79f6',1,'trippingcyril::net::http::SimpleHTTPSocket::Connected()'],['../classtrippingcyril_1_1net_1_1_socket.html#a0f44e10ef09523a0bff12e5a15e83062',1,'trippingcyril::net::Socket::Connected()']]],
   ['copy',['Copy',['../classtrippingcyril_1_1_file.html#ad745da22de9ee8bf97a3e00d113124f1',1,'trippingcyril::File']]],
-  ['count',['Count',['../classtrippingcyril_1_1_statsd_client.html#aea72f88835758b82b21e4bf81c12ef4e',1,'trippingcyril::StatsdClient']]],
+  ['count',['Count',['../classtrippingcyril_1_1_statsd_client.html#a655c17689d9e82a1ef7ab7e258f72aa4',1,'trippingcyril::StatsdClient']]],
   ['createbufferevent',['createBufferEvent',['../classtrippingcyril_1_1net_1_1_listener.html#a224fdda38ca9e2a367f9266d62221a31',1,'trippingcyril::net::Listener']]],
   ['createsocket',['createSocket',['../classtrippingcyril_1_1net_1_1_listener.html#a5c7b7ad805b568ccd94c965d4604898a',1,'trippingcyril::net::Listener']]]
 ];

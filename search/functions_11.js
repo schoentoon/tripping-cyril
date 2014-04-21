@@ -5,7 +5,7 @@ var searchData=
   ['threadcount',['threadCount',['../classtrippingcyril_1_1thread_1_1_thread_manager.html#a9a300b1ea81802fd815096fee9092951',1,'trippingcyril::thread::ThreadManager']]],
   ['timeout',['Timeout',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#afa20a1eb667539cd520579f48d03e837',1,'trippingcyril::net::http::SimpleHTTPSocket::Timeout()'],['../classtrippingcyril_1_1net_1_1_socket.html#a53315a2582a954729784bea8026af444',1,'trippingcyril::net::Socket::Timeout()']]],
   ['timer',['Timer',['../classtrippingcyril_1_1timing_1_1_timer.html#aeb532307c279ad7c6ff60ea88d2f3828',1,'trippingcyril::timing::Timer::Timer(const Module *module)'],['../classtrippingcyril_1_1timing_1_1_timer.html#a5d5d6cc42a713f5f96a5bbc1c0830772',1,'trippingcyril::timing::Timer::Timer(const Module *module, double interval, unsigned int maxCycles=0)']]],
-  ['timing',['Timing',['../classtrippingcyril_1_1_statsd_client.html#ab66a7a3d82fcc95f1bcb1b0741d1541f',1,'trippingcyril::StatsdClient']]],
+  ['timing',['Timing',['../classtrippingcyril_1_1_statsd_client.html#a00ef808c1896d63b7620ae58b53fd83a',1,'trippingcyril::StatsdClient']]],
   ['tobool',['ToBool',['../classtrippingcyril_1_1_string.html#aa2968b5195233f089243e55c80da0430',1,'trippingcyril::String']]],
   ['tobytestr',['ToByteStr',['../classtrippingcyril_1_1_string.html#ae9ac881df9a30caacb37c34b50b91fac',1,'trippingcyril::String']]],
   ['todouble',['ToDouble',['../classtrippingcyril_1_1_string.html#aa0b73a88112095b0adf3bc39c0074e84',1,'trippingcyril::String']]],

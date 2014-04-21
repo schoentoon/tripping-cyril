@@ -11,7 +11,7 @@ var searchData=
   ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html',1,'trippingcyril']]],
   ['decompressor',['Decompressor',['../classtrippingcyril_1_1_decompressor.html#a96104e975d08b9bab70bf0472de6b6d8',1,'trippingcyril::Decompressor']]],
   ['decompressor_2eh',['Decompressor.h',['../_decompressor_8h.html',1,'']]],
-  ['decrement',['Decrement',['../classtrippingcyril_1_1_statsd_client.html#af5e6bd757820058defbd40e57dbe4814',1,'trippingcyril::StatsdClient']]],
+  ['decrement',['Decrement',['../classtrippingcyril_1_1_statsd_client.html#a11a8f9fdcf6ca1e8ee5448ec9b6ccafb',1,'trippingcyril::StatsdClient']]],
   ['defines_2eh',['defines.h',['../defines_8h.html',1,'']]],
   ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File']]],
   ['detach',['Detach',['../classtrippingcyril_1_1thread_1_1_thread.html#ab2c93d103b33c8ed3717da6a06088457',1,'trippingcyril::thread::Thread']]],

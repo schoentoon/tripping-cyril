@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['increment',['Increment',['../classtrippingcyril_1_1_statsd_client.html#ac56b249c7054272cd91f79afeff6793f',1,'trippingcyril::StatsdClient']]],
+  ['increment',['Increment',['../classtrippingcyril_1_1_statsd_client.html#af837cd00e4fda5d308040459e5b905d7',1,'trippingcyril::StatsdClient']]],
   ['initcrashhandler',['InitCrashHandler',['../namespacetrippingcyril_1_1crash.html#a1de8b6a3a20b0945914f0f7bbdde1687',1,'trippingcyril::crash']]],
   ['insert',['Insert',['../classtrippingcyril_1_1database_1_1_database.html#a1f54ea1ed15f2d6213925c9de2a8908e',1,'trippingcyril::database::Database::Insert()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a3c52a336bd8f38a05136df1ec535196f',1,'trippingcyril::database::postgres::PostGres::Insert()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#abff6377907cb84238309ecb283c8df80',1,'trippingcyril::database::postgres::BlockingPostGres::Insert()']]],
   ['insertlamdba',['InsertLamdba',['../classtrippingcyril_1_1database_1_1_database.html#a2d22d65cdbdf2c44ef44a5e14f0294ad',1,'trippingcyril::database::Database::InsertLamdba()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a280ce4e6fce84b39d4c16ac47e002a34',1,'trippingcyril::database::postgres::PostGres::InsertLamdba()']]],
