@@ -21,6 +21,7 @@
 #include <arpa/inet.h>
 
 #include "String.h"
+#include "Socket.h"
 
 namespace trippingcyril {
 
@@ -36,6 +37,12 @@ public:
    * @param port The port to use
    */
   StatsdClient(const String& nm = "", const String& hostname = "127.0.0.1", uint16_t port = 8125);
+  /**
+   * @param ip The ip address to connect to
+   * @param nm Namespace to use within statsd
+   * @param port The port to use
+   */
+  StatsdClient(const net::IPAddress& ip, const String& nm = "", uint16_t port = 8125);
   virtual ~StatsdClient();
   static bool DRY_RUN;
   /** @return The namespace for this statd object */
@@ -45,7 +52,7 @@ public:
   void Decrement(const String& stat, float sample_rate = 1.0) const;
   void Gauge(const String& stat, size_t value, float sample_rate = 1.0) const;
   void Timing(const String& stat, size_t ms, float sample_rate = 1.0) const;
-protected:
+private:
   // @cond
   bool shouldSend(float sample_rate) const;
   bool send(const char* message, size_t len) const;

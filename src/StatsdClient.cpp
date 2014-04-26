@@ -43,6 +43,22 @@ StatsdClient::StatsdClient(const String& pNm, const String& hostname, uint16_t p
   };
 };
 
+StatsdClient::StatsdClient(const net::IPAddress& ip, const String& pNm, uint16_t port)
+: ns(pNm) {
+  sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  if (sock == -1)
+    throw "socket() returned -1";
+  address.sin_family = AF_INET;
+  address.sin_port = htons(port);
+  switch (ip.GetIPVersion()) {
+  case 4: {
+    const net::IPv4Address ipv4 = (const net::IPv4Address) ip;
+    address.sin_addr = ipv4;
+    break;
+  };
+  };
+};
+
 StatsdClient::~StatsdClient() {
   if (sock != -1)
     close(sock);
