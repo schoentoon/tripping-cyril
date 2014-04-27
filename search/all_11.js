@@ -32,7 +32,7 @@ var searchData=
   ['stacktrace_2eh',['StackTrace.h',['../_stack_trace_8h.html',1,'']]],
   ['start',['Start',['../classtrippingcyril_1_1thread_1_1_thread.html#a73d895e616daa6b0dd9c2e6432d0c027',1,'trippingcyril::thread::Thread::Start()'],['../classtrippingcyril_1_1timing_1_1_timer.html#a26f7feb6f02da7f96e5069f76d94ab6b',1,'trippingcyril::timing::Timer::Start(double interval)'],['../classtrippingcyril_1_1timing_1_1_timer.html#a35ad64a973b8f49c06b515911ad5eb70',1,'trippingcyril::timing::Timer::Start(struct timeval &amp;tv)']]],
   ['startmaxcycles',['StartMaxCycles',['../classtrippingcyril_1_1timing_1_1_timer.html#a85487cd1184183271bc50c5fe7d16d0f',1,'trippingcyril::timing::Timer']]],
-  ['statsdclient',['StatsdClient',['../classtrippingcyril_1_1_statsd_client.html#ace412375aa2dfb747e9db1dfe1d776a1',1,'trippingcyril::StatsdClient']]],
+  ['statsdclient',['StatsdClient',['../classtrippingcyril_1_1_statsd_client.html#ace412375aa2dfb747e9db1dfe1d776a1',1,'trippingcyril::StatsdClient::StatsdClient(const String &amp;nm=&quot;&quot;, const String &amp;hostname=&quot;127.0.0.1&quot;, uint16_t port=8125)'],['../classtrippingcyril_1_1_statsd_client.html#a355e0e34ab2094017987cef9165eaa35',1,'trippingcyril::StatsdClient::StatsdClient(const net::IPAddress &amp;ip, const String &amp;nm=&quot;&quot;, uint16_t port=8125)']]],
   ['statsdclient',['StatsdClient',['../classtrippingcyril_1_1_statsd_client.html',1,'trippingcyril']]],
   ['statsdclient_2eh',['StatsdClient.h',['../_statsd_client_8h.html',1,'']]],
   ['statusprinter',['StatusPrinter',['../classtrippingcyril_1_1_term_utils_1_1_status_printer.html',1,'trippingcyril::TermUtils']]],
