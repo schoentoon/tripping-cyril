@@ -52,7 +52,7 @@ void Global::Loop() {
     event_base_dispatch(event_base);
 };
 
-bool Global::LoadModule(const String& path) {
+bool Global::LoadModule(const String& path, const String& config) {
   TermUtils::StatusPrinter status("Loading [" + path + "]");
   File f(path);
   for (unsigned int i = 0; i < modules.size(); i++) {
@@ -66,7 +66,7 @@ bool Global::LoadModule(const String& path) {
   if (sPos != String::npos)
     modname = modname.substr(0, sPos);
   String retMsg;
-  Module* module = Module::LoadModule(path, modname, retMsg);
+  Module* module = Module::LoadModule(path, modname, retMsg, config);
   if (module == NULL) {
     status.PrintStatus(false, retMsg);
     return false;

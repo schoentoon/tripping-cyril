@@ -20,26 +20,27 @@
 
 #include <event2/dns.h>
 #include <event2/event.h>
+#include <libconfig.h++>
 #include <set>
 
 #include "String.h"
 #include "Event.h"
 
 #define MODCONSTRUCTOR(CLASS) \
-  CLASS::CLASS(ModHandle so, const String& modName, const String& path) \
-  : trippingcyril::Module(so, modName, path)
+  CLASS::CLASS(ModHandle so, const String& modName, const String& path, const libconfig::Config* config) \
+  : trippingcyril::Module(so, modName, path, config)
 
 #define MODINLINECONSTRUCTOR(CLASS) \
-  CLASS(ModHandle so, const String& modName, const String& path) \
-  : trippingcyril::Module(so, modName, path)
+  CLASS(ModHandle so, const String& modName, const String& path, const libconfig::Config* config) \
+  : trippingcyril::Module(so, modName, path, config)
 
 #define MODCONSTRUCTORHEADER(CLASS) \
-  CLASS(ModHandle so, const String& modName, const String& path)
+  CLASS(ModHandle so, const String& modName, const String& path, const libconfig::Config* config)
 
 #define MODULEDEFS(CLASS) \
   extern "C" { \
-    Module* ModLoad(ModHandle so, const String& modName, const String& path) { \
-      return new CLASS(so, modName, path); \
+    Module* ModLoad(ModHandle so, const String& modName, const String& path, const libconfig::Config* config) { \
+      return new CLASS(so, modName, path, config); \
     }; \
   };
 
@@ -71,7 +72,7 @@ public:
    * @see MODCONSTRUCTOR
    * @see MODCONSTRUCTORHEADER
    */
-  Module(ModHandle so, const String& modName, const String& path);
+  Module(ModHandle so, const String& modName, const String& path, const libconfig::Config* config);
   /**
    * Deconstructor, clean up your own resources here. Don't clean up any timers
    * or sockets that you allocated with this module, those will get cleaned up
@@ -109,9 +110,10 @@ public:
    * @param path The path of the shared library to actually load
    * @param modName The name the module should get, see Module::GetModName
    * @param retMsg A human readable string about the status of the loading
+   * @param config Path to the configuration file of this module
    * @return NULL on error, the loaded module otherwise
    */
-  static Module* LoadModule(const String& path, const String& modName, String& retMsg);
+  static Module* LoadModule(const String& path, const String& modName, String& retMsg, const String& config);
 protected:
   /** Set this to true in your constructor if you want to run in your own seperate thread */
   bool wantsThread : 1;
@@ -119,6 +121,8 @@ protected:
   bool unloadOnCrash : 1;
   /** Reload the module again after unloading it because of a crash, only works if unloadOnCrash is true */
   bool reloadOnCrash : 1;
+  /** The loaded config file */
+  const libconfig::Config *config;
   // @cond
   struct event_base* event_base;
   struct evdns_base* dns_base;

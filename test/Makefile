@@ -1,6 +1,6 @@
 include ../make.conf
 
-PKGS              += libevent libevent_openssl openssl
+PKGS              += libevent libevent_openssl openssl libconfig++
 override CXXFLAGS += -g -Wall -O0 -pipe -Wno-sign-compare -D_TEST $(shell pkg-config --cflags $(PKGS))
 INC               += -I../include -I. -Igtest-1.7.0/include
 LDFLAGS           := -Wl,--export-dynamic $(shell pkg-config --libs $(PKGS)) -ldl

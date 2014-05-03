@@ -4,7 +4,7 @@ compiler:
   - gcc
 before_script:
   - sudo apt-get update
-  - sudo apt-get install libevent-dev liblzma-dev
+  - sudo apt-get install libevent-dev liblzma-dev libconfig++8-dev
 script:
   - ./configure ${CONFIGURE_ARGS}
   - make CXX=$CXX CC=$CC CXXFLAGS=-Werror

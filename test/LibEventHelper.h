@@ -32,7 +32,7 @@ namespace test {
 class LibEventHelper : public Module {
 public:
   LibEventHelper(unsigned int timeout = 10)
-  : Module(NULL, "libevent", "/dev/null") {
+  : Module(NULL, "libevent", "/dev/null", NULL) {
     event_base = event_base_new();
     struct timeval tm;
     tm.tv_usec = 0;

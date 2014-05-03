@@ -40,9 +40,10 @@ public:
   /**
    * @brief Loads to module
    * @param path The path of the module to load
+   * @param config Path to a config file
    * @return True if the module was succesfully loaded
    */
-  bool LoadModule(const String& path);
+  bool LoadModule(const String& path, const String& config = "");
   /**
    * @brief Unloads a previously loaded module
    * @param modName The name of the module to unload

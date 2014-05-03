@@ -26,8 +26,9 @@
 
 namespace trippingcyril {
 
-Module::Module(ModHandle pSo, const String& pModName, const String& pPath)
-: so(pSo)
+Module::Module(ModHandle pSo, const String& pModName, const String& pPath, const libconfig::Config* pConfig)
+: config(pConfig)
+, so(pSo)
 , modName(pModName)
 , path(pPath) {
   modThread = NULL;
@@ -45,23 +46,35 @@ Module::~Module() {
     delete *events.begin();
   if (event_base != Global::Get()->GetEventBase())
     event_base_free(event_base);
+  if (config)
+    delete config;
 };
 
-Module* Module::LoadModule(const String& path, const String& modName, String& retMsg) {
+Module* Module::LoadModule(const String& path, const String& modName, String& retMsg, const String& configFile) {
   retMsg = "";
   ModHandle so = dlopen(path.c_str(), RTLD_NOW|RTLD_GLOBAL);
   if (so == NULL) {
     retMsg = "Unable to open module [" + modName + "] [" + dlerror() + "]";
     return NULL;
   };
-  typedef Module* (fp)(ModHandle so, const String& modName, const String& path);
+  typedef Module* (fp)(ModHandle so, const String& modName, const String& path, const libconfig::Config* config);
   fp* ModLoad = (fp*) dlsym(so, "ModLoad");
   if (ModLoad == NULL) {
     dlclose(so);
     retMsg = "Could not find ModLoad() in module [" + modName + "]";
     return NULL;
   };
-  Module* output = ModLoad(so, modName, path);
+  libconfig::Config* config = NULL;
+  if (configFile.empty() == false) {
+    config = new libconfig::Config();
+    try {
+      config->readFile(configFile.c_str());
+    } catch (const std::exception& error) {
+      delete config;
+      config = NULL;
+    };
+  };
+  Module* output = ModLoad(so, modName, path, config);
   if (output == NULL) {
     retMsg = "ModLoad() returned NULL in module [" + modName + "]";
     dlclose(so);

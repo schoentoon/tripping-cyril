@@ -24,8 +24,8 @@ namespace module {
 
 class SubModuleA : public SubModule {
 public:
-  SubModuleA(ModHandle so, const String& modName, const String& path)
-  : SubModule(so, modName, path) {
+  SubModuleA(ModHandle so, const String& modName, const String& path, const libconfig::Config* config)
+  : SubModule(so, modName, path, config) {
   };
   virtual ~SubModuleA() {
   };
