@@ -12,6 +12,7 @@ var searchData=
   ['compressor_2eh',['Compressor.h',['../_compressor_8h.html',1,'']]],
   ['condvar',['CondVar',['../classtrippingcyril_1_1thread_1_1_cond_var.html',1,'trippingcyril::thread']]],
   ['condvar',['CondVar',['../classtrippingcyril_1_1thread_1_1_cond_var.html#aae698e3c34200798195b272b66942c3b',1,'trippingcyril::thread::CondVar']]],
+  ['config',['config',['../classtrippingcyril_1_1_module.html#a5e0d779663b9dae1a81d9d45cbf5cc01',1,'trippingcyril::Module']]],
   ['connect',['Connect',['../classtrippingcyril_1_1net_1_1_socket.html#adcea7fae9b7e188503754b8a98461447',1,'trippingcyril::net::Socket::Connect(const String &amp;hostname, uint16_t port, bool ssl=false, double timeout=60.0)'],['../classtrippingcyril_1_1net_1_1_socket.html#aaa814bedbccf69f17552b348ab9e511e',1,'trippingcyril::net::Socket::Connect(const IPAddress *ip, uint16_t port, bool ssl=false, double timeout=60.0)']]],
   ['connected',['Connected',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a739c18652fe62062c988afb47f7d79f6',1,'trippingcyril::net::http::SimpleHTTPSocket::Connected()'],['../classtrippingcyril_1_1net_1_1_socket.html#a0f44e10ef09523a0bff12e5a15e83062',1,'trippingcyril::net::Socket::Connected()']]],
   ['copy',['Copy',['../classtrippingcyril_1_1_file.html#ad745da22de9ee8bf97a3e00d113124f1',1,'trippingcyril::File']]],

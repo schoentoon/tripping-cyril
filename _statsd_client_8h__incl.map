@@ -1,10 +1,10 @@
 <map id="include/StatsdClient.h" name="include/StatsdClient.h">
-<area shape="rect" id="node3" href="$_string_8h.html" title="String.h" alt="" coords="425,229,492,256"/>
+<area shape="rect" id="node3" href="$_string_8h.html" title="String.h" alt="" coords="419,229,485,256"/>
 <area shape="rect" id="node5" href="$_socket_8h.html" title="Socket.h" alt="" coords="315,80,389,107"/>
 <area shape="rect" id="node7" href="$defines_8h.html" title="defines.h" alt="" coords="5,229,80,256"/>
 <area shape="rect" id="node8" href="$_closable_8h.html" title="Closable.h" alt="" coords="173,155,256,181"/>
-<area shape="rect" id="node9" href="$_module_8h.html" title="Module.h" alt="" coords="548,155,623,181"/>
-<area shape="rect" id="node14" href="$_writer_8h.html" title="Writer.h" alt="" coords="81,155,148,181"/>
-<area shape="rect" id="node13" href="$_event_8h.html" title="Event.h" alt="" coords="631,229,697,256"/>
-<area shape="rect" id="node15" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="105,229,215,256"/>
+<area shape="rect" id="node9" href="$_module_8h.html" title="Module.h" alt="" coords="556,155,631,181"/>
+<area shape="rect" id="node15" href="$_writer_8h.html" title="Writer.h" alt="" coords="81,155,148,181"/>
+<area shape="rect" id="node14" href="$_event_8h.html" title="Event.h" alt="" coords="560,229,627,256"/>
+<area shape="rect" id="node16" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="105,229,215,256"/>
 </map>

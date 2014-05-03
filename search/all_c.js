@@ -8,7 +8,7 @@ var searchData=
   ['modconstructorheader',['MODCONSTRUCTORHEADER',['../_module_8h.html#a7865cf0439fde7b6f652fbffd69477f9',1,'Module.h']]],
   ['modhandle',['ModHandle',['../namespacetrippingcyril.html#a0d39d53c6363acd1d33509ac2521b53b',1,'trippingcyril']]],
   ['modinlineconstructor',['MODINLINECONSTRUCTOR',['../_module_8h.html#a6371f357b9c5befe07b4f860b0c11e7c',1,'Module.h']]],
-  ['module',['Module',['../classtrippingcyril_1_1_module.html#aa98ae4daf5e84e0248c27245bc684842',1,'trippingcyril::Module::Module()'],['../classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da',1,'trippingcyril::Event::module()']]],
+  ['module',['Module',['../classtrippingcyril_1_1_module.html#a593908360fbf7881204aee745fc6ecb4',1,'trippingcyril::Module::Module()'],['../classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da',1,'trippingcyril::Event::module()']]],
   ['module',['Module',['../classtrippingcyril_1_1_module.html',1,'trippingcyril']]],
   ['module_2eh',['Module.h',['../_module_8h.html',1,'']]],
   ['moduledefs',['MODULEDEFS',['../_module_8h.html#a861bccdccecfb06ba6696e9e00965d13',1,'Module.h']]],

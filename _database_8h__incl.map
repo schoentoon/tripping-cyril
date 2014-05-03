@@ -1,6 +1,6 @@
 <map id="include/Database.h" name="include/Database.h">
-<area shape="rect" id="node3" href="$_string_8h.html" title="String.h" alt="" coords="61,155,128,181"/>
+<area shape="rect" id="node3" href="$_string_8h.html" title="String.h" alt="" coords="5,155,72,181"/>
 <area shape="rect" id="node5" href="$_module_8h.html" title="Module.h" alt="" coords="159,80,233,107"/>
-<area shape="rect" id="node10" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="258,80,368,107"/>
-<area shape="rect" id="node9" href="$_event_8h.html" title="Event.h" alt="" coords="267,155,333,181"/>
+<area shape="rect" id="node11" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="258,80,368,107"/>
+<area shape="rect" id="node10" href="$_event_8h.html" title="Event.h" alt="" coords="333,155,400,181"/>
 </map>
