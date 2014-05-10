@@ -47,7 +47,7 @@ public:
   inline int WriteString(const String& data) { // Why can't I name this Write() :(
     return Write(data.data(), data.size());
   };
-  virtual bool shouldDelete() const { return false; };
+  virtual bool shouldDelete() const OVERRIDE { return false; };
   /** Buffer size hint for any operations that require buffering */
   static const int BUFFER_SIZE;
 };
@@ -61,7 +61,7 @@ public:
   virtual ~StringWriter() {
   };
   virtual int Write(const char* data, size_t len) OVERRIDE;
-  virtual bool shouldDelete() const { return true; };
+  virtual bool shouldDelete() const OVERRIDE { return true; };
   String& GetBuffer() { return buffer; };
 private:
   String buffer;
