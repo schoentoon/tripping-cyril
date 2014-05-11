@@ -78,6 +78,7 @@ public:
    * @param pWriter The underlying writer to write the output to
    * @param level The compression level
    * @param memory_level The internal gzip memory level
+   * @throws std::runtime_error In case initializing zlib goes wrong
    */
   GZipCompressor(Writer* pWriter, int level = 6, int memory_level = 8);
   virtual ~GZipCompressor();
@@ -102,6 +103,7 @@ public:
    * @param pWriter The underlying writer to write the output to
    * @param preset The level of compression, should be between 1 and 9 or LZMA_PRESET_EXTREME
    * @param check_type The type of checks the algorithm should apply, see the lzma docs
+   * @throws std::runtime_error In case initializing liblzma goes wrong
    */
   LZMACompressor(Writer* pWriter, uint32_t preset = 6, lzma_check check_type = LZMA_CHECK_CRC64);
   virtual ~LZMACompressor();

@@ -17,8 +17,9 @@
 
 #include "Pipe.h"
 
-#include <string.h>
-#include <errno.h>
+#include <cstring>
+#include <stdexcept>
+#include <cerrno>
 
 #include "Global.h"
 
@@ -27,7 +28,7 @@ namespace trippingcyril {
 Pipe::Pipe(const Module* pModule)
 : Event(pModule) {
   if (pipe(fds) != 0)
-    throw String(strerror(errno));
+    throw std::runtime_error(strerror(errno));
   fcntl(fds[0], F_SETFL, O_NONBLOCK);
   read_event = event_new(GetEventBase()
                         ,fds[0], EV_PERSIST|EV_READ, Pipe::EventCallback, this);

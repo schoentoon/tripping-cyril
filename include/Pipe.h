@@ -36,6 +36,7 @@ public:
   /**
    * General constructor
    * @param pModule The module to register this pipe on
+   * @throws std::runtime_error If the pipe() system call failed
    */
   Pipe(const Module* pModule = NULL);
   /**

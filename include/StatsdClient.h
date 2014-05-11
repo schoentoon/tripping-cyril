@@ -35,12 +35,16 @@ public:
    * @param nm namespace to use within statsd
    * @param hostname The hostname of the statsd instance
    * @param port The port to use
+   * @throws std::runtime_error If the socket() system call failed
+   * @throws std::runtime_error If getaddrinfo() failed
    */
   StatsdClient(const String& nm = "", const String& hostname = "127.0.0.1", uint16_t port = 8125);
   /**
    * @param ip The ip address to connect to
    * @param nm Namespace to use within statsd
    * @param port The port to use
+   * @throws std::runtime_error If the socket() system call failed
+   * @throws std::runtime_error If the ip version isn't implemented correctly just yet
    */
   StatsdClient(const net::IPAddress& ip, const String& nm = "", uint16_t port = 8125);
   virtual ~StatsdClient();

@@ -17,7 +17,8 @@
 
 #include "Decompressor.h"
 
-#include <string.h>
+#include <cstring>
+#include <stdexcept>
 
 namespace trippingcyril {
 
@@ -41,7 +42,7 @@ GZipDecompressor::GZipDecompressor(Writer* pWriter)
   bzero(&zlib_stream, sizeof(zlib_stream));
   if (inflateInit2(&zlib_stream,
                    windowBits | GZIP_ENCODING) != Z_OK)
-    throw "inflateInit2 fucked up :(";
+    throw std::runtime_error("inflateInit2 returned non-Z_OK");
 };
 
 GZipDecompressor::~GZipDecompressor() {

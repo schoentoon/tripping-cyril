@@ -17,7 +17,8 @@
 
 #include "Compressor.h"
 
-#include <string.h>
+#include <stdexcept>
+#include <cstring>
 
 namespace trippingcyril {
 
@@ -45,7 +46,7 @@ GZipCompressor::GZipCompressor(Writer* pWriter, int level, int memory_level)
                    windowBits | GZIP_ENCODING,
                    (level > 0 && level < 10) ? level : 8,
                    Z_DEFAULT_STRATEGY) != Z_OK)
-    throw "deflateInit2 fucked up :(";
+    throw std::runtime_error("deflateInit2 returned non-Z_OK");
 };
 
 GZipCompressor::~GZipCompressor() {
@@ -89,7 +90,7 @@ LZMACompressor::LZMACompressor(Writer* pWriter, uint32_t preset, lzma_check chec
 : Compressor(pWriter) {
   bzero(&stream, sizeof(stream));
   if (lzma_easy_encoder(&stream, preset, check_type) != LZMA_OK)
-    throw "Error during lzma_easy_encoder";
+    throw std::runtime_error("lzma_easy_encoder returned non-LZMA_OK");
 };
 
 LZMACompressor::~LZMACompressor() {

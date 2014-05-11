@@ -56,7 +56,6 @@ MODCONSTRUCTOR(SampleModule) {
 };
 
 SampleModule::~SampleModule() {
-  cerr << "module::sample::SampleModule::~SampleModule();" << endl;
 };
 
 void SampleModule::OnLoaded() {

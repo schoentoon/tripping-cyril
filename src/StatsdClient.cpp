@@ -17,11 +17,13 @@
 
 #include "StatsdClient.h"
 
-#include <string.h>
-#include <stdlib.h>
+#include <stdexcept>
+#include <cstring>
+#include <cstdlib>
+#include <cstdio>
+
 #include <unistd.h>
 #include <netdb.h>
-#include <stdio.h>
 
 namespace trippingcyril {
 
@@ -29,7 +31,7 @@ StatsdClient::StatsdClient(const String& pNm, const String& hostname, uint16_t p
 : ns(pNm) {
   sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
   if (sock == -1)
-    throw "socket() returned -1";
+    throw std::runtime_error("socket() returned -1");
   address.sin_family = AF_INET;
   address.sin_port = htons(port);
   if (inet_aton(hostname.c_str(), &address.sin_addr) == 0) {
@@ -37,7 +39,7 @@ StatsdClient::StatsdClient(const String& pNm, const String& hostname, uint16_t p
     bzero(&hints, sizeof(hints));
     int error;
     if ((error = getaddrinfo(hostname.c_str(), NULL, &hints, &result)))
-      throw gai_strerror(error);
+      throw std::runtime_error(gai_strerror(error));
     memcpy(&address.sin_addr, &((struct sockaddr_in*)result->ai_addr)->sin_addr, sizeof(struct in_addr));
     freeaddrinfo(result);
   };
@@ -47,7 +49,7 @@ StatsdClient::StatsdClient(const net::IPAddress& ip, const String& pNm, uint16_t
 : ns(pNm) {
   sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
   if (sock == -1)
-    throw "socket() returned -1";
+    throw std::runtime_error("socket() returned -1");
   address.sin_family = AF_INET;
   address.sin_port = htons(port);
   switch (ip.GetIPVersion()) {
@@ -56,6 +58,8 @@ StatsdClient::StatsdClient(const net::IPAddress& ip, const String& pNm, uint16_t
     address.sin_addr = ipv4;
     break;
   };
+  default:
+    throw std::runtime_error("Use of not implemented ip version " + ip.GetIPVersion());
   };
 };
 

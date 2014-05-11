@@ -64,6 +64,7 @@ public:
     * @param pModule The module to register this dns lookup on
     * @param query The domain name to lookup
     * @param callback The callback object
+    * @throws std::runtime_error If libevent somehow failed to make the request
     */
   IPv4Lookup(const Module *pModule, const String& query, DNSCallback* callback);
   virtual ~IPv4Lookup();
@@ -89,6 +90,7 @@ public:
    * @param ip The query address
    * @param result The found hostname
    * @param ttl The time to live of the result
+   * @throws std::runtime_error If libevent somehow failed to make the request
    */
   virtual void QueryResult(const IPAddress& ip, const String& result, int ttl) = 0;
   /**

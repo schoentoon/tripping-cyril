@@ -18,6 +18,8 @@
 #ifndef _SOCKET_H
 #define _SOCKET_H
 
+#include <stdexcept>
+
 #include <event2/bufferevent.h>
 
 #include "defines.h"
@@ -198,11 +200,11 @@ public:
   };
   /**
    * Construct from a String
-   * @throws const char* on not an ip address
+   * @throws std::error on not an ip address
    */
   IPv4Address(const String& ip) {
     if (evutil_inet_pton(AF_INET, ip.c_str(), &addr) != 1)
-      throw "Invalid ip address";
+      throw std::runtime_error("Invalid ip address");
   };
   virtual ~IPv4Address() {};
   virtual int GetIPVersion() const OVERRIDE { return 4; };

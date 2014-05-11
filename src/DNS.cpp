@@ -17,9 +17,11 @@
 
 #include "DNS.h"
 
+#include <stdexcept>
+#include <cstring>
+
 #include "Module.h"
 #include "Global.h"
-#include <string.h>
 
 namespace trippingcyril {
   namespace net {
@@ -32,7 +34,7 @@ IPv4Lookup::IPv4Lookup(const Module* pModule, const String& pQuery, DNSCallback*
   request = evdns_base_resolve_ipv4((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
     ,query.c_str(), 0, IPv4Lookup::DNSEventCallback, this);
   if (request == NULL)
-    throw "Failed to create request";
+    throw std::runtime_error("Failed to create request");
 };
 
 IPv4Lookup::~IPv4Lookup() {
@@ -74,7 +76,7 @@ IPv4ReverseLookup::IPv4ReverseLookup(const Module* pModule, const IPv4Address& p
   request = evdns_base_resolve_reverse((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
     ,&in, 0, IPv4ReverseLookup::DNSEventCallback, this);
   if (request == NULL)
-    throw "Failed to create request";
+    throw std::runtime_error("Failed to create request");
 };
 
 IPv4ReverseLookup::~IPv4ReverseLookup() {

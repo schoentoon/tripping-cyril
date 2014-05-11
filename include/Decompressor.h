@@ -67,8 +67,21 @@ protected:
  */
 class GZipDecompressor : public Decompressor {
 public:
+  /** Constructor
+   * @param pWriter The underlying writer to write the output to
+   * @throws std::runtime_error In case initializing zlib goes wrong
+   */
   GZipDecompressor(Writer* pWriter);
+  /** General deconstructor
+   * @note ShouldDelete on writer is respected
+   */
   virtual ~GZipDecompressor();
+  /**
+   * Feed data into the decompressor to decompress
+   * @param data The actual data to decompress
+   * @param len The length of the data to decompress
+   * @return Amount of uncompressed bytes
+   */
   virtual int Write(const char* data, size_t len) OVERRIDE;
 private:
   // @cond
