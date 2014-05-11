@@ -59,7 +59,7 @@ StatsdClient::StatsdClient(const net::IPAddress& ip, const String& pNm, uint16_t
     break;
   };
   default:
-    throw std::runtime_error("Use of not implemented ip version " + ip.GetIPVersion());
+    throw std::runtime_error("Use of not implemented ip version");
   };
 };
 
