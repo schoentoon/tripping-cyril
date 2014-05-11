@@ -102,14 +102,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for trippingcyril::Writer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classtrippingcyril_1_1_writer__inherit__graph.svg" width="854" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtrippingcyril_1_1_writer__inherit__graph.svg" width="854" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for trippingcyril::Writer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classtrippingcyril_1_1_writer__coll__graph.svg" width="184" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtrippingcyril_1_1_writer__coll__graph.svg" width="184" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -118,8 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab523fbf79f31dc97f592ff906cf3dd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b128b362403e4744fec354ec2a8b52a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_writer.html#a3b128b362403e4744fec354ec2a8b52a">WriteString</a> (const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;data)</td></tr>
 <tr class="separator:a3b128b362403e4744fec354ec2a8b52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e364c93701a07df0fe6d8447ecf4857"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_writer.html#a6e364c93701a07df0fe6d8447ecf4857">shouldDelete</a> () const </td></tr>
-<tr class="separator:a6e364c93701a07df0fe6d8447ecf4857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37884ce80c8faeed8d9fad96c01b9307"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_writer.html#a37884ce80c8faeed8d9fad96c01b9307">shouldDelete</a> () const override</td></tr>
+<tr class="separator:a37884ce80c8faeed8d9fad96c01b9307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -129,7 +127,7 @@ Static Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classtrippingcyril_1_1_writer.html" title="Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write...">Writer</a> class to provide a general writing operation so it's easier to write wrapper classes for write operations. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a6e364c93701a07df0fe6d8447ecf4857"></a>
+<a class="anchor" id="a37884ce80c8faeed8d9fad96c01b9307"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -145,7 +143,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -154,7 +152,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classtrippingcyril_1_1_should_delete.html#abee8f619e360227b56baac4d6914c6d3">trippingcyril::ShouldDelete</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_string_writer.html#ab7eaa3b3f5b7de6d9c27acd22a7f3610">trippingcyril::StringWriter</a>.</p>
+<p>Reimplemented in <a class="el" href="classtrippingcyril_1_1_string_writer.html#a4d3e13bed59e3373bc4dfd70dd79e17d">trippingcyril::StringWriter</a>.</p>
 
 </div>
 </div>
@@ -199,7 +197,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>You should return the amount of bytes written, should be len or &lt; 0 on error </dd></dl>
 
-<p>Implemented in <a class="el" href="classtrippingcyril_1_1_file.html#a1e0a6466b1f793daa09a18d3e4fa9ef8">trippingcyril::File</a>, <a class="el" href="classtrippingcyril_1_1_l_z_m_a_compressor.html#ac663978fb0da98f45f0288a9cb8bf937">trippingcyril::LZMACompressor</a>, <a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a91067525f6887a3a5e3048f7fde7facd">trippingcyril::net::Socket</a>, <a class="el" href="classtrippingcyril_1_1_g_zip_compressor.html#aa948c217d070e56709e20c8a34b316c6">trippingcyril::GZipCompressor</a>, <a class="el" href="classtrippingcyril_1_1_g_zip_decompressor.html#a4fbf4dcefc12b028042d47652c327191">trippingcyril::GZipDecompressor</a>, <a class="el" href="classtrippingcyril_1_1_string_writer.html#af8476685991d2d8490b19d7e076f4d77">trippingcyril::StringWriter</a>, <a class="el" href="classtrippingcyril_1_1_compressor.html#a285ba80cdd48fde12438061d8abc0013">trippingcyril::Compressor</a>, <a class="el" href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">trippingcyril::Pipe</a>, and <a class="el" href="classtrippingcyril_1_1_decompressor.html#a7c6ecc7400972dcc61e6c3e179b92667">trippingcyril::Decompressor</a>.</p>
+<p>Implemented in <a class="el" href="classtrippingcyril_1_1_file.html#a1e0a6466b1f793daa09a18d3e4fa9ef8">trippingcyril::File</a>, <a class="el" href="classtrippingcyril_1_1_l_z_m_a_compressor.html#ac663978fb0da98f45f0288a9cb8bf937">trippingcyril::LZMACompressor</a>, <a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a91067525f6887a3a5e3048f7fde7facd">trippingcyril::net::Socket</a>, <a class="el" href="classtrippingcyril_1_1_g_zip_compressor.html#aa948c217d070e56709e20c8a34b316c6">trippingcyril::GZipCompressor</a>, <a class="el" href="classtrippingcyril_1_1_g_zip_decompressor.html#a4fbf4dcefc12b028042d47652c327191">trippingcyril::GZipDecompressor</a>, <a class="el" href="classtrippingcyril_1_1_string_writer.html#af8476685991d2d8490b19d7e076f4d77">trippingcyril::StringWriter</a>, <a class="el" href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">trippingcyril::Pipe</a>, <a class="el" href="classtrippingcyril_1_1_compressor.html#a285ba80cdd48fde12438061d8abc0013">trippingcyril::Compressor</a>, and <a class="el" href="classtrippingcyril_1_1_decompressor.html#a7c6ecc7400972dcc61e6c3e179b92667">trippingcyril::Decompressor</a>.</p>
 
 </div>
 </div>
@@ -256,7 +254,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 4 2014 01:33:24 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 11 2014 18:01:24 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

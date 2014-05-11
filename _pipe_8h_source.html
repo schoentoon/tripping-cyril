@@ -120,37 +120,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_pipe.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_pipe.html">Pipe</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_event.html">Event</a>, <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_writer.html">Writer</a> {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classtrippingcyril_1_1_pipe.html#ac44fb115e4505b63d0535d2129615339">Pipe</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* pModule = NULL);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d">~Pipe</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">   49</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">Read</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> len) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> read(fds[0], buffer, len);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  };</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">   56</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">Write</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> len) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a> {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> write(fds[1], buffer, len);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  };</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a41a4a156109a34614db332b05519f18e">OnRead</a>() = 0;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">int</span> fds[2];</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">struct </span>event* read_event;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> EventCallback(evutil_socket_t fd, <span class="keywordtype">short</span> event, <span class="keywordtype">void</span>* arg);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// @endcond</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif //_PIPE_H</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classtrippingcyril_1_1_pipe.html#ac44fb115e4505b63d0535d2129615339">Pipe</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* pModule = NULL);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d">~Pipe</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">   50</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">Read</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> len) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> read(fds[0], buffer, len);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  };</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">   57</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">Write</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> len) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a> {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> write(fds[1], buffer, len);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_pipe.html#a41a4a156109a34614db332b05519f18e">OnRead</a>() = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">int</span> fds[2];</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">struct </span>event* read_event;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> EventCallback(evutil_socket_t fd, <span class="keywordtype">short</span> event, <span class="keywordtype">void</span>* arg);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">// @endcond</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif //_PIPE_H</span></div>
 <div class="ttc" id="_module_8h_html"><div class="ttname"><a href="_module_8h.html">Module.h</a></div></div>
 <div class="ttc" id="classtrippingcyril_1_1_pipe_html_a9e64e44179a94fd787fe82e4458c2b8d"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#a9e64e44179a94fd787fe82e4458c2b8d">trippingcyril::Pipe::~Pipe</a></div><div class="ttdeci">virtual ~Pipe()</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_pipe_html_a41a4a156109a34614db332b05519f18e"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#a41a4a156109a34614db332b05519f18e">trippingcyril::Pipe::OnRead</a></div><div class="ttdeci">virtual void OnRead()=0</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_pipe_html_ac44fb115e4505b63d0535d2129615339"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#ac44fb115e4505b63d0535d2129615339">trippingcyril::Pipe::Pipe</a></div><div class="ttdeci">Pipe(const Module *pModule=NULL)</div></div>
 <div class="ttc" id="_writer_8h_html"><div class="ttname"><a href="_writer_8h.html">Writer.h</a></div></div>
-<div class="ttc" id="classtrippingcyril_1_1_pipe_html_a7c1d37c44ac7b1595986b4893f3962ad"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">trippingcyril::Pipe::Read</a></div><div class="ttdeci">int Read(char *buffer, size_t len)</div><div class="ttdef"><b>Definition:</b> Pipe.h:49</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_pipe_html_a7c1d37c44ac7b1595986b4893f3962ad"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#a7c1d37c44ac7b1595986b4893f3962ad">trippingcyril::Pipe::Read</a></div><div class="ttdeci">int Read(char *buffer, size_t len)</div><div class="ttdef"><b>Definition:</b> Pipe.h:50</div></div>
 <div class="ttc" id="defines_8h_html"><div class="ttname"><a href="defines_8h.html">defines.h</a></div></div>
 <div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:67</div></div>
 <div class="ttc" id="_thread_8h_html"><div class="ttname"><a href="_thread_8h.html">Thread.h</a></div></div>
-<div class="ttc" id="classtrippingcyril_1_1_pipe_html_ab931c473fdeb40af8762d64417aae83d"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">trippingcyril::Pipe::Write</a></div><div class="ttdeci">int Write(const char *buffer, size_t len) override</div><div class="ttdef"><b>Definition:</b> Pipe.h:56</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_pipe_html_ab931c473fdeb40af8762d64417aae83d"><div class="ttname"><a href="classtrippingcyril_1_1_pipe.html#ab931c473fdeb40af8762d64417aae83d">trippingcyril::Pipe::Write</a></div><div class="ttdeci">int Write(const char *buffer, size_t len) override</div><div class="ttdef"><b>Definition:</b> Pipe.h:57</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_writer_html"><div class="ttname"><a href="classtrippingcyril_1_1_writer.html">trippingcyril::Writer</a></div><div class="ttdoc">Writer class to provide a general writing operation so it&#39;s easier to write wrapper classes for write...</div><div class="ttdef"><b>Definition:</b> Writer.h:31</div></div>
 <div class="ttc" id="defines_8h_html_a5dea698950629d9e51d19c1a25be1c30"><div class="ttname"><a href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a></div><div class="ttdeci">#define OVERRIDE</div><div class="ttdef"><b>Definition:</b> defines.h:19</div></div>
 <div class="ttc" id="_files_8h_html"><div class="ttname"><a href="_files_8h.html">Files.h</a></div></div>
@@ -159,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 4 2014 01:33:24 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 11 2014 18:01:23 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

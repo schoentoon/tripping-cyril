@@ -135,20 +135,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_g_zip_decompressor.html">   68</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html">GZipDecompressor</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1_decompressor.html">Decompressor</a> {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a52c0aea1da5f3e8dc4775dfa340fd9d2">GZipDecompressor</a>(<a class="code" href="classtrippingcyril_1_1_writer.html">Writer</a>* pWriter);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a0e509f3bdb316c562dc09c1a686870b7">~GZipDecompressor</a>();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a4fbf4dcefc12b028042d47652c327191">Write</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> len) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  z_stream zlib_stream;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="comment">// @endcond</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif // _DECOMPRESSOR_H</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a52c0aea1da5f3e8dc4775dfa340fd9d2">GZipDecompressor</a>(<a class="code" href="classtrippingcyril_1_1_writer.html">Writer</a>* pWriter);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a0e509f3bdb316c562dc09c1a686870b7">~GZipDecompressor</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_g_zip_decompressor.html#a4fbf4dcefc12b028042d47652c327191">Write</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> len) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  z_stream zlib_stream;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// @endcond</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif // _DECOMPRESSOR_H</span></div>
 <div class="ttc" id="classtrippingcyril_1_1_decompressor_html"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html">trippingcyril::Decompressor</a></div><div class="ttdoc">Abstract decompressor. </div><div class="ttdef"><b>Definition:</b> Decompressor.h:36</div></div>
 <div class="ttc" id="_writer_8h_html"><div class="ttname"><a href="_writer_8h.html">Writer.h</a></div></div>
 <div class="ttc" id="classtrippingcyril_1_1_decompressor_html_ace1912bf32af2828714962da3ef7c25f"><div class="ttname"><a href="classtrippingcyril_1_1_decompressor.html#ace1912bf32af2828714962da3ef7c25f">trippingcyril::Decompressor::~Decompressor</a></div><div class="ttdeci">virtual ~Decompressor()</div></div>
@@ -168,7 +168,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 4 2014 01:33:24 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 11 2014 18:01:23 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
