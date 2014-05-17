@@ -1,0 +1,4 @@
+<map id="trippingcyril::log::Logger" name="trippingcyril::log::Logger">
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1log_1_1_file_logger.html" title="A simple logger implementation which logs into a file. " alt="" coords="5,97,117,138"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1log_1_1_sys_logger.html" title="A simple logger implementation which logs using the syslog(3) method. " alt="" coords="142,97,255,138"/>
+</map>

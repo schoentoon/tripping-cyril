@@ -1,10 +1,11 @@
 <map id="include/Closable.h" name="include/Closable.h">
 <area shape="rect" id="node2" href="$_socket_8h.html" title="include/Socket.h" alt="" coords="323,80,441,107"/>
-<area shape="rect" id="node7" href="$_files_8h.html" title="include/Files.h" alt="" coords="572,80,679,107"/>
+<area shape="rect" id="node7" href="$_files_8h.html" title="include/Files.h" alt="" coords="679,80,785,107"/>
 <area shape="rect" id="node3" href="$_d_n_s_8h.html" title="include/DNS.h" alt="" coords="5,155,112,181"/>
 <area shape="rect" id="node4" href="$_listener_8h.html" title="include/Listener.h" alt="" coords="137,155,260,181"/>
 <area shape="rect" id="node5" href="$_simple_h_t_t_p_socket_8h.html" title="include/SimpleHTTPSocket.h" alt="" coords="285,155,480,181"/>
 <area shape="rect" id="node6" href="$_statsd_client_8h.html" title="include/StatsdClient.h" alt="" coords="505,155,655,181"/>
 <area shape="rect" id="node8" href="$_pipe_8h.html" title="include/Pipe.h" alt="" coords="680,155,784,181"/>
+<area shape="rect" id="node10" href="$_logger_8h.html" title="include/Logger.h" alt="" coords="808,155,925,181"/>
 <area shape="rect" id="node9" href="$_job_thread_8h.html" title="include/JobThread.h" alt="" coords="663,229,801,256"/>
 </map>
