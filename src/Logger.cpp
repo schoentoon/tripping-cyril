@@ -18,6 +18,7 @@
 #include "Logger.h"
 
 namespace trippingcyril {
+  namespace log {
 
 FileLogger::FileLogger(File& pFile)
 : file(pFile) {
@@ -37,5 +38,5 @@ void SysLogger::Log(const String& msg) {
   syslog(priority, "%s", msg.c_str());
 }
 
-
+  };
 };
