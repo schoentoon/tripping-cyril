@@ -164,8 +164,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad745da22de9ee8bf97a3e00d113124f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5a9a6a3887ae674124f99e5dabca88b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ac5a9a6a3887ae674124f99e5dabca88b">Chmod</a> (mode_t mode)</td></tr>
 <tr class="separator:ac5a9a6a3887ae674124f99e5dabca88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7d88b4cf3b736f83cb8c8db3b0fcf7b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ab7d88b4cf3b736f83cb8c8db3b0fcf7b">Seek</a> (off_t pos)</td></tr>
-<tr class="separator:ab7d88b4cf3b736f83cb8c8db3b0fcf7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace801f5b7cd06423a7dc3bd9f0ba1012"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#ace801f5b7cd06423a7dc3bd9f0ba1012">Seek</a> (off_t pos, int whence=SEEK_SET)</td></tr>
+<tr class="separator:ace801f5b7cd06423a7dc3bd9f0ba1012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73d55176cce7e679459183d0b7cbc69"><td class="memItemLeft" align="right" valign="top">virtual off_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#af73d55176cce7e679459183d0b7cbc69">Tell</a> ()</td></tr>
+<tr class="separator:af73d55176cce7e679459183d0b7cbc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a528dea7bc1c0bd3079d0af589e39e13e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a528dea7bc1c0bd3079d0af589e39e13e">Truncate</a> (off_t len=0)</td></tr>
 <tr class="separator:a528dea7bc1c0bd3079d0af589e39e13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79dcf0892d1f1a944a5fc3a02ed2dc43"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1_file.html#a79dcf0892d1f1a944a5fc3a02ed2dc43">Sync</a> ()</td></tr>
@@ -822,7 +824,7 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab7d88b4cf3b736f83cb8c8db3b0fcf7b"></a>
+<a class="anchor" id="ace801f5b7cd06423a7dc3bd9f0ba1012"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -833,8 +835,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">virtual bool trippingcyril::File::Seek </td>
           <td>(</td>
           <td class="paramtype">off_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>whence</em> = <code>SEEK_SET</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -868,6 +880,30 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if successfully synchronized, similar to <a href="http://man7.org/linux/man-pages/man2/fsync.2.html">fsync(2)</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af73d55176cce7e679459183d0b7cbc69"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual off_t trippingcyril::File::Tell </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current position in the file </dd></dl>
 
 </div>
 </div>
@@ -939,7 +975,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 17 2014 20:18:22 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 22 2014 22:26:48 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
