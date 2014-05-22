@@ -86,7 +86,9 @@ public:
   virtual bool Chmod(mode_t mode);
   /** @return true if successfully moved to this spot in the file, similar to 
    * <a href="http://man7.org/linux/man-pages/man2/lseek.2.html">lseek(2)</a> */
-  virtual bool Seek(off_t pos);
+  virtual bool Seek(off_t pos, int whence = SEEK_SET);
+  /** @return The current position in the file */
+  virtual off_t Tell();
   /** @return true if successfully truncated, similar to
    * <a href="http://man7.org/linux/man-pages/man2/ftruncate.2.html">truncate(2)</a> */
   virtual bool Truncate(off_t len = 0);

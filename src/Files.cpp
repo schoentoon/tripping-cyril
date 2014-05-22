@@ -156,10 +156,15 @@ bool File::Chmod(mode_t mode) {
   return (chmod(filename.c_str(), mode) == 0);
 };
 
-bool File::Seek(off_t pos) {
-  if (fd != -1 && lseek(fd, pos, SEEK_SET) == pos)
+bool File::Seek(off_t pos, int whence) {
+  if (fd != -1 && lseek(fd, pos, whence) >= 0)
     return true;
   return false;
+};
+
+off_t File::Tell() {
+  if (fd == -1) return 0;
+  return lseek(fd, 0, SEEK_CUR);
 };
 
 bool File::Truncate(off_t len) {
