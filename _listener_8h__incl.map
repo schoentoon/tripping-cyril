@@ -1,10 +1,12 @@
 <map id="include/Listener.h" name="include/Listener.h">
-<area shape="rect" id="node6" href="$_socket_8h.html" title="Socket.h" alt="" coords="516,88,591,115"/>
-<area shape="rect" id="node9" href="$defines_8h.html" title="defines.h" alt="" coords="441,245,516,272"/>
-<area shape="rect" id="node10" href="$_closable_8h.html" title="Closable.h" alt="" coords="511,171,595,197"/>
-<area shape="rect" id="node11" href="$_string_8h.html" title="String.h" alt="" coords="687,245,753,272"/>
-<area shape="rect" id="node13" href="$_module_8h.html" title="Module.h" alt="" coords="817,171,892,197"/>
-<area shape="rect" id="node19" href="$_writer_8h.html" title="Writer.h" alt="" coords="619,171,687,197"/>
-<area shape="rect" id="node18" href="$_event_8h.html" title="Event.h" alt="" coords="892,245,959,272"/>
-<area shape="rect" id="node20" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="551,245,661,272"/>
+<area shape="rect" id="node6" href="$_logger_8h.html" title="Logger.h" alt="" coords="516,88,588,115"/>
+<area shape="rect" id="node23" href="$_socket_8h.html" title="Socket.h" alt="" coords="605,171,680,197"/>
+<area shape="rect" id="node8" href="$_files_8h.html" title="Files.h" alt="" coords="1103,171,1164,197"/>
+<area shape="rect" id="node19" href="$_string_8h.html" title="String.h" alt="" coords="447,320,513,347"/>
+<area shape="rect" id="node17" href="$defines_8h.html" title="defines.h" alt="" coords="989,320,1064,347"/>
+<area shape="rect" id="node18" href="$_closable_8h.html" title="Closable.h" alt="" coords="738,245,821,272"/>
+<area shape="rect" id="node21" href="$_writer_8h.html" title="Writer.h" alt="" coords="898,245,965,272"/>
+<area shape="rect" id="node22" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="854,320,964,347"/>
+<area shape="rect" id="node25" href="$_module_8h.html" title="Module.h" alt="" coords="268,245,343,272"/>
+<area shape="rect" id="node30" href="$_event_8h.html" title="Event.h" alt="" coords="119,320,185,347"/>
 </map>

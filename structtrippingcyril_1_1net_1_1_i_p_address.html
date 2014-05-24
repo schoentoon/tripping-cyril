@@ -88,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structtrippingcyril_1_1net_1_1_i_p_address-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">trippingcyril::net::IPAddress Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -101,7 +102,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for trippingcyril::net::IPAddress:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structtrippingcyril_1_1net_1_1_i_p_address__inherit__graph.svg" width="126" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structtrippingcyril_1_1net_1_1_i_p_address__inherit__graph.svg" width="126" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -114,6 +116,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a293bce78bd5515ffe68c77dc236d3099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00448995261dba734b1d41c1e5ad0b47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtrippingcyril_1_1net_1_1_i_p_address.html#a00448995261dba734b1d41c1e5ad0b47">operator String</a> () const </td></tr>
 <tr class="separator:a00448995261dba734b1d41c1e5ad0b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a4375de83a8c3fc5902c9993c56914494"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structtrippingcyril_1_1net_1_1_i_p_address.html">IPAddress</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtrippingcyril_1_1net_1_1_i_p_address.html#a4375de83a8c3fc5902c9993c56914494">fromFD</a> (int fd)</td></tr>
+<tr class="separator:a4375de83a8c3fc5902c9993c56914494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple ip address class. </p>
@@ -165,6 +172,38 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Returns the human readable representation of the ip address </dd></dl>
 
 <p>Implemented in <a class="el" href="structtrippingcyril_1_1net_1_1_i_pv4_address.html#aafcd964c6ddd969920bf9fb146075e8c">trippingcyril::net::IPv4Address</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4375de83a8c3fc5902c9993c56914494"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structtrippingcyril_1_1net_1_1_i_p_address.html">IPAddress</a>* trippingcyril::net::IPAddress::fromFD </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the ip address associated with fd </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>The file descriptor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>newly allocated <a class="el" href="structtrippingcyril_1_1net_1_1_i_p_address.html" title="Simple ip address class. ">IPAddress</a> or NULL </dd></dl>
 
 </div>
 </div>
@@ -224,7 +263,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 22 2014 22:26:48 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 24 2014 21:09:20 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
