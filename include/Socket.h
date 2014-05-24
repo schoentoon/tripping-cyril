@@ -23,6 +23,7 @@
 #include <event2/bufferevent.h>
 
 #include "defines.h"
+
 #include "Closable.h"
 #include "String.h"
 #include "Module.h"
@@ -183,11 +184,12 @@ public:
   virtual String AsString() const = 0;
   /** @return Returns the human readable representation of the ip address */
   operator String() const { return AsString(); };
-  // @cond
-private:
+  /**
+   *  Return the ip address associated with fd
+   *  @param fd The file descriptor
+   *  @return newly allocated IPAddress or NULL
+   */
   static IPAddress* fromFD(int fd);
-  friend class Socket;
-  // @endcond
 };
 
 /**

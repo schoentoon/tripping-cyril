@@ -24,10 +24,11 @@
 namespace trippingcyril {
   namespace net {
 
-Listener::Listener(const Module* module, uint16_t pPort, SSL_CTX *ctx)
+Listener::Listener(const Module* module, uint16_t pPort, log::Logger* pLogger, SSL_CTX *ctx)
 : Event(module)
 , port(pPort) {
   listener = NULL;
+  logger = pLogger;
   ssl_ctx = ctx;
 };
 
@@ -65,6 +66,13 @@ struct bufferevent* Listener::createBufferEvent(evutil_socket_t fd) {
 
 void Listener::listener_cb(evconnlistener* evlistener, int fd, sockaddr* sa, int socklen, void* context) {
   Listener* listener = (Listener*) context;
+  if (listener->logger) {
+    IPAddress* ip = IPAddress::fromFD(fd);
+    String msg(ip->AsString());
+    msg.append(" connected to port " + listener->port);
+    listener->logger->Log(msg);
+    delete ip;
+  }
   struct bufferevent* bev = listener->createBufferEvent(fd);
   if (bev != NULL)
     listener->createSocket(bev);

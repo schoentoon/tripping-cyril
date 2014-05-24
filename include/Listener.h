@@ -23,6 +23,7 @@
 #include <event2/listener.h>
 #include <event2/bufferevent_ssl.h>
 
+#include "Logger.h"
 #include "Socket.h"
 
 namespace trippingcyril {
@@ -37,9 +38,10 @@ public:
    * General constructor
    * @param module The module to register this listener on
    * @param pPort The port to listen on
+   * @param logger The Logger to use to log accepted connections
    * @param ssl_ctx The ssl context to use to create new ssl connections, NULL means no ssl
    */
-  Listener(const Module* module, uint16_t pPort, SSL_CTX *ssl_ctx = NULL);
+  Listener(const Module* module, uint16_t pPort, log::Logger *logger = NULL, SSL_CTX *ssl_ctx = NULL);
   /** Deconstructor */
   virtual ~Listener();
   /** @return True if we are listening */
@@ -59,6 +61,9 @@ protected:
    * of course.
    */
   virtual Socket* createSocket(struct bufferevent* bev) = 0;
+
+  /** Logger to log accepted connection to, protected so you can pass it to new sockets */
+  log::Logger *logger;
 private:
   // @cond
   static void listener_cb(struct evconnlistener *evlistener, evutil_socket_t fd
