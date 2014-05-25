@@ -69,7 +69,7 @@ void Listener::listener_cb(evconnlistener* evlistener, int fd, sockaddr* sa, int
   if (listener->logger) {
     IPAddress* ip = IPAddress::fromFD(fd);
     String msg(ip->AsString());
-    msg.append(" connected to port " + listener->port);
+    msg.append(" connected to port " + String(listener->port));
     listener->logger->Log(msg);
     delete ip;
   }
