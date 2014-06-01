@@ -4,7 +4,7 @@ var searchData=
   ['file',['File',['../classtrippingcyril_1_1_file.html',1,'trippingcyril']]],
   ['file',['File',['../classtrippingcyril_1_1_file.html#a774ceeee1150fc38ed5a4cf00bb90d09',1,'trippingcyril::File']]],
   ['filelogger',['FileLogger',['../classtrippingcyril_1_1log_1_1_file_logger.html',1,'trippingcyril::log']]],
-  ['filelogger',['FileLogger',['../classtrippingcyril_1_1log_1_1_file_logger.html#ab139caf72f34cf076ee5494d13a2bdaa',1,'trippingcyril::log::FileLogger']]],
+  ['filelogger',['FileLogger',['../classtrippingcyril_1_1log_1_1_file_logger.html#ae6050bb986fc22a85be019d4e213b3d5',1,'trippingcyril::log::FileLogger']]],
   ['fileobserver',['FileObserver',['../classtrippingcyril_1_1_file_observer_callback.html#a4b52c311bd4ce9ed180ae976ba0a6196',1,'trippingcyril::FileObserverCallback']]],
   ['fileobserver',['FileObserver',['../classtrippingcyril_1_1_file_observer.html',1,'trippingcyril']]],
   ['fileobservercallback',['FileObserverCallback',['../classtrippingcyril_1_1_file_observer_callback.html',1,'trippingcyril']]],
