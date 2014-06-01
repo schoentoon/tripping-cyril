@@ -31,6 +31,7 @@
 #include "Closable.h"
 #include "String.h"
 #include "Writer.h"
+#include "Event.h"
 
 namespace trippingcyril {
 
@@ -127,6 +128,9 @@ protected:
   String shortname;
   int fd;
   // @endcond
+private:
+  /** Disabled copy constructor */
+  File(const File &that) {};
 };
 
 /**
@@ -137,6 +141,8 @@ class TempFile : public File {
 public:
   /** Creates a temporary file in /tmp */
   TempFile();
+  /** Copy constructor, which will open the temporary file once again */
+  TempFile(const TempFile &that);
   /** This deconstructor will remove the file */
   virtual ~TempFile();
   /** @return Will always return TEMPORARY */

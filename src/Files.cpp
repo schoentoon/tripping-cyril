@@ -275,6 +275,11 @@ TempFile::TempFile()
     shortname = filename;
 };
 
+TempFile::TempFile(const TempFile &that)
+: File(that.filename)
+{
+};
+
 TempFile::~TempFile() {
   Delete();
 };

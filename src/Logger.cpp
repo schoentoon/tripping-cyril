@@ -20,12 +20,12 @@
 namespace trippingcyril {
   namespace log {
 
-FileLogger::FileLogger(File& pFile)
-: file(pFile) {
+FileLogger::FileLogger(const String &pFilename)
+: filename(pFilename) {
 }
 
 void FileLogger::Log(const String& msg) {
-  File log(file); // This way it'll automatically close itself ^_^
+  File log(filename);
   if (log.Open(O_WRONLY | O_APPEND | O_CREAT))
     log.WriteString(msg);
 }

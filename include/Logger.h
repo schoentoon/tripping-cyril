@@ -49,14 +49,14 @@ class FileLogger : public Logger {
 public:
   /**
    *  Constructor
-   *  @param file The file to log into
+   *  @param filename The name of the file to log into
    */
-  FileLogger(File &file);
+  FileLogger(const String& filename);
   virtual ~FileLogger() {
   };
   virtual void Log(const String &msg) OVERRIDE;
 private:
-  File file;
+  const String filename;
 };
 
 /**
