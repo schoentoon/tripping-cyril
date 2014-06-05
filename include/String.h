@@ -20,6 +20,8 @@
 
 #include <string>
 
+#include <stdint.h>
+
 using namespace std;
 
 namespace trippingcyril {
@@ -160,6 +162,15 @@ public:
   float ToFloat() const;
   /** @return The numerical value of this string similar to atoi(). */
   operator float() const { return ToFloat(); };
+
+  /** @return The numerical value of this string similar to atoi(). */
+  int32_t ToInt32() const { return ToLongLong(); };
+  /** @return The numerical value of this string similar to atoi(). */
+  uint32_t ToUInt32() const { return ToULongLong(); };
+  /** @return The numerical value of this string similar to atoi(). */
+  int64_t ToInt64() const { return ToLongLong(); };
+  /** @return The numerical value of this string similar to atoi(). */
+  uint64_t ToUInt64() const { return ToULongLong(); };
 
   /** Base64-encode the current string.
    * @param sRet String where the result is saved.
