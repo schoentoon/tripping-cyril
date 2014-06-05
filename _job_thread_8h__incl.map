@@ -1,12 +1,12 @@
 <map id="include/JobThread.h" name="include/JobThread.h">
-<area shape="rect" id="node3" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="29,304,139,331"/>
-<area shape="rect" id="node4" href="$_thread_8h.html" title="Thread.h" alt="" coords="1279,155,1352,181"/>
-<area shape="rect" id="node13" href="$_module_8h.html" title="Module.h" alt="" coords="1736,155,1811,181"/>
-<area shape="rect" id="node16" href="$_pipe_8h.html" title="Pipe.h" alt="" coords="1060,80,1119,107"/>
-<area shape="rect" id="node8" href="$_string_8h.html" title="String.h" alt="" coords="1221,304,1288,331"/>
-<area shape="rect" id="node10" href="$_event_8h.html" title="Event.h" alt="" coords="1595,229,1661,256"/>
-<area shape="rect" id="node17" href="$defines_8h.html" title="defines.h" alt="" coords="167,304,241,331"/>
-<area shape="rect" id="node18" href="$_files_8h.html" title="Files.h" alt="" coords="863,155,924,181"/>
-<area shape="rect" id="node27" href="$_writer_8h.html" title="Writer.h" alt="" coords="170,229,237,256"/>
-<area shape="rect" id="node26" href="$_closable_8h.html" title="Closable.h" alt="" coords="570,229,653,256"/>
+<area shape="rect" id="node3" href="$_should_delete_8h.html" title="ShouldDelete.h" alt="" coords="138,304,248,331"/>
+<area shape="rect" id="node4" href="$_thread_8h.html" title="Thread.h" alt="" coords="227,155,300,181"/>
+<area shape="rect" id="node13" href="$_module_8h.html" title="Module.h" alt="" coords="1645,155,1720,181"/>
+<area shape="rect" id="node16" href="$_pipe_8h.html" title="Pipe.h" alt="" coords="848,80,907,107"/>
+<area shape="rect" id="node8" href="$_string_8h.html" title="String.h" alt="" coords="343,304,409,331"/>
+<area shape="rect" id="node10" href="$_event_8h.html" title="Event.h" alt="" coords="1504,229,1571,256"/>
+<area shape="rect" id="node17" href="$defines_8h.html" title="defines.h" alt="" coords="1328,304,1403,331"/>
+<area shape="rect" id="node18" href="$_files_8h.html" title="Files.h" alt="" coords="847,155,908,181"/>
+<area shape="rect" id="node27" href="$_writer_8h.html" title="Writer.h" alt="" coords="342,229,409,256"/>
+<area shape="rect" id="node26" href="$_closable_8h.html" title="Closable.h" alt="" coords="569,229,652,256"/>
 </map>
