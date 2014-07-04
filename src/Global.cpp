@@ -24,6 +24,10 @@
 #include <openssl/err.h>
 #include <openssl/rand.h>
 
+#ifndef _NO_LIBEVENT_THREADS
+#include <event2/thread.h>
+#endif
+
 #include "Thread.h"
 #include "Files.h"
 #include "Module.h"
@@ -38,6 +42,9 @@ Global::Global() {
   SSL_load_error_strings();
   OpenSSL_add_all_algorithms();
   RAND_poll();
+#ifndef _NO_LIBEVENT_THREADS
+  evthread_use_pthreads();
+#endif
   event_base = event_base_new();
   dns_base = evdns_base_new(event_base, 1);
 };

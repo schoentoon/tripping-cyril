@@ -55,6 +55,8 @@ add_arg("disable-lzma", CXXFLAGS=["+-D_NO_LZMA"], PKGS=["-liblzma"], about="Disa
 add_arg("enable-lzma", CXXFLAGS=["--D_NO_LZMA"], PKGS=["+liblzma"], about="Enable lzma")
 add_arg("disable-postgres", CXXFLAGS=["+-D_NO_POSTGRES"], PKGS=["-libpq"], about="Disable postgres")
 add_arg("enable-postgres", CXXFLAGS=["--D_NO_POSTGRES"], PKGS=["+libpq"], about="Enable postgres")
+add_arg("disable-libevent-threads", CXXFLAGS=["+-D_NO_LIBEVENT_THREADS"], PKGS=["-libevent_pthreads"], about="Disable libevent threads support")
+add_arg("enable-libevent-threads", CXXFLAGS=["--D_NO_LIBEVENT_THREADS"], PKGS=["+libevent_pthreads"], about="Enable libevent threads support")
 
 help_set = set(["--help", "-h"])
 if len(set(sys.argv) & set(["--help", "-h"])) > 0:
