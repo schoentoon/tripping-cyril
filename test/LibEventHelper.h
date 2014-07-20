@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _LIBEVENT_HELPER_H
-#define _LIBEVENT_HELPER_H
+#pragma once
 
 #include <gtest/gtest.h>
 #include <event2/buffer.h>
@@ -72,5 +71,3 @@ protected:
 };
 
 };
-
-#endif //_LIBEVENT_HELPER_H

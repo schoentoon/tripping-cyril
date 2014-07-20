@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _PIPE_H
-#define _PIPE_H
+#pragma once
 
 #include <event2/event.h>
 
@@ -71,5 +70,3 @@ private:
 };
 
 };
-
-#endif //_PIPE_H

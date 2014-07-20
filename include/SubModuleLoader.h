@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _SUBMOD_H
-#define _SUBMOD_H
+#pragma once
 
 #include <vector>
 
@@ -72,5 +71,3 @@ private:
 };
 
 };
-
-#endif //_SUBMOD_H

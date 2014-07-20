@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _WRITE_INTERFACE_H
-#define _WRITE_INTERFACE_H
+#pragma once
 
 #include "defines.h"
 #include "String.h"
@@ -68,5 +67,3 @@ private:
 };
 
 };
-
-#endif //_WRITE_INTERFACE_H

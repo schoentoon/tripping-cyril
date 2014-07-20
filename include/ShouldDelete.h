@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _SHOULD_DELETE_H
-#define _SHOULD_DELETE_H
+#pragma once
 
 namespace trippingcyril {
 
@@ -33,5 +32,3 @@ public:
 };
 
 };
-
-#endif //_SHOULD_DELETE_H

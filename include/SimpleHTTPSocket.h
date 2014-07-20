@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _HTTP_SOCKET_H
-#define _HTTP_SOCKET_H
+#pragma once
 
 #include <map>
 
@@ -191,5 +190,3 @@ private:
     };
   };
 };
-
-#endif //_HTTP_SOCKET_H

@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _MODULETHREAD_H
-#define _MODULETHREAD_H
+#pragma once
 
 #include <setjmp.h>
 #include <signal.h>
@@ -42,5 +41,3 @@ private:
 };
 
 };
-
-#endif //_MODULETHREAD_H

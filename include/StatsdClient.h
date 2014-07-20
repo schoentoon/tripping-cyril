@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _STATSD_CLIENT_H
-#define _STATSD_CLIENT_H
+#pragma once
 
 #include <arpa/inet.h>
 
@@ -71,5 +70,3 @@ private:
 };
 
 };
-
-#endif //_STATSD_CLIENT_H

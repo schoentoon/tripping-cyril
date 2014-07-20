@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _DATABASE_H
-#define _DATABASE_H
+#pragma once
 
 #if __cplusplus >= 201103
 #  include <functional>
@@ -182,5 +181,3 @@ private:
 
   };
 };
-
-#endif //_DATABASE_H

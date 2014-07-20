@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _TC_STRING_H
-#define _TC_STRING_H
+#pragma once
 
 #include <string>
 
@@ -201,5 +200,3 @@ public:
 };
 
 };
-
-#endif //_TC_STRING_H

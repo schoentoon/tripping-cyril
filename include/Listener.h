@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _LISTENER_H
-#define _LISTENER_H
+#pragma once
 
 #include <stdint.h>
 #include <openssl/ssl.h>
@@ -76,5 +75,3 @@ private:
 
   };
 };
-
-#endif //_LISTENER_H

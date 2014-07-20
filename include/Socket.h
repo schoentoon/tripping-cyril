@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _SOCKET_H
-#define _SOCKET_H
+#pragma once
 
 #include <stdexcept>
 
@@ -226,5 +225,3 @@ private:
 
   };
 };
-
-#endif //_SOCKET_H

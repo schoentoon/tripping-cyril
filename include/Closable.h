@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _CLOSABLE_INTERFACE_H
-#define _CLOSABLE_INTERFACE_H
+#pragma once
 
 namespace trippingcyril {
 
@@ -36,5 +35,3 @@ public:
 };
 
 };
-
-#endif //_CLOSABLE_INTERFACE_H

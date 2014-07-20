@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _DECOMPRESSOR_H
-#define _DECOMPRESSOR_H
+#pragma once
 
 #include <stdint.h>
 
@@ -92,5 +91,3 @@ private:
 #endif //_NO_GZIP
 
 };
-
-#endif // _DECOMPRESSOR_H

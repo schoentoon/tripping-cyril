@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _BACKOFF_TIMER_H
-#define _BACKOFF_TIMER_H
+#pragma once
 
 #include "Timer.h"
 
@@ -63,5 +62,3 @@ private:
 
   };
 };
-
-#endif //_BACKOFF_TIMER_H

@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _LOGGER_INTERFACE_H
-#define _LOGGER_INTERFACE_H
+#pragma once
 
 #include <syslog.h>
 
@@ -78,5 +77,3 @@ private:
 
   };
 };
-
-#endif //_LOGGER_INTERFACE_H

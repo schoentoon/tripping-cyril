@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _COMPRESSOR_H
-#define _COMPRESSOR_H
+#pragma once
 
 #include <stdint.h>
 
@@ -115,5 +114,3 @@ private:
 #endif //_NO_LZMA
 
 };
-
-#endif // _COMPRESSOR_H

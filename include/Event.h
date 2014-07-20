@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _EVENT_INTERFACE_H
-#define _EVENT_INTERFACE_H
+#pragma once
 
 #include <event2/dns.h>
 #include <event2/event.h>
@@ -53,5 +52,3 @@ protected:
 };
 
 };
-
-#endif //_EVENT_INTERFACE_H

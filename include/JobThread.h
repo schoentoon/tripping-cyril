@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _JOB_THREAD_H
-#define _JOB_THREAD_H
+#pragma once
 
 #include <list>
 
@@ -91,5 +90,3 @@ private:
 
   };
 };
-
-#endif //_JOB_THREAD_H

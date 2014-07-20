@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _SUB_MOD_H
-#define _SUB_MOD_H
+#pragma once
 
 #include "Module.h"
 
@@ -35,5 +34,3 @@ public:
 
   };
 };
-
-#endif //_SUB_MOD_H

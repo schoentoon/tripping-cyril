@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _STACKTRACE_H
-#define _STACKTRACE_H
+#pragma once
 
 namespace trippingcyril {
 
@@ -46,7 +45,5 @@ bool InitCrashHandler();
  */
 void StackTrace();
 
+  };
 };
-};
-
-#endif //_STACKTRACE_H

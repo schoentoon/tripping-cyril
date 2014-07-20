@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _DNS_H
-#define _DNS_H
+#pragma once
 
 #include <event2/dns.h>
 
@@ -129,5 +128,3 @@ private:
     };
   };
 };
-
-#endif //_DNS_H

@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _GLOBAL_H
-#define _GLOBAL_H
+#pragma once
 
 #include <vector>
 #include <event2/dns.h>
@@ -87,5 +86,3 @@ private:
 };
 
 };
-
-#endif //_GLOBAL_H

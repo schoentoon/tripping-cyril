@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _FILES_H
-#define _FILES_H
+#pragma once
 
 #include <event2/bufferevent.h>
 #include <unistd.h>
@@ -256,5 +255,3 @@ private:
 };
 
 };
-
-#endif //_FILES_H

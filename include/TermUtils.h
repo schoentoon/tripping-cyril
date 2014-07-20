@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _TERM_UTILS_H
-#define _TERM_UTILS_H
+#pragma once
 
 #include "String.h"
 
@@ -72,5 +71,3 @@ private:
 };
 
 };
-
-#endif //_TERM_UTILS_H

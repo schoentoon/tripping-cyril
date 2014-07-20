@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _SAMPLE_MOD_H
-#define _SAMPLE_MOD_H
+#pragma once
 
 #include "Module.h"
 
@@ -35,7 +34,5 @@ public:
   void OnLoaded();
 };
 
+  };
 };
-};
-
-#endif //_SAMPLE_MOD_H

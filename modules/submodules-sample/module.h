@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _SAMPLE_MOD_H
-#define _SAMPLE_MOD_H
+#pragma once
 
 #include "Module.h"
 #include "SubModuleLoader.h"
@@ -24,7 +23,7 @@
 using namespace trippingcyril;
 
 namespace module {
-namespace submodules {
+  namespace submodules {
 
 class SampleModule : public Module {
 public:
@@ -36,7 +35,5 @@ private:
   SubModuleLoader* modules;
 };
 
+  };
 };
-};
-
-#endif //_SAMPLE_MOD_H

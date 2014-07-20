@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _POSTGRES_H
-#define _POSTGRES_H
+#pragma once
 
 #ifndef _NO_POSTGRES
 
@@ -154,5 +153,3 @@ private:
 };
 
 #endif //_NO_POSTGRES
-
-#endif // _POSTGRES_H

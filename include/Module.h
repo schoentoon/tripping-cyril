@@ -15,8 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _MODULE_H
-#define _MODULE_H
+#pragma once
 
 #include <event2/dns.h>
 #include <event2/event.h>
@@ -175,5 +174,3 @@ private:
 };
 
 };
-
-#endif //_MODULE_H
