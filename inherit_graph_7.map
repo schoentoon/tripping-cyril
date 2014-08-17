@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtrippingcyril_1_1_module.html" title="Base class for modules. " alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node1" href="$classtrippingcyril_1_1log_1_1_logger.html" title="Base class to provide logging. " alt="" coords="6,38,119,79"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1log_1_1_file_logger.html" title="A simple logger implementation which logs into a file. " alt="" coords="169,5,282,46"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1log_1_1_sys_logger.html" title="A simple logger implementation which logs using the syslog(3) method. " alt="" coords="169,70,282,111"/>
 </map>

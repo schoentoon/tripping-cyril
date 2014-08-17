@@ -13,7 +13,7 @@ var searchData=
   ['decompressor_2eh',['Decompressor.h',['../_decompressor_8h.html',1,'']]],
   ['decrement',['Decrement',['../classtrippingcyril_1_1_statsd_client.html#a11a8f9fdcf6ca1e8ee5448ec9b6ccafb',1,'trippingcyril::StatsdClient']]],
   ['defines_2eh',['defines.h',['../defines_8h.html',1,'']]],
-  ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File']]],
+  ['delete',['Delete',['../classtrippingcyril_1_1_file.html#a5fb487ebd77ae80f9987a490e97033f3',1,'trippingcyril::File::Delete()'],['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#aa52c00198b46d35b978e22517f1d5bfe',1,'trippingcyril::net::http::SimpleHTTPSocket::Delete()']]],
   ['detach',['Detach',['../classtrippingcyril_1_1thread_1_1_thread.html#ab2c93d103b33c8ed3717da6a06088457',1,'trippingcyril::thread::Thread']]],
   ['dir',['Dir',['../classtrippingcyril_1_1_dir.html#a2f31a058b92a77b08f39637f4a0a7a02',1,'trippingcyril::Dir']]],
   ['dir',['Dir',['../classtrippingcyril_1_1_dir.html',1,'trippingcyril']]],

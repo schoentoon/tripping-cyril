@@ -105,58 +105,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *  along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef _LOGGER_INTERFACE_H</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _LOGGER_INTERFACE_H</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;syslog.h&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_files_8h.html">Files.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_string_8h.html">String.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespacetrippingcyril_1_1log.html">   27</a></span>&#160;  <span class="keyword">namespace </span>log {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_logger.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a> {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a>() {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// @endcond</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1log_1_1_logger.html#a7693aae3cc8780f3f0e013fa062598ba">Log</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> &amp;msg) = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_file_logger.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html">FileLogger</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a> {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html#ae6050bb986fc22a85be019d4e213b3d5">FileLogger</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; filename);</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_file_logger.html#a648729c38a6b5004f2b671f02dd56211">   55</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html#a648729c38a6b5004f2b671f02dd56211">~FileLogger</a>() {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  };</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html#a9e3b1ed4de8ca8511c4633bb91e737a6">Log</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> &amp;msg) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> filename;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_sys_logger.html">   65</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html">SysLogger</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a> {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html#a853c61a97aa623ba89080e751947fec4">SysLogger</a>(<span class="keywordtype">int</span> priority);</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_sys_logger.html#aa452bb790b51b8e910e6813238a33598">   72</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html#aa452bb790b51b8e910e6813238a33598">~SysLogger</a>() {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  };</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html#ac57697937a96d004f17de4641654d2b9">Log</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> &amp;msg) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> priority;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  };</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif //_LOGGER_INTERFACE_H</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;syslog.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_files_8h.html">Files.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_string_8h.html">String.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacetrippingcyril_1_1log.html">   26</a></span>&#160;  <span class="keyword">namespace </span>log {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_logger.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a>() {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  };</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// @endcond</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1log_1_1_logger.html#a7693aae3cc8780f3f0e013fa062598ba">Log</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> &amp;msg) = 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_file_logger.html">   47</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html">FileLogger</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html#ae6050bb986fc22a85be019d4e213b3d5">FileLogger</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; filename);</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_file_logger.html#a648729c38a6b5004f2b671f02dd56211">   54</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html#a648729c38a6b5004f2b671f02dd56211">~FileLogger</a>() {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  };</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1log_1_1_file_logger.html#a9e3b1ed4de8ca8511c4633bb91e737a6">Log</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> &amp;msg) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> filename;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_sys_logger.html">   64</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html">SysLogger</a> : <span class="keyword">public</span> <a class="code" href="classtrippingcyril_1_1log_1_1_logger.html">Logger</a> {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html#a853c61a97aa623ba89080e751947fec4">SysLogger</a>(<span class="keywordtype">int</span> priority);</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1log_1_1_sys_logger.html#aa452bb790b51b8e910e6813238a33598">   71</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html#aa452bb790b51b8e910e6813238a33598">~SysLogger</a>() {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1log_1_1_sys_logger.html#ac57697937a96d004f17de4641654d2b9">Log</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> &amp;msg) <a class="code" href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> priority;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  };</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
 <div class="ttc" id="classtrippingcyril_1_1log_1_1_logger_html_a7693aae3cc8780f3f0e013fa062598ba"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_logger.html#a7693aae3cc8780f3f0e013fa062598ba">trippingcyril::log::Logger::Log</a></div><div class="ttdeci">virtual void Log(const String &amp;msg)=0</div></div>
-<div class="ttc" id="classtrippingcyril_1_1log_1_1_file_logger_html_a648729c38a6b5004f2b671f02dd56211"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_file_logger.html#a648729c38a6b5004f2b671f02dd56211">trippingcyril::log::FileLogger::~FileLogger</a></div><div class="ttdeci">virtual ~FileLogger()</div><div class="ttdef"><b>Definition:</b> Logger.h:55</div></div>
-<div class="ttc" id="classtrippingcyril_1_1log_1_1_logger_html"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_logger.html">trippingcyril::log::Logger</a></div><div class="ttdoc">Base class to provide logging. </div><div class="ttdef"><b>Definition:</b> Logger.h:32</div></div>
+<div class="ttc" id="classtrippingcyril_1_1log_1_1_file_logger_html_a648729c38a6b5004f2b671f02dd56211"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_file_logger.html#a648729c38a6b5004f2b671f02dd56211">trippingcyril::log::FileLogger::~FileLogger</a></div><div class="ttdeci">virtual ~FileLogger()</div><div class="ttdef"><b>Definition:</b> Logger.h:54</div></div>
+<div class="ttc" id="classtrippingcyril_1_1log_1_1_logger_html"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_logger.html">trippingcyril::log::Logger</a></div><div class="ttdoc">Base class to provide logging. </div><div class="ttdef"><b>Definition:</b> Logger.h:31</div></div>
 <div class="ttc" id="classtrippingcyril_1_1log_1_1_sys_logger_html_ac57697937a96d004f17de4641654d2b9"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_sys_logger.html#ac57697937a96d004f17de4641654d2b9">trippingcyril::log::SysLogger::Log</a></div><div class="ttdeci">virtual void Log(const String &amp;msg) override</div></div>
-<div class="ttc" id="classtrippingcyril_1_1log_1_1_file_logger_html"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_file_logger.html">trippingcyril::log::FileLogger</a></div><div class="ttdoc">A simple logger implementation which logs into a file. </div><div class="ttdef"><b>Definition:</b> Logger.h:48</div></div>
-<div class="ttc" id="classtrippingcyril_1_1log_1_1_sys_logger_html"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_sys_logger.html">trippingcyril::log::SysLogger</a></div><div class="ttdoc">A simple logger implementation which logs using the syslog(3) method. </div><div class="ttdef"><b>Definition:</b> Logger.h:65</div></div>
-<div class="ttc" id="classtrippingcyril_1_1log_1_1_sys_logger_html_aa452bb790b51b8e910e6813238a33598"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_sys_logger.html#aa452bb790b51b8e910e6813238a33598">trippingcyril::log::SysLogger::~SysLogger</a></div><div class="ttdeci">virtual ~SysLogger()</div><div class="ttdef"><b>Definition:</b> Logger.h:72</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_string_html"><div class="ttname"><a href="classtrippingcyril_1_1_string.html">trippingcyril::String</a></div><div class="ttdoc">A wrapper string class to make a various amount of things just easier to type. All strings used shoul...</div><div class="ttdef"><b>Definition:</b> String.h:34</div></div>
+<div class="ttc" id="classtrippingcyril_1_1log_1_1_file_logger_html"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_file_logger.html">trippingcyril::log::FileLogger</a></div><div class="ttdoc">A simple logger implementation which logs into a file. </div><div class="ttdef"><b>Definition:</b> Logger.h:47</div></div>
+<div class="ttc" id="classtrippingcyril_1_1log_1_1_sys_logger_html"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_sys_logger.html">trippingcyril::log::SysLogger</a></div><div class="ttdoc">A simple logger implementation which logs using the syslog(3) method. </div><div class="ttdef"><b>Definition:</b> Logger.h:64</div></div>
+<div class="ttc" id="classtrippingcyril_1_1log_1_1_sys_logger_html_aa452bb790b51b8e910e6813238a33598"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_sys_logger.html#aa452bb790b51b8e910e6813238a33598">trippingcyril::log::SysLogger::~SysLogger</a></div><div class="ttdeci">virtual ~SysLogger()</div><div class="ttdef"><b>Definition:</b> Logger.h:71</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_string_html"><div class="ttname"><a href="classtrippingcyril_1_1_string.html">trippingcyril::String</a></div><div class="ttdoc">A wrapper string class to make a various amount of things just easier to type. All strings used shoul...</div><div class="ttdef"><b>Definition:</b> String.h:33</div></div>
 <div class="ttc" id="defines_8h_html_a5dea698950629d9e51d19c1a25be1c30"><div class="ttname"><a href="defines_8h.html#a5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a></div><div class="ttdeci">#define OVERRIDE</div><div class="ttdef"><b>Definition:</b> defines.h:19</div></div>
 <div class="ttc" id="classtrippingcyril_1_1log_1_1_sys_logger_html_a853c61a97aa623ba89080e751947fec4"><div class="ttname"><a href="classtrippingcyril_1_1log_1_1_sys_logger.html#a853c61a97aa623ba89080e751947fec4">trippingcyril::log::SysLogger::SysLogger</a></div><div class="ttdeci">SysLogger(int priority)</div></div>
 <div class="ttc" id="_string_8h_html"><div class="ttname"><a href="_string_8h.html">String.h</a></div></div>
@@ -166,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 5 2014 21:19:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 17 2014 16:48:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

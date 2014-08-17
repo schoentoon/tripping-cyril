@@ -9,5 +9,6 @@ var searchData=
   ['postgres',['postgres',['../namespacetrippingcyril_1_1database_1_1postgres.html',1,'trippingcyril::database']]],
   ['thread',['thread',['../namespacetrippingcyril_1_1thread.html',1,'trippingcyril']]],
   ['timing',['timing',['../namespacetrippingcyril_1_1timing.html',1,'trippingcyril']]],
+  ['trippingcyril',['trippingcyril',['../namespacetrippingcyril_1_1trippingcyril.html',1,'trippingcyril']]],
   ['trippingcyril',['trippingcyril',['../namespacetrippingcyril.html',1,'']]]
 ];

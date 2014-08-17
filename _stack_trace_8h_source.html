@@ -105,25 +105,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *  along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef _STACKTRACE_H</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _STACKTRACE_H</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacetrippingcyril_1_1crash.html">   26</a></span>&#160;<span class="keyword">namespace </span>crash {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#ac00752234e0b2edb7dbfb1ff2f2bc00f">SetInteractive</a>(<span class="keywordtype">bool</span> b);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#a1db335a66251f70c9941e5cce9802819">SetCoreDump</a>(<span class="keywordtype">bool</span> b);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#a1de8b6a3a20b0945914f0f7bbdde1687">InitCrashHandler</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#a08003661d1c50c0c4d51aec9087ee4cc">StackTrace</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacetrippingcyril_1_1crash.html">   25</a></span>&#160;<span class="keyword">namespace </span>crash {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#ac00752234e0b2edb7dbfb1ff2f2bc00f">SetInteractive</a>(<span class="keywordtype">bool</span> b);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#a1db335a66251f70c9941e5cce9802819">SetCoreDump</a>(<span class="keywordtype">bool</span> b);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#a1de8b6a3a20b0945914f0f7bbdde1687">InitCrashHandler</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetrippingcyril_1_1crash.html#a08003661d1c50c0c4d51aec9087ee4cc">StackTrace</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  };</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif //_STACKTRACE_H</span></div>
 <div class="ttc" id="namespacetrippingcyril_1_1crash_html_a1de8b6a3a20b0945914f0f7bbdde1687"><div class="ttname"><a href="namespacetrippingcyril_1_1crash.html#a1de8b6a3a20b0945914f0f7bbdde1687">trippingcyril::crash::InitCrashHandler</a></div><div class="ttdeci">bool InitCrashHandler()</div></div>
 <div class="ttc" id="namespacetrippingcyril_1_1crash_html_a08003661d1c50c0c4d51aec9087ee4cc"><div class="ttname"><a href="namespacetrippingcyril_1_1crash.html#a08003661d1c50c0c4d51aec9087ee4cc">trippingcyril::crash::StackTrace</a></div><div class="ttdeci">void StackTrace()</div></div>
 <div class="ttc" id="namespacetrippingcyril_1_1crash_html_ac00752234e0b2edb7dbfb1ff2f2bc00f"><div class="ttname"><a href="namespacetrippingcyril_1_1crash.html#ac00752234e0b2edb7dbfb1ff2f2bc00f">trippingcyril::crash::SetInteractive</a></div><div class="ttdeci">void SetInteractive(bool b)</div></div>
@@ -131,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 5 2014 21:19:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 17 2014 16:48:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -105,44 +105,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *  along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef _TERM_UTILS_H</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _TERM_UTILS_H</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_string_8h.html">String.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_term_utils.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_term_utils.html">TermUtils</a> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a40565e17d1022904fff1ca94a2a30b78">PrintStatus</a>(<span class="keywordtype">bool</span> status, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; msg);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a187a9c9ad971c3a3d750a6f7aa68d77c">PrintError</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; msg);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a1713f86e6c668bfb8bdfb741fc3b4104">WritePidFile</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; path);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a912011ac9995d3ea7ec32db68c9ba75b">PrintMotd</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#af19bcec9579e93af5a0bcf765bc9b8a6">GetCPUCount</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html">   54</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html">StatusPrinter</a> {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a00b33e694579482ae77a387ff322775e">StatusPrinter</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; start_message);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a2b40599adfefc58219e089bbb8093808">~StatusPrinter</a>();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#ae70c47bd401ca4b21007397392c8579a">PrintStatus</a>(<span class="keywordtype">bool</span> status, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; msg);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> called;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  };</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="classtrippingcyril_1_1_term_utils.html">TermUtils</a>() {};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">// @endcond</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif //_TERM_UTILS_H</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_string_8h.html">String.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>trippingcyril {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_term_utils.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_term_utils.html">TermUtils</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a40565e17d1022904fff1ca94a2a30b78">PrintStatus</a>(<span class="keywordtype">bool</span> status, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; msg);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a187a9c9ad971c3a3d750a6f7aa68d77c">PrintError</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; msg);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a1713f86e6c668bfb8bdfb741fc3b4104">WritePidFile</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; path);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#a912011ac9995d3ea7ec32db68c9ba75b">PrintMotd</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classtrippingcyril_1_1_term_utils.html#af19bcec9579e93af5a0bcf765bc9b8a6">GetCPUCount</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html">   53</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html">StatusPrinter</a> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a00b33e694579482ae77a387ff322775e">StatusPrinter</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; start_message);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a2b40599adfefc58219e089bbb8093808">~StatusPrinter</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#ae70c47bd401ca4b21007397392c8579a">PrintStatus</a>(<span class="keywordtype">bool</span> status, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; msg);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> called;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  };</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">// @cond</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <a class="code" href="classtrippingcyril_1_1_term_utils.html">TermUtils</a>() {};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">// @endcond</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
 <div class="ttc" id="classtrippingcyril_1_1_term_utils_html_a40565e17d1022904fff1ca94a2a30b78"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils.html#a40565e17d1022904fff1ca94a2a30b78">trippingcyril::TermUtils::PrintStatus</a></div><div class="ttdeci">static void PrintStatus(bool status, const String &amp;msg)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_term_utils_1_1_status_printer_html_a00b33e694579482ae77a387ff322775e"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a00b33e694579482ae77a387ff322775e">trippingcyril::TermUtils::StatusPrinter::StatusPrinter</a></div><div class="ttdeci">StatusPrinter(const String &amp;start_message)</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_term_utils_html"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils.html">trippingcyril::TermUtils</a></div><div class="ttdoc">Helper class to pretty print stuff to the terminal in a fairly standard way. </div><div class="ttdef"><b>Definition:</b> TermUtils.h:29</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_term_utils_html"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils.html">trippingcyril::TermUtils</a></div><div class="ttdoc">Helper class to pretty print stuff to the terminal in a fairly standard way. </div><div class="ttdef"><b>Definition:</b> TermUtils.h:28</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_term_utils_html_a187a9c9ad971c3a3d750a6f7aa68d77c"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils.html#a187a9c9ad971c3a3d750a6f7aa68d77c">trippingcyril::TermUtils::PrintError</a></div><div class="ttdeci">static void PrintError(const String &amp;msg)</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_term_utils_html_af19bcec9579e93af5a0bcf765bc9b8a6"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils.html#af19bcec9579e93af5a0bcf765bc9b8a6">trippingcyril::TermUtils::GetCPUCount</a></div><div class="ttdeci">static int GetCPUCount()</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_term_utils_1_1_status_printer_html"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html">trippingcyril::TermUtils::StatusPrinter</a></div><div class="ttdoc">Pretty print loading statuses. </div><div class="ttdef"><b>Definition:</b> TermUtils.h:54</div></div>
-<div class="ttc" id="classtrippingcyril_1_1_string_html"><div class="ttname"><a href="classtrippingcyril_1_1_string.html">trippingcyril::String</a></div><div class="ttdoc">A wrapper string class to make a various amount of things just easier to type. All strings used shoul...</div><div class="ttdef"><b>Definition:</b> String.h:34</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_term_utils_1_1_status_printer_html"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html">trippingcyril::TermUtils::StatusPrinter</a></div><div class="ttdoc">Pretty print loading statuses. </div><div class="ttdef"><b>Definition:</b> TermUtils.h:53</div></div>
+<div class="ttc" id="classtrippingcyril_1_1_string_html"><div class="ttname"><a href="classtrippingcyril_1_1_string.html">trippingcyril::String</a></div><div class="ttdoc">A wrapper string class to make a various amount of things just easier to type. All strings used shoul...</div><div class="ttdef"><b>Definition:</b> String.h:33</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_term_utils_1_1_status_printer_html_a2b40599adfefc58219e089bbb8093808"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils_1_1_status_printer.html#a2b40599adfefc58219e089bbb8093808">trippingcyril::TermUtils::StatusPrinter::~StatusPrinter</a></div><div class="ttdeci">virtual ~StatusPrinter()</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_term_utils_html_a912011ac9995d3ea7ec32db68c9ba75b"><div class="ttname"><a href="classtrippingcyril_1_1_term_utils.html#a912011ac9995d3ea7ec32db68c9ba75b">trippingcyril::TermUtils::PrintMotd</a></div><div class="ttdeci">static void PrintMotd()</div></div>
 <div class="ttc" id="_string_8h_html"><div class="ttname"><a href="_string_8h.html">String.h</a></div></div>
@@ -151,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 5 2014 21:19:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 17 2014 16:48:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,4 +1,4 @@
 <map id="trippingcyril::timing::BackoffTimer" name="trippingcyril::timing::BackoffTimer">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="9,96,140,123"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_module.html" title="Base class for modules. " alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1trippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="5,97,168,138"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_module.html" title="Base class for modules. " alt="" coords="17,5,156,32"/>
 </map>

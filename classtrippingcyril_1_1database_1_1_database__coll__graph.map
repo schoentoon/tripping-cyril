@@ -1,4 +1,4 @@
 <map id="trippingcyril::database::Database" name="trippingcyril::database::Database">
-<area shape="rect" id="node2" href="$classtrippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="15,96,145,123"/>
-<area shape="rect" id="node3" href="$classtrippingcyril_1_1_module.html" title="Base class for modules. " alt="" coords="11,5,149,32"/>
+<area shape="rect" id="node2" href="$classtrippingcyril_1_1trippingcyril_1_1_event.html" title="Event class to automatically register and unregister event driven classes with modules, simply implement this from any event driven class. " alt="" coords="5,97,168,138"/>
+<area shape="rect" id="node3" href="$classtrippingcyril_1_1_module.html" title="Base class for modules. " alt="" coords="17,5,156,32"/>
 </map>

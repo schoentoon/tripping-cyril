@@ -11,7 +11,7 @@ var searchData=
   ['_7edir',['~Dir',['../classtrippingcyril_1_1_dir.html#ac3c95790e33f3160d3ea170fe7214a83',1,'trippingcyril::Dir']]],
   ['_7ednscallback',['~DNSCallback',['../classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_callback.html#a9aff47a0bf5c9cdd57cb581b2a996583',1,'trippingcyril::net::dns::DNSCallback']]],
   ['_7ednsreversecallback',['~DNSReverseCallback',['../classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_reverse_callback.html#ae1405979b6b7f6a69555902f277ca18b',1,'trippingcyril::net::dns::DNSReverseCallback']]],
-  ['_7eevent',['~Event',['../classtrippingcyril_1_1_event.html#a60c84ad0ad8eebade897f80b2dd66b85',1,'trippingcyril::Event']]],
+  ['_7eevent',['~Event',['../classtrippingcyril_1_1_event.html#a60c84ad0ad8eebade897f80b2dd66b85',1,'trippingcyril::Event::~Event()'],['../classtrippingcyril_1_1trippingcyril_1_1_event.html#aecf99c9b9f3af01f2418574bb0865ffe',1,'trippingcyril::trippingcyril::Event::~Event()']]],
   ['_7efile',['~File',['../classtrippingcyril_1_1_file.html#a450323808997b54f71eec826e3b30121',1,'trippingcyril::File']]],
   ['_7efilelogger',['~FileLogger',['../classtrippingcyril_1_1log_1_1_file_logger.html#a648729c38a6b5004f2b671f02dd56211',1,'trippingcyril::log::FileLogger']]],
   ['_7efileobservercallback',['~FileObserverCallback',['../classtrippingcyril_1_1_file_observer_callback.html#ae2fe81963443ec841315638ec4a911b9',1,'trippingcyril::FileObserverCallback']]],
@@ -45,5 +45,6 @@ var searchData=
   ['_7esyslogger',['~SysLogger',['../classtrippingcyril_1_1log_1_1_sys_logger.html#aa452bb790b51b8e910e6813238a33598',1,'trippingcyril::log::SysLogger']]],
   ['_7etempfile',['~TempFile',['../classtrippingcyril_1_1_temp_file.html#af328575a02ef76727a0c542253f0b22a',1,'trippingcyril::TempFile']]],
   ['_7ethread',['~Thread',['../classtrippingcyril_1_1thread_1_1_thread.html#aac737f881aa2256423094a5d1b66c07f',1,'trippingcyril::thread::Thread']]],
-  ['_7etimer',['~Timer',['../classtrippingcyril_1_1timing_1_1_timer.html#ade60f0196125de7167003511713ac830',1,'trippingcyril::timing::Timer']]]
+  ['_7etimer',['~Timer',['../classtrippingcyril_1_1timing_1_1_timer.html#ade60f0196125de7167003511713ac830',1,'trippingcyril::timing::Timer']]],
+  ['_7etriggerevent',['~TriggerEvent',['../classtrippingcyril_1_1_trigger_event.html#a71bf23f1cc3faabf1af3ed6f382ba30e',1,'trippingcyril::TriggerEvent']]]
 ];
