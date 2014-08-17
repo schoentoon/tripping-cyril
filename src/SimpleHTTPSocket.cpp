@@ -148,11 +148,72 @@ bool SimpleHTTPSocket::Post(const String& url, const String& postData, const Str
   if (CrackURL(url, host, path, port, ssl) == false)
     return false;
   this->url = url;
-  extraHeaders["Content-Type"] = type;
+  if (!type.empty())
+    extraHeaders["Content-Type"] = type;
   extraHeaders["Content-Length"] = String(postData.size());
   MakeRequestHeaders("POST", host, path, port, ssl);
   buffer += "\r\n";
   buffer += postData;
+  buffer += "\r\n";
+  Connect(host, port, ssl);
+  return true;
+};
+
+bool SimpleHTTPSocket::Patch(const String& url, const String& patchData, const String& type) {
+  if (this->url.empty() == false)
+    return false;
+  String path, host;
+  unsigned short port;
+  bool ssl;
+  if (CrackURL(url, host, path, port, ssl) == false)
+    return false;
+  this->url = url;
+  if (!type.empty())
+    extraHeaders["Content-Type"] = type;
+  extraHeaders["Content-Length"] = String(patchData.size());
+  MakeRequestHeaders("PATCH", host, path, port, ssl);
+  buffer += "\r\n";
+  buffer += patchData;
+  buffer += "\r\n";
+  Connect(host, port, ssl);
+  return true;
+};
+
+bool SimpleHTTPSocket::Put(const String& url, const String& putData, const String& type) {
+  if (this->url.empty() == false)
+    return false;
+  String path, host;
+  unsigned short port;
+  bool ssl;
+  if (CrackURL(url, host, path, port, ssl) == false)
+    return false;
+  this->url = url;
+  if (!type.empty())
+    extraHeaders["Content-Type"] = type;
+  extraHeaders["Content-Length"] = String(putData.size());
+  MakeRequestHeaders("PUT", host, path, port, ssl);
+  buffer += "\r\n";
+  buffer += putData;
+  buffer += "\r\n";
+  Connect(host, port, ssl);
+  return true;
+};
+
+bool SimpleHTTPSocket::Delete(const String& url, const String& deleteData, const String& type) {
+  if (this->url.empty() == false)
+    return false;
+  String path, host;
+  unsigned short port;
+  bool ssl;
+  if (CrackURL(url, host, path, port, ssl) == false)
+    return false;
+  this->url = url;
+  if (!type.empty())
+    extraHeaders["Content-Type"] = type;
+  extraHeaders["Content-Length"] = String(deleteData.size());
+  MakeRequestHeaders("DELETE", host, path, port, ssl);
+  buffer += "\r\n";
+  buffer += deleteData;
   buffer += "\r\n";
   Connect(host, port, ssl);
   return true;

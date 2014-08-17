@@ -100,7 +100,31 @@ public:
    * @param type The Content-Type header to set
    * @return True if url was succesfully parsed and the request is started
    */
-  bool Post(const String& url, const String& postData, const String& type);
+  bool Post(const String& url, const String& postData, const String& type = "");
+  /**
+   * Do a simple HTTP PATCH request
+   * @param url The url to request
+   * @param patchData the raw patch data to send
+   * @param type The Content-Type header to set
+   * @return True if url was succesfully parsed and the request is started
+   */
+  bool Patch(const String& url, const String& patchData, const String& type = "");
+  /**
+   * Do a simple HTTP PUT request
+   * @param url The url to request
+   * @param putData the raw put data to send
+   * @param type The Content-Type header to set
+   * @return True if url was succesfully parsed and the request is started
+   */
+  bool Put(const String& url, const String& putData, const String& type = "");
+  /**
+   * Do a simple HTTP DELETE request
+   * @param url The url to request
+   * @param deleteData the raw put data to send
+   * @param type The Content-Type header to set
+   * @return True if url was succesfully parsed and the request is started
+   */
+  bool Delete(const String& url, const String& deleteData, const String& type = "");
   /**
    * Set any custom headers to send with our request, must be called before Get()
    * or Post()

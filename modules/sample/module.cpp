@@ -65,6 +65,12 @@ void SampleModule::OnLoaded() {
   socket->Get("http://httpbin.org/gzip");
   socket = new SimpleHTTPSocket(this, new PrintHttp);
   socket->Post("http://httpbin.org/post", "{\"test\":true}", "application/json");
+  socket = new SimpleHTTPSocket(this, new PrintHttp);
+  socket->Patch("http://httpbin.org/patch", "{\"test\":true}", "application/json");
+  socket = new SimpleHTTPSocket(this, new PrintHttp);
+  socket->Put("http://httpbin.org/put", "{\"test\":true}", "application/json");
+  socket = new SimpleHTTPSocket(this, new PrintHttp);
+  socket->Delete("http://httpbin.org/delete", "{\"test\":true}", "application/json");
   new TestTimer(this);
   //int* foo = (int*) -1;
   //cerr << *foo << endl;
