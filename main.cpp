@@ -28,7 +28,7 @@ using namespace trippingcyril;
 class ModuleLoader : public FileObserverCallback {
 public:
   ModuleLoader() {
-    mask = IN_CLOSE_WRITE;
+    _mask = IN_CLOSE_WRITE;
     Dir::MakeDir("./sys");
     File null("/dev/null");
     null.Copy("./sys/loadmodule", true);

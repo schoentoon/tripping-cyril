@@ -55,7 +55,7 @@ public:
   };
   virtual void Log(const String &msg) OVERRIDE;
 private:
-  const String filename;
+  const String _filename;
 };
 
 /**
@@ -72,7 +72,7 @@ public:
   };
   virtual void Log(const String &msg) OVERRIDE;
 private:
-  const int priority;
+  const int _priority;
 };
 
   };

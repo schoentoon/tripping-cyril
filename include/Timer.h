@@ -77,10 +77,10 @@ protected:
   virtual void Finished() {};
 private:
   // @cond
-  unsigned int maxCycles;
-  unsigned int currentCycle;
-  unsigned char stop : 1;
-  struct event* timer;
+  unsigned int _maxCycles;
+  unsigned int _currentCycle;
+  unsigned char _stop : 1;
+  struct event* _timer;
   static void EventCallback(evutil_socket_t fd, short event, void* arg);
   // @endcond
 };

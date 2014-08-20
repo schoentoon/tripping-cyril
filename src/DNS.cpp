@@ -29,25 +29,25 @@ namespace trippingcyril {
 
 IPv4Lookup::IPv4Lookup(const Module* pModule, const String& pQuery, DNSCallback* pCallback)
 : Event(pModule)
-, query(pQuery) {
-  callback = pCallback;
-  request = evdns_base_resolve_ipv4((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
-    ,query.c_str(), 0, IPv4Lookup::DNSEventCallback, this);
-  if (request == NULL)
+, _query(pQuery)
+, _callback(pCallback) {
+  _request = evdns_base_resolve_ipv4((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
+    ,_query.c_str(), 0, IPv4Lookup::DNSEventCallback, this);
+  if (_request == NULL)
     throw std::runtime_error("Failed to create request");
 };
 
 IPv4Lookup::~IPv4Lookup() {
-  if (callback && callback->shouldDelete())
-    delete callback;
-  if (request)
-    evdns_cancel_request((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase(), request);
+  if (_callback && _callback->shouldDelete())
+    delete _callback;
+  if (_request)
+    evdns_cancel_request((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase(), _request);
 };
 
 void IPv4Lookup::DNSEventCallback(int result, char type, int count, int ttl, void* addresses, void* arg) {
   IPv4Lookup* lookup = (IPv4Lookup*) arg;
   if (lookup) {
-    if (lookup->callback) {
+    if (lookup->_callback) {
       if (result == DNS_ERR_NONE) {
         std::vector<IPAddress*> output;
         struct in_addr* in_addrs = (struct in_addr*) addresses;
@@ -55,14 +55,14 @@ void IPv4Lookup::DNSEventCallback(int result, char type, int count, int ttl, voi
           IPv4Address *ip = new IPv4Address(&in_addrs[i]);
           output.push_back(ip);
         };
-        lookup->callback->QueryResult(lookup->query, output, ttl);
+        lookup->_callback->QueryResult(lookup->_query, output, ttl);
         while (output.empty() == false) {
           IPAddress* ip = output[0];
           delete ip;
           output.erase(output.begin());
         };
       } else
-        lookup->callback->Error(lookup->query, result, evdns_err_to_string(result));
+        lookup->_callback->Error(lookup->_query, result, evdns_err_to_string(result));
     };
     delete lookup;
   };
@@ -70,30 +70,30 @@ void IPv4Lookup::DNSEventCallback(int result, char type, int count, int ttl, voi
 
 IPv4ReverseLookup::IPv4ReverseLookup(const Module* pModule, const IPv4Address& pQuery, DNSReverseCallback* pCallback)
 : Event(pModule)
-, query(pQuery) {
-  callback = pCallback;
-  struct in_addr in = query;
-  request = evdns_base_resolve_reverse((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
+, _query(pQuery)
+, _callback(pCallback) {
+  struct in_addr in = _query;
+  _request = evdns_base_resolve_reverse((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
     ,&in, 0, IPv4ReverseLookup::DNSEventCallback, this);
-  if (request == NULL)
+  if (_request == NULL)
     throw std::runtime_error("Failed to create request");
 };
 
 IPv4ReverseLookup::~IPv4ReverseLookup() {
-  if (callback && callback->shouldDelete())
-    delete callback;
-  if (request)
-    evdns_cancel_request((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase(), request);
+  if (_callback && _callback->shouldDelete())
+    delete _callback;
+  if (_request)
+    evdns_cancel_request((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase(), _request);
 };
 
 void IPv4ReverseLookup::DNSEventCallback(int result, char type, int count, int ttl, void* addresses, void* arg) {
   IPv4ReverseLookup* lookup = (IPv4ReverseLookup*) arg;
   if (lookup) {
-    if (lookup->callback) {
+    if (lookup->_callback) {
       if (result == DNS_ERR_NONE && count == 1)
-        lookup->callback->QueryResult(lookup->query, *(char**) addresses, ttl);
+        lookup->_callback->QueryResult(lookup->_query, *(char**) addresses, ttl);
       else
-        lookup->callback->Error(lookup->query, result, evdns_err_to_string(result));
+        lookup->_callback->Error(lookup->_query, result, evdns_err_to_string(result));
     };
     delete lookup;
   };

@@ -49,7 +49,7 @@ public:
   virtual ~StatsdClient();
   static bool DRY_RUN;
   /** @return The namespace for this statd object */
-  const String getNamespace() const { return ns; };
+  const String getNamespace() const { return _ns; };
   void Count(const String& stat, size_t value, float sample_rate = 1.0) const;
   void Increment(const String& stat, float sample_rate = 1.0) const;
   void Decrement(const String& stat, float sample_rate = 1.0) const;
@@ -63,9 +63,9 @@ private:
   void cleanup(char *stat) const;
   bool send_stat(char* stat, size_t value, const char* type, float sample_rate = 1.0) const;
 
-  struct sockaddr_in address;
-  int sock;
-  const String ns;
+  struct sockaddr_in _address;
+  int _sock;
+  const String _ns;
   // @endcond
 };
 

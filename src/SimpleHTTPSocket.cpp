@@ -17,6 +17,8 @@
 
 #include "SimpleHTTPSocket.h"
 
+#include "TermUtils.h"
+
 #include <iostream>
 #include <stdlib.h>
 #include <strings.h>
@@ -26,11 +28,12 @@ namespace trippingcyril {
     namespace http {
 
 SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
-: Socket(module), parser(this) {
-  this->callback = callback;
+: Socket(module)
+, _sent_data(false)
+, _callback(callback)
+, _parser(this) {
   SetTCPNoDelay(true);
   SetTimeout(60);
-  sent_data = false;
 };
 
 #if __cplusplus >= 201103
@@ -38,21 +41,21 @@ SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, HTTPCallback* callback)
 class HttpLamdbaCallback : public HTTPCallback {
 public:
   HttpLamdbaCallback(const HTTPLamdbaCallback &_callback, const HTTPLamdbaErrorCallback &_errorcallback)
-  : callback(_callback)
-  , errorcallback(_errorcallback) {
+  : _callback(_callback)
+  , _errorcallback(_errorcallback) {
   };
   virtual ~HttpLamdbaCallback() {};
   virtual void OnRequestDone(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url) {
-    if (callback)
-      callback(responseCode, headers, response, url);
+    if (_callback)
+      _callback(responseCode, headers, response, url);
   };
   virtual void OnRequestError(int errorCode, const String& url) {
-    if (errorcallback)
-      errorcallback(errorCode, url);
+    if (_errorcallback)
+      _errorcallback(errorCode, url);
   };
 private:
-  const HTTPLamdbaCallback callback;
-  const HTTPLamdbaErrorCallback errorcallback;
+  const HTTPLamdbaCallback _callback;
+  const HTTPLamdbaErrorCallback _errorcallback;
 };
 
 SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, const HTTPLamdbaCallback &callback, const HTTPLamdbaErrorCallback &errorcallback)
@@ -63,8 +66,8 @@ SimpleHTTPSocket::SimpleHTTPSocket(const Module* module, const HTTPLamdbaCallbac
 #endif
 
 SimpleHTTPSocket::~SimpleHTTPSocket() {
-  if (callback != NULL && callback->shouldDelete())
-    delete callback;
+  if (_callback != NULL && _callback->shouldDelete())
+    delete _callback;
 };
 
 bool SimpleHTTPSocket::CrackURL(const String& url, String& host, String& path, unsigned short& port, bool& ssl) {
@@ -106,130 +109,130 @@ bool SimpleHTTPSocket::CrackURL(const String& url, String& host, String& path, u
 };
 
 void SimpleHTTPSocket::MakeRequestHeaders(const String& method, const String& host, const String& path, unsigned short port, bool ssl) {
-  buffer = method + " ";
+  _buffer = method + ' ';
   if (path.empty())
-    buffer += "/";
+    _buffer += '/';
   else if (path.substr(0, 1) == "/")
-    buffer += path;
+    _buffer += path;
   else
-    buffer += "/" + path;
-  buffer += " HTTP/1.1\r\n";
-  buffer += "Host: " + host + ((port == 80 && ssl == false) || (port == 443 || ssl == true) ? "" : ":" + String(port)) + "\r\n";
-  buffer += "User-Agent: Tripping Cyril\r\n";
+    _buffer += '/' + path;
+  _buffer += " HTTP/1.1\r\n";
+  _buffer += "Host: " + host + ((port == 80 && ssl == false) || (port == 443 || ssl == true) ? "" : ":" + String(port)) + "\r\n";
+  _buffer += "User-Agent: Tripping Cyril\r\n";
 #ifndef _NO_GZIP
-  buffer += "Accept-Encoding: gzip\r\n";
+  _buffer += "Accept-Encoding: gzip\r\n";
 #else
-  buffer += "Accept-Encoding: identity\r\n";
+  _buffer += "Accept-Encoding: identity\r\n";
 #endif //_NO_GZIP
-  buffer += "Connection: Close\r\n";
-  for (map<String, String>::iterator iter = extraHeaders.begin(); iter != extraHeaders.end(); ++iter)
-    buffer += iter->first + ": " + iter->second + "\r\n";
+  _buffer += "Connection: Close\r\n";
+  for (map<String, String>::iterator iter = _extraHeaders.begin(); iter != _extraHeaders.end(); ++iter)
+    _buffer += iter->first + ": " + iter->second + "\r\n";
 };
 
 bool SimpleHTTPSocket::Get(const String& url) {
-  if (this->url.empty() == false)
+  if (this->_url.empty() == false)
     return false;
   String path, host;
   unsigned short port;
   bool ssl;
   if (CrackURL(url, host, path, port, ssl) == false)
     return false;
-  this->url = url;
+  this->_url = url;
   MakeRequestHeaders("GET", host, path, port, ssl);
-  buffer += "\r\n";
+  _buffer += "\r\n";
   Connect(host, port, ssl);
   return true;
 };
 
 bool SimpleHTTPSocket::Post(const String& url, const String& postData, const String& type) {
-  if (this->url.empty() == false)
+  if (this->_url.empty() == false)
     return false;
   String path, host;
   unsigned short port;
   bool ssl;
   if (CrackURL(url, host, path, port, ssl) == false)
     return false;
-  this->url = url;
+  this->_url = url;
   if (!type.empty())
-    extraHeaders["Content-Type"] = type;
-  extraHeaders["Content-Length"] = String(postData.size());
+    _extraHeaders["Content-Type"] = type;
+  _extraHeaders["Content-Length"] = String(postData.size());
   MakeRequestHeaders("POST", host, path, port, ssl);
-  buffer += "\r\n";
-  buffer += postData;
-  buffer += "\r\n";
+  _buffer += "\r\n";
+  _buffer += postData;
+  _buffer += "\r\n";
   Connect(host, port, ssl);
   return true;
 };
 
 bool SimpleHTTPSocket::Patch(const String& url, const String& patchData, const String& type) {
-  if (this->url.empty() == false)
+  if (this->_url.empty() == false)
     return false;
   String path, host;
   unsigned short port;
   bool ssl;
   if (CrackURL(url, host, path, port, ssl) == false)
     return false;
-  this->url = url;
+  this->_url = url;
   if (!type.empty())
-    extraHeaders["Content-Type"] = type;
-  extraHeaders["Content-Length"] = String(patchData.size());
+    _extraHeaders["Content-Type"] = type;
+  _extraHeaders["Content-Length"] = String(patchData.size());
   MakeRequestHeaders("PATCH", host, path, port, ssl);
-  buffer += "\r\n";
-  buffer += patchData;
-  buffer += "\r\n";
+  _buffer += "\r\n";
+  _buffer += patchData;
+  _buffer += "\r\n";
   Connect(host, port, ssl);
   return true;
 };
 
 bool SimpleHTTPSocket::Put(const String& url, const String& putData, const String& type) {
-  if (this->url.empty() == false)
+  if (this->_url.empty() == false)
     return false;
   String path, host;
   unsigned short port;
   bool ssl;
   if (CrackURL(url, host, path, port, ssl) == false)
     return false;
-  this->url = url;
+  this->_url = url;
   if (!type.empty())
-    extraHeaders["Content-Type"] = type;
-  extraHeaders["Content-Length"] = String(putData.size());
+    _extraHeaders["Content-Type"] = type;
+  _extraHeaders["Content-Length"] = String(putData.size());
   MakeRequestHeaders("PUT", host, path, port, ssl);
-  buffer += "\r\n";
-  buffer += putData;
-  buffer += "\r\n";
+  _buffer += "\r\n";
+  _buffer += putData;
+  _buffer += "\r\n";
   Connect(host, port, ssl);
   return true;
 };
 
 bool SimpleHTTPSocket::Delete(const String& url, const String& deleteData, const String& type) {
-  if (this->url.empty() == false)
+  if (this->_url.empty() == false)
     return false;
   String path, host;
   unsigned short port;
   bool ssl;
   if (CrackURL(url, host, path, port, ssl) == false)
     return false;
-  this->url = url;
+  this->_url = url;
   if (!type.empty())
-    extraHeaders["Content-Type"] = type;
-  extraHeaders["Content-Length"] = String(deleteData.size());
+    _extraHeaders["Content-Type"] = type;
+  _extraHeaders["Content-Length"] = String(deleteData.size());
   MakeRequestHeaders("DELETE", host, path, port, ssl);
-  buffer += "\r\n";
-  buffer += deleteData;
-  buffer += "\r\n";
+  _buffer += "\r\n";
+  _buffer += deleteData;
+  _buffer += "\r\n";
   Connect(host, port, ssl);
   return true;
 };
 
 void SimpleHTTPSocket::Connected() {
-  WriteString(buffer);
-  buffer.clear();
+  WriteString(_buffer);
+  _buffer.clear();
   SetReadLine(true);
 };
 
 void SimpleHTTPSocket::Disconnected() {
-  if (buffer.empty() == false && parser.responseCode != 0)
-    OnRequestDone(parser.responseCode, parser.headers, buffer);
+  if (_buffer.empty() == false && _parser._responseCode != 0)
+    OnRequestDone(_parser._responseCode, _parser._headers, _buffer);
 };
 
 void SimpleHTTPSocket::Timeout() {
@@ -237,72 +240,72 @@ void SimpleHTTPSocket::Timeout() {
 };
 
 void SimpleHTTPSocket::OnRequestDone(unsigned short responseCode, map<String, String>& headers, const String& response) {
-  if (callback != NULL) {
-    callback->OnRequestDone(responseCode, headers, response, url);
-    if (callback->shouldDelete())
-      delete callback;
-    callback = NULL;
+  if (_callback != NULL) {
+    _callback->OnRequestDone(responseCode, headers, response, _url);
+    if (_callback->shouldDelete())
+      delete _callback;
+    _callback = NULL;
   };
 };
 
 void SimpleHTTPSocket::OnRequestError(int errorCode) {
-  if (callback != NULL) {
-    callback->OnRequestError(errorCode, url);
-    if (callback->shouldDelete())
-      delete callback;
-    callback = NULL;
+  if (_callback != NULL) {
+    _callback->OnRequestError(errorCode, _url);
+    if (_callback->shouldDelete())
+      delete _callback;
+    _callback = NULL;
   };
 };
 
 void SimpleHTTPSocket::ReadLine(const String& data) {
-  if (sent_data == false) {
+  if (_sent_data == false) {
     OnRequestError(GOT_RESPONSE_TOO_EARLY);
     Close();
-  } else if (parser.headersDone == false)
-    parser.ParseLine(data);
-  else if (parser.chunked == true && parser.current_chunk <= 0 && data.empty() == false) {
+  } else if (_parser._headersDone == false)
+    _parser.ParseLine(data);
+  else if (_parser._chunked == true && _parser._current_chunk <= 0 && data.empty() == false) {
     int chunk = data.ToInt(16);
     if (chunk > 0) {
-      parser.current_chunk = chunk;
+      _parser._current_chunk = chunk;
       SetReadLine(false);
     } else { // Chunk length 0 indicates that it is done.
-      OnRequestDone(parser.responseCode, parser.headers, buffer);
+      OnRequestDone(_parser._responseCode, _parser._headers, _buffer);
       Close();
     };
   };
 };
 
 size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
-  if (parser.chunked == true && parser.current_chunk > 0) {
-    len = std::min(len, (size_t) parser.current_chunk);
+  if (_parser._chunked == true && _parser._current_chunk > 0) {
+    len = std::min(len, (size_t) _parser._current_chunk);
 #ifndef _NO_GZIP
-    if (parser.IsCompressed() == true) {
+    if (_parser.IsCompressed() == true) {
       len = Decompress(data, len);
     } else
 #endif //_NO_GZIP
     {
-      buffer.append(data, len);
+      _buffer.append(data, len);
     };
-    parser.current_chunk -= len;
-    if (parser.current_chunk <= 0)
+    _parser._current_chunk -= len;
+    if (_parser._current_chunk <= 0)
       SetReadLine(true);
-  } else if (parser.chunked == false) {
+  } else if (_parser._chunked == false) {
 #ifndef _NO_GZIP
-    if (parser.IsCompressed() == true) {
+    if (_parser.IsCompressed() == true) {
       len = Decompress(data, len);
     } else
 #endif //_NO_GZIP
     {
-      buffer.append(data, len);
+      _buffer.append(data, len);
     };
   };
-  if (parser.contentLength > 0) {
+  if (_parser._contentLength > 0) {
 #ifndef _NO_GZIP
-    if ((parser.IsCompressed() == false && buffer.size() >= (size_t) parser.contentLength)
-      || (parser.IsCompressed() == true && parser.zlib_stream->total_in >= (size_t) parser.contentLength))
+    if ((_parser.IsCompressed() == false && _buffer.size() >= (size_t) _parser._contentLength)
+      || (_parser.IsCompressed() == true && _parser._zlib_stream->total_in >= (size_t) _parser._contentLength))
 #endif //_NO_GZIP
     {
-      OnRequestDone(parser.responseCode, parser.headers, buffer);
+      OnRequestDone(_parser._responseCode, _parser._headers, _buffer);
       Close();
     };
   };
@@ -311,7 +314,7 @@ size_t SimpleHTTPSocket::ReadData(const char* data, size_t len) {
 
 void SimpleHTTPSocket::OnWrite(size_t bytes_left) {
   if (bytes_left == 0)
-    sent_data = true;
+    _sent_data = true;
 };
 
 #ifndef _NO_GZIP
@@ -319,20 +322,20 @@ void SimpleHTTPSocket::OnWrite(size_t bytes_left) {
 #define CHUNK_SIZE 16384
 
 size_t SimpleHTTPSocket::Decompress(const char* data, size_t len) {
-  if (parser.IsCompressed() == false)
+  if (_parser.IsCompressed() == false)
     return 0;
-  parser.zlib_stream->next_in = (Bytef*) data;
-  parser.zlib_stream->avail_in = len;
+  _parser._zlib_stream->next_in = (Bytef*) data;
+  _parser._zlib_stream->avail_in = len;
   int zlib_ret;
   char buf[CHUNK_SIZE];
   do {
-    parser.zlib_stream->next_out = (unsigned char*) buf;
-    parser.zlib_stream->avail_out = sizeof(buf);
-    parser.zlib_stream->total_out = 0;
-    switch ((zlib_ret = inflate(parser.zlib_stream, Z_NO_FLUSH))) {
+    _parser._zlib_stream->next_out = (unsigned char*) buf;
+    _parser._zlib_stream->avail_out = sizeof(buf);
+    _parser._zlib_stream->total_out = 0;
+    switch ((zlib_ret = inflate(_parser._zlib_stream, Z_NO_FLUSH))) {
     case Z_OK:
     case Z_STREAM_END:
-      buffer.append(buf, parser.zlib_stream->total_out);
+      _buffer.append(buf, _parser._zlib_stream->total_out);
       break;
     case Z_BUF_ERROR: // Non fatal error
       break;
@@ -344,46 +347,47 @@ size_t SimpleHTTPSocket::Decompress(const char* data, size_t len) {
       Close();
       return 0;
     };
-  } while (parser.zlib_stream->avail_out == 0);
-  return len - parser.zlib_stream->avail_in;
+  } while (_parser._zlib_stream->avail_out == 0);
+  return len - _parser._zlib_stream->avail_in;
 };
 
 #endif //_NO_GZIP
 
-SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket) {
-  this->socket = socket;
-  responseCode = 0;
-  contentLength = -1;
-  chunked = false;
-  current_chunk = -1;
-  headersDone = false;
+SimpleHTTPSocket::HTTPParser::HTTPParser(SimpleHTTPSocket* socket)
+: _responseCode(0)
+, _contentLength(-1)
+, _chunked(false)
+, _current_chunk(-1)
+, _headersDone(false)
+, _socket(socket)
 #ifndef _NO_GZIP
-  zlib_stream = NULL;
+, _zlib_stream(NULL)
 #endif //_NO_GZIP
+{
 };
 
 SimpleHTTPSocket::HTTPParser::~HTTPParser() {
 #ifndef _NO_GZIP
-  if (zlib_stream != NULL) {
-    inflateEnd(zlib_stream);
-    free(zlib_stream);
+  if (_zlib_stream != NULL) {
+    inflateEnd(_zlib_stream);
+    free(_zlib_stream);
   };
 #endif //_NO_GZIP
 };
 
 bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
-  if (responseCode == 0) {
+  if (_responseCode == 0) {
     if (line.size() > 8) {
       String responseCodeStr(line.substr(8));
-      responseCode = responseCodeStr.ToUShort();
-      return (responseCode >= 100 && responseCode < 600);
+      _responseCode = responseCodeStr.ToUShort();
+      return (_responseCode >= 100 && _responseCode < 600);
     };
     return false;
   } else {
     if (line.empty()) {
-      headersDone = true;
-      if (chunked == false)
-        socket->SetReadLine(false);
+      _headersDone = true;
+      if (_chunked == false)
+        _socket->SetReadLine(false);
       return true;
     };
     String::size_type k = line.find(':');
@@ -392,19 +396,19 @@ bool SimpleHTTPSocket::HTTPParser::ParseLine(const String& line) {
       String value(line.substr(k + 1));
       key.Trim();
       value.Trim();
-      headers[key] = value;
+      _headers[key] = value;
       key.MakeLower();
       value.MakeLower();
-      if (contentLength == -1 && key == "content-length")
-        contentLength = value.ToLong();
-      else if (chunked == false && key == "transfer-encoding" && value == "chunked")
-        chunked = true;
+      if (_contentLength == -1 && key == "content-length")
+        _contentLength = value.ToLong();
+      else if (_chunked == false && key == "transfer-encoding" && value == "chunked")
+        _chunked = true;
 #ifndef _NO_GZIP
-      else if (zlib_stream == NULL && key == "content-encoding" && value == "gzip") {
-        zlib_stream = (z_stream*) malloc(sizeof(z_stream));
-        bzero(zlib_stream, sizeof(z_stream));
-        if (inflateInit2(zlib_stream, 15 + 32) != Z_OK) {
-          std::cerr << "inflateInit2 went wrong!" << std::endl;
+      else if (_zlib_stream == NULL && key == "content-encoding" && value == "gzip") {
+        _zlib_stream = (z_stream*) malloc(sizeof(z_stream));
+        bzero(_zlib_stream, sizeof(z_stream));
+        if (inflateInit2(_zlib_stream, 15 + 32) != Z_OK) {
+          TermUtils::PrintError("inflateInit2 went wrong!");
           abort();
         };
       };

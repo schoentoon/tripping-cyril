@@ -28,34 +28,34 @@
 namespace trippingcyril {
 
 StatsdClient::StatsdClient(const String& pNm, const String& hostname, uint16_t port)
-: ns(pNm) {
-  sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-  if (sock == -1)
+: _ns(pNm) {
+  _sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  if (_sock == -1)
     throw std::runtime_error("socket() returned -1");
-  address.sin_family = AF_INET;
-  address.sin_port = htons(port);
-  if (inet_aton(hostname.c_str(), &address.sin_addr) == 0) {
+  _address.sin_family = AF_INET;
+  _address.sin_port = htons(port);
+  if (inet_aton(hostname.c_str(), &_address.sin_addr) == 0) {
     struct addrinfo* result = NULL, hints;
     bzero(&hints, sizeof(hints));
     int error;
     if ((error = getaddrinfo(hostname.c_str(), NULL, &hints, &result)))
       throw std::runtime_error(gai_strerror(error));
-    memcpy(&address.sin_addr, &((struct sockaddr_in*)result->ai_addr)->sin_addr, sizeof(struct in_addr));
+    memcpy(&_address.sin_addr, &((struct sockaddr_in*)result->ai_addr)->sin_addr, sizeof(struct in_addr));
     freeaddrinfo(result);
   };
 };
 
 StatsdClient::StatsdClient(const net::IPAddress& ip, const String& pNm, uint16_t port)
-: ns(pNm) {
-  sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-  if (sock == -1)
+: _ns(pNm) {
+  _sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  if (_sock == -1)
     throw std::runtime_error("socket() returned -1");
-  address.sin_family = AF_INET;
-  address.sin_port = htons(port);
+  _address.sin_family = AF_INET;
+  _address.sin_port = htons(port);
   switch (ip.GetIPVersion()) {
   case 4: {
     const net::IPv4Address ipv4 = (const net::IPv4Address) ip;
-    address.sin_addr = ipv4;
+    _address.sin_addr = ipv4;
     break;
   };
   default:
@@ -64,8 +64,8 @@ StatsdClient::StatsdClient(const net::IPAddress& ip, const String& pNm, uint16_t
 };
 
 StatsdClient::~StatsdClient() {
-  if (sock != -1)
-    close(sock);
+  if (_sock != -1)
+    close(_sock);
 };
 
 bool StatsdClient::DRY_RUN = false;
@@ -101,16 +101,16 @@ bool StatsdClient::shouldSend(float sample_rate) const {
 bool StatsdClient::send(const char* message, size_t len) const {
   if (DRY_RUN)
     return true;
-  if (sendto(sock, message, len, 0, (struct sockaddr*) &address, sizeof(address)) == -1)
+  if (sendto(_sock, message, len, 0, (struct sockaddr*) &_address, sizeof(_address)) == -1)
     return false;
   return true;
 };
 
 int StatsdClient::prepare(char* stat, size_t value, const char* type, float sample_rate, char* buf, size_t buflen, bool lf) const {
   if (sample_rate == 1.0)
-    return snprintf(buf, buflen, "%s%s:%zd|%s%s", ns.c_str(), stat, value, type, lf ? "\n" : "");
+    return snprintf(buf, buflen, "%s%s:%zd|%s%s", _ns.c_str(), stat, value, type, lf ? "\n" : "");
   else
-    return snprintf(buf, buflen, "%s%s:%zd|%s|@%.2f%s", ns.c_str(), stat, value, type, sample_rate, lf ? "\n" : "");
+    return snprintf(buf, buflen, "%s%s:%zd|%s|@%.2f%s", _ns.c_str(), stat, value, type, sample_rate, lf ? "\n" : "");
 };
 
 void StatsdClient::cleanup(char* stat) const {

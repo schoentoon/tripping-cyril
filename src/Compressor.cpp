@@ -22,14 +22,14 @@
 
 namespace trippingcyril {
 
-Compressor::Compressor(Writer* pWriter) {
-  total_in = 0;
-  writer = pWriter;
+Compressor::Compressor(Writer* pWriter)
+: _total_in(0)
+, _writer(pWriter) {
 };
 
 Compressor::~Compressor() {
-  if (writer->shouldDelete())
-    delete writer;
+  if (_writer->shouldDelete())
+    delete _writer;
 };
 
 #ifndef _NO_GZIP
@@ -39,8 +39,8 @@ Compressor::~Compressor() {
 
 GZipCompressor::GZipCompressor(Writer* pWriter, int level, int memory_level)
 : Compressor(pWriter) {
-  bzero(&zlib_stream, sizeof(zlib_stream));
-  if (deflateInit2(&zlib_stream,
+  bzero(&_zlib_stream, sizeof(_zlib_stream));
+  if (deflateInit2(&_zlib_stream,
                    (level > 0 && level < 10) ? level : 6,
                    Z_DEFLATED,
                    windowBits | GZIP_ENCODING,
@@ -50,25 +50,25 @@ GZipCompressor::GZipCompressor(Writer* pWriter, int level, int memory_level)
 };
 
 GZipCompressor::~GZipCompressor() {
-  deflateEnd(&zlib_stream);
+  deflateEnd(&_zlib_stream);
 };
 
 int GZipCompressor::Write(const char* data, size_t len) {
-  zlib_stream.next_in = (Bytef*) data;
-  zlib_stream.avail_in = len;
-  total_in += len;
+  _zlib_stream.next_in = (Bytef*) data;
+  _zlib_stream.avail_in = len;
+  _total_in += len;
   int zlib_ret;
   char buf[BUFFER_SIZE];
   int out_len = 0;
   do {
-    zlib_stream.next_out = (Bytef*) buf;
-    zlib_stream.avail_out = sizeof(buf);
-    zlib_stream.total_out = 0;
-    switch ((zlib_ret = deflate(&zlib_stream, Z_SYNC_FLUSH))) {
+    _zlib_stream.next_out = (Bytef*) buf;
+    _zlib_stream.avail_out = sizeof(buf);
+    _zlib_stream.total_out = 0;
+    switch ((zlib_ret = deflate(&_zlib_stream, Z_SYNC_FLUSH))) {
     case Z_OK:
     case Z_STREAM_END:
-      writer->Write(buf, zlib_stream.total_out);
-      out_len += zlib_stream.total_out;
+      _writer->Write(buf, _zlib_stream.total_out);
+      out_len += _zlib_stream.total_out;
       break;
     case Z_BUF_ERROR:
       break;
@@ -78,7 +78,7 @@ int GZipCompressor::Write(const char* data, size_t len) {
     default:
       return -1;
     };
-  } while (zlib_stream.avail_out == 0);
+  } while (_zlib_stream.avail_out == 0);
   return out_len;
 };
 
@@ -88,38 +88,38 @@ int GZipCompressor::Write(const char* data, size_t len) {
 
 LZMACompressor::LZMACompressor(Writer* pWriter, uint32_t preset, lzma_check check_type)
 : Compressor(pWriter) {
-  bzero(&stream, sizeof(stream));
-  if (lzma_easy_encoder(&stream, preset, check_type) != LZMA_OK)
+  bzero(&_stream, sizeof(_stream));
+  if (lzma_easy_encoder(&_stream, preset, check_type) != LZMA_OK)
     throw std::runtime_error("lzma_easy_encoder returned non-LZMA_OK");
 };
 
 LZMACompressor::~LZMACompressor() {
-  lzma_end(&stream);
+  lzma_end(&_stream);
 };
 
 int LZMACompressor::Write(const char* data, size_t len) {
-  stream.next_in = (uint8_t*) data;
-  stream.avail_in = len;
-  total_in += len;
+  _stream.next_in = (uint8_t*) data;
+  _stream.avail_in = len;
+  _total_in += len;
   int lzma_ret;
   int out_len = 0;
   char buf[BUFFER_SIZE];
   do {
-    stream.next_out = (uint8_t*) buf;
-    stream.avail_out = sizeof(buf);
-    stream.total_out = 0;
-    switch ((lzma_ret = lzma_code(&stream, LZMA_RUN))) {
+    _stream.next_out = (uint8_t*) buf;
+    _stream.avail_out = sizeof(buf);
+    _stream.total_out = 0;
+    switch ((lzma_ret = lzma_code(&_stream, LZMA_RUN))) {
     case LZMA_OK:
     case LZMA_STREAM_END:
-      writer->Write(buf, stream.total_out);
-      out_len += stream.total_out;
+      _writer->Write(buf, _stream.total_out);
+      out_len += _stream.total_out;
       break;
     case LZMA_MEM_ERROR:
     case LZMA_DATA_ERROR:
     default:
       return -1;
     };
-  } while (stream.avail_out == 0);
+  } while (_stream.avail_out == 0);
   return out_len;
 };
 

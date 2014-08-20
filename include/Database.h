@@ -88,9 +88,9 @@ public:
    * @param pModule The module to register this database on
    */
   Database(const Module *pModule = NULL)
-  : Event(pModule) {
-    autocommit = false;
-    stay_connected = false;
+  : Event(pModule)
+  , _autocommit(false)
+  , _stay_connected(false) {
   };
   virtual ~Database() {};
 #if __cplusplus >= 201103
@@ -140,20 +140,20 @@ public:
   /** @return True if the database is idle */
   virtual bool isIdle() const = 0;
   /** @brief Enables auto commiting */
-  void enableAutoCommit() { autocommit = true; };
+  void enableAutoCommit() { _autocommit = true; };
   /** @brief Enables auto commiting */
-  void disableAutoCommit() { autocommit = false; };
+  void disableAutoCommit() { _autocommit = false; };
   /** Set the stay connected mode on or off */
-  virtual void SetStayConnected(bool b) { stay_connected = b; };
+  virtual void SetStayConnected(bool b) { _stay_connected = b; };
 protected:
   /**
    * Marks if we should use autocommit or not
    */
-  bool autocommit : 1;
+  bool _autocommit : 1;
   /**
    * Marks if we should stay connected or not
    */
-  bool stay_connected : 1;
+  bool _stay_connected : 1;
 private:
 #if __cplusplus >= 201103
   // @cond

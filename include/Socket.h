@@ -92,9 +92,9 @@ public:
   /**
    * Enable/disable read line mode, decides if ReadLine or ReadData should be called
    */
-  void SetReadLine(bool b) { readline = b; };
+  void SetReadLine(bool b) { _readline = b; };
   /** @return True if socket is connected */
-  bool IsConnected() const { return is_connected; };
+  bool IsConnected() const { return _is_connected; };
   /**
    * Used to set a read/write timeout
    */
@@ -151,14 +151,14 @@ protected:
   bool SetTCPKeepAlive(bool enable, int delay);
 private:
   // @cond
-  uint8_t readline : 1;
-  uint8_t is_connected : 1;
-  uint8_t closing : 1;
-  uint8_t tcp_no_delay : 1;
-  uint8_t tcp_keep_alive : 1;
-  int tcp_keep_alive_interval;
-  struct timeval timeout;
-  struct bufferevent* connection;
+  uint8_t _readline : 1;
+  uint8_t _is_connected : 1;
+  uint8_t _closing : 1;
+  uint8_t _tcp_no_delay : 1;
+  uint8_t _tcp_keep_alive : 1;
+  int _tcp_keep_alive_interval;
+  struct timeval _timeout;
+  struct bufferevent* _connection;
   static void readcb(struct bufferevent* bev, void* ctx);
   static void writecb(struct bufferevent* bev, void* ctx);
   static void eventcb(struct bufferevent* bev, short what, void* ctx);
@@ -196,31 +196,31 @@ public:
  */
 struct IPv4Address : public IPAddress {
 public:
-  IPv4Address(struct in_addr* sa) {
-    addr = sa->s_addr;
+  IPv4Address(struct in_addr* sa)
+  : _addr(sa->s_addr) {
   };
   /**
    * Construct from a String
    * @throws std::error on not an ip address
    */
   IPv4Address(const String& ip) {
-    if (evutil_inet_pton(AF_INET, ip.c_str(), &addr) != 1)
+    if (evutil_inet_pton(AF_INET, ip.c_str(), &_addr) != 1)
       throw std::runtime_error("Invalid ip address");
   };
   virtual ~IPv4Address() {};
   virtual int GetIPVersion() const OVERRIDE { return 4; };
   /** @return The ipv4 address as an integer */
-  virtual int AsInt() const { return addr; }
+  virtual int AsInt() const { return _addr; }
   /** @return The ipv4 address as an integer */
   operator int() const { return AsInt(); };
   operator in_addr() const {
     struct in_addr in;
-    in.s_addr = addr;
+    in.s_addr = _addr;
     return in;
   };
   virtual String AsString() const OVERRIDE;
 private:
-  in_addr_t addr;
+  in_addr_t _addr;
 };
 
   };

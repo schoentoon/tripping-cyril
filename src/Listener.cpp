@@ -26,21 +26,21 @@ namespace trippingcyril {
 
 Listener::Listener(const Module* module, uint16_t pPort, log::Logger* pLogger, SSL_CTX *ctx)
 : Event(module)
-, port(pPort) {
-  listener = NULL;
-  logger = pLogger;
-  ssl_ctx = ctx;
+, _logger(pLogger)
+, _port(pPort)
+, _listener(NULL)
+, _ssl_ctx(ctx) {
 };
 
 Listener::~Listener() {
-  if (listener != NULL)
-    evconnlistener_free(listener);
-  if (ssl_ctx != NULL)
-    SSL_CTX_free(ssl_ctx);
+  if (_listener != NULL)
+    evconnlistener_free(_listener);
+  if (_ssl_ctx != NULL)
+    SSL_CTX_free(_ssl_ctx);
 };
 
 bool Listener::Listen() {
-  if (listener != NULL)
+  if (_listener != NULL)
     return false;
   int fd = socket(AF_INET, SOCK_STREAM, 0);
   if (fd == -1)
@@ -48,29 +48,29 @@ bool Listener::Listen() {
   struct sockaddr_in sin;
   bzero(&sin, sizeof(sin));
   sin.sin_family = AF_INET;
-  sin.sin_port = htons(port);
+  sin.sin_port = htons(_port);
   if (bind(fd, (struct sockaddr*) &sin, sizeof(sin)) < 0)
     return false;
-  listener = evconnlistener_new_bind(GetEventBase(), Listener::listener_cb, this
+  _listener = evconnlistener_new_bind(GetEventBase(), Listener::listener_cb, this
                                     ,LEV_OPT_REUSEABLE|LEV_OPT_CLOSE_ON_FREE|LEV_OPT_THREADSAFE, fd
                                     ,(struct sockaddr*) &sin, sizeof(sin));
-  return listener != NULL;
+  return _listener != NULL;
 };
 
 struct bufferevent* Listener::createBufferEvent(evutil_socket_t fd) {
-  if (ssl_ctx != NULL)
-    return bufferevent_openssl_socket_new(GetEventBase(), fd, SSL_new(ssl_ctx)
+  if (_ssl_ctx != NULL)
+    return bufferevent_openssl_socket_new(GetEventBase(), fd, SSL_new(_ssl_ctx)
                                          ,BUFFEREVENT_SSL_ACCEPTING, BEV_OPT_CLOSE_ON_FREE|BEV_OPT_THREADSAFE);
   return bufferevent_socket_new(GetEventBase(), fd, BEV_OPT_CLOSE_ON_FREE|BEV_OPT_THREADSAFE);
 };
 
 void Listener::listener_cb(evconnlistener* evlistener, int fd, sockaddr* sa, int socklen, void* context) {
   Listener* listener = (Listener*) context;
-  if (listener->logger) {
+  if (listener->_logger) {
     IPAddress* ip = IPAddress::fromFD(fd);
     String msg(ip->AsString());
-    msg.append(" connected to port " + String(listener->port));
-    listener->logger->Log(msg);
+    msg.append(" connected to port " + String(listener->_port));
+    listener->_logger->Log(msg);
     delete ip;
   }
   struct bufferevent* bev = listener->createBufferEvent(fd);

@@ -51,11 +51,11 @@ protected:
 private:
   // @cond
   void ResetTimer();
-  Timer* timer;
-  double current_interval;
-  double step;
-  double max_interval;
-  bool still_failing : 1;
+  Timer* _timer;
+  double _current_interval;
+  double _step;
+  double _max_interval;
+  bool _still_failing : 1;
   friend class BackoffTimerImpl;
   // @endcond
 };

@@ -25,16 +25,16 @@ namespace trippingcyril {
   namespace timing {
 
 Timer::Timer(const Module* pModule)
-: Event(pModule) {
-  this->timer = NULL;
-  this->stop = 0;
+: Event(pModule)
+, _stop(0)
+, _timer(NULL) {
 };
 
 Timer::Timer(const Module* pModule, double interval, unsigned int maxCycles)
-: Event(pModule) {
-  this->timer = NULL;
-  this->maxCycles = maxCycles;
-  this->stop = 0;
+: Event(pModule)
+, _maxCycles(maxCycles)
+, _stop(0)
+, _timer(NULL) {
   if (interval > 0) {
     if (maxCycles > 0)
       StartMaxCycles(interval, maxCycles);
@@ -44,8 +44,8 @@ Timer::Timer(const Module* pModule, double interval, unsigned int maxCycles)
 };
 
 Timer::~Timer() {
-  if (timer != NULL)
-    event_free(timer);
+  if (_timer != NULL)
+    event_free(_timer);
 };
 
 void Timer::Start(double interval) {
@@ -56,34 +56,34 @@ void Timer::Start(double interval) {
 };
 
 void Timer::Start(struct timeval& tv) {
-  if (timer == NULL) {
-    timer = event_new(GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
-    evtimer_add(timer, &tv);
+  if (_timer == NULL) {
+    _timer = event_new(GetEventBase(), -1, EV_PERSIST, Timer::EventCallback, this);
+    evtimer_add(_timer, &tv);
   };
 };
 
 void Timer::StartMaxCycles(double interval, unsigned int maxCycles) {
-  this->maxCycles = maxCycles;
-  this->currentCycle = 0;
+  this->_maxCycles = maxCycles;
+  this->_currentCycle = 0;
   Start(interval);
 };
 
 void Timer::Stop() {
-  this->stop = 1;
-  if (timer != NULL)
-    event_free(timer);
-  timer = NULL;
+  this->_stop = 1;
+  if (_timer != NULL)
+    event_free(_timer);
+  _timer = NULL;
   Start(0.0);
 };
 
 void Timer::EventCallback(int fd, short int event, void* arg) {
   Timer* timer = (Timer*) arg;
-  if (timer->stop == 1) {
+  if (timer->_stop == 1) {
     timer->Finished();
     delete timer;
   } else {
     timer->RunJob();
-    if (timer->maxCycles > 0 && ++timer->currentCycle == timer->maxCycles) {
+    if (timer->_maxCycles > 0 && ++timer->_currentCycle == timer->_maxCycles) {
       timer->Finished();
       delete timer;
     };

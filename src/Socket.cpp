@@ -31,40 +31,40 @@ namespace trippingcyril {
   namespace net {
 
 Socket::Socket(const Module* pModule)
-: Event(pModule) {
-  connection = NULL;
-  readline = 0;
-  is_connected = 0;
-  closing = 0;
-  read_more = 0;
-  tcp_no_delay = 0;
-  tcp_keep_alive = 1;
-  tcp_keep_alive_interval = 45;
+: Event(pModule)
+, read_more(0)
+, _readline(0)
+, _is_connected(0)
+, _closing(0)
+, _tcp_no_delay(0)
+, _tcp_keep_alive(1)
+, _tcp_keep_alive_interval(45)
+, _connection(NULL) {
   SetTimeout(0.0);
 };
 
 Socket::Socket(struct bufferevent* event)
-: Event(NULL) {
-  connection = event;
-  readline = 0;
-  is_connected = 0;
-  closing = 0;
-  read_more = 0;
-  tcp_no_delay = 0;
-  tcp_keep_alive = 1;
-  tcp_keep_alive_interval = 45;
+: Event(NULL)
+, read_more(0)
+, _readline(0)
+, _is_connected(0)
+, _closing(0)
+, _tcp_no_delay(0)
+, _tcp_keep_alive(1)
+, _tcp_keep_alive_interval(45)
+, _connection(event) {
   SetTimeout(0.0);
   enableCallbacks();
 };
 
 Socket::~Socket() {
-  if (connection != NULL)
-    bufferevent_free(connection);
+  if (_connection != NULL)
+    bufferevent_free(_connection);
 };
 
 int Socket::Write(const char* data, size_t len) {
-  if (connection != NULL) {
-    bufferevent_write(connection, data, len);
+  if (_connection != NULL) {
+    bufferevent_write(_connection, data, len);
     return len;
   };
   return -1;
@@ -74,12 +74,12 @@ void Socket::readcb(struct bufferevent* bev, void* ctx) {
   Socket* socket = (Socket*) ctx;
   struct evbuffer* input = bufferevent_get_input(bev);
 begin:
-  if (socket->readline == 1) {
+  if (socket->_readline == 1) {
     char* line = evbuffer_readln(input, NULL, EVBUFFER_EOL_CRLF);
     while (line != NULL) {
       socket->ReadLine(String(line));
       free(line);
-      if (socket->readline == 0)
+      if (socket->_readline == 0)
         goto begin; // We may have switched it in the meantime..
       line = evbuffer_readln(input, NULL, EVBUFFER_EOL_CRLF);
     };
@@ -93,7 +93,7 @@ begin:
         evbuffer_drain(input, used);
         if (used == len)
           return; // We're completely empty so just exit
-        if (socket->readline == 1)
+        if (socket->_readline == 1)
           goto begin; // We may have switched it in the meantime..
       };
     } while (socket->read_more == 1);
@@ -110,16 +110,16 @@ void Socket::eventcb(struct bufferevent* bev, short what, void* ctx) {
   Socket* socket = (Socket*) ctx;
   if (socket != NULL) {
     if (what & BEV_EVENT_CONNECTED) {
-      socket->is_connected = 1; // This way IsConnected() will return true for our connection setters
-      socket->SetTCPNoDelay(socket->tcp_no_delay == 1);
-      socket->SetTCPKeepAlive(socket->tcp_keep_alive == 1, socket->tcp_keep_alive_interval);
-      if (socket->timeout.tv_sec > 0 || socket->timeout.tv_usec > 0)
-        bufferevent_set_timeouts(bev, &socket->timeout, &socket->timeout);
-      socket->is_connected = 0;
+      socket->_is_connected = 1; // This way IsConnected() will return true for our connection setters
+      socket->SetTCPNoDelay(socket->_tcp_no_delay == 1);
+      socket->SetTCPKeepAlive(socket->_tcp_keep_alive == 1, socket->_tcp_keep_alive_interval);
+      if (socket->_timeout.tv_sec > 0 || socket->_timeout.tv_usec > 0)
+        bufferevent_set_timeouts(bev, &socket->_timeout, &socket->_timeout);
+      socket->_is_connected = 0;
       socket->Connected();
-      socket->is_connected = 1;
+      socket->_is_connected = 1;
     } else if (what & BEV_EVENT_TIMEOUT) {
-      if (socket->closing == 0)
+      if (socket->_closing == 0)
         socket->Timeout();
       delete socket;
     } else {
@@ -130,48 +130,48 @@ void Socket::eventcb(struct bufferevent* bev, short what, void* ctx) {
 };
 
 void Socket::Close() {
-  closing = 1;
-  timeout.tv_sec = 0;
-  timeout.tv_usec = 0;
-  bufferevent_set_timeouts(connection, &timeout, &timeout);
+  _closing = 1;
+  _timeout.tv_sec = 0;
+  _timeout.tv_usec = 0;
+  bufferevent_set_timeouts(_connection, &_timeout, &_timeout);
 };
 
 void Socket::SetTimeout(double dTimeout) {
   if (dTimeout > 0) {
-    timeout.tv_sec = (__time_t) dTimeout;
-    timeout.tv_usec = (__suseconds_t) ((dTimeout - (double) timeout.tv_sec) * 1000000.0);
-    if (connection)
-      bufferevent_set_timeouts(connection, &timeout, &timeout);
-  } else if (connection)
-    bufferevent_set_timeouts(connection, NULL, NULL);
+    _timeout.tv_sec = (__time_t) dTimeout;
+    _timeout.tv_usec = (__suseconds_t) ((dTimeout - (double) _timeout.tv_sec) * 1000000.0);
+    if (_connection)
+      bufferevent_set_timeouts(_connection, &_timeout, &_timeout);
+  } else if (_connection)
+    bufferevent_set_timeouts(_connection, NULL, NULL);
 };
 
 const IPAddress* Socket::GetIP() const {
-  if (connection == NULL)
+  if (_connection == NULL)
     return NULL;
-  return IPAddress::fromFD(bufferevent_getfd(connection));
+  return IPAddress::fromFD(bufferevent_getfd(_connection));
 };
 
 bool Socket::SetTCPNoDelay(bool enable) {
-  tcp_no_delay = enable ? 1 : 0;
+  _tcp_no_delay = enable ? 1 : 0;
   if (IsConnected()) {
-    evutil_socket_t fd = bufferevent_getfd(connection);
-    int mode = tcp_no_delay;
+    evutil_socket_t fd = bufferevent_getfd(_connection);
+    int mode = _tcp_no_delay;
     return setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &mode, sizeof(mode)) == 0;
   };
   return true;
 };
 
 bool Socket::SetTCPKeepAlive(bool enable, int delay) {
-  tcp_keep_alive = enable ? 1 : 0;
+  _tcp_keep_alive = enable ? 1 : 0;
   if (IsConnected()) {
-    evutil_socket_t fd = bufferevent_getfd(connection);
-    int mode = tcp_keep_alive ? 1 : 0;
+    evutil_socket_t fd = bufferevent_getfd(_connection);
+    int mode = _tcp_keep_alive ? 1 : 0;
     if (setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &mode, sizeof(mode)) != 0)
       return false;
     if (!enable)
       return true;
-    tcp_keep_alive_interval = delay;
+    _tcp_keep_alive_interval = delay;
     if (setsockopt(fd, SOL_TCP, TCP_KEEPIDLE, &delay, sizeof(delay)) != 0)
       return false;
     if (setsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &delay, sizeof(delay)) != 0)
@@ -187,15 +187,15 @@ static SSL_CTX* createSSL_CTX() {
 };
 
 bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTimeout) {
-  if (connection != NULL)
+  if (_connection != NULL)
     return false; // Already connected.
   struct event_base* base = GetEventBase();
   if (createConnection(base, ssl) == false)
     return false;
   struct evdns_base* dns = GetDNSBase();
-  if (bufferevent_socket_connect_hostname(connection, dns, AF_INET, hostname.c_str(), port) != 0) {
-    bufferevent_free(connection);
-    connection = NULL;
+  if (bufferevent_socket_connect_hostname(_connection, dns, AF_INET, hostname.c_str(), port) != 0) {
+    bufferevent_free(_connection);
+    _connection = NULL;
     return false;
   };
   if (dTimeout > 0)
@@ -205,7 +205,7 @@ bool Socket::Connect(const String& hostname, uint16_t port, bool ssl, double dTi
 };
 
 bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeout) {
-  if (connection != NULL)
+  if (_connection != NULL)
     return false; // Already connected.
   struct event_base* base = GetEventBase();
   if (createConnection(base, ssl) == false)
@@ -219,7 +219,7 @@ bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeou
     addr.sin_addr = *ipv4;
     addr.sin_family = AF_INET;
     addr.sin_port = htons(port);
-    ret = bufferevent_socket_connect(connection, (struct sockaddr*) &addr, sizeof(struct sockaddr));
+    ret = bufferevent_socket_connect(_connection, (struct sockaddr*) &addr, sizeof(struct sockaddr));
     break;
   };
   default:
@@ -227,8 +227,8 @@ bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeou
     break;
   };
   if (ret != 0) {
-    bufferevent_free(connection);
-    connection = NULL;
+    bufferevent_free(_connection);
+    _connection = NULL;
     return false;
   };
   if (timeout > 0)
@@ -238,20 +238,20 @@ bool Socket::Connect(const IPAddress* ip, uint16_t port, bool ssl, double timeou
 };
 
 bool Socket::createConnection(struct event_base* base, bool ssl) {
-  if (connection != NULL)
+  if (_connection != NULL)
     return false;
   if (ssl) {
     SSL_CTX* ssl_ctx = createSSL_CTX();
     SSL* ssl_obj = SSL_new(ssl_ctx);
-    connection = bufferevent_openssl_socket_new(base, -1, ssl_obj, BUFFEREVENT_SSL_CONNECTING, BEV_OPT_CLOSE_ON_FREE);
+    _connection = bufferevent_openssl_socket_new(base, -1, ssl_obj, BUFFEREVENT_SSL_CONNECTING, BEV_OPT_CLOSE_ON_FREE);
   } else
-    connection = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
-  return connection != NULL;
+    _connection = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
+  return _connection != NULL;
 };
 
 void Socket::enableCallbacks() {
-  bufferevent_setcb(connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
-  bufferevent_enable(connection, EV_READ|EV_WRITE);
+  bufferevent_setcb(_connection, Socket::readcb, Socket::writecb, Socket::eventcb, this);
+  bufferevent_enable(_connection, EV_READ|EV_WRITE);
 };
 
 IPAddress* IPAddress::fromFD(int fd) {
@@ -274,10 +274,10 @@ IPAddress* IPAddress::fromFD(int fd) {
 
 String IPv4Address::AsString() const {
   char buf[INET_ADDRSTRLEN];
-  size_t len = snprintf(buf, sizeof(buf), "%d.%d.%d.%d", (addr      ) & 0xFF
-                                                       , (addr >>  8) & 0xFF
-                                                       , (addr >> 16) & 0xFF
-                                                       , (addr >> 24) & 0xFF);
+  size_t len = snprintf(buf, sizeof(buf), "%d.%d.%d.%d", (_addr      ) & 0xFF
+                                                       , (_addr >>  8) & 0xFF
+                                                       , (_addr >> 16) & 0xFF
+                                                       , (_addr >> 24) & 0xFF);
   return String(buf, len);
 };
 

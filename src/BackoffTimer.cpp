@@ -23,49 +23,49 @@ namespace trippingcyril {
 class BackoffTimerImpl : public Timer {
 public:
   BackoffTimerImpl(BackoffTimer* timer, double interval)
-  : Timer(timer->GetModule(), interval, 1) {
-    this->timer = timer;
+  : Timer(timer->GetModule(), interval, 1)
+  , _timer(timer) {
   };
   virtual ~BackoffTimerImpl() {
-    timer->ResetTimer();
+    _timer->ResetTimer();
   };
 protected:
   virtual void RunJob() {
-    timer->RunJob();
+    _timer->RunJob();
   };
 private:
-  BackoffTimer* timer;
+  BackoffTimer* _timer;
 };
 
 BackoffTimer::BackoffTimer(const Module* module, double start_step, double step, double max_interval)
-: Event(module) {
-  this->current_interval = start_step;
-  this->step = step;
-  this->max_interval = max_interval;
-  still_failing = false;
-  timer = new BackoffTimerImpl(this, start_step);
+: Event(module)
+, _timer(new BackoffTimerImpl(this, start_step))
+, _current_interval(start_step)
+, _step(step)
+, _max_interval(max_interval)
+, _still_failing(false) {
 };
 
 BackoffTimer::~BackoffTimer() {
-  if (timer != NULL)
-    delete timer;
+  if (_timer != NULL)
+    delete _timer;
 };
 
 void BackoffTimer::SetStillFailing() {
-  if (timer == NULL)
-    timer = new BackoffTimerImpl(this, current_interval);
+  if (_timer == NULL)
+    _timer = new BackoffTimerImpl(this, _current_interval);
   else
-    still_failing = true;
+    _still_failing = true;
 };
 
 void BackoffTimer::ResetTimer() {
-  timer = NULL;
-  current_interval += step;
-  if (current_interval > max_interval)
-    current_interval = max_interval;
-  if (still_failing) {
-    timer = new BackoffTimerImpl(this, current_interval);
-    still_failing = false;
+  _timer = NULL;
+  _current_interval += _step;
+  if (_current_interval > _max_interval)
+    _current_interval = _max_interval;
+  if (_still_failing) {
+    _timer = new BackoffTimerImpl(this, _current_interval);
+    _still_failing = false;
   };
 };
 

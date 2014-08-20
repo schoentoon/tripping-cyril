@@ -112,7 +112,7 @@ protected:
 class TestFileObserverCallback : public FileObserverCallback {
 public:
   TestFileObserverCallback() {
-    mask = IN_ALL_EVENTS;
+    _mask = IN_ALL_EVENTS;
   };
 };
 

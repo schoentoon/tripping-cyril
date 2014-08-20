@@ -47,14 +47,14 @@ public:
    * <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a>
    */
   int Read(char* buffer, size_t len) {
-    return read(fds[0], buffer, len);
+    return read(_fds[0], buffer, len);
   };
   /**
    * Generic write operation to this pipe, similar to
    * <a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a>
    */
   int Write(const char* buffer, size_t len) OVERRIDE {
-    return write(fds[1], buffer, len);
+    return write(_fds[1], buffer, len);
   };
 protected:
   /**
@@ -63,8 +63,8 @@ protected:
   virtual void OnRead() = 0;
 private:
   // @cond
-  int fds[2];
-  struct event* read_event;
+  int _fds[2];
+  struct event* _read_event;
   static void EventCallback(evutil_socket_t fd, short event, void* arg);
   // @endcond
 };

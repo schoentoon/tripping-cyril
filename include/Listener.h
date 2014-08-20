@@ -44,7 +44,7 @@ public:
   /** Deconstructor */
   virtual ~Listener();
   /** @return True if we are listening */
-  bool isListening() const { return listener != NULL; };
+  bool isListening() const { return _listener != NULL; };
   /**
    * Start listening
    * @return True if we are succesfully listening
@@ -62,14 +62,14 @@ protected:
   virtual Socket* createSocket(struct bufferevent* bev) = 0;
 
   /** Logger to log accepted connection to, protected so you can pass it to new sockets */
-  log::Logger *logger;
+  log::Logger *_logger;
 private:
   // @cond
   static void listener_cb(struct evconnlistener *evlistener, evutil_socket_t fd
                          ,struct sockaddr *sa, int socklen, void *context);
-  const uint16_t port;
-  struct evconnlistener *listener;
-  SSL_CTX *ssl_ctx;
+  const uint16_t _port;
+  struct evconnlistener *_listener;
+  SSL_CTX *_ssl_ctx;
   // @endcond
 };
 

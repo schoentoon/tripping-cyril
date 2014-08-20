@@ -87,13 +87,13 @@ public:
   virtual ~PostGres();
 #if __cplusplus >= 201103
   virtual void SelectLamdba(const String& query, const DBLamdbaCallback &callback
-  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) OVERRIDE;
+  , const DBLamdbaErrorCallback &errorcallback = nullptr) OVERRIDE;
   virtual void InsertLamdba(const String& query, const DBLamdbaCallback &callback
-  , const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) OVERRIDE;
+  , const DBLamdbaErrorCallback &errorcallback = nullptr) OVERRIDE;
 #endif
   virtual const DBResult* Select(const String& query, DBCallback *callback = NULL) OVERRIDE;
   virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL) OVERRIDE;
-  bool isIdle() const OVERRIDE { return conn == NULL; };
+  bool isIdle() const OVERRIDE { return _conn == NULL; };
   /**
    * Demands SetStayConnected(true), will apply automatically
    * @return False if you're already listening for this or if it contained some
@@ -102,21 +102,22 @@ public:
   bool Listen(const String& key, PGNotifyListener* listener);
   void Unlisten(const String& key);
   virtual void SetStayConnected(bool b) OVERRIDE {
-    if (listeners.empty())
-      stay_connected = b;
+    if (_listeners.empty())
+      _stay_connected = b;
   };
 private:
   // @cond
-  String connstring;
-  deque<PQJob*> jobs;
-  PGconn *conn;
-  struct event *event;
-  bool in_loop : 1;
+  String _connstring;
+  deque<PQJob*> _jobs;
+  PGconn *_conn;
+  struct event *_event;
+  bool _in_loop : 1;
+  std::map<String, PGNotifyListener*> _listeners;
+  timing::BackoffTimer* _backoff;
+
   static void EventCallback(evutil_socket_t fd, short event, void* ctx);
   void Loop();
   void Connect();
-  std::map<String, PGNotifyListener*> listeners;
-  timing::BackoffTimer* backoff;
   friend class PostGresBackoff;
   // @endcond
 };
@@ -143,8 +144,8 @@ public:
 private:
   // @cond
   void Connect();
-  String connstring;
-  PGconn *conn;
+  String _connstring;
+  PGconn *_conn;
   // @endcond
 };
 

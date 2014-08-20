@@ -24,17 +24,18 @@
 #include <iostream>
 
 #include "Global.h"
+#include "TermUtils.h"
 
 namespace trippingcyril {
 
-File::File(const String& path) {
-  fd = -1;
-  filename = path;
+File::File(const String& path)
+: _filename(path)
+, _fd(-1) {
   String::size_type sPos = path.rfind('/');
   if (sPos != String::npos)
-    shortname = path.substr(sPos + 1);
+    _shortname = path.substr(sPos + 1);
   else
-    shortname = path;
+    _shortname = path;
 };
 
 File::~File() {
@@ -43,12 +44,12 @@ File::~File() {
 
 bool File::Exists() const {
   struct stat st;
-  return (stat(filename.c_str(), &st) == 0);
+  return (stat(_filename.c_str(), &st) == 0);
 };
 
 File::FileType File::GetType() const {
   struct stat st;
-  if (stat(filename.c_str(), &st) != 0)
+  if (stat(_filename.c_str(), &st) != 0)
     return UNKNOWN;
   if (S_ISREG(st.st_mode))
     return REGULAR;
@@ -69,50 +70,38 @@ File::FileType File::GetType() const {
 
 off_t File::GetSize() const {
   struct stat st;
-  if (stat(filename.c_str(), &st) != 0)
+  if (stat(_filename.c_str(), &st) != 0)
     return 0;
   return (S_ISREG(st.st_mode)) ? st.st_size : 0;
 };
 
 time_t File::GetATime() const {
   struct stat st;
-  return (stat(filename.c_str(), &st) != 0) ? 0 : st.st_atime;
+  return (stat(_filename.c_str(), &st) != 0) ? 0 : st.st_atime;
 };
 
 time_t File::GetMTime() const {
   struct stat st;
-  return (stat(filename.c_str(), &st) != 0) ? 0 : st.st_mtime;
+  return (stat(_filename.c_str(), &st) != 0) ? 0 : st.st_mtime;
 };
 
 time_t File::GetCTime() const {
   struct stat st;
-  return (stat(filename.c_str(), &st) != 0) ? 0 : st.st_ctime;
+  return (stat(_filename.c_str(), &st) != 0) ? 0 : st.st_ctime;
 };
 
 uid_t File::GetUID() const {
   struct stat st;
-  return (stat(filename.c_str(), &st) != 0) ? 0 : st.st_uid;
+  return (stat(_filename.c_str(), &st) != 0) ? 0 : st.st_uid;
 };
 
 gid_t File::GetGID() const {
   struct stat st;
-  return (stat(filename.c_str(), &st) != 0) ? 0 : st.st_gid;
-};
-
-bool File::IsOpen() const {
-  return (fd != -1);
-};
-
-String File::GetName() const {
-  return filename;
-};
-
-String File::GetShortName() const {
-  return shortname;
+  return (stat(_filename.c_str(), &st) != 0) ? 0 : st.st_gid;
 };
 
 bool File::Delete() {
-  return (unlink(filename.c_str()) == 0);
+  return (unlink(_filename.c_str()) == 0);
 };
 
 bool File::Move(const String& newpath, bool overwrite) {
@@ -121,7 +110,7 @@ bool File::Move(const String& newpath, bool overwrite) {
     if (newfile.Exists())
       return false;
   };
-  return (rename(filename.c_str(), newpath.c_str()) == 0);
+  return (rename(_filename.c_str(), newpath.c_str()) == 0);
 };
 
 #define WRITE_BUFFER 8192
@@ -153,78 +142,78 @@ bool File::Copy(const String& newpath, bool overwrite) {
 };
 
 bool File::Chmod(mode_t mode) {
-  return (chmod(filename.c_str(), mode) == 0);
+  return (chmod(_filename.c_str(), mode) == 0);
 };
 
 bool File::Seek(off_t pos, int whence) {
-  if (fd != -1 && lseek(fd, pos, whence) >= 0)
+  if (_fd != -1 && lseek(_fd, pos, whence) >= 0)
     return true;
   return false;
 };
 
 off_t File::Tell() {
-  if (fd == -1) return 0;
-  return lseek(fd, 0, SEEK_CUR);
+  if (_fd == -1) return 0;
+  return lseek(_fd, 0, SEEK_CUR);
 };
 
 bool File::Truncate(off_t len) {
-  if (fd != -1 && ftruncate(fd, len) == 0) {
-    buffer.clear();
+  if (_fd != -1 && ftruncate(_fd, len) == 0) {
+    _buffer.clear();
     return true;
   };
   return false;
 };
 
 bool File::Sync() {
-  if (fd != -1 && fsync(fd) == 0)
+  if (_fd != -1 && fsync(_fd) == 0)
     return true;
   return false;
 };
 
 bool File::Open(int flags, mode_t mode) {
   mode |= O_NOCTTY;
-  fd = open(filename.c_str(), flags, mode);
-  if (fd < 0)
+  _fd = open(_filename.c_str(), flags, mode);
+  if (_fd < 0)
     return false;
   return true;
 };
 
 int File::Read(char* buffer, size_t len) {
-  if (fd == -1)
+  if (_fd == -1)
     return -1;
-  return read(fd, buffer, len);
+  return read(_fd, buffer, len);
 };
 
 #define READ_BUF 8192
 
 bool File::ReadLine(String& data, const String& delimiter) {
-  if (fd == -1)
+  if (_fd == -1)
     return false;
   char buf[READ_BUF];
   int len;
   do {
-    String::size_type find = buffer.find(delimiter);
+    String::size_type find = _buffer.find(delimiter);
     if (find != String::npos) {
-      data = buffer.substr(0, find + delimiter.length());
-      buffer.erase(0, find + delimiter.length());
+      data = _buffer.substr(0, find + delimiter.length());
+      _buffer.erase(0, find + delimiter.length());
       return true;
     };
     len = Read(buf, sizeof(buf));
     if (len > 0)
-      buffer.append(buf, len);
+      _buffer.append(buf, len);
   } while (len > 0);
   // We are at the end of the file, or some error happend
-  if (buffer.empty() == false) {
+  if (_buffer.empty() == false) {
     // But here, have the rest of the file
-    data = buffer;
-    buffer.clear();
+    data = _buffer;
+    _buffer.clear();
     return true;
   };
   return false;
 };
 
 bool File::ReadFile(String& data, size_t maxSize) {
-  if (fd == -1)
+  if (_fd == -1)
     return false;
   char buf[READ_BUF];
   size_t bytesRead = 0;
@@ -242,12 +231,12 @@ bool File::ReadFile(String& data, size_t maxSize) {
 };
 
 int File::Write(const char* buffer, size_t len) {
-  if (fd == -1)
+  if (_fd == -1)
     return -1;
   char* p = (char*) buffer;
   int left = len;
   while (left > 0) {
-    int wrote = write(fd, p, std::min(BUFFER_SIZE, left));
+    int wrote = write(_fd, p, std::min(BUFFER_SIZE, left));
     if (wrote < 0)
       return wrote;
     left -= wrote;
@@ -257,26 +246,26 @@ int File::Write(const char* buffer, size_t len) {
 };
 
 void File::Close() {
-  if (fd > 0) {
-    close(fd);
-    fd = -1;
+  if (_fd > 0) {
+    close(_fd);
+    _fd = -1;
   };
 };
 
 TempFile::TempFile()
 : File("") {
   char tmp[] = "/tmp/trippingcyril.XXXXXX";
-  fd = mkstemp(tmp);
-  filename = tmp;
-  String::size_type sPos = filename.rfind('/');
+  _fd = mkstemp(tmp);
+  _filename = tmp;
+  String::size_type sPos = _filename.rfind('/');
   if (sPos != String::npos)
-    shortname = filename.substr(sPos + 1);
+    _shortname = _filename.substr(sPos + 1);
   else
-    shortname = filename;
+    _shortname = _filename;
 };
 
 TempFile::TempFile(const TempFile &that)
-: File(that.filename)
+: File(that._filename)
 {
 };
 
@@ -322,12 +311,12 @@ bool Dir::MakeDir(const String& path, mode_t mode) {
 };
 
 FileObserver::FileObserver() {
-  inotifyfd = inotify_init();
-  if (inotifyfd == -1) {
-    std::cerr << "An error occured in inotify_init(), exiting." << std::endl;
+  _inotifyfd = inotify_init();
+  if (_inotifyfd == -1) {
+    TermUtils::PrintError("An error occured in inotify_init(), exiting.");
     abort();
   };
-  struct bufferevent* bev = bufferevent_socket_new(Global::Get()->GetEventBase(), inotifyfd, 0);
+  struct bufferevent* bev = bufferevent_socket_new(Global::Get()->GetEventBase(), _inotifyfd, 0);
   bufferevent_setcb(bev, FileObserver::readcb, NULL, NULL, this);
   bufferevent_enable(bev, EV_READ);
 };
@@ -338,28 +327,28 @@ bool FileObserver::Register(const String& directory, FileObserverCallback* callb
   File dir(directory);
   if (dir.Exists() == false || dir.GetType() != File::DIRECTORY)
     return false;
-  int wd = inotify_add_watch(inotifyfd, directory.c_str(), callback->mask);
+  int wd = inotify_add_watch(_inotifyfd, directory.c_str(), callback->_mask);
   if (wd == -1)
     return false;
   String folder(directory);
   folder.TrimRight("/");
-  folders[wd] = folder;
-  callbacks[wd] = callback;
+  _folders[wd] = folder;
+  _callbacks[wd] = callback;
   return true;
 };
 
 bool FileObserver::Unregister(const String& directory) {
-  for (map<int, String>::iterator iter = folders.begin(); iter != folders.end(); ++iter) {
+  for (map<int, String>::iterator iter = _folders.begin(); iter != _folders.end(); ++iter) {
     if (directory == iter->second) {
       int wd = iter->first;
-      folders.erase(iter);
-      map<int, FileObserverCallback*>::iterator c_iter = callbacks.find(wd);
-      if (c_iter != callbacks.end()) {
+      _folders.erase(iter);
+      map<int, FileObserverCallback*>::iterator c_iter = _callbacks.find(wd);
+      if (c_iter != _callbacks.end()) {
         if (c_iter->second != NULL)
           delete c_iter->second;
-        callbacks.erase(c_iter);
+        _callbacks.erase(c_iter);
       };
-      if (inotify_rm_watch(inotifyfd, wd) == -1)
+      if (inotify_rm_watch(_inotifyfd, wd) == -1)
         return false;
       return true;
     };
@@ -379,13 +368,13 @@ void FileObserver::readcb(struct bufferevent* bev, void* arg) {
       struct inotify_event *event = (struct inotify_event*) p;
       if (event->len > 0) {
         String filename(event->name, event->len);
-        map<int, String>::const_iterator path_iter = observer->folders.find(event->wd);
+        map<int, String>::const_iterator path_iter = observer->_folders.find(event->wd);
         String path;
-        if (path_iter != observer->folders.end())
+        if (path_iter != observer->_folders.end())
           path = path_iter->second;
         String filepath = path + "/" + filename;
-        map<int, FileObserverCallback*>::iterator iter = observer->callbacks.find(event->wd);
-        if (iter != observer->callbacks.end() && iter->second != NULL) {
+        map<int, FileObserverCallback*>::iterator iter = observer->_callbacks.find(event->wd);
+        if (iter != observer->_callbacks.end() && iter->second != NULL) {
           File file(filepath);
           if (event->mask & IN_ACCESS)
             iter->second->OnAccess(file);

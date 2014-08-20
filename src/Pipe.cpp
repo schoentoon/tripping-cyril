@@ -27,18 +27,18 @@ namespace trippingcyril {
 
 Pipe::Pipe(const Module* pModule)
 : Event(pModule) {
-  if (pipe(fds) != 0)
+  if (pipe(_fds) != 0)
     throw std::runtime_error(strerror(errno));
-  fcntl(fds[0], F_SETFL, O_NONBLOCK);
-  read_event = event_new(GetEventBase()
-                        ,fds[0], EV_PERSIST|EV_READ, Pipe::EventCallback, this);
-  event_add(read_event, NULL);
+  fcntl(_fds[0], F_SETFL, O_NONBLOCK);
+  _read_event = event_new(GetEventBase()
+                         ,_fds[0], EV_PERSIST|EV_READ, Pipe::EventCallback, this);
+  event_add(_read_event, NULL);
 };
 
 Pipe::~Pipe() {
-  close(fds[0]);
-  close(fds[1]);
-  event_free(read_event);
+  close(_fds[0]);
+  close(_fds[1]);
+  event_free(_read_event);
 };
 
 void Pipe::EventCallback(evutil_socket_t fd, short event, void* arg) {

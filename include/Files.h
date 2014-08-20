@@ -56,6 +56,7 @@ public:
 
   /** @return true if the file exists */
   virtual bool Exists() const;
+  /** @return the type of file */
   virtual FileType GetType() const; // UNKNOWN may also be an error
   /** @return The size of the file, only works with REGULAR files, 0 otherwise */
   virtual off_t GetSize() const;
@@ -70,11 +71,11 @@ public:
   /** @return GID of this file. */
   virtual gid_t GetGID() const;
   /** @return true if successfully opened with Open() @see Open */
-  bool IsOpen() const;
+  bool IsOpen() const { return (_fd != -1); };
   /** @return The path of this file, may be relative depends on what you passed to the constructor */
-  String GetName() const;
+  String GetName() const { return _filename; };
   /** @return The filename without any path. */
-  String GetShortName() const;
+  String GetShortName() const { return _shortname; }
 
   /** @return true if successfully deleted. */
   virtual bool Delete();
@@ -122,10 +123,10 @@ public:
   void Close() OVERRIDE;
 protected:
   // @cond
-  String buffer;
-  String filename;
-  String shortname;
-  int fd;
+  String _buffer;
+  String _filename;
+  String _shortname;
+  int _fd;
   // @endcond
 private:
   /** Disabled copy constructor */
@@ -176,8 +177,8 @@ class FileObserver;
  */
 class FileObserverCallback {
 public:
-  FileObserverCallback() {
-    mask = 0; // Any way to set this automatically correctly based on the methods that are overriden?
+  FileObserverCallback()
+  : _mask(0) { // Any way to set this automatically correctly based on the methods that are overriden?
   };
   virtual ~FileObserverCallback() {};
 protected:
@@ -213,7 +214,7 @@ protected:
    * The mask to register with, note that this will decide what On* methods will get called, see
    * <a href="http://man7.org/linux/man-pages/man7/inotify.7.html">inotify(7)</a> for help with the mask
    */
-  int mask;
+  int _mask;
   friend class FileObserver;
 };
 
@@ -243,13 +244,13 @@ public:
    */
   bool Unregister(const String& directory);
   /** @return The amount of folders being watched */
-  size_t amountWatchedFolders() { return folders.size(); };
+  size_t amountWatchedFolders() { return _folders.size(); };
 private:
   FileObserver();
   // @cond
-  map<int, String> folders;
-  map<int, FileObserverCallback*> callbacks;
-  int inotifyfd;
+  map<int, String> _folders;
+  map<int, FileObserverCallback*> _callbacks;
+  int _inotifyfd;
   static void readcb(struct bufferevent* bev, void* arg);
   // @endcond
 };

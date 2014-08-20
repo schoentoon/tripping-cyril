@@ -22,14 +22,14 @@
 
 namespace trippingcyril {
 
-Decompressor::Decompressor(Writer* pWriter) {
-  total_in = 0;
-  writer = pWriter;
+Decompressor::Decompressor(Writer* pWriter)
+: _total_in(0)
+, _writer(pWriter) {
 };
 
 Decompressor::~Decompressor() {
-  if (writer->shouldDelete())
-    delete writer;
+  if (_writer->shouldDelete())
+    delete _writer;
 };
 
 #ifndef _NO_GZIP
@@ -39,32 +39,32 @@ Decompressor::~Decompressor() {
 
 GZipDecompressor::GZipDecompressor(Writer* pWriter)
 : Decompressor(pWriter) {
-  bzero(&zlib_stream, sizeof(zlib_stream));
-  if (inflateInit2(&zlib_stream,
+  bzero(&_zlib_stream, sizeof(_zlib_stream));
+  if (inflateInit2(&_zlib_stream,
                    windowBits | GZIP_ENCODING) != Z_OK)
     throw std::runtime_error("inflateInit2 returned non-Z_OK");
 };
 
 GZipDecompressor::~GZipDecompressor() {
-  inflateEnd(&zlib_stream);
+  inflateEnd(&_zlib_stream);
 };
 
 int GZipDecompressor::Write(const char* data, size_t len) {
-  zlib_stream.next_in = (Bytef*) data;
-  zlib_stream.avail_in = len;
-  total_in += len;
+  _zlib_stream.next_in = (Bytef*) data;
+  _zlib_stream.avail_in = len;
+  _total_in += len;
   int zlib_ret;
   int out_len = 0;
   char buf[BUFFER_SIZE];
   do {
-    zlib_stream.next_out = (Bytef*) buf;
-    zlib_stream.avail_out = sizeof(buf);
-    zlib_stream.total_out = 0;
-    switch ((zlib_ret = inflate(&zlib_stream, Z_SYNC_FLUSH))) {
+    _zlib_stream.next_out = (Bytef*) buf;
+    _zlib_stream.avail_out = sizeof(buf);
+    _zlib_stream.total_out = 0;
+    switch ((zlib_ret = inflate(&_zlib_stream, Z_SYNC_FLUSH))) {
     case Z_OK:
     case Z_STREAM_END:
-      writer->Write(buf, zlib_stream.total_out);
-      out_len += zlib_stream.total_out;
+      _writer->Write(buf, _zlib_stream.total_out);
+      out_len += _zlib_stream.total_out;
       break;
     case Z_BUF_ERROR:
       break;
@@ -74,7 +74,7 @@ int GZipDecompressor::Write(const char* data, size_t len) {
     default:
       return -1;
     };
-  } while (zlib_stream.avail_out == 0);
+  } while (_zlib_stream.avail_out == 0);
   return out_len;
 };
 

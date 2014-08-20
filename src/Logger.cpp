@@ -21,21 +21,21 @@ namespace trippingcyril {
   namespace log {
 
 FileLogger::FileLogger(const String &pFilename)
-: filename(pFilename) {
+: _filename(pFilename) {
 }
 
 void FileLogger::Log(const String& msg) {
-  File log(filename);
+  File log(_filename);
   if (log.Open(O_WRONLY | O_APPEND | O_CREAT))
     log.WriteString(msg);
 }
 
 SysLogger::SysLogger(int pPriority)
-: priority(pPriority) {
+: _priority(pPriority) {
 }
 
 void SysLogger::Log(const String& msg) {
-  syslog(priority, "%s", msg.c_str());
+  syslog(_priority, "%s", msg.c_str());
 }
 
   };

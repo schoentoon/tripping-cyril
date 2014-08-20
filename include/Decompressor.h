@@ -50,13 +50,13 @@ public:
    */
   virtual int Write(const char* data, size_t len) = 0;
   /** @return The amount of bytes you fed into the decompressor */
-  const uint64_t totalBytesIn() const { return total_in; };
+  const uint64_t totalBytesIn() const { return _total_in; };
 protected:
   /** The amount of bytes that we fed into you, you'll have to increase this yourself
    */
-  uint64_t total_in;
+  uint64_t _total_in;
   /** Write your compressed data into this writer */
-  Writer* writer;
+  Writer* _writer;
 };
 
 #ifndef _NO_GZIP
@@ -84,7 +84,7 @@ public:
   virtual int Write(const char* data, size_t len) OVERRIDE;
 private:
   // @cond
-  z_stream zlib_stream;
+  z_stream _zlib_stream;
   // @endcond
 };
 

@@ -29,25 +29,26 @@ namespace trippingcyril {
 struct PQJob {
 public:
   PQJob(const String &pQuery)
-  : query(pQuery) {
-    callback = NULL;
-    sent = false;
+  : _query(pQuery)
+  , _callback(NULL)
+  , _sent(false)
 #if __cplusplus >= 201103
-    lamdba_callback = NULL;
-    lamdba_errorcallback = NULL;
+  , _lamdba_callback(nullptr)
+  , _lamdba_errorcallback(nullptr)
 #endif
+    {
   }
   virtual ~PQJob() {
-    if (callback != NULL && callback->shouldDelete())
-      delete callback;
+    if (_callback != NULL && _callback->shouldDelete())
+      delete _callback;
   }
 private:
-  const String query;
-  DBCallback* callback;
-  bool sent : 1;
+  const String _query;
+  DBCallback* _callback;
+  bool _sent : 1;
 #if __cplusplus >= 201103
-  const DBLamdbaCallback *lamdba_callback;
-  const DBLamdbaErrorCallback *lamdba_errorcallback;
+  const DBLamdbaCallback *_lamdba_callback;
+  const DBLamdbaErrorCallback *_lamdba_errorcallback;
 #endif
   friend class PostGres;
 };
@@ -88,53 +89,53 @@ private:
 class PostGresBackoff : public timing::BackoffTimer {
 public:
   PostGresBackoff(PostGres* pPg)
-  : timing::BackoffTimer(pPg->GetModule(), _PG_BACKOFF_START, _PG_BACKOFF_STEP, _PG_BACKOFF_MAX) {
-    pg = pPg;
+  : timing::BackoffTimer(pPg->GetModule(), _PG_BACKOFF_START, _PG_BACKOFF_STEP, _PG_BACKOFF_MAX)
+  , _pg(pPg) {
   };
   virtual ~PostGresBackoff() {
   };
 protected:
   virtual void RunJob() {
-    pg->Connect();
+    _pg->Connect();
   };
 private:
-  PostGres* pg;
+  PostGres* _pg;
 };
 
 PostGres::PostGres(const String& connstring, const Module* pModule)
-: Database(pModule) {
-  conn = NULL;
-  event = NULL;
-  backoff = NULL;
-  in_loop = false;
-  this->connstring = connstring;
+: Database(pModule)
+, _connstring(connstring)
+, _conn(NULL)
+, _event(NULL)
+, _in_loop(false)
+, _backoff(NULL) {
 };
 
 PostGres::~PostGres() {
-  if (conn)
-    PQfinish(conn);
-  if (event)
-    event_free(event);
-  if (backoff)
-    delete backoff;
-  while (!jobs.empty()) {
-    delete jobs.front();
-    jobs.pop_front();
+  if (_conn)
+    PQfinish(_conn);
+  if (_event)
+    event_free(_event);
+  if (_backoff)
+    delete _backoff;
+  while (!_jobs.empty()) {
+    delete _jobs.front();
+    _jobs.pop_front();
   };
-  while (!listeners.empty()) {
-    std::map<String, PGNotifyListener*>::iterator iter = listeners.begin();
+  while (!_listeners.empty()) {
+    std::map<String, PGNotifyListener*>::iterator iter = _listeners.begin();
     if (iter->second->shouldDelete())
       delete iter->second;
-    listeners.erase(iter);
+    _listeners.erase(iter);
   };
 };
 
 #if __cplusplus >= 201103
 void PostGres::SelectLamdba(const String& query, const DBLamdbaCallback& callback, const DBLamdbaErrorCallback& errorcallback) {
   PQJob *job = new PQJob(query);
-  job->lamdba_callback = &callback;
-  job->lamdba_errorcallback = &errorcallback;
-  jobs.push_back(job);
+  job->_lamdba_callback = &callback;
+  job->_lamdba_errorcallback = &errorcallback;
+  _jobs.push_back(job);
   Loop();
 };
 
@@ -145,8 +146,8 @@ void PostGres::InsertLamdba(const String& query, const DBLamdbaCallback& callbac
 
 const DBResult* PostGres::Select(const String& query, DBCallback* callback) {
   PQJob *job = new PQJob(query);
-  job->callback = callback;
-  jobs.push_back(job);
+  job->_callback = callback;
+  _jobs.push_back(job);
   Loop();
   return NULL;
 };
@@ -158,10 +159,10 @@ const DBResult* PostGres::Insert(const String& query, DBCallback* callback) {
 bool PostGres::Listen(const String& key, PGNotifyListener* listener) {
   if (key.OnlyContains("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-") == false)
     return false;
-  std::map<String, PGNotifyListener*>::iterator iter = listeners.find(key);
-  if (iter == listeners.end()) {
-    listeners[key] = listener;
-    stay_connected = true;
+  std::map<String, PGNotifyListener*>::iterator iter = _listeners.find(key);
+  if (iter == _listeners.end()) {
+    _listeners[key] = listener;
+    _stay_connected = true;
     Select("LISTEN \"" + key + "\"");
     return true;
   };
@@ -169,11 +170,11 @@ bool PostGres::Listen(const String& key, PGNotifyListener* listener) {
 };
 
 void PostGres::Unlisten(const String& key) {
-  std::map<String, PGNotifyListener*>::iterator iter = listeners.find(key);
-  if (iter != listeners.end()) {
+  std::map<String, PGNotifyListener*>::iterator iter = _listeners.find(key);
+  if (iter != _listeners.end()) {
     if (iter->second->shouldDelete())
       delete iter->second;
-    listeners.erase(iter);
+    _listeners.erase(iter);
     Select("UNLISTEN \"" + key + "\"");
   };
 };
@@ -184,104 +185,104 @@ void PostGres::EventCallback(int fd, short int event, void* ctx) {
 };
 
 void PostGres::Loop() {
-  if (in_loop)
+  if (_in_loop)
     return;
-  if (conn != NULL) {
-    if (PQconsumeInput(conn) != 1) {
-      if (PQstatus(conn) != CONNECTION_OK && event != NULL) {
-        event_free(event);
-        PQfinish(conn);
-        conn = NULL;
-        event = NULL;
-        if (stay_connected || jobs.empty() == false) {
-          if (backoff == NULL)
-            backoff = new PostGresBackoff(this);
+  if (_conn != NULL) {
+    if (PQconsumeInput(_conn) != 1) {
+      if (PQstatus(_conn) != CONNECTION_OK && _event != NULL) {
+        event_free(_event);
+        PQfinish(_conn);
+        _conn = NULL;
+        _event = NULL;
+        if (_stay_connected || _jobs.empty() == false) {
+          if (_backoff == NULL)
+            _backoff = new PostGresBackoff(this);
         };
       };
     };
-    if (PQisBusy(conn) == 0) {
+    if (PQisBusy(_conn) == 0) {
       PGnotify* notify;
-      while ((notify = PQnotifies(conn)) != NULL) {
-        std::map<String, PGNotifyListener*>::const_iterator iter = listeners.find(notify->relname);
-        if (iter != listeners.end() && iter->second != NULL)
+      while ((notify = PQnotifies(_conn)) != NULL) {
+        std::map<String, PGNotifyListener*>::const_iterator iter = _listeners.find(notify->relname);
+        if (iter != _listeners.end() && iter->second != NULL)
           iter->second->onNotify(notify->relname, notify->extra, notify->be_pid);
         PQfreemem(notify);
       };
-      if (jobs.empty() == false) {
-        PQJob* job = jobs[0];
-        if (!job->sent) {
-          PQsendQuery(conn, job->query.c_str());
-          job->sent = true;
+      if (_jobs.empty() == false) {
+        PQJob* job = _jobs[0];
+        if (!job->_sent) {
+          PQsendQuery(_conn, job->_query.c_str());
+          job->_sent = true;
         };
-        in_loop = true;
-        PGresult *result = PQgetResult(conn);
+        _in_loop = true;
+        PGresult *result = PQgetResult(_conn);
         while (result != NULL) {
           DBPGResult dbresult(result);
           if (dbresult.hasError()) {
-            if (job->callback != NULL)
-              job->callback->QueryError(dbresult.getError(), job->query);
+            if (job->_callback != NULL)
+              job->_callback->QueryError(dbresult.getError(), job->_query);
 #if __cplusplus >= 201103
-            if (job->lamdba_errorcallback != NULL)
-              (*job->lamdba_errorcallback)(dbresult.getError(), job->query);
+            if (job->_lamdba_errorcallback != NULL && *job->_lamdba_errorcallback)
+              (*job->_lamdba_errorcallback)(dbresult.getError(), job->_query);
 #endif
           } else {
-            if (job->callback != NULL)
-              job->callback->QueryResult(&dbresult, job->query);
+            if (job->_callback != NULL)
+              job->_callback->QueryResult(&dbresult, job->_query);
 #if __cplusplus >= 201103
-            if (job->lamdba_callback != NULL)
-              (*job->lamdba_callback)(&dbresult, job->query);
+            if (job->_lamdba_callback != NULL && *job->_lamdba_callback)
+              (*job->_lamdba_callback)(&dbresult, job->_query);
 #endif
           };
-          result = PQgetResult(conn);
+          result = PQgetResult(_conn);
         };
-        if (job->callback != NULL)
-          job->callback->QueryDone();
-        jobs.pop_front();
+        if (job->_callback != NULL)
+          job->_callback->QueryDone();
+        _jobs.pop_front();
         delete job;
-        in_loop = false;
+        _in_loop = false;
         Loop();
       };
-    } else if (jobs.empty() && listeners.empty() && stay_connected == false) {
-      if (event != NULL) {
-        event_free(event);
-        PQfinish(conn);
-        conn = NULL;
-        event = NULL;
+    } else if (_jobs.empty() && _listeners.empty() && _stay_connected == false) {
+      if (_event != NULL) {
+        event_free(_event);
+        PQfinish(_conn);
+        _conn = NULL;
+        _event = NULL;
       };
     };
-  } else if (jobs.empty() == false && conn == NULL)
+  } else if (_jobs.empty() == false && _conn == NULL)
     Connect();
 };
 
 void PostGres::Connect() {
-  if (conn == NULL) {
-    conn = PQconnectdb(connstring.c_str());
-    if (PQstatus(conn) != CONNECTION_OK) {
-      PQfinish(conn);
-      conn = NULL;
-      if (backoff != NULL)
-        backoff->SetStillFailing();
-      else if (stay_connected || jobs.empty() == false)
-        backoff = new PostGresBackoff(this);
+  if (_conn == NULL) {
+    _conn = PQconnectdb(_connstring.c_str());
+    if (PQstatus(_conn) != CONNECTION_OK) {
+      PQfinish(_conn);
+      _conn = NULL;
+      if (_backoff != NULL)
+        _backoff->SetStillFailing();
+      else if (_stay_connected || _jobs.empty() == false)
+        _backoff = new PostGresBackoff(this);
     } else {
-      if (backoff != NULL) {
-        delete backoff;
-        backoff = NULL;
+      if (_backoff != NULL) {
+        delete _backoff;
+        _backoff = NULL;
       };
-      PQsetnonblocking(conn, 1);
-      if (autocommit) {
+      PQsetnonblocking(_conn, 1);
+      if (_autocommit) {
         PQJob* autocommit_job = new PQJob("SET AUTOCOMMIT = ON");
-        jobs.push_front(autocommit_job);
+        _jobs.push_front(autocommit_job);
       };
-      if (listeners.empty() == false) {
-        for (std::map<String, PGNotifyListener*>::const_iterator iter = listeners.begin(); iter != listeners.end(); ++iter) {
+      if (_listeners.empty() == false) {
+        for (std::map<String, PGNotifyListener*>::const_iterator iter = _listeners.begin(); iter != _listeners.end(); ++iter) {
           PQJob* job = new PQJob("LISTEN \"" + iter->first + "\"");
-          jobs.push_front(job);
+          _jobs.push_front(job);
         };
       };
-      if (event == NULL) {
-        event = event_new(GetEventBase(), PQsocket(conn), EV_READ|EV_PERSIST, PostGres::EventCallback, this);
-        event_add(event, NULL);
+      if (_event == NULL) {
+        _event = event_new(GetEventBase(), PQsocket(_conn), EV_READ|EV_PERSIST, PostGres::EventCallback, this);
+        event_add(_event, NULL);
       };
       Loop();
     };
@@ -289,19 +290,19 @@ void PostGres::Connect() {
 };
 
 BlockingPostGres::BlockingPostGres(const String& connstring, const Module* pModule)
-: Database(pModule) {
-  conn = NULL;
-  this->connstring = connstring;
+: Database(pModule)
+, _connstring(connstring)
+, _conn(NULL) {
 };
 
 BlockingPostGres::~BlockingPostGres() {
-  if (conn != NULL)
-    PQfinish(conn);
+  if (_conn != NULL)
+    PQfinish(_conn);
 };
 
 const DBResult* BlockingPostGres::Select(const String& query, DBCallback* callback) {
   Connect();
-  PGresult* result = PQexec(conn, query.c_str());
+  PGresult* result = PQexec(_conn, query.c_str());
   DBPGResult* dbresult = new DBPGResult(result);
   if (callback) {
     if (dbresult->hasError())
@@ -319,15 +320,15 @@ const DBResult* BlockingPostGres::Insert(const String& query, DBCallback* callba
 };
 
 void BlockingPostGres::Connect() {
-  while (conn == NULL) {
-    conn = PQconnectdb(connstring.c_str());
-    if (PQstatus(conn) != CONNECTION_OK) {
-      TermUtils::PrintStatus(false, PQerrorMessage(conn));
-      PQfinish(conn);
-      conn = NULL;
+  while (_conn == NULL) {
+    _conn = PQconnectdb(_connstring.c_str());
+    if (PQstatus(_conn) != CONNECTION_OK) {
+      TermUtils::PrintStatus(false, PQerrorMessage(_conn));
+      PQfinish(_conn);
+      _conn = NULL;
     } else {
-      if (autocommit) {
-        PGresult* result = PQexec(conn, "SET AUTOCOMMIT = ON");
+      if (_autocommit) {
+        PGresult* result = PQexec(_conn, "SET AUTOCOMMIT = ON");
         DBPGResult dbresult(result);
       };
     };

@@ -68,13 +68,13 @@ public:
   IPv4Lookup(const Module *pModule, const String& query, DNSCallback* callback);
   virtual ~IPv4Lookup();
   /** The query */
-  const String GetQuery() const { return query; };
+  const String GetQuery() const { return _query; };
 private:
   // @cond
   static void DNSEventCallback(int result, char type, int count, int ttl, void *addresses, void *arg);
-  struct evdns_request* request;
-  const String query;
-  DNSCallback* callback;
+  struct evdns_request* _request;
+  const String _query;
+  DNSCallback* _callback;
   // @endcond
 };
 
@@ -115,13 +115,13 @@ public:
   IPv4ReverseLookup(const Module* module, const IPv4Address& ip, DNSReverseCallback* callback);
   virtual ~IPv4ReverseLookup();
   /** The query */
-  const IPv4Address GetQuery() const { return query; };
+  const IPv4Address GetQuery() const { return _query; };
 private:
   // @cond
   static void DNSEventCallback(int result, char type, int count, int ttl, void *addresses, void* arg);
-  struct evdns_request* request;
-  const IPv4Address query;
-  DNSReverseCallback* callback;
+  struct evdns_request* _request;
+  const IPv4Address _query;
+  DNSReverseCallback* _callback;
   // @endcond
 };
 

@@ -132,10 +132,10 @@ public:
    * @param value The value for your custom header
    */
   void setExtraHeader(const String& key, const String& value) {
-    extraHeaders[key] = value;
+    _extraHeaders[key] = value;
   };
   /** @return The url requested */
-  String getURL() const { return url; };
+  String getURL() const { return _url; };
   /**
    * Error code in case of any decompression errors. In case you see this error
    * often please report a bug over at https://github.com/schoentoon/tripping-cyril/issues
@@ -181,11 +181,11 @@ private:
 #ifndef _NO_GZIP
   size_t Decompress(const char* data, size_t len);
 #endif //_NO_GZIP
-  map<String, String> extraHeaders;
-  String url;
-  String buffer;
-  bool sent_data : 1;
-  HTTPCallback* callback;
+  map<String, String> _extraHeaders;
+  String _url;
+  String _buffer;
+  bool _sent_data : 1;
+  HTTPCallback* _callback;
   class HTTPParser {
   public:
     HTTPParser(SimpleHTTPSocket* socket);
@@ -193,21 +193,21 @@ private:
     bool ParseLine(const String& line);
 #ifndef _NO_GZIP
     bool IsCompressed() const {
-      return zlib_stream != NULL;
+      return _zlib_stream != NULL;
     };
 #endif //_NO_GZIP
-    unsigned short responseCode;
-    long contentLength;
-    bool chunked;
-    int current_chunk;
-    bool headersDone;
-    map<String, String> headers;
+    unsigned short _responseCode;
+    long _contentLength;
+    bool _chunked;
+    int _current_chunk;
+    bool _headersDone;
+    map<String, String> _headers;
+    SimpleHTTPSocket* _socket;
 #ifndef _NO_GZIP
-    z_stream* zlib_stream;
+    z_stream* _zlib_stream;
 #endif //_NO_GZIP
-    SimpleHTTPSocket* socket;
   };
-  HTTPParser parser;
+  HTTPParser _parser;
   // @endcond
 };
 
