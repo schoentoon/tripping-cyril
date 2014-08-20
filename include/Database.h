@@ -105,7 +105,7 @@ public:
    */
   virtual void SelectLamdba(const String& query
                            ,const DBLamdbaCallback &callback
-                           ,const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) {
+                           ,const DBLamdbaErrorCallback &errorcallback = nullptr) {
     Select(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
   /**
@@ -119,7 +119,7 @@ public:
    */
   virtual void InsertLamdba(const String& query
                            ,const DBLamdbaCallback &callback
-                           ,const DBLamdbaErrorCallback &errorcallback = [](const String&,const String&){}) {
+                           ,const DBLamdbaErrorCallback &errorcallback = nullptr) {
     Insert(query, new DatabaseLamdbaCallback(callback, errorcallback));
   };
 #endif
@@ -166,10 +166,12 @@ private:
     };
     virtual ~DatabaseLamdbaCallback() {};
     virtual void QueryResult(const DBResult* result, const String& query) {
-      callback(result, query);
+      if (callback)
+        callback(result, query);
     };
     virtual void QueryError(const String& error, const String& query) {
-      errorcallback(error, query);
+      if (errorcallback)
+        errorcallback(error, query);
     };
   private:
     const DBLamdbaCallback callback;

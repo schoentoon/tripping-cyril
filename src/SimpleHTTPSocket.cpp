@@ -43,10 +43,12 @@ public:
   };
   virtual ~HttpLamdbaCallback() {};
   virtual void OnRequestDone(unsigned short responseCode, const map<String, String>& headers, const String& response, const String& url) {
-    callback(responseCode, headers, response, url);
+    if (callback)
+      callback(responseCode, headers, response, url);
   };
   virtual void OnRequestError(int errorCode, const String& url) {
-    errorcallback(errorCode, url);
+    if (errorcallback)
+      errorcallback(errorCode, url);
   };
 private:
   const HTTPLamdbaCallback callback;

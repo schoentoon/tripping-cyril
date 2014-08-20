@@ -98,7 +98,8 @@ LamdbaTimer::LamdbaTimer(const Module* module, double interval, unsigned int max
 }
 
 void LamdbaTimer::RunJob() {
-  callback();
+  if (callback)
+    callback();
 }
 
 #endif

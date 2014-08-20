@@ -83,7 +83,7 @@ public:
    */
   SimpleHTTPSocket(const Module* module
                   ,const HTTPLamdbaCallback &callback
-                  ,const HTTPLamdbaErrorCallback &errorcallback = [](int,const String&){});
+                  ,const HTTPLamdbaErrorCallback &errorcallback = nullptr);
 #endif
   /** Deconstructor */
   virtual ~SimpleHTTPSocket();
