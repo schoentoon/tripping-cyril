@@ -43,7 +43,7 @@
 <g id="edge4" class="edge"><title>Node3&#45;&gt;Node2</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M73,-116.041C73,-103.472 73,-87.5631 73,-77.8411"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="69.5001,-116.372 73,-126.372 76.5001,-116.372 69.5001,-116.372"/>
-<text text-anchor="middle" x="87" y="-99.5" font-family="Helvetica,sans-Serif" font-size="10.00"> writer</text>
+<text text-anchor="middle" x="89.5" y="-99.5" font-family="Helvetica,sans-Serif" font-size="10.00"> _writer</text>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>

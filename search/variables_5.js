@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logger',['logger',['../classtrippingcyril_1_1net_1_1_listener.html#ae8b30c00b447a904493f578b6bf0da24',1,'trippingcyril::net::Listener']]]
+  ['module',['module',['../classtrippingcyril_1_1_event.html#af09c126ed77c7ee18ff72ecab86e09da',1,'trippingcyril::Event::module()'],['../classtrippingcyril_1_1trippingcyril_1_1_event.html#a08c919925a11a5a8c4befbbaf22a6428',1,'trippingcyril::trippingcyril::Event::module()']]]
 ];

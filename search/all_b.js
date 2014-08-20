@@ -11,7 +11,6 @@ var searchData=
   ['loadmodule',['LoadModule',['../classtrippingcyril_1_1_global.html#aab9e884cb26a1e0af21d5dcfa11b6098',1,'trippingcyril::Global::LoadModule()'],['../classtrippingcyril_1_1_module.html#a59af35645acf11758b5eb93efca6c880',1,'trippingcyril::Module::LoadModule()'],['../classtrippingcyril_1_1_sub_module_loader.html#a311761ee58f21730770437d3690080bc',1,'trippingcyril::SubModuleLoader::LoadModule()']]],
   ['lock',['Lock',['../classtrippingcyril_1_1thread_1_1_mutex.html#a63994c5e755dbd60de6fd64047a87277',1,'trippingcyril::thread::Mutex']]],
   ['log',['Log',['../classtrippingcyril_1_1log_1_1_logger.html#a7693aae3cc8780f3f0e013fa062598ba',1,'trippingcyril::log::Logger::Log()'],['../classtrippingcyril_1_1log_1_1_file_logger.html#a9e3b1ed4de8ca8511c4633bb91e737a6',1,'trippingcyril::log::FileLogger::Log()'],['../classtrippingcyril_1_1log_1_1_sys_logger.html#ac57697937a96d004f17de4641654d2b9',1,'trippingcyril::log::SysLogger::Log()']]],
-  ['logger',['logger',['../classtrippingcyril_1_1net_1_1_listener.html#ae8b30c00b447a904493f578b6bf0da24',1,'trippingcyril::net::Listener']]],
   ['logger',['Logger',['../classtrippingcyril_1_1log_1_1_logger.html',1,'trippingcyril::log']]],
   ['logger_2eh',['Logger.h',['../_logger_8h.html',1,'']]],
   ['loop',['Loop',['../classtrippingcyril_1_1_global.html#ab93bcefe6a73a12cd4e3fcaa95841b09',1,'trippingcyril::Global']]],

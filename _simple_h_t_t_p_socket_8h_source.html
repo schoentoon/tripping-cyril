@@ -147,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html">SimpleHTTPSocket</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_module.html">Module</a>* module</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                  ,<span class="keyword">const</span> <a class="code" href="namespacetrippingcyril_1_1net_1_1http.html#ae923146d0d7e9f7acd5b671c9eb00d5f">HTTPLamdbaCallback</a> &amp;callback</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                  ,<span class="keyword">const</span> <a class="code" href="namespacetrippingcyril_1_1net_1_1http.html#a627d8030a8692e42f20df85d0e31ec93">HTTPLamdbaErrorCallback</a> &amp;errorcallback = [](<span class="keywordtype">int</span>,<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp;){});</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                  ,<span class="keyword">const</span> <a class="code" href="namespacetrippingcyril_1_1net_1_1http.html#a627d8030a8692e42f20df85d0e31ec93">HTTPLamdbaErrorCallback</a> &amp;errorcallback = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html">SimpleHTTPSocket</a>();</div>
@@ -157,9 +157,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keywordtype">bool</span> Put(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; url, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; putData, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; type = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordtype">bool</span> Delete(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; url, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; deleteData, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; type = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a4b599521730ff3485836dc02575b37c0">  134</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a4b599521730ff3485836dc02575b37c0">setExtraHeader</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; key, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; value) {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    extraHeaders[key] = value;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    _extraHeaders[key] = value;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  };</div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#af23e52b9377b4164ee2b86f5d7567462">  138</a></span>&#160;  <a class="code" href="classtrippingcyril_1_1_string.html">String</a> <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#af23e52b9377b4164ee2b86f5d7567462">getURL</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> url; };</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#af23e52b9377b4164ee2b86f5d7567462">  138</a></span>&#160;  <a class="code" href="classtrippingcyril_1_1_string.html">String</a> <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#af23e52b9377b4164ee2b86f5d7567462">getURL</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _url; };</div>
 <div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a0a1e77ff5365300bbd1a0bf3f00e46da">  144</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> DECOMPESSION_ERROR = -1;</div>
 <div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a67be5c0a5b14d0320b61646a4379c355">  150</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> TIMEOUT = -2;</div>
 <div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#aaaeafd21597dbd2e554bc724d9695c3b">  155</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> GOT_RESPONSE_TOO_EARLY = -3;</div>
@@ -179,11 +179,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#ifndef _NO_GZIP</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">size_t</span> Decompress(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> len);</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"></span>  map&lt;String, String&gt; extraHeaders;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  String url;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  String buffer;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordtype">bool</span> sent_data : 1;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html">HTTPCallback</a>* callback;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"></span>  map&lt;String, String&gt; _extraHeaders;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  String _url;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  String _buffer;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordtype">bool</span> _sent_data : 1;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_h_t_t_p_callback.html">HTTPCallback</a>* _callback;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="keyword">class </span>HTTPParser {</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    HTTPParser(<a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html">SimpleHTTPSocket</a>* socket);</div>
@@ -191,21 +191,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">bool</span> ParseLine(<span class="keyword">const</span> String&amp; line);</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#ifndef _NO_GZIP</span></div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">bool</span> IsCompressed()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keywordflow">return</span> zlib_stream != NULL;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keywordflow">return</span> _zlib_stream != NULL;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    };</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> responseCode;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">long</span> contentLength;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">bool</span> chunked;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">int</span> current_chunk;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">bool</span> headersDone;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    map&lt;String, String&gt; headers;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#ifndef _NO_GZIP</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor"></span>    z_stream* zlib_stream;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor"></span>    <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html">SimpleHTTPSocket</a>* socket;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  };</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  HTTPParser parser;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> _responseCode;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">long</span> _contentLength;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">bool</span> _chunked;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">int</span> _current_chunk;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">bool</span> _headersDone;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    map&lt;String, String&gt; _headers;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html">SimpleHTTPSocket</a>* _socket;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#ifndef _NO_GZIP</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span>    z_stream* _zlib_stream;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#endif //_NO_GZIP</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor"></span>  };</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  HTTPParser _parser;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="comment">// @endcond</span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;};</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
@@ -232,7 +232,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 17 2014 16:48:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 21 2014 00:19:15 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

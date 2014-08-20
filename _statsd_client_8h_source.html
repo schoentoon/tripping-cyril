@@ -120,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="classtrippingcyril_1_1_statsd_client.html#ace412375aa2dfb747e9db1dfe1d776a1">StatsdClient</a>(<span class="keyword">const</span> <a class="code" href="structtrippingcyril_1_1net_1_1_i_p_address.html">net::IPAddress</a>&amp; ip, <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; nm = <span class="stringliteral">&quot;&quot;</span>, uint16_t port = 8125);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classtrippingcyril_1_1_statsd_client.html#a84c38cd167f1acf9835061483c86f084">~StatsdClient</a>();</div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_statsd_client.html#a77daa15b58efe24ec47605689d3ee146">   50</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classtrippingcyril_1_1_statsd_client.html#a77daa15b58efe24ec47605689d3ee146">DRY_RUN</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_statsd_client.html#ae2563f70b3941c7c6532706b26649feb">   52</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> <a class="code" href="classtrippingcyril_1_1_statsd_client.html#ae2563f70b3941c7c6532706b26649feb">getNamespace</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> ns; };</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classtrippingcyril_1_1_statsd_client.html#ae2563f70b3941c7c6532706b26649feb">   52</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> <a class="code" href="classtrippingcyril_1_1_statsd_client.html#ae2563f70b3941c7c6532706b26649feb">getNamespace</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ns; };</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_statsd_client.html#a655c17689d9e82a1ef7ab7e258f72aa4">Count</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; stat, <span class="keywordtype">size_t</span> value, <span class="keywordtype">float</span> sample_rate = 1.0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_statsd_client.html#af837cd00e4fda5d308040459e5b905d7">Increment</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; stat, <span class="keywordtype">float</span> sample_rate = 1.0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classtrippingcyril_1_1_statsd_client.html#a11a8f9fdcf6ca1e8ee5448ec9b6ccafb">Decrement</a>(<span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a>&amp; stat, <span class="keywordtype">float</span> sample_rate = 1.0) <span class="keyword">const</span>;</div>
@@ -134,9 +134,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> cleanup(<span class="keywordtype">char</span> *stat) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">bool</span> send_stat(<span class="keywordtype">char</span>* stat, <span class="keywordtype">size_t</span> value, <span class="keyword">const</span> <span class="keywordtype">char</span>* type, <span class="keywordtype">float</span> sample_rate = 1.0) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">struct </span>sockaddr_in address;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">int</span> sock;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> ns;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">struct </span>sockaddr_in _address;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">int</span> _sock;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">const</span> <a class="code" href="classtrippingcyril_1_1_string.html">String</a> _ns;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// @endcond</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
@@ -158,7 +158,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 17 2014 16:48:13 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 21 2014 00:19:15 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
