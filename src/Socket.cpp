@@ -89,6 +89,7 @@ begin:
     do {
       socket->read_more = 0;
       size_t len = evbuffer_get_length(input);
+      size_t buf_len = len;
       if (socket->next_read > 0 && len >= socket->next_read) {
         len = socket->next_read;
         socket->next_read = 0;
@@ -97,7 +98,7 @@ begin:
       size_t used = socket->ReadData((const char*) data, len);
       if (used > 0) {
         evbuffer_drain(input, used);
-        if (used == len)
+        if (used == buf_len)
           return; // We're completely empty so just exit
         if (socket->_readline == 1)
           goto begin; // We may have switched it in the meantime..
