@@ -178,6 +178,8 @@ Protected Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a4000def1b7fd011b5202002bbbe023f0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a4000def1b7fd011b5202002bbbe023f0">read_more</a>: 1</td></tr>
 <tr class="separator:a4000def1b7fd011b5202002bbbe023f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a333ab16da583ce0efa8fd73b92c57c5d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1_socket.html#a333ab16da583ce0efa8fd73b92c57c5d">next_read</a></td></tr>
+<tr class="separator:a333ab16da583ce0efa8fd73b92c57c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classtrippingcyril_1_1trippingcyril_1_1_event"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classtrippingcyril_1_1trippingcyril_1_1_event')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classtrippingcyril_1_1trippingcyril_1_1_event.html">trippingcyril::trippingcyril::Event</a></td></tr>
 <tr class="memitem:a08c919925a11a5a8c4befbbaf22a6428 inherit pro_attribs_classtrippingcyril_1_1trippingcyril_1_1_event"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1trippingcyril_1_1_event.html#a08c919925a11a5a8c4befbbaf22a6428">module</a></td></tr>
 <tr class="separator:a08c919925a11a5a8c4befbbaf22a6428 inherit pro_attribs_classtrippingcyril_1_1trippingcyril_1_1_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -762,6 +764,27 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a333ab16da583ce0efa8fd73b92c57c5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t trippingcyril::net::Socket::next_read</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tells the underlying socket how many bytes you need for your next operation using this is not required, but doing so may improve performance. Leaving this at the default (0) will not use this feature. This feature of course only works for the non read line mode </p>
+
+</div>
+</div>
 <a class="anchor" id="a4000def1b7fd011b5202002bbbe023f0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -789,7 +812,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 21 2014 00:19:17 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 30 2014 22:43:39 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
