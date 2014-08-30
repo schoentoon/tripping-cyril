@@ -89,6 +89,7 @@ begin:
     do {
       socket->read_more = 0;
       size_t len = evbuffer_get_length(input);
+      if (len == 0) return; // In case we're just empty we might as well leave
       size_t buf_len = len;
       if (socket->next_read > 0 && len >= socket->next_read) {
         len = socket->next_read;
