@@ -33,6 +33,7 @@ namespace trippingcyril {
 Socket::Socket(const Module* pModule)
 : Event(pModule)
 , read_more(0)
+, next_read(0)
 , _readline(0)
 , _is_connected(0)
 , _closing(0)
@@ -46,6 +47,7 @@ Socket::Socket(const Module* pModule)
 Socket::Socket(struct bufferevent* event)
 : Event(NULL)
 , read_more(0)
+, next_read(0)
 , _readline(0)
 , _is_connected(0)
 , _closing(0)
@@ -87,6 +89,10 @@ begin:
     do {
       socket->read_more = 0;
       size_t len = evbuffer_get_length(input);
+      if (socket->next_read > 0 && len >= socket->next_read) {
+        len = socket->next_read;
+        socket->next_read = 0;
+      }
       unsigned char* data = evbuffer_pullup(input, len);
       size_t used = socket->ReadData((const char*) data, len);
       if (used > 0) {

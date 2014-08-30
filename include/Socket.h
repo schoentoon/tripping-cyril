@@ -141,6 +141,13 @@ protected:
    */
   uint8_t read_more : 1;
   /**
+   * Tells the underlying socket how many bytes you need for your next operation
+   * using this is not required, but doing so may improve performance.
+   * Leaving this at the default (0) will not use this feature.
+   * This feature of course only works for the non read line mode
+   */
+  size_t next_read;
+  /**
    * Allows you to determine if the tcp no delay feature should be used or not
    */
   bool SetTCPNoDelay(bool enable);
@@ -156,7 +163,7 @@ private:
   uint8_t _closing : 1;
   uint8_t _tcp_no_delay : 1;
   uint8_t _tcp_keep_alive : 1;
-  int _tcp_keep_alive_interval;
+  uint16_t _tcp_keep_alive_interval;
   struct timeval _timeout;
   struct bufferevent* _connection;
   static void readcb(struct bufferevent* bev, void* ctx);

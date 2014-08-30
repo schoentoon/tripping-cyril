@@ -268,6 +268,7 @@ void SimpleHTTPSocket::ReadLine(const String& data) {
     if (chunk > 0) {
       _parser._current_chunk = chunk;
       SetReadLine(false);
+      next_read = chunk;
     } else { // Chunk length 0 indicates that it is done.
       OnRequestDone(_parser._responseCode, _parser._headers, _buffer);
       Close();
