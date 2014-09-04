@@ -72,9 +72,9 @@ public:
 private:
   // @cond
   static void DNSEventCallback(int result, char type, int count, int ttl, void *addresses, void *arg);
-  struct evdns_request* _request;
   const String _query;
   DNSCallback* _callback;
+  struct evdns_request* _request;
   // @endcond
 };
 

@@ -30,9 +30,8 @@ namespace trippingcyril {
 IPv4Lookup::IPv4Lookup(const Module* pModule, const String& pQuery, DNSCallback* pCallback)
 : Event(pModule)
 , _query(pQuery)
-, _callback(pCallback) {
-  _request = evdns_base_resolve_ipv4((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
-    ,_query.c_str(), 0, IPv4Lookup::DNSEventCallback, this);
+, _callback(pCallback)
+, _request(evdns_base_resolve_ipv4(GetDNSBase(), _query.c_str(), 0, IPv4Lookup::DNSEventCallback, this)) {
   if (_request == NULL)
     throw std::runtime_error("Failed to create request");
 };
@@ -73,8 +72,7 @@ IPv4ReverseLookup::IPv4ReverseLookup(const Module* pModule, const IPv4Address& p
 , _query(pQuery)
 , _callback(pCallback) {
   struct in_addr in = _query;
-  _request = evdns_base_resolve_reverse((module != NULL) ? module->GetDNSBase() : Global::Get()->GetDNSBase()
-    ,&in, 0, IPv4ReverseLookup::DNSEventCallback, this);
+  _request = evdns_base_resolve_reverse(GetDNSBase(), &in, 0, IPv4ReverseLookup::DNSEventCallback, this);
   if (_request == NULL)
     throw std::runtime_error("Failed to create request");
 };
