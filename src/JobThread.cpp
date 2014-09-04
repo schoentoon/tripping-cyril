@@ -24,9 +24,9 @@ namespace trippingcyril {
 
 class JobRunnerPipe : public Pipe {
 public:
-  JobRunnerPipe(JobThread* pThread)
-  : Pipe(pThread->GetModule()) {
-    this->thread = pThread;
+  JobRunnerPipe(JobThread* thread)
+  : Pipe(thread->GetModule())
+  , _thread(thread) {
   };
   virtual ~JobRunnerPipe() {
   };
@@ -43,10 +43,10 @@ protected:
       case 1:
         if (jobr.job->preExecuteMain()) {
           if (jobr.mode == 0)
-            thread->jobs.push_back(jobr.job);
+            _thread->jobs.push_back(jobr.job);
           else if (jobr.mode == 1)
-            thread->jobs.push_front(jobr.job);
-          thread->condvar->Signal();
+            _thread->jobs.push_front(jobr.job);
+          _thread->condvar->Signal();
         } else {
           if (jobr.job->shouldDelete())
             delete jobr.job;
@@ -62,7 +62,7 @@ protected:
     };
   };
 private:
-  JobThread* thread;
+  JobThread* _thread;
 };
 
 JobThread::JobThread(const String& pName, const Module* pModule)
