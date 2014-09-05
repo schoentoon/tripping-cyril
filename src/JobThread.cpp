@@ -43,10 +43,10 @@ protected:
       case 1:
         if (jobr.job->preExecuteMain()) {
           if (jobr.mode == 0)
-            _thread->jobs.push_back(jobr.job);
+            _thread->_jobs.push_back(jobr.job);
           else if (jobr.mode == 1)
-            _thread->jobs.push_front(jobr.job);
-          _thread->condvar->Signal();
+            _thread->_jobs.push_front(jobr.job);
+          _thread->_condvar->Signal();
         } else {
           if (jobr.job->shouldDelete())
             delete jobr.job;
@@ -65,45 +65,46 @@ private:
   JobThread* _thread;
 };
 
-JobThread::JobThread(const String& pName, const Module* pModule)
-: Thread(pName, pModule) {
-  mutex = new Mutex;
-  condvar = new CondVar;
-  pipe = new JobRunnerPipe(this);
+JobThread::JobThread(const String& name, const Module* module)
+: Thread(name, module)
+, _jobs()
+, _mutex(new Mutex())
+, _condvar(new CondVar())
+, _pipe(new JobRunnerPipe(this)) {
 };
 
 JobThread::~JobThread() {
-  delete mutex;
-  delete condvar;
-  delete pipe;
+  delete _mutex;
+  delete _condvar;
+  delete _pipe;
 };
 
 void JobThread::Add(Job* job) {
   if (job == NULL)
     return;
-  MutexLocker lock(mutex);
+  MutexLocker lock(_mutex);
   JobRunnerPipe::JobRunner runner;
   runner.mode = 0;
   runner.job = job;
-  pipe->Write((const char*) &runner, sizeof(runner));
+  _pipe->Write((const char*) &runner, sizeof(runner));
 };
 
 void JobThread::AddFront(Job* job) {
   if (job == NULL)
     return;
-  MutexLocker lock(mutex);
+  MutexLocker lock(_mutex);
   JobRunnerPipe::JobRunner runner;
   runner.mode = 1;
   runner.job = job;
-  pipe->Write((const char*) &runner, sizeof(runner));
+  _pipe->Write((const char*) &runner, sizeof(runner));
 };
 
 Job* JobThread::Remove() {
-  MutexLocker lock(mutex);
-  while (jobs.size() == 0)
-    condvar->Wait(mutex);
-  Job* job = jobs.front();
-  jobs.pop_front();
+  MutexLocker lock(_mutex);
+  while (_jobs.size() == 0)
+    _condvar->Wait(_mutex);
+  Job* job = _jobs.front();
+  _jobs.pop_front();
   return job;
 };
 
@@ -117,7 +118,7 @@ void* JobThread::run() {
       JobRunnerPipe::JobRunner runner;
       runner.mode = 2;
       runner.job = job;
-      pipe->Write((const char*) &runner, sizeof(runner));
+      _pipe->Write((const char*) &runner, sizeof(runner));
     } else if (job->shouldDelete())
       delete job;
   };

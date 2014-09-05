@@ -80,10 +80,10 @@ protected:
   void* run();
 private:
   // @cond
-  list<Job*> jobs;
-  Mutex* mutex;
-  CondVar* condvar;
-  Pipe* pipe;
+  list<Job*> _jobs;
+  Mutex* _mutex;
+  CondVar* _condvar;
+  Pipe* _pipe;
   friend class JobRunnerPipe;
   // @endcond
 };
