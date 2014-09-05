@@ -24,31 +24,31 @@
 namespace trippingcyril {
   namespace thread {
 
-Thread::Thread(const String& pName, const Module* pModule)
-: Event(pModule)
-, name(pName) {
-  tid = 0;
-  running = 0;
-  detached = 0;
-  returnedValue = NULL;
-  mutex = (pthread_mutex_t*) malloc(sizeof(pthread_mutex_t));
-  pthread_mutex_init(mutex, NULL);
+Thread::Thread(const String& name, const Module* module)
+: Event(module)
+, _tid(0)
+, _running(0)
+, _detached(0)
+, _name(name)
+, _returnedValue(NULL)
+, _mutex((pthread_mutex_t*) malloc(sizeof(_mutex))) {
+  pthread_mutex_init(_mutex, NULL);
 };
 
 Thread::~Thread() {
   Stop();
-  if (running == 1 && detached != 1)
-    pthread_detach(tid);
-  if (running == 1)
-    pthread_cancel(tid);
-  pthread_mutex_destroy(mutex);
-  free(mutex);
+  if (_running == 1 && _detached != 1)
+    pthread_detach(_tid);
+  if (_running == 1)
+    pthread_cancel(_tid);
+  pthread_mutex_destroy(_mutex);
+  free(_mutex);
 };
 
 void* Thread::runThread(void* arg) {
   Thread* thread = static_cast<Thread*>(arg);
   if (thread) {
-    prctl(PR_SET_NAME,thread->name.c_str(),0,0,0);
+    prctl(PR_SET_NAME,thread->_name.c_str(),0,0,0);
     ThreadManager::Get()->registerThread(thread);
     void* output = thread->run();
     ThreadManager::Get()->unregisterThread(thread);
@@ -59,47 +59,47 @@ void* Thread::runThread(void* arg) {
 };
 
 bool Thread::Start() {
-  int result = pthread_create(&tid, NULL, Thread::runThread, this);
+  int result = pthread_create(&_tid, NULL, Thread::runThread, this);
   if (result == 0) {
-    running = 1;
-    pthread_mutex_lock(mutex);
+    _running = 1;
+    pthread_mutex_lock(_mutex);
   };
   return result == 0;
 };
 
 bool Thread::Join() {
   int result = -1;
-  if (running == 1) {
-    result = pthread_join(tid, &returnedValue);
+  if (_running == 1) {
+    result = pthread_join(_tid, &_returnedValue);
     if (result == 0)
-      detached = 1;
+      _detached = 1;
   }
   return result == 0;
 };
 
 bool Thread::Detach() {
   int result = -1;
-  if (running == 1 && detached == 0) {
-    result = pthread_detach(tid);
+  if (_running == 1 && _detached == 0) {
+    result = pthread_detach(_tid);
     if (result == 0)
-      detached = 1;
+      _detached = 1;
   }
   return result == 0;
 };
 
 bool Thread::shouldContinue() const {
-  if (mutex == NULL)
+  if (_mutex == NULL)
     return false;
-  if (pthread_mutex_trylock(mutex) == 0) {
-    pthread_mutex_unlock(mutex);
+  if (pthread_mutex_trylock(_mutex) == 0) {
+    pthread_mutex_unlock(_mutex);
     return false;
   };
   return true;
 };
 
 void Thread::Stop() {
-  if (running == 1)
-    pthread_mutex_unlock(mutex);
+  if (_running == 1)
+    pthread_mutex_unlock(_mutex);
 };
 
 Mutex::Mutex() {

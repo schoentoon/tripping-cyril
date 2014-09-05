@@ -61,7 +61,7 @@ public:
    * @brief Get the internal thread id
    * @return The pthread id of the running thread, 0 if not yet running
    */
-  pthread_t Self() const { return tid; };
+  pthread_t Self() const { return _tid; };
   /**
    * @brief Tells the thread to stop
    * @see shouldContinue
@@ -71,15 +71,11 @@ public:
    * @brief See if the thread is running or not
    * @return True if the thread is running
    */
-  bool isRunning() const { return running == 1; };
-  /**
-   * @brief Receive the value returned from the thread after a Join operation
-   */
-  void* getReturnedValue() const { return returnedValue; };
-  /**
-   * @brief Receive the name of the thread
-   */
-  const String GetName() const { return name; };
+  bool isRunning() const { return _running == 1; };
+  /** @brief Receive the value returned from the thread after a Join operation */
+  void* getReturnedValue() const { return _returnedValue; };
+  /** @brief Receive the name of the thread */
+  const String GetName() const { return _name; };
 protected:
   /**
    * @brief The method that is actually executed on the thread, override this
@@ -94,12 +90,12 @@ protected:
 private:
   // @cond
   static void* runThread(void* arg);
-  pthread_t tid;
-  uint8_t running : 1;
-  uint8_t detached : 1;
-  const String name;
-  void* returnedValue;
-  pthread_mutex_t* mutex;
+  pthread_t _tid;
+  uint8_t _running : 1;
+  uint8_t _detached : 1;
+  const String _name;
+  void* _returnedValue;
+  pthread_mutex_t* _mutex;
   // @endcond
 };
 

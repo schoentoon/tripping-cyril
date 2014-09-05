@@ -165,11 +165,19 @@ public:
   /** @return The numerical value of this string similar to atoi(). */
   int32_t ToInt32() const { return ToLongLong(); };
   /** @return The numerical value of this string similar to atoi(). */
+  operator int32_t() const { return ToInt32(); };
+  /** @return The numerical value of this string similar to atoi(). */
   uint32_t ToUInt32() const { return ToULongLong(); };
+  /** @return The numerical value of this string similar to atoi(). */
+  operator uint32_t() const { return ToUInt32(); };
   /** @return The numerical value of this string similar to atoi(). */
   int64_t ToInt64() const { return ToLongLong(); };
   /** @return The numerical value of this string similar to atoi(). */
+  operator int64_t() const { return ToInt64(); };
+  /** @return The numerical value of this string similar to atoi(). */
   uint64_t ToUInt64() const { return ToULongLong(); };
+  /** @return The numerical value of this string similar to atoi(). */
+  operator uint64_t() const { return ToUInt64(); };
 
   /** Base64-encode the current string.
    * @param sRet String where the result is saved.
