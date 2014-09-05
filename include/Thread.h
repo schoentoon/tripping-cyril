@@ -118,7 +118,7 @@ public:
   bool isLocked();
 private:
   // @cond
-  pthread_mutex_t mutex;
+  pthread_mutex_t _mutex;
   friend class CondVar;
   // @endcond
 };
@@ -131,21 +131,21 @@ public:
   /**
    * Constructor that locks the mutex
    */
-  MutexLocker(Mutex* pMutex) {
-    mutex = pMutex;
-    if (mutex != NULL)
-      mutex->Lock();
+  MutexLocker(Mutex* mutex)
+  : _mutex(mutex) {
+    if (_mutex != NULL)
+      _mutex->Lock();
   };
   /**
    * Deconstructor that unlocks the mutex
    */
   virtual ~MutexLocker() {
-    if (mutex != NULL)
-      mutex->Unlock();
+    if (_mutex != NULL)
+      _mutex->Unlock();
   };
 private:
   // @cond
-  Mutex* mutex;
+  Mutex* _mutex;
   // @endcond
 };
 
@@ -169,7 +169,7 @@ public:
   bool Wait(Mutex* mutex);
 private:
   // @cond
-  pthread_cond_t cond_var;
+  pthread_cond_t _cond_var;
   // @endcond
 };
 
@@ -192,8 +192,8 @@ private:
   void registerThread(Thread* thread);
   void unregisterThread(Thread* thread);
 
-  std::map<pthread_t, Thread*> threads;
-  Mutex* lock;
+  std::map<pthread_t, Thread*> _threads;
+  Mutex* _lock;
   friend class Thread;
   // @endcond
 };

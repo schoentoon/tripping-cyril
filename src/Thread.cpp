@@ -103,51 +103,52 @@ void Thread::Stop() {
 };
 
 Mutex::Mutex() {
-  pthread_mutex_init(&mutex, NULL);
+  pthread_mutex_init(&_mutex, NULL);
 };
 
 Mutex::~Mutex() {
-  pthread_mutex_destroy(&mutex);
+  pthread_mutex_destroy(&_mutex);
 };
 
 bool Mutex::Lock() {
-  return pthread_mutex_lock(&mutex) == 0;
+  return pthread_mutex_lock(&_mutex) == 0;
 };
 
 bool Mutex::Unlock() {
-  return pthread_mutex_unlock(&mutex) == 0;
+  return pthread_mutex_unlock(&_mutex) == 0;
 };
 
 bool Mutex::isLocked() {
-  if (pthread_mutex_trylock(&mutex) == 0) {
-    pthread_mutex_unlock(&mutex);
+  if (pthread_mutex_trylock(&_mutex) == 0) {
+    pthread_mutex_unlock(&_mutex);
     return false;
   };
   return true;
 };
 
 CondVar::CondVar() {
-  pthread_cond_init(&cond_var, NULL);
+  pthread_cond_init(&_cond_var, NULL);
 };
 
 CondVar::~CondVar() {
-  pthread_cond_destroy(&cond_var);
+  pthread_cond_destroy(&_cond_var);
 };
 
 bool CondVar::Signal() {
-  return pthread_cond_signal(&cond_var) == 0;
+  return pthread_cond_signal(&_cond_var) == 0;
 };
 
 bool CondVar::Wait(Mutex* mutex) {
-  return pthread_cond_wait(&cond_var, &mutex->mutex) == 0;
+  return pthread_cond_wait(&_cond_var, &mutex->_mutex) == 0;
 };
 
-ThreadManager::ThreadManager() {
-  lock = new Mutex;
+ThreadManager::ThreadManager()
+: _threads()
+, _lock(new Mutex()) {
 };
 
 ThreadManager::~ThreadManager() {
-  delete lock;
+  delete _lock;
 };
 
 ThreadManager* ThreadManager::Get() {
@@ -156,30 +157,30 @@ ThreadManager* ThreadManager::Get() {
 };
 
 Thread* ThreadManager::getCurrentThread() const {
-  MutexLocker locker(lock);
-  std::map<pthread_t, Thread*>::const_iterator iter = threads.find(pthread_self());
-  if (iter != threads.end())
+  MutexLocker locker(_lock);
+  std::map<pthread_t, Thread*>::const_iterator iter = _threads.find(pthread_self());
+  if (iter != _threads.end())
     return iter->second;
   return NULL;
 };
 
 size_t ThreadManager::threadCount() const {
-  MutexLocker locker(lock);
-  return threads.size();
+  MutexLocker locker(_lock);
+  return _threads.size();
 };
 
 void ThreadManager::registerThread(Thread* thread) {
-  MutexLocker locker(lock);
+  MutexLocker locker(_lock);
   if (thread->isRunning())
-    threads.insert(std::pair<pthread_t, Thread*>(thread->Self(), thread));
+    _threads.insert(std::pair<pthread_t, Thread*>(thread->Self(), thread));
 };
 
 void ThreadManager::unregisterThread(Thread* thread) {
-  MutexLocker locker(lock);
+  MutexLocker locker(_lock);
   pthread_t id = thread->Self();
-  std::map<pthread_t, Thread*>::iterator iter = threads.find(id);
-  if (iter != threads.end())
-    threads.erase(iter);
+  std::map<pthread_t, Thread*>::iterator iter = _threads.find(id);
+  if (iter != _threads.end())
+    _threads.erase(iter);
 };
 
   };
