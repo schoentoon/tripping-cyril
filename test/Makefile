@@ -31,7 +31,7 @@ libgtest.a:
 .PHONY: test
 
 test: $(BINARY)
-	./$(BINARY)
+	./$(BINARY) --gtest_filter=-*Thread*
 
 .PHONY: clean
 
