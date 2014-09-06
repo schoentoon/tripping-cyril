@@ -100,7 +100,7 @@ TEST(String, LongLong) {
   EXPECT_EQ(ninethousand, "9001");
   EXPECT_EQ(1337, leet.ToULongLong());
   EXPECT_EQ(9001, ninethousand.ToLongLong());
-  long long s = leet;
+  long long s = leet.ToLongLong();
   EXPECT_EQ(s, 1337);
 };
 
