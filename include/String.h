@@ -124,33 +124,21 @@ public:
 
   /** @return The numerical value of this string similar to atoi(). */
   int ToInt(unsigned int base = 10) const;
-  /** @return The numerical value of this string similar to atoi(). */
-  operator int() const { return ToInt(); };
 
   /** @return The numerical value of this string similar to atoi(). */
   unsigned int ToUInt(unsigned int base = 10) const;
-  /** @return The numerical value of this string similar to atoi(). */
-  operator unsigned int() const { return ToUInt(); };
 
   /** @return The numerical value of this string similar to atoi(). */
   long ToLong(unsigned int base = 10) const;
-  /** @return The numerical value of this string similar to atoi(). */
-  operator long() const { return ToLong(); };
 
   /** @return The numerical value of this string similar to atoi(). */
   unsigned long ToULong(unsigned int base = 10) const;
-  /** @return The numerical value of this string similar to atoi(). */
-  operator unsigned long() const { return ToULong(); };
 
   /** @return The numerical value of this string similar to atoi(). */
   long long ToLongLong(unsigned int base = 10) const;
-  /** @return The numerical value of this string similar to atoi(). */
-  operator long long() const { return ToLongLong(); };
 
   /** @return The numerical value of this string similar to atoi(). */
   unsigned long long ToULongLong(unsigned int base = 10) const;
-  /** @return The numerical value of this string similar to atoi(). */
-  operator unsigned long long() const { return ToULongLong(); };
 
   /** @return The numerical value of this string similar to atoi(). */
   double ToDouble() const;
