@@ -142,10 +142,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">void</span>* <a class="code" href="classtrippingcyril_1_1thread_1_1_job_thread.html#a51bc1d67eb117c89d8a8cac9437a7cc2">run</a>();</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">// @cond</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  list&lt;Job*&gt; jobs;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="classtrippingcyril_1_1thread_1_1_mutex.html">Mutex</a>* mutex;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="classtrippingcyril_1_1thread_1_1_cond_var.html">CondVar</a>* condvar;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <a class="code" href="classtrippingcyril_1_1_pipe.html">Pipe</a>* pipe;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  list&lt;Job*&gt; _jobs;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="classtrippingcyril_1_1thread_1_1_mutex.html">Mutex</a>* _mutex;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="classtrippingcyril_1_1thread_1_1_cond_var.html">CondVar</a>* _condvar;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <a class="code" href="classtrippingcyril_1_1_pipe.html">Pipe</a>* _pipe;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span>JobRunnerPipe;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">// @endcond</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
@@ -154,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
 <div class="ttc" id="classtrippingcyril_1_1_should_delete_html"><div class="ttname"><a href="classtrippingcyril_1_1_should_delete.html">trippingcyril::ShouldDelete</a></div><div class="ttdoc">A simple interface to determine if the object should be deleted or not. </div><div class="ttdef"><b>Definition:</b> ShouldDelete.h:25</div></div>
 <div class="ttc" id="classtrippingcyril_1_1thread_1_1_job_html_a6010a278bd3636db795bb3a784d836ba"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_job.html#a6010a278bd3636db795bb3a784d836ba">trippingcyril::thread::Job::Job</a></div><div class="ttdeci">Job()</div><div class="ttdef"><b>Definition:</b> JobThread.h:37</div></div>
-<div class="ttc" id="classtrippingcyril_1_1thread_1_1_cond_var_html"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_cond_var.html">trippingcyril::thread::CondVar</a></div><div class="ttdoc">Simple cond var wrapping class. </div><div class="ttdef"><b>Definition:</b> Thread.h:159</div></div>
+<div class="ttc" id="classtrippingcyril_1_1thread_1_1_cond_var_html"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_cond_var.html">trippingcyril::thread::CondVar</a></div><div class="ttdoc">Simple cond var wrapping class. </div><div class="ttdef"><b>Definition:</b> Thread.h:155</div></div>
 <div class="ttc" id="_should_delete_8h_html"><div class="ttname"><a href="_should_delete_8h.html">ShouldDelete.h</a></div></div>
 <div class="ttc" id="classtrippingcyril_1_1thread_1_1_job_html_af2095be48768cc97eb06fc8242fab24d"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_job.html#af2095be48768cc97eb06fc8242fab24d">trippingcyril::thread::Job::runPostHook</a></div><div class="ttdeci">bool runPostHook</div><div class="ttdef"><b>Definition:</b> JobThread.h:58</div></div>
 <div class="ttc" id="_module_8h_html"><div class="ttname"><a href="_module_8h.html">Module.h</a></div></div>
@@ -167,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classtrippingcyril_1_1_module_html"><div class="ttname"><a href="classtrippingcyril_1_1_module.html">trippingcyril::Module</a></div><div class="ttdoc">Base class for modules. </div><div class="ttdef"><b>Definition:</b> Module.h:66</div></div>
 <div class="ttc" id="classtrippingcyril_1_1thread_1_1_job_thread_html_ad0435ae0e8432b4bc5139087d0137684"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_job_thread.html#ad0435ae0e8432b4bc5139087d0137684">trippingcyril::thread::JobThread::AddFront</a></div><div class="ttdeci">void AddFront(Job *job)</div></div>
 <div class="ttc" id="_thread_8h_html"><div class="ttname"><a href="_thread_8h.html">Thread.h</a></div></div>
-<div class="ttc" id="classtrippingcyril_1_1thread_1_1_mutex_html"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_mutex.html">trippingcyril::thread::Mutex</a></div><div class="ttdoc">Simple mutex class. </div><div class="ttdef"><b>Definition:</b> Thread.h:111</div></div>
+<div class="ttc" id="classtrippingcyril_1_1thread_1_1_mutex_html"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_mutex.html">trippingcyril::thread::Mutex</a></div><div class="ttdoc">Simple mutex class. </div><div class="ttdef"><b>Definition:</b> Thread.h:107</div></div>
 <div class="ttc" id="classtrippingcyril_1_1thread_1_1_job_thread_html_aaf73675070bacdcaa0553395f69409d7"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_job_thread.html#aaf73675070bacdcaa0553395f69409d7">trippingcyril::thread::JobThread::~JobThread</a></div><div class="ttdeci">virtual ~JobThread()</div></div>
 <div class="ttc" id="classtrippingcyril_1_1_string_html"><div class="ttname"><a href="classtrippingcyril_1_1_string.html">trippingcyril::String</a></div><div class="ttdoc">A wrapper string class to make a various amount of things just easier to type. All strings used shoul...</div><div class="ttdef"><b>Definition:</b> String.h:33</div></div>
 <div class="ttc" id="classtrippingcyril_1_1thread_1_1_job_html"><div class="ttname"><a href="classtrippingcyril_1_1thread_1_1_job.html">trippingcyril::thread::Job</a></div><div class="ttdoc">Job base class With main thread we really just mean the thread the Module that the JobThread we are p...</div><div class="ttdef"><b>Definition:</b> JobThread.h:35</div></div>
@@ -180,7 +180,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 30 2014 22:43:36 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 7 2014 16:49:50 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

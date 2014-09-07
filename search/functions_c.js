@@ -20,13 +20,12 @@ var searchData=
   ['operator_20double',['operator double',['../classtrippingcyril_1_1_string.html#a8e5da58e935968a7608dbaa9fc0e70da',1,'trippingcyril::String']]],
   ['operator_20float',['operator float',['../classtrippingcyril_1_1_string.html#ab37ceac51380b52111a9d82d19e4967b',1,'trippingcyril::String']]],
   ['operator_20in_5faddr',['operator in_addr',['../structtrippingcyril_1_1net_1_1_i_pv4_address.html#a668d9b89cdd3576a9ddf48e03daa1e6f',1,'trippingcyril::net::IPv4Address']]],
-  ['operator_20int',['operator int',['../structtrippingcyril_1_1net_1_1_i_pv4_address.html#a37bb3f9e142be4077b7bada470211577',1,'trippingcyril::net::IPv4Address::operator int()'],['../classtrippingcyril_1_1_string.html#aecfea27ea33d79338e374f1d825c4b75',1,'trippingcyril::String::operator int()']]],
-  ['operator_20long',['operator long',['../classtrippingcyril_1_1_string.html#a0e782c905a7024c967a7e650290b2fdd',1,'trippingcyril::String']]],
-  ['operator_20long_20long',['operator long long',['../classtrippingcyril_1_1_string.html#aadf7502e5e59c6758244122a359e7d1b',1,'trippingcyril::String']]],
+  ['operator_20int',['operator int',['../structtrippingcyril_1_1net_1_1_i_pv4_address.html#a37bb3f9e142be4077b7bada470211577',1,'trippingcyril::net::IPv4Address']]],
+  ['operator_20int32_5ft',['operator int32_t',['../classtrippingcyril_1_1_string.html#aa18a45639c02d876f4244229e78bf95e',1,'trippingcyril::String']]],
+  ['operator_20int64_5ft',['operator int64_t',['../classtrippingcyril_1_1_string.html#ae7c3e23a52a8acb4f9f099503beb1876',1,'trippingcyril::String']]],
   ['operator_20short',['operator short',['../classtrippingcyril_1_1_string.html#a221aeee1c719bad634bdf6ef9b13e8bc',1,'trippingcyril::String']]],
   ['operator_20string',['operator String',['../structtrippingcyril_1_1net_1_1_i_p_address.html#a00448995261dba734b1d41c1e5ad0b47',1,'trippingcyril::net::IPAddress']]],
-  ['operator_20unsigned_20int',['operator unsigned int',['../classtrippingcyril_1_1_string.html#acd048ec93333ebeeb5fd7144d93c818a',1,'trippingcyril::String']]],
-  ['operator_20unsigned_20long',['operator unsigned long',['../classtrippingcyril_1_1_string.html#ae7270aae80b7b47c1d5778a6b03d8d97',1,'trippingcyril::String']]],
-  ['operator_20unsigned_20long_20long',['operator unsigned long long',['../classtrippingcyril_1_1_string.html#ab89ef1c504b80e4af97db3253a8c462d',1,'trippingcyril::String']]],
+  ['operator_20uint32_5ft',['operator uint32_t',['../classtrippingcyril_1_1_string.html#a48c9ff2a862fc43b5aa19c8f24e04458',1,'trippingcyril::String']]],
+  ['operator_20uint64_5ft',['operator uint64_t',['../classtrippingcyril_1_1_string.html#ab90bdc1a4f4568d8c88f793868e5262b',1,'trippingcyril::String']]],
   ['operator_20unsigned_20short',['operator unsigned short',['../classtrippingcyril_1_1_string.html#a54d0786f85659a035c6e2315142a180b',1,'trippingcyril::String']]]
 ];
