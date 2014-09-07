@@ -31,7 +31,7 @@ Thread::Thread(const String& name, const Module* module)
 , _detached(0)
 , _name(name)
 , _returnedValue(NULL)
-, _mutex((pthread_mutex_t*) malloc(sizeof(_mutex))) {
+, _mutex((pthread_mutex_t*) malloc(sizeof(pthread_mutex_t))) {
   pthread_mutex_init(_mutex, NULL);
 };
 
