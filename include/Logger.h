@@ -53,7 +53,7 @@ public:
   FileLogger(const String& filename);
   virtual ~FileLogger() {
   };
-  virtual void Log(const String &msg) OVERRIDE;
+  void Log(const String &msg) OVERRIDE;
 private:
   const String _filename;
 };
@@ -70,7 +70,7 @@ public:
   SysLogger(int priority);
   virtual ~SysLogger() {
   };
-  virtual void Log(const String &msg) OVERRIDE;
+  void Log(const String &msg) OVERRIDE;
 private:
   const int _priority;
 };

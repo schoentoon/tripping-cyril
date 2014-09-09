@@ -86,13 +86,13 @@ public:
    */
   virtual ~PostGres();
 #if __cplusplus >= 201103
-  virtual void SelectLamdba(const String& query, const DBLamdbaCallback &callback
+  void SelectLamdba(const String& query, const DBLamdbaCallback &callback
   , const DBLamdbaErrorCallback &errorcallback = nullptr) OVERRIDE;
-  virtual void InsertLamdba(const String& query, const DBLamdbaCallback &callback
+  void InsertLamdba(const String& query, const DBLamdbaCallback &callback
   , const DBLamdbaErrorCallback &errorcallback = nullptr) OVERRIDE;
 #endif
-  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL) OVERRIDE;
-  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL) OVERRIDE;
+   const DBResult* Select(const String& query, DBCallback *callback = NULL) OVERRIDE;
+  const DBResult* Insert(const String& query, DBCallback *callback = NULL) OVERRIDE;
   bool isIdle() const OVERRIDE { return _conn == NULL; };
   /**
    * Demands SetStayConnected(true), will apply automatically
@@ -138,8 +138,8 @@ public:
   /** General deconstructor
    */
   virtual ~BlockingPostGres();
-  virtual const DBResult* Select(const String& query, DBCallback *callback = NULL) OVERRIDE;
-  virtual const DBResult* Insert(const String& query, DBCallback *callback = NULL) OVERRIDE;
+  const DBResult* Select(const String& query, DBCallback *callback = NULL) OVERRIDE;
+  const DBResult* Insert(const String& query, DBCallback *callback = NULL) OVERRIDE;
   bool isIdle() const OVERRIDE { return true; };
 private:
   // @cond

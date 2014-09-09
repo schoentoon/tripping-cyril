@@ -43,7 +43,7 @@ public:
   /**
    * Lazy String writing
    */
-  inline int WriteString(const String& data) { // Why can't I name this Write() :(
+  int WriteString(const String& data) { // Why can't I name this Write() :(
     return Write(data.data(), data.size());
   };
   virtual bool shouldDelete() const OVERRIDE { return false; };
@@ -59,8 +59,8 @@ class StringWriter : public Writer {
 public:
   virtual ~StringWriter() {
   };
-  virtual int Write(const char* data, size_t len) OVERRIDE;
-  virtual bool shouldDelete() const OVERRIDE { return true; };
+  int Write(const char* data, size_t len) OVERRIDE;
+  bool shouldDelete() const OVERRIDE { return true; };
   String& GetBuffer() { return buffer; };
 private:
   String buffer;

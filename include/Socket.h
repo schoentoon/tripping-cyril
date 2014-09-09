@@ -215,9 +215,9 @@ public:
       throw std::runtime_error("Invalid ip address");
   };
   virtual ~IPv4Address() {};
-  virtual int GetIPVersion() const OVERRIDE { return 4; };
+  int GetIPVersion() const OVERRIDE { return 4; };
   /** @return The ipv4 address as an integer */
-  virtual int AsInt() const { return _addr; }
+  int AsInt() const { return _addr; }
   /** @return The ipv4 address as an integer */
   operator int() const { return AsInt(); };
   operator in_addr() const {
@@ -225,7 +225,7 @@ public:
     in.s_addr = _addr;
     return in;
   };
-  virtual String AsString() const OVERRIDE;
+  String AsString() const OVERRIDE;
 private:
   in_addr_t _addr;
 };

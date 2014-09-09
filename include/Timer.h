@@ -87,15 +87,34 @@ private:
 
 #if __cplusplus >= 201103
 
-typedef std::function<void()> TimerLamdbaCallback;
 class LamdbaTimer : public Timer {
 public:
+  /**
+   *  Typedef for the functions
+   */
+  typedef std::function<void()> TimerLamdbaCallback;
+  /**
+   * General constructor
+   * @param module The module to register this timer on
+   * @param interval The interval this timer should run on
+   * @param maxCycles The maximum amount of cycles this timer should run, 0 is infinite
+   * @param callback The function to execute every loop
+   */
   LamdbaTimer(const Module* module, double interval, unsigned int maxCycles, const TimerLamdbaCallback &callback);
+  /**
+   * General constructor
+   * @param module The module to register this timer on
+   * @param callback The function to execute every loop
+   */
+  LamdbaTimer(const Module* module, const TimerLamdbaCallback &callback);
+  /**
+   *  Deconstructor
+   */
   virtual ~LamdbaTimer() {};
 protected:
-  virtual void RunJob();
+  void RunJob() OVERRIDE;
 private:
-  const TimerLamdbaCallback callback;
+  const TimerLamdbaCallback _callback;
 };
 
 #endif

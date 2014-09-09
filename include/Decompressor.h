@@ -81,7 +81,7 @@ public:
    * @param len The length of the data to decompress
    * @return Amount of uncompressed bytes
    */
-  virtual int Write(const char* data, size_t len) OVERRIDE;
+  int Write(const char* data, size_t len) OVERRIDE;
 private:
   // @cond
   z_stream _zlib_stream;
