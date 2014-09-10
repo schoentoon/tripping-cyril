@@ -1,8 +1,8 @@
 var searchData=
 [
   ['seek',['Seek',['../classtrippingcyril_1_1_file.html#ace801f5b7cd06423a7dc3bd9f0ba1012',1,'trippingcyril::File']]],
-  ['select',['Select',['../classtrippingcyril_1_1database_1_1_database.html#a28e243daa33ed560d9622294c99ae3c9',1,'trippingcyril::database::Database::Select()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#aa3bf84028cb3404b3eff3331d6613eea',1,'trippingcyril::database::postgres::PostGres::Select()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#a370c2634274d8ff1b7ea7af909d28d88',1,'trippingcyril::database::postgres::BlockingPostGres::Select()']]],
-  ['selectlamdba',['SelectLamdba',['../classtrippingcyril_1_1database_1_1_database.html#ab61fa453e191f84590e5d68c1878692a',1,'trippingcyril::database::Database::SelectLamdba()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a667a03c3acf15b96ff751f23c381d3ed',1,'trippingcyril::database::postgres::PostGres::SelectLamdba()']]],
+  ['select',['Select',['../classtrippingcyril_1_1database_1_1_database.html#a28e243daa33ed560d9622294c99ae3c9',1,'trippingcyril::database::Database::Select()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#aee62b8a918dfec78acd66b95e0ccd92c',1,'trippingcyril::database::postgres::PostGres::Select()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_blocking_post_gres.html#a01321e8668b097b21ca71532319cd9f6',1,'trippingcyril::database::postgres::BlockingPostGres::Select()']]],
+  ['selectlamdba',['SelectLamdba',['../classtrippingcyril_1_1database_1_1_database.html#ab61fa453e191f84590e5d68c1878692a',1,'trippingcyril::database::Database::SelectLamdba()'],['../classtrippingcyril_1_1database_1_1postgres_1_1_post_gres.html#a288dbcbf667a52d86f2362e8924a90b8',1,'trippingcyril::database::postgres::PostGres::SelectLamdba()']]],
   ['self',['Self',['../classtrippingcyril_1_1thread_1_1_thread.html#a991e1dc7d1317eaea810e5a3c1f25416',1,'trippingcyril::thread::Thread']]],
   ['setcoredump',['SetCoreDump',['../namespacetrippingcyril_1_1crash.html#a1db335a66251f70c9941e5cce9802819',1,'trippingcyril::crash']]],
   ['setextraheader',['setExtraHeader',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a4b599521730ff3485836dc02575b37c0',1,'trippingcyril::net::http::SimpleHTTPSocket']]],
@@ -17,7 +17,7 @@ var searchData=
   ['sha256',['SHA256',['../classtrippingcyril_1_1_string.html#a9d626121a4033c591ee6079885929d72',1,'trippingcyril::String']]],
   ['sha512',['SHA512',['../classtrippingcyril_1_1_string.html#a8c42e84d0e5b402736ab9b7752b1bea9',1,'trippingcyril::String']]],
   ['shouldcontinue',['shouldContinue',['../classtrippingcyril_1_1thread_1_1_thread.html#aeaea6f4091e0a19e4c0f69a95324517d',1,'trippingcyril::thread::Thread']]],
-  ['shoulddelete',['shouldDelete',['../classtrippingcyril_1_1_should_delete.html#abee8f619e360227b56baac4d6914c6d3',1,'trippingcyril::ShouldDelete::shouldDelete()'],['../classtrippingcyril_1_1_writer.html#a37884ce80c8faeed8d9fad96c01b9307',1,'trippingcyril::Writer::shouldDelete()'],['../classtrippingcyril_1_1_string_writer.html#a4d3e13bed59e3373bc4dfd70dd79e17d',1,'trippingcyril::StringWriter::shouldDelete()']]],
+  ['shoulddelete',['shouldDelete',['../classtrippingcyril_1_1_should_delete.html#abee8f619e360227b56baac4d6914c6d3',1,'trippingcyril::ShouldDelete::shouldDelete()'],['../classtrippingcyril_1_1_writer.html#a37884ce80c8faeed8d9fad96c01b9307',1,'trippingcyril::Writer::shouldDelete()'],['../classtrippingcyril_1_1_string_writer.html#a569ba66c00275956f4c8513c5ea93d23',1,'trippingcyril::StringWriter::shouldDelete()']]],
   ['shoulddelete',['ShouldDelete',['../classtrippingcyril_1_1_should_delete.html',1,'trippingcyril']]],
   ['shoulddelete_2eh',['ShouldDelete.h',['../_should_delete_8h.html',1,'']]],
   ['signal',['Signal',['../classtrippingcyril_1_1thread_1_1_cond_var.html#a69bc6aa1dcf8f17ceb8743ad6902bac5',1,'trippingcyril::thread::CondVar']]],
