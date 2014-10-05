@@ -24,6 +24,7 @@
 #include <event2/event.h>
 
 #include "Module.h"
+#include "defines.h"
 
 namespace trippingcyril {
   namespace timing {

@@ -17,6 +17,10 @@
 
 #pragma once
 
+#if __cplusplus >= 201103
+#  include <functional>
+#endif
+
 #include <event2/dns.h>
 
 #include "ShouldDelete.h"
@@ -30,6 +34,11 @@
 namespace trippingcyril {
   namespace net {
     namespace dns {
+
+#if __cplusplus >= 201103
+typedef std::function<void(const String& query, const std::vector<IPAddress*> &results, int ttl)> DNSLamdbaCallback;
+typedef std::function<void(const String& query, int errorCode, const String& error)> DNSLamdbaErrorCallback;
+#endif
 
 /**
  * @brief DNS callback class
@@ -66,6 +75,20 @@ public:
     * @throws std::runtime_error If libevent somehow failed to make the request
     */
   IPv4Lookup(const Module *pModule, const String& query, DNSCallback* callback);
+#if __cplusplus >= 201103
+  /**
+   * General constructor
+   * @param pModule The module to register this dns lookup on
+   * @param query The domain name to lookup
+   * @param callback The success callback
+   * @param errorCallback The error callback function
+   * @throws std::runtime_error If libevent somehow failed to make the request
+   */
+  IPv4Lookup(const Module *pModule, const String& query
+            ,const DNSLamdbaCallback& callback
+            ,const DNSLamdbaErrorCallback& errorCallback = [](const String& query, int errorCode, const String& error){})
+  : IPv4Lookup(pModule, query, new DNSLamdbaCallbackImpl(callback, errorCallback)) {};
+#endif
   virtual ~IPv4Lookup();
   /** The query */
   const String GetQuery() const { return _query; };
@@ -76,6 +99,28 @@ private:
   DNSCallback* _callback;
   struct evdns_request* _request;
   // @endcond
+#if __cplusplus >= 201103
+  // @cond
+  class DNSLamdbaCallbackImpl : public DNSCallback {
+  public:
+    DNSLamdbaCallbackImpl(const DNSLamdbaCallback &_callback
+    , const DNSLamdbaErrorCallback &_errorcallback)
+    : callback(_callback)
+    , errorcallback(_errorcallback) {
+    };
+    virtual ~DNSLamdbaCallbackImpl() {};
+    void QueryResult(const String& query, const std::vector<IPAddress*> &results, int ttl) OVERRIDE {
+      if (callback) callback(query, results, ttl);
+    };
+    void Error(const String& query, int errorCode, const String& error) OVERRIDE {
+      if (errorcallback) errorcallback(query, errorCode, error);
+    };
+  private:
+    const DNSLamdbaCallback callback;
+    const DNSLamdbaErrorCallback errorcallback;
+  };
+  // @endcond
+#endif
 };
 
 /**
