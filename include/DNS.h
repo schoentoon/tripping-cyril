@@ -123,6 +123,11 @@ private:
 #endif
 };
 
+#if __cplusplus >= 201103
+typedef std::function<void(const IPAddress& ip, const String &result, int ttl)> DNSLamdbaReverseCallback;
+typedef std::function<void(const IPAddress& ip, int errorCode, const String& error)> DNSLamdbaReverseErrorCallback;
+#endif
+
 /**
  * @brief Reverse dns callback
  */
@@ -158,6 +163,19 @@ public:
    * @param callback The callback object
    */
   IPv4ReverseLookup(const Module* module, const IPv4Address& ip, DNSReverseCallback* callback);
+#if __cplusplus >= 201103
+  /**
+   * General constructor
+   * @param module The module to register this dns lookup on
+   * @param ip The ip address to lookup
+   * @param callback The success callback
+   * @param errorCallback The error callback function
+   */
+  IPv4ReverseLookup(const Module* module, const IPv4Address& ip
+                   ,const DNSLamdbaReverseCallback &callback
+                   ,const DNSLamdbaErrorCallback &errorCallback)
+  : IPv4ReverseLookup(module, ip , new DNSLamdbaReverseCallbackImpl(callback, errorCallback)) {};
+#endif
   virtual ~IPv4ReverseLookup();
   /** The query */
   const IPv4Address GetQuery() const { return _query; };
@@ -168,6 +186,28 @@ private:
   const IPv4Address _query;
   DNSReverseCallback* _callback;
   // @endcond
+#if __cplusplus >= 201103
+  // @cond
+  class DNSLamdbaReverseCallbackImpl : public DNSReverseCallback {
+  public:
+    DNSLamdbaReverseCallbackImpl(const DNSLamdbaReverseCallback &_callback
+    , const DNSLamdbaErrorCallback &_errorcallback)
+    : callback(_callback)
+    , errorcallback(_errorcallback) {
+    };
+    virtual ~DNSLamdbaReverseCallbackImpl() {};
+    void QueryResult(const IPAddress& ip, const String& result, int ttl) OVERRIDE {
+      if (callback) callback(ip, result, ttl);
+    };
+    void Error(const IPAddress& ip, int errorCode, const String& error) OVERRIDE {
+      if (errorcallback) errorcallback(ip, errorCode, error);
+    };
+  private:
+    const DNSLamdbaReverseCallback callback;
+    const DNSLamdbaReverseErrorCallback errorcallback;
+  };
+  // @endcond
+#endif
 };
 
     };
