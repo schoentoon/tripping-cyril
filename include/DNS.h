@@ -86,7 +86,7 @@ public:
    */
   IPv4Lookup(const Module *pModule, const String& query
             ,const DNSLamdbaCallback& callback
-            ,const DNSLamdbaErrorCallback& errorCallback = [](const String& query, int errorCode, const String& error){})
+            ,const DNSLamdbaErrorCallback& errorCallback = nullptr)
   : IPv4Lookup(pModule, query, new DNSLamdbaCallbackImpl(callback, errorCallback)) {};
 #endif
   virtual ~IPv4Lookup();
@@ -191,7 +191,7 @@ private:
   class DNSLamdbaReverseCallbackImpl : public DNSReverseCallback {
   public:
     DNSLamdbaReverseCallbackImpl(const DNSLamdbaReverseCallback &_callback
-    , const DNSLamdbaErrorCallback &_errorcallback)
+    , const DNSLamdbaErrorCallback &_errorcallback = nullptr)
     : callback(_callback)
     , errorcallback(_errorcallback) {
     };
