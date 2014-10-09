@@ -113,6 +113,8 @@ Collaboration diagram for trippingcyril::net::dns::IPv4ReverseLookup:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6d6bc83d5d1582692abc2a9f2649e638"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#a6d6bc83d5d1582692abc2a9f2649e638">IPv4ReverseLookup</a> (const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *<a class="el" href="classtrippingcyril_1_1trippingcyril_1_1_event.html#a08c919925a11a5a8c4befbbaf22a6428">module</a>, const <a class="el" href="structtrippingcyril_1_1net_1_1_i_pv4_address.html">IPv4Address</a> &amp;ip, <a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_reverse_callback.html">DNSReverseCallback</a> *callback)</td></tr>
 <tr class="separator:a6d6bc83d5d1582692abc2a9f2649e638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac78e73048a432722fa1d143af393ef84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#ac78e73048a432722fa1d143af393ef84">IPv4ReverseLookup</a> (const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *<a class="el" href="classtrippingcyril_1_1trippingcyril_1_1_event.html#a08c919925a11a5a8c4befbbaf22a6428">module</a>, const <a class="el" href="structtrippingcyril_1_1net_1_1_i_pv4_address.html">IPv4Address</a> &amp;ip, const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a7cac9788929fdf548832f9ec48a59462">DNSLamdbaReverseCallback</a> &amp;callback, const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a85928de035dbe63a1c3dd06f8ee28897">DNSLamdbaErrorCallback</a> &amp;errorCallback)</td></tr>
+<tr class="separator:ac78e73048a432722fa1d143af393ef84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d9d582f905470ddd6723271b0cb921c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#a2d9d582f905470ddd6723271b0cb921c">~IPv4ReverseLookup</a> ()</td></tr>
 <tr class="separator:a2d9d582f905470ddd6723271b0cb921c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ced9cbd81800718f1dba20b99cbdfe4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structtrippingcyril_1_1net_1_1_i_pv4_address.html">IPv4Address</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_reverse_lookup.html#a1ced9cbd81800718f1dba20b99cbdfe4">GetQuery</a> () const </td></tr>
@@ -180,6 +182,62 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac78e73048a432722fa1d143af393ef84"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">trippingcyril::net::dns::IPv4ReverseLookup::IPv4ReverseLookup </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtrippingcyril_1_1net_1_1_i_pv4_address.html">IPv4Address</a> &amp;&#160;</td>
+          <td class="paramname"><em>ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a7cac9788929fdf548832f9ec48a59462">DNSLamdbaReverseCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a85928de035dbe63a1c3dd06f8ee28897">DNSLamdbaErrorCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>errorCallback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>General constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module</td><td>The module to register this dns lookup on </td></tr>
+    <tr><td class="paramname">ip</td><td>The ip address to lookup </td></tr>
+    <tr><td class="paramname">callback</td><td>The success callback </td></tr>
+    <tr><td class="paramname">errorCallback</td><td>The error callback function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a2d9d582f905470ddd6723271b0cb921c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -234,7 +292,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 10 2014 20:13:39 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 9 2014 19:37:55 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

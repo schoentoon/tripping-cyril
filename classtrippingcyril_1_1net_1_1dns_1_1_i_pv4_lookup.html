@@ -113,6 +113,8 @@ Collaboration diagram for trippingcyril::net::dns::IPv4Lookup:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4283368313c5f689cefa802d266669f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#a4283368313c5f689cefa802d266669f1">IPv4Lookup</a> (const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *pModule, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;query, <a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_callback.html">DNSCallback</a> *callback)</td></tr>
 <tr class="separator:a4283368313c5f689cefa802d266669f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96f7f7e7874c727d572362584344194b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#a96f7f7e7874c727d572362584344194b">IPv4Lookup</a> (const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *pModule, const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;query, const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#ac65e93fc638e0d9de887a025c00e2397">DNSLamdbaCallback</a> &amp;callback, const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a85928de035dbe63a1c3dd06f8ee28897">DNSLamdbaErrorCallback</a> &amp;errorCallback=nullptr)</td></tr>
+<tr class="separator:a96f7f7e7874c727d572362584344194b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc4e81decc23efd3109d7e81d435c994"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#acc4e81decc23efd3109d7e81d435c994">~IPv4Lookup</a> ()</td></tr>
 <tr class="separator:acc4e81decc23efd3109d7e81d435c994"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a976bf2be36dc65f1b032ff33b05b0a73"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrippingcyril_1_1net_1_1dns_1_1_i_pv4_lookup.html#a976bf2be36dc65f1b032ff33b05b0a73">GetQuery</a> () const </td></tr>
@@ -186,6 +188,68 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a96f7f7e7874c727d572362584344194b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">trippingcyril::net::dns::IPv4Lookup::IPv4Lookup </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_module.html">Module</a> *&#160;</td>
+          <td class="paramname"><em>pModule</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtrippingcyril_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#ac65e93fc638e0d9de887a025c00e2397">DNSLamdbaCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a85928de035dbe63a1c3dd06f8ee28897">DNSLamdbaErrorCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>errorCallback</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>General constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pModule</td><td>The module to register this dns lookup on </td></tr>
+    <tr><td class="paramname">query</td><td>The domain name to lookup </td></tr>
+    <tr><td class="paramname">callback</td><td>The success callback </td></tr>
+    <tr><td class="paramname">errorCallback</td><td>The error callback function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>If libevent somehow failed to make the request </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="acc4e81decc23efd3109d7e81d435c994"></a>
 <div class="memitem">
 <div class="memproto">
@@ -240,7 +304,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 10 2014 20:13:39 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 9 2014 19:37:55 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -23,6 +23,10 @@ var searchData=
   ['disconnected',['Disconnected',['../classtrippingcyril_1_1net_1_1http_1_1_simple_h_t_t_p_socket.html#a8d673d9c5f4dc66894c2e807da9db2d6',1,'trippingcyril::net::http::SimpleHTTPSocket::Disconnected()'],['../classtrippingcyril_1_1net_1_1_socket.html#a991f5fbbbdd7eaf638ed58af2e3a50a0',1,'trippingcyril::net::Socket::Disconnected()']]],
   ['dns_2eh',['DNS.h',['../_d_n_s_8h.html',1,'']]],
   ['dnscallback',['DNSCallback',['../classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_callback.html',1,'trippingcyril::net::dns']]],
+  ['dnslamdbacallback',['DNSLamdbaCallback',['../namespacetrippingcyril_1_1net_1_1dns.html#ac65e93fc638e0d9de887a025c00e2397',1,'trippingcyril::net::dns']]],
+  ['dnslamdbaerrorcallback',['DNSLamdbaErrorCallback',['../namespacetrippingcyril_1_1net_1_1dns.html#a85928de035dbe63a1c3dd06f8ee28897',1,'trippingcyril::net::dns']]],
+  ['dnslamdbareversecallback',['DNSLamdbaReverseCallback',['../namespacetrippingcyril_1_1net_1_1dns.html#a7cac9788929fdf548832f9ec48a59462',1,'trippingcyril::net::dns']]],
+  ['dnslamdbareverseerrorcallback',['DNSLamdbaReverseErrorCallback',['../namespacetrippingcyril_1_1net_1_1dns.html#a0ce326165be9ddc035657831673b00ad',1,'trippingcyril::net::dns']]],
   ['dnsreversecallback',['DNSReverseCallback',['../classtrippingcyril_1_1net_1_1dns_1_1_d_n_s_reverse_callback.html',1,'trippingcyril::net::dns']]],
   ['dry_5frun',['DRY_RUN',['../classtrippingcyril_1_1_statsd_client.html#a77daa15b58efe24ec47605689d3ee146',1,'trippingcyril::StatsdClient']]]
 ];

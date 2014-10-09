@@ -86,12 +86,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">DNS.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;event2/dns.h&gt;</code><br/>
+<div class="textblock"><code>#include &lt;functional&gt;</code><br/>
+<code>#include &lt;event2/dns.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_should_delete_8h_source.html">ShouldDelete.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_socket_8h_source.html">Socket.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_string_8h_source.html">String.h</a>&quot;</code><br/>
@@ -101,7 +103,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for DNS.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="_d_n_s_8h__incl.svg" width="964" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_d_n_s_8h__incl.svg" width="1143" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="_d_n_s_8h_source.html">Go to the source code of this file.</a></p>
@@ -129,11 +132,31 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetrippingcyril_1_1net_1_1dns"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html">trippingcyril::net::dns</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ac65e93fc638e0d9de887a025c00e2397"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <br class="typebreak"/>
+String &amp;query, const <br class="typebreak"/>
+std::vector&lt; IPAddress * &gt;<br class="typebreak"/>
+ &amp;results, int ttl)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#ac65e93fc638e0d9de887a025c00e2397">trippingcyril::net::dns::DNSLamdbaCallback</a></td></tr>
+<tr class="separator:ac65e93fc638e0d9de887a025c00e2397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85928de035dbe63a1c3dd06f8ee28897"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <br class="typebreak"/>
+String &amp;query, int errorCode, <br class="typebreak"/>
+const String &amp;error)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a85928de035dbe63a1c3dd06f8ee28897">trippingcyril::net::dns::DNSLamdbaErrorCallback</a></td></tr>
+<tr class="separator:a85928de035dbe63a1c3dd06f8ee28897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cac9788929fdf548832f9ec48a59462"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <br class="typebreak"/>
+IPAddress &amp;ip, const String <br class="typebreak"/>
+&amp;result, int ttl)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a7cac9788929fdf548832f9ec48a59462">trippingcyril::net::dns::DNSLamdbaReverseCallback</a></td></tr>
+<tr class="separator:a7cac9788929fdf548832f9ec48a59462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce326165be9ddc035657831673b00ad"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <br class="typebreak"/>
+IPAddress &amp;ip, int errorCode, <br class="typebreak"/>
+const String &amp;error)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrippingcyril_1_1net_1_1dns.html#a0ce326165be9ddc035657831673b00ad">trippingcyril::net::dns::DNSLamdbaReverseErrorCallback</a></td></tr>
+<tr class="separator:a0ce326165be9ddc035657831673b00ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 10 2014 20:13:38 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 9 2014 19:37:54 for Trippin Cyril by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
