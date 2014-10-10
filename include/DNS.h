@@ -109,10 +109,10 @@ private:
     , errorcallback(_errorcallback) {
     };
     virtual ~DNSLamdbaCallbackImpl() {};
-    void QueryResult(const String& query, const std::vector<IPAddress*> &results, int ttl) OVERRIDE {
+    void QueryResult(const String& query, const std::vector<IPAddress*> &results, int ttl) override {
       if (callback) callback(query, results, ttl);
     };
-    void Error(const String& query, int errorCode, const String& error) OVERRIDE {
+    void Error(const String& query, int errorCode, const String& error) override {
       if (errorcallback) errorcallback(query, errorCode, error);
     };
   private:
@@ -196,10 +196,10 @@ private:
     , errorcallback(_errorcallback) {
     };
     virtual ~DNSLamdbaReverseCallbackImpl() {};
-    void QueryResult(const IPAddress& ip, const String& result, int ttl) OVERRIDE {
+    void QueryResult(const IPAddress& ip, const String& result, int ttl) override {
       if (callback) callback(ip, result, ttl);
     };
-    void Error(const IPAddress& ip, int errorCode, const String& error) OVERRIDE {
+    void Error(const IPAddress& ip, int errorCode, const String& error) override {
       if (errorcallback) errorcallback(ip, errorCode, error);
     };
   private:
