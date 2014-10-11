@@ -113,7 +113,7 @@ public:
    */
   virtual ~LamdbaTimer() {};
 protected:
-  void RunJob() OVERRIDE;
+  void RunJob() override;
 private:
   const TimerLamdbaCallback _callback;
 };

@@ -165,11 +165,11 @@ private:
     , errorcallback(_errorcallback) {
     };
     virtual ~DatabaseLamdbaCallback() {};
-    void QueryResult(const DBResult* result, const String& query) {
+    void QueryResult(const DBResult* result, const String& query) override {
       if (callback)
         callback(result, query);
     };
-    void QueryError(const String& error, const String& query) {
+    void QueryError(const String& error, const String& query) override {
       if (errorcallback)
         errorcallback(error, query);
     };
